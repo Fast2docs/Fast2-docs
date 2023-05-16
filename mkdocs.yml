@@ -1,0 +1,190 @@
+# Project information
+site_name: Fast2 documentation
+site_url: https://joetessier.github.io/fast2_documentation/
+site_author: Joe TESSIER
+theme:
+  name: material
+  logo: assets/Fast2_favicon_white.png
+  favicon: assets/Fast2_favicon_white.png
+  # favicon: assets/Fast2_logo.png
+  features:
+    - navigation.instant
+    # - navigation.tracking
+    
+    # - navigation.tabs # main parts in top banner
+    - navigation.indexes # toggle */index.md in left lateral nav
+
+    # - navigation.sections
+    - navigation.expand
+    - navigation.top # 'Back to top' when scrolling up
+    - content.tabs.link # for Linux/windows tab
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.annotate
+
+  
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Necessary for search to work properly
+  # include_search_page: false
+  # search_index_only: true
+    
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: deep orange
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: deep orange
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: deep orange
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  font: 
+    text: Nunito
+
+plugins:
+  - tags: 
+      tags_file: tags.md
+  - search
+
+markdown_extensions:
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      # linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences: 
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - def_list
+  - admonition
+  - pymdownx.details
+  # for images, caption and lazy-loading
+  - attr_list
+  - md_in_html
+
+
+
+# ---------------------------------------------------------   Footer 
+copyright: Copyright &copy; 2019 - 2022 Fast2 — All rights reserved
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter 
+      link: https://twitter.com/Fast2_tech
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/fast2tech
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCO1XgEKGKKV8T5vvTp-R9Jw
+  
+  analytics: 
+    provider: google
+    property : !ENV GOOGLE_ANALYTICS_KEY
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target=_blank>feedback form</a>.
+
+
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+
+# -----------------------------------------------------   # Page tree
+nav:
+  # - Home: 
+  #     -home/index.md
+  - Getting started:
+    # - getting-started/index.md
+    - Overall concepts: getting-started/overall-concepts.md
+    - Installation: getting-started/installation.md
+    # - ⚠ Create a workflow: /
+    # - Configuration: getting-started/configuration.md
+  - Components:
+    - components/index.md
+    - Broker: components/broker.md
+    - Worker: components/worker.md
+    - Database: components/database.md
+    - Dashboards: components/dashboards.md
+  - ⚠ Catalog:
+    - catalog/index.md
+    # - Connectors:
+    #   - Sources: catalog/sources.md
+    #   - Conte nt sources: catalog/content-sources.md
+    #   - ⚠ Injectors: /
+    # - Intermediates: 
+    #   - ⚠ Transform: /
+    #   - ⚠ Convert: /
+    # - ⚠ Credentials: /
+    # - ⚠ Tools: /
+    # ⚠ - Helpers: /
+  - Advanced:
+    # - advanced/index.md
+    - Drools: advanced/drools.md
+    - Patterns: advanced/patterns.md
+    - ⚠ Scheduler: advanced/scheduler.md
+    - ⚠ Shared objects: advanced/shared-objects.md
+    - ⚠ Optimization: advanced/optimization.md
+    - ⚠ Custom module: advanced/custom-module.md
+  - Cookbooks:
+    - cookbooks/index.md
+    - Punnets management: cookbooks/punnet_basics.md
+    - Documents management: cookbooks/document_basics.md
+    - Contents management: cookbooks/content_basics.md
+    - Dataset management: cookbooks/dataset_basics.md
+    - JavaScript transform: cookbooks/javascript-transform .md
+    - From ZIP to punnet: cookbooks/from-zip-to-punnet.md
+    - "CSV source: a step further": cookbooks/csv-source.md
+    - Data from file name: cookbooks/data_from_filename.md
+  # - ⚠ Release notes:
+  #   - release-notes/index.md
+  #   - v2.5.0: release-notes/2.5.0.md
+  #   - v2.4.7: release-notes/2.4.7.md
+  - ⚠ Blog:
+    - blog/index.md
+    - 2022:
+      - blog/2022/chinese-search-support.md
+    - 2021:
+      - blog/2021/the-past-present-and-future.md
+      - blog/2021/excluding-content-from-search.md
+      - blog/2021/search-better-faster-smaller.md
