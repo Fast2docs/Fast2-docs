@@ -1,10 +1,11 @@
 :root > * {
-    /* --fast2-color:#1A97A7;
+    --fast2-color:#1A97A7;
+    
     --md-primary-fg-color: var(--fast2-color);
     --md-primary-fg-color--light: var(--fast2-color);
     --md-primary-fg-color--dark: var(--fast2-color);
 
-    --md-typeset-a-color: var(--fast2-color)!important; */
+    --md-typeset-a-color: var(--fast2-color)!important;
 }
 
 a.external-link:link::after {
@@ -25,10 +26,10 @@ strong {
     /* --tw-gradient-from: #8200ec; // violet */
     /* --tw-gradient-from: #ec0062; // rose darker */
     /* --tw-gradient-from: #0070f3; // bleu */
-    --tw-gradient-from: #29b7dd; /* bleu */
+    --tw-gradient-from: #314f92; /* bleu */
     /* // --tw-gradient-to: #FFF200; // jaune */
     /* // --tw-gradient-to: #00d351; // vert */
-    --tw-gradient-to: #2df3a0; /* vert */
+    --tw-gradient-to: #d66c9a; /* vert */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
