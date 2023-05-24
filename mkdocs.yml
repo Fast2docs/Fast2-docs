@@ -159,13 +159,13 @@ nav:
     # - ⚠ Tools: /
     # ⚠ - Helpers: /
   - Advanced:
-    # - advanced/index.md
+    - advanced/index.md
     - Drools: advanced/drools.md
     - Patterns: advanced/patterns.md
     - Scheduler: advanced/scheduler.md
     # - ⚠ Shared objects: advanced/shared-objects.md
     # - ⚠ Optimization: advanced/optimization.md
-    # - ⚠ Custom module: advanced/custom-module.md
+    - Custom module: advanced/custom-module.md
     - JavaScript: advanced/javascript.md
     # - ⚠ HTTPS: advanced/HTTPS.md
   # - ⚠ Environments specifities:
