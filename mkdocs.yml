@@ -163,10 +163,10 @@ nav:
     - Patterns: advanced/patterns.md
     - Scheduler: advanced/scheduler.md
     - Shared objects: advanced/shared-objects.md
-    # - ⚠ Optimization: advanced/optimization.md
     - Custom module: advanced/custom-module.md
     - JavaScript: advanced/javascript.md
     - HTTPS: advanced/https.md
+    # - Optimization: advanced/optimization.md
     # - Get ready for production: advanced/get-ready-for-production.md
   - Environments specifities:
     - setup-environments/index.md
@@ -190,7 +190,7 @@ nav:
   #   - release-notes/index.md
   #   - v2.5.0: release-notes/2.5.0.md
   #   - v2.4.7: release-notes/2.4.7.md
-  # - ⚠ Blog:
+  # - Blog:
   #   - blog/index.md
   #   - Da title of ma blog : blog/first-blog.md
   #   - blog/2021/the-past-present-and-future.md
