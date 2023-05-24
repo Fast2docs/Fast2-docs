@@ -134,7 +134,7 @@ A document can also contains its own data, its content with annotations and the 
 
 ```
 ㄴ document
-	ㄴ ID
+	ㄴ documentId
 	ㄴ dataset
 	ㄴ contents
 	ㄴ mime-type
@@ -159,8 +159,11 @@ As introduced above, the punnet gathers all the different assets to migrate.
 
 ```
 ㄴ punnet
-	ㄴ ID
+	ㄴ punnetId
 	ㄴ documents
+		ㄴ document
+		ㄴ document
+		ㄴ ...
 	ㄴ dataset
 	ㄴ workflows
 	ㄴ folders

@@ -111,7 +111,7 @@ Update the name (or IP address) of the machine where Fast2 is running (`broker.h
 1. Start now the Fast2 server ([documentation here](../../getting-started/installation/#start-fast2-broker)) to have it up and running alongside the worker-D. This latter will be assigned to both the _mapping_ of the metadata and the injection of the documents in the destination environment.
 2. The start the worker-S ([documentation here](../../getting-started/installation/##start-fast2-worker)).
 
-![Schema of the architecture for a 2-worker migration](../assets/img/components/workers.png){ width="60%" }
+![Schema of the architecture for a 2-worker migration](../assets/img/components/workers.png){ width="80%" }
 
 Open your browser to reach the Fast2 UI, and the build up your migration workflow. For the sake of this example, 3 tasks only will suit our needs of extraction, metadata transformation and load.
 

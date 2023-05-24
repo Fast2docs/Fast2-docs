@@ -145,8 +145,6 @@ String value = myDataSet.getData(dataName).getValue();
 String value = myDataSet.getDataValue(dataName);
 ```
 
-    public String getDataValue(String name);
-
 ### Multi-valued data
 
 ```java

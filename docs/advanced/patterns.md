@@ -10,6 +10,13 @@ A pattern is a sequence of instructions, a model, which can be easily recognized
 
 Our migration tool relies on a specific syntax used to dynamically retrieve information from different data-layer of the whole process, whether document, map execution or else.
 
+!!! Tips
+
+        For a successful pattern recognition, only use the data known by Fast2, such as :
+
+        - Data stored in the punnet and/or documents datasets
+        - Migration specific details, listed [down below](#access-data-of-fast2-objects).
+
 ## Patterns, what are they anyway ?
 
 In Fast2, several data can be retrieved and accessed dynamically from a dedicated syntax which Fast2 supports for your convenience. This `${...}` syntax can be used in most of the configuration fields of the tasks composing your migration workflow.
@@ -38,10 +45,12 @@ As mentioned earlier, the list of data which you can evaluate in a condition is 
 
 As handy as they may sound, patterns do embed specifications due to the particular syntax they are subjected to.
 
-The most common issue is when dealing with colon character (`:`). To prevent running into a SpEL syntax error which would wipe its interest out, the syntax has to be slightly expanded. Where before you were accessing the value with `${key}`, you now need to write it as follows:
+The most common issue is when dealing with colon character `:`, but the approach also addressed data name with space characters. To prevent running into a SpEL syntax error which would wipe its interest out, the syntax has to be slightly expanded. Where before you were accessing the value with `${key}`, you now need to write it as follows:
 
 ```js
 ${property('prefix:suffix')}
+
+${property('with space')}
 ```
 
 You can now safely extract data with namespaces, or any special character which may eventually break the SpEL syntax.

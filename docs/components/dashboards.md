@@ -168,8 +168,6 @@ This resources can be imported as [explained previously](#imports-objects-into-t
 
 For a graph visualization of the success ratio per map/campaign, the following resource can be imported for a per-day granularity of the results, where exceptions are summed up (no task differenciation), for comparison with the successfully processed documents within this same campaign.
 
-![Dashboard for Processing speed per task](../assets/img/components/dashboards_graph_processing_speed.png){ width="60%" }
-
 To get started with this visualisation, or to add it to your existing dashboard, click down below :
 
 [:material-file-download: Download this visualization](/documents/dashboards_processing_speed_per_task.ndjson){ .md-button }

@@ -57,18 +57,21 @@ Several-documents cases could be like:
 
 Whatever the reason, the documents can be added to the punnet in two ways:
 
-<ol><li> The document was <strong>already existing</strong>: </br></br>
+<ol><li> The document was <strong>already existing</strong>: </br>
 
 ```java
 Document myDoc = myPunnet.addDocument(myDocument);
 ```
 
+<br />
 </li><li>
-The document <strong>needs to be created</strong>, which can be done on the fly:</br></br>
+The document <strong>needs to be created</strong>, which can be done on the fly:</br>
 
 ```java
 Document myDoc = myPunnet.addDocument(DocumentId.id());
 ```
+
+<br />
 
 </li></ol>
 
@@ -110,4 +113,4 @@ FolderSet myFolders = myPunnet.getFolders();
 
 A punnet is built with an empty folderset by default.
 
-For more information concerning the folders, head out to the [dedicated section](../folder_basics).
+<!-- For more information concerning the folders, head out to the [dedicated section](../folder_basics). -->

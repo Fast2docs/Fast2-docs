@@ -119,7 +119,7 @@ Two different plugins exist, depending on your web navigator:
 
 -->
 
-# Remote access to the database
+## Remote access to the database
 
 The next operations need to happen when the database is shut down. To make sure of that, the `jcmd` command might be of great help.
 

@@ -1,6 +1,6 @@
 # Project information
 site_name: Fast2 documentation
-site_url: https://joetessier.github.io/fast2_documentation/
+# site_url: https://joetessier.github.io/fast2_documentation/
 site_author: Joe TESSIER
 theme:
   name: material
@@ -11,7 +11,7 @@ theme:
     - navigation.instant
     # - navigation.tracking
     
-    # - navigation.tabs # main parts in top banner
+    - navigation.tabs # main parts in top banner
     - navigation.indexes # toggle */index.md in left lateral nav
 
     # - navigation.sections
@@ -22,7 +22,7 @@ theme:
     - search.highlight
     - search.share
     - content.code.annotate
-
+    - content.code.copy
   
   # 404 page
   static_templates:
@@ -141,13 +141,13 @@ nav:
     # - ⚠ Create a workflow: /
     # - Configuration: getting-started/configuration.md
   - Components:
-    - components/index.md
+    # - components/index.md
     - Broker: components/broker.md
     - Worker: components/worker.md
     - Database: components/database.md
     - Dashboards: components/dashboards.md
-  - ⚠ Catalog:
-    - catalog/index.md
+  # - ⚠ Catalog:
+  #   - catalog/index.md
     # - Connectors:
     #   - Sources: catalog/sources.md
     #   - Conte nt sources: catalog/content-sources.md
@@ -162,29 +162,37 @@ nav:
     # - advanced/index.md
     - Drools: advanced/drools.md
     - Patterns: advanced/patterns.md
-    - ⚠ Scheduler: advanced/scheduler.md
-    - ⚠ Shared objects: advanced/shared-objects.md
-    - ⚠ Optimization: advanced/optimization.md
-    - ⚠ Custom module: advanced/custom-module.md
+    # - ⚠ Scheduler: advanced/scheduler.md
+    # - ⚠ Shared objects: advanced/shared-objects.md
+    # - ⚠ Optimization: advanced/optimization.md
+    # - ⚠ Custom module: advanced/custom-module.md
+    - JavaScript: advanced/javascript.md
+    # - ⚠ HTTPS: advanced/HTTPS.md
+  # - ⚠ Environments specifities:
+    # - environments-specificities/index.md
+    # - ⚠ Setup for Documentum: environments-specificities/documentum.md
+    # - ⚠ setup for IBM CMOD: environments-specificities/ibm-cmod.md
   - Cookbooks:
     - cookbooks/index.md
     - Punnets management: cookbooks/punnet_basics.md
     - Documents management: cookbooks/document_basics.md
     - Contents management: cookbooks/content_basics.md
     - Dataset management: cookbooks/dataset_basics.md
-    - JavaScript transform: cookbooks/javascript-transform .md
-    - From ZIP to punnet: cookbooks/from-zip-to-punnet.md
-    - "CSV source: a step further": cookbooks/csv-source.md
-    - Data from file name: cookbooks/data_from_filename.md
+    # - Interact with a SQL database: cookbooks/jdbc-for-sql.md
+    # - JavaScript transform: cookbooks/javascript-transform.md
+    # - Inject document into an S3 bucket: cookbooks/inject-to-S3.md
+    # - Retrieve content and metadata from an S3 bucket: cookbooks/extract-from-S3.md
+    # - Sort documents in a punnet: cookbooks/javascript-sort-documents.md
+    # - From ZIP to punnet: cookbooks/from-zip-to-punnet.md
+    # - "CSV source: a step further": cookbooks/csv-source.md
+    # - Data from file name: cookbooks/data_from_filename.md
   # - ⚠ Release notes:
   #   - release-notes/index.md
   #   - v2.5.0: release-notes/2.5.0.md
   #   - v2.4.7: release-notes/2.4.7.md
-  - ⚠ Blog:
-    - blog/index.md
-    - 2022:
-      - blog/2022/chinese-search-support.md
-    - 2021:
-      - blog/2021/the-past-present-and-future.md
-      - blog/2021/excluding-content-from-search.md
-      - blog/2021/search-better-faster-smaller.md
+  # - ⚠ Blog:
+  #   - blog/index.md
+  #   - Da title of ma blog : blog/first-blog.md
+  #   - blog/2021/the-past-present-and-future.md
+  #   - blog/2021/excluding-content-from-search.md
+  #   - blog/2021/search-better-faster-smaller.md
