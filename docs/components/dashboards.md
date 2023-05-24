@@ -100,7 +100,7 @@ However data manipulations in this tool are not always intuitive nor straight fo
 
 Several use-cases can be envisioned, we will only relate here the data conversion steps to go through given the widespread necessity of such a basic task.
 
-### Imports objects into the dashboards feature
+### Imports objects into the dashboards feature { #how-to-import data-toc-label="How to import" }
 
 This section will guide you through the import process of resources (such as indices, visualization as `.ndjson` files and others).
 
@@ -110,7 +110,7 @@ as shown on the screen-capture below :
 
 ![Dashboard : import resource](../assets/img/components/dashboards_import-menu.png){ width="60%" }
 
-### Resource #1 : Exception table
+### Resource #1 : Exception table { #visualisation-exception-table data-toc-label="Exception table" }
 
 !!! Info
 
@@ -141,7 +141,7 @@ This resources can be imported as [explained previously](#imports-objects-into-t
 <br/>
 <br/>
 
-### Resource #2 : Campaign success ratio
+### Resource #2 : Campaign success ratio { #visualisation-campaign-ration data-toc-label="Ratio per campaign" }
 
 !!! Info
 
@@ -160,13 +160,15 @@ This resources can be imported as [explained previously](#imports-objects-into-t
 <br/>
 <br/>
 
-### Resource #3 : Processing speed per task
+### Resource #3 : Processing speed per task { #visualisation-processing-speed data-toc-label="Processing speed" }
 
 !!! Info
 
     This resource has been generated from OpenSearch dashboards but can be imported into either Kibana and OpenSearch dashboards.
 
 For a graph visualization of the success ratio per map/campaign, the following resource can be imported for a per-day granularity of the results, where exceptions are summed up (no task differenciation), for comparison with the successfully processed documents within this same campaign.
+
+![Dashboard for Processing speed per task](../assets/img/components/dashboards_graph_processing_speed.png)
 
 To get started with this visualisation, or to add it to your existing dashboard, click down below :
 
@@ -379,10 +381,10 @@ The latter option gives access to the tool even when Fast2 is not running.
 
 Since the dashboards fetch data directly from the database, it is not possible to populate the visualizations with migration data if the database is not running as well.
 
-### :octicons-question-24: Dashboards do not reach the database
+### :octicons-question-24: Dashboards do not reach the database { #cannot-reach-db data-toc-label="Unable to access database" }
 
 Make sure the database port has been correctly configured in the YAML file of the dashboards. Head to the [port section](/components/database/#port) for more details.
 
-### :octicons-question-24: Could not ping Kibana on port 1791
+### :octicons-question-24: Could not ping dashboard on port 1791 { #port-not-showing data-toc-label="Unable to access dashboards" }
 
 Make sure declaring your port in the 2 expected places. Head to the [port section](#ports) for more details.
