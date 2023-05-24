@@ -139,7 +139,6 @@ nav:
     - Overall concepts: getting-started/overall-concepts.md
     - Installation: getting-started/installation.md
     - Create a workflow: getting-started/create-workflow.md
-    # - Configuration: getting-started/configuration.md
   - Components:
     # - components/index.md
     - Broker: components/broker.md
@@ -167,7 +166,8 @@ nav:
     # - ⚠ Optimization: advanced/optimization.md
     - Custom module: advanced/custom-module.md
     - JavaScript: advanced/javascript.md
-    # - ⚠ HTTPS: advanced/HTTPS.md
+    - HTTPS: advanced/https.md
+    # - Get ready for production: advanced/get-ready-for-production.md
   # - ⚠ Environments specifities:
     # - environments-specificities/index.md
     # - ⚠ Setup for Documentum: environments-specificities/documentum.md

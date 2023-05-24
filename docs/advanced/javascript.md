@@ -58,17 +58,17 @@ the ouput punnet would then look like this:
 
 ```json
 {
-	"documents": [
-		"0": {
-			"data": {
-				"contentPath": "C:/path/to/sample.pdf",
-				"key": "value",
-				"name": "testName"
-			},
-			"documentId": "ffde4769-3acd-4964-ab72-5912f1e65e1e"
-		}
-	],
-	"punnetId": "punnet.json#1"
+  "documents": [
+    {
+      "data": {
+        "contentPath": "C:/path/to/sample.pdf",
+        "key": "value",
+        "name": "testName"
+      },
+      "documentId": "ffde4769-3acd-4964-ab72-5912f1e65e1e"
+    }
+  ],
+  "punnetId": "punnet.json#1"
 }
 ```
 
