@@ -138,7 +138,7 @@ nav:
     # - getting-started/index.md
     - Overall concepts: getting-started/overall-concepts.md
     - Installation: getting-started/installation.md
-    # - ⚠ Create a workflow: /
+    - Create a workflow: getting-started/create-workflow.md
     # - Configuration: getting-started/configuration.md
   - Components:
     # - components/index.md
@@ -162,7 +162,7 @@ nav:
     # - advanced/index.md
     - Drools: advanced/drools.md
     - Patterns: advanced/patterns.md
-    # - ⚠ Scheduler: advanced/scheduler.md
+    - Scheduler: advanced/scheduler.md
     # - ⚠ Shared objects: advanced/shared-objects.md
     # - ⚠ Optimization: advanced/optimization.md
     # - ⚠ Custom module: advanced/custom-module.md
