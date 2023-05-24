@@ -1,8 +1,8 @@
-## Create your own custom task, ok but why? { #content data-toc-label="Why ?" }
+## Create your own custom task, ok but why? { #why data-toc-label="Why ?" }
 
 You are no doubt aware of both tasks, the _**XSLTransform**_ and _**JSTransform**_ (checkout [here](../javascript) for how to use the latter), which are quite handy for quick and light changes of the migrated data. For deeper customization and operations though, you might need to build a dedicated task, a dedicated injector for your in-house storage system, and so on!
 
-## Create your own custom task, how? { #content data-toc-label="How ?" }
+## Create your own custom task, how? { #how data-toc-label="How ?" }
 
 The good news is Fast2 has a Java API available for any custom or in-house task development for you to achieve exactly what is needed for a tailor-made migration. You are just a few steps away of having your own.
 
@@ -100,7 +100,7 @@ public class MyTask extends BasicTask
 
 1. Availables task types are<ul><li>Source,</li><li>ContentSource,</li><li>Credentials,</li><li>Loader,</li><li>Transformer,</li><li>Converter</li></ul>
 
-### Regarding types, we all have ours !
+### Regarding types, to each its own ! { #task-types data-toc-label="Task type" }
 
 The task type is related to the role of this task during the migration. It also will be used to sort the task within the catalog. Each type annotation has to be used on purpose :
 
@@ -120,7 +120,7 @@ The task type is related to the role of this task during the migration. It also 
 
     Only tasks of type Source, ContentSource, Loaders, Transformer, Converter and Tool will be accessible from the catalog.
 
-### Instance variables: it's all about balance !
+### Instance variables: it's all about balance ! { #parameterized-fields data-toc-label="Parameterized fields" }
 
 You can have as many instance variables as required, depending on your level of configuration expected for the task.
 
