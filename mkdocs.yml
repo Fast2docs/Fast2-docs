@@ -162,7 +162,7 @@ nav:
     - Drools: advanced/drools.md
     - Patterns: advanced/patterns.md
     - Scheduler: advanced/scheduler.md
-    # - ⚠ Shared objects: advanced/shared-objects.md
+    - Shared objects: advanced/shared-objects.md
     # - ⚠ Optimization: advanced/optimization.md
     - Custom module: advanced/custom-module.md
     - JavaScript: advanced/javascript.md
