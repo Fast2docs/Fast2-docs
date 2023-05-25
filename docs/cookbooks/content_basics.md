@@ -3,6 +3,8 @@ title: "Contents in Fast2"
 tags: ["boilerplate", "content", "java"]
 ---
 
+# Learn how to deal with contents
+
 ![Content structure](../../assets/img/cookbooks/content.png)
 
 In Fast2, contents are objects embedding the "file" (= binary format) of the document. They can be found within either documents themselves or annotations, and can be accessed through different ways. Contents usually hold a mime-type property, alongside any other property closely related to the content itself.

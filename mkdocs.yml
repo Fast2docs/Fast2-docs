@@ -178,7 +178,7 @@ nav:
     - Documents management: cookbooks/document_basics.md
     - Contents management: cookbooks/content_basics.md
     - Dataset management: cookbooks/dataset_basics.md
-    # - Interact with a SQL database: cookbooks/jdbc-for-sql.md
+    - Interact with a SQL database: cookbooks/jdbc-for-sql.md
     # - JavaScript transform: cookbooks/javascript-transform.md
     # - Inject document into an S3 bucket: cookbooks/inject-to-S3.md
     # - Retrieve content and metadata from an S3 bucket: cookbooks/extract-from-S3.md
@@ -186,7 +186,7 @@ nav:
     # - From ZIP to punnet: cookbooks/from-zip-to-punnet.md
     # - "CSV source: a step further": cookbooks/csv-source.md
     # - Data from file name: cookbooks/data_from_filename.md
-  # - ⚠ Release notes:
+  # - Release notes:
   #   - release-notes/index.md
   #   - v2.5.0: release-notes/2.5.0.md
   #   - v2.4.7: release-notes/2.4.7.md

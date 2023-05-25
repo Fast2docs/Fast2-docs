@@ -4,6 +4,8 @@ author: Joseph TESSIER
 tags: ["boilerplate", "document", "dataset", "content", "java"]
 ---
 
+# Learn how to deal with documents
+
 ![Document object structure](../../assets/img/cookbooks/document.png)
 
 The documents are a main part of any migration, if not the purpose of it. Here are the basics for an appropriate understanding of the Java API of the document object.

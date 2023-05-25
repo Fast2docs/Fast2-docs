@@ -4,6 +4,8 @@ title: "Datasets"
 tags: ["boilerplate", "dataset", "java", "data"]
 ---
 
+# Learn how to deal with datasets
+
 ![Dataset structure](../../assets/img/cookbooks/dataset.png)
 
 Datasets are Fast2 objects which can be involved at different levels within the punnet.

@@ -3,6 +3,8 @@ author: Joseph TESSIER
 tags: ["boilerplate", "punnet", "content", "java"]
 ---
 
+# Learn how to deal with punnets
+
 ![Punnet structure](../../assets/img/cookbooks/punnet.png)
 
 Since the punnet is the pivot format into Fast2, all documents, folders and metadata can only be manipulated through this object. Here are the basics for an appropriate understanding of the Java API of the punnet object.
