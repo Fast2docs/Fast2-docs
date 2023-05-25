@@ -1,3 +1,5 @@
+# JDBC : How to link Fast2 and SQL DB
+
 ![Cover image for JDBC cookbook](../assets/img/cookbooks/jdbc.png)
 
 To extract from or inject in a SQL DataBase, Fast2 use JDBC as a connector with SQL.
