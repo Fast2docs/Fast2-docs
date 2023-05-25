@@ -8,7 +8,17 @@ Let's guide you here through the common process for retrieving data, content, pa
 
 For the educational aspect of this topic, let us consider a folder gathering all the different archives, matching the following structure:
 
-![ZIP tree view](../assets/img/cookbooks/fromZip2Punnet.png){ width="50%" }
+<!-- ![ZIP tree view](../assets/img/cookbooks/fromZip2Punnet.png){ width="50%" } -->
+
+```txt
+├─ ZIP archive/
+│       └─ metadata.json
+│       └─ content.pdf
+├─  ZIP archive/
+│       └─  metadata.json
+│       └─ content.pdf
+└─ ...
+```
 
 Each ZIP archive embeds a PDF content as flat file, alongside a JSON listing the metadata which we'll have to attach to the PDF document (before any injection-or-else phase).
 
@@ -37,11 +47,11 @@ At a glance, we are just 3 (major) steps away from having a PDF content in our p
 <br/>
 <br/>
 
-Since our purpose is to dive into the ZIP files, we first need to gather them all with the [LocalSource](/documentation/task-configuration/source/#localsource) task, providing the parent folder where all these archives are currently being stored. The only required parameter is the path of the parent folder(s).
+Since our purpose is to dive into the ZIP files, we first need to gather them all with the _**LocalSource**_ task, providing the parent folder where all these archives are currently being stored. The only required parameter is the path of the parent folder(s).
 
-The second step is now to open these files up, in order to provide access to both the PDF content and the JSON file, revealing at the same time the metadata we are looking for. Such exposure can be achieved by using the [DispatchingArchive](/documentation/task-configuration/converter/#dispatchingarchive) task.
+The second step is now to open these files up, in order to provide access to both the PDF content and the JSON file, revealing at the same time the metadata we are looking for. Such exposure can be achieved by using the _**DispatchingArchive**_ task.
 
-Once accessible, the JSON file can be parsed by the [JSTranform](/documentation/task-configuration/transformer/#jstransform) task. Choice is yours regarding where to store the data found in the JSON content of our ZIP archive, here they will be added to the dataset of the document.
+Once accessible, the JSON file can be parsed by the _**JSTranform**_ task. Choice is yours regarding where to store the data found in the JSON content of our ZIP archive, here they will be added to the dataset of the document.
 
 Not a big deal, right ? Let's then tackle this challenge right away, shall we !!
 

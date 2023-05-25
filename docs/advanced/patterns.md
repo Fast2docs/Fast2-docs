@@ -17,7 +17,7 @@ Our migration tool relies on a specific syntax used to dynamically retrieve info
         - Data stored in the punnet and/or documents datasets
         - Migration specific details, listed [down below](#access-data-of-fast2-objects).
 
-## Patterns, what are they anyway ?
+## Patterns, what are they anyway ? {#context-and-definition data-toc-label="Context and definition" }
 
 In Fast2, several data can be retrieved and accessed dynamically from a dedicated syntax which Fast2 supports for your convenience. This `${...}` syntax can be used in most of the configuration fields of the tasks composing your migration workflow.
 
@@ -38,6 +38,16 @@ Based on SpEL ([Spring Expression Language](https://docs.spring.io/spring-framew
 In the same way, you'll now be able to sort documents based on their mime-types, on their structure (does my document has a content ? Is its creation date matching the time range which this campaign is focusing on? ).
 
 As mentioned earlier, the list of data which you can evaluate in a condition is the same list as in a task configuration (document properties, punnet properties, map and campaign names).
+
+### As long as it returns `true` of `false`...
+
+More complex use-cases can be built out of the given tools, as long as the syntax matches the SpEL expression. Java-based condition are therefore supported, here are some examples to help you getting started :
+
+- `documentId.endsWith("0")`
+- `mimeType.startsWith("image/")`
+- `documents.size() >= 2 || punnet.getDataSet().hasData("multiversioned")`
+
+And the list goes on, it's your turn now to build the condition meeting your needs!
 
 ## Patterns subtleties
 
