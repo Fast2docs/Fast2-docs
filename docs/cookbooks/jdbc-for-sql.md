@@ -16,9 +16,9 @@ You have two ways to check it :
 
 1. From a command line:
 
-   ```bash
-   echo %JAVA_HOME%
-   ```
+    ```bash
+    echo %JAVA_HOME%
+    ```
 
 2. Or, check it in your Fast2: `FAST2_HOME/config/env.properties`
 
