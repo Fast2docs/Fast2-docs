@@ -15,7 +15,7 @@ a.external-link:link::after {
     /* font-family: themify; */
 }
 
-article > p {
+article > * {
     text-align:justify!important;
     font-weight: lighter;
 }
