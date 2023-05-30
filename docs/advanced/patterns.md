@@ -31,6 +31,10 @@ No need to list all your possible values, Fast2 will resolve this expression by 
 
 Although links are designed to offer basic statements for conditional routing, they also digest pattern for higher-complexity conditions. For example, new conditions can be value-dependent: not only you can check whether the document has a given data, but now it is possible to narrow down the eligible documents based on the value itself of this data.
 
+!!! note
+
+    Pattern-related syntax ${...} is not required, fill the field with your expression directly !
+
 Based on SpEL ([Spring Expression Language](https://docs.spring.io/spring-framework/docs/4.3.10.RELEASE/spring-framework-reference/html/expressions.html)), the syntax of these conditions will sound familiar to anyone who's already coded one day:
 
 ![Example of pattern implementation as link condition](../../assets/img/advanced/pattern_condition.png){ width="60%" loading=lazy align=right }
