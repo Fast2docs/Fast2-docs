@@ -33,7 +33,7 @@ Although links are designed to offer basic statements for conditional routing, t
 
 !!! note
 
-    Pattern-related syntax ${...} is not required, fill the field with your expression directly !
+    Pattern-related syntax `${...}` is not required, fill the field with your expression directly !
 
 Based on SpEL ([Spring Expression Language](https://docs.spring.io/spring-framework/docs/4.3.10.RELEASE/spring-framework-reference/html/expressions.html)), the syntax of these conditions will sound familiar to anyone who's already coded one day:
 
