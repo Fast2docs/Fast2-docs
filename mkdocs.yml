@@ -1,15 +1,17 @@
 # Project information
 site_name: Fast2 documentation
-# site_url: https://joetessier.github.io/fast2_documentation/
+site_url: https://docs.fast2.tech
 site_author: Joe TESSIER
 theme:
   name: material
   logo: assets/Fast2_favicon_white.png
   favicon: assets/Fast2_favicon_white.png
+  language: en
   # favicon: assets/Fast2_logo.png
   features:
     - navigation.instant
-    # - navigation.tracking
+    - navigation.tracking
+    - navigation.path
     
     - navigation.tabs # main parts in top banner
     - navigation.indexes # toggle */index.md in left lateral nav
@@ -63,6 +65,7 @@ plugins:
   - tags: 
       tags_file: tags.md
   - search
+  # - glightbox # zoom image on click
 
 markdown_extensions:
   - meta
@@ -122,6 +125,11 @@ extra:
           note: >- 
             Thanks for your feedback! Help us improve this page by
             using our <a href="..." target=_blank>feedback form</a>.
+  
+  # alternate:
+  #   - name: Français
+  #     link: /fr/
+  #     lang: fr
 
 
 
@@ -147,18 +155,16 @@ nav:
     - Worker: components/worker.md
     - Database: components/database.md
     - Dashboards: components/dashboards.md
-  # - ⚠ Catalog:
-  #   - catalog/index.md
-    # - Connectors:
-    #   - Sources: catalog/sources.md
-    #   - Conte nt sources: catalog/content-sources.md
-    #   - ⚠ Injectors: /
-    # - Intermediates: 
-    #   - ⚠ Transform: /
-    #   - ⚠ Convert: /
-    # - ⚠ Credentials: /
-    # - ⚠ Tools: /
-    # ⚠ - Helpers: /
+  - Catalog:
+    - catalog/index.md
+    - Sources: catalog/sources.md
+    - Content sources: catalog/content-sources.md
+    - Credentials: catalog/credentials.md
+    - Injectors: catalog/injectors.md
+    - "Transformation tasks" : catalog/transformation-tasks.md
+    - "Conversion tasks" : catalog/conversion-tasks.md
+    - Tools: catalog/tools.md
+    - Helpers: catalog/helpers.md
   - Advanced:
     - advanced/index.md
     - Drools: advanced/drools.md
@@ -174,6 +180,9 @@ nav:
       - setup-environments/index.md
       - Setup for Documentum: setup-environments/documentum.md
       - Setup for IBM CMOD: setup-environments/ibm-cmod.md
+  # - Resources:
+  - 🟠 FAQ:
+    - "FAQ & Troubleshooting" : faq-troubleshooting/index.md
   - Cookbooks:
     - cookbooks/index.md
     - Punnets management: cookbooks/punnet_basics.md
@@ -187,11 +196,11 @@ nav:
     # - Sort documents in a punnet: cookbooks/javascript-sort-documents.md
     # - "CSV source: a step further": cookbooks/csv-source.md
     # - Data from file name: cookbooks/data_from_filename.md
-  # - Release notes:
+  # - 🟠 Release notes:
   #   - release-notes/index.md
   #   - v2.5.0: release-notes/2.5.0.md
   #   - v2.4.7: release-notes/2.4.7.md
-  # - Blog:
+  # - 🟠 Blog:
   #   - blog/index.md
   #   - Da title of ma blog : blog/first-blog.md
   #   - blog/2021/the-past-present-and-future.md
