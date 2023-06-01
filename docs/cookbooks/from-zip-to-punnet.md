@@ -10,20 +10,23 @@ For the educational aspect of this topic, let us consider a folder gathering all
 
 <!-- ![ZIP tree view](../assets/img/cookbooks/fromZip2Punnet.png){ width="50%" } -->
 
+<figure markdown>
 ```txt
 ├─ ZIP archive/
-│       └─ metadata.json
+│       ├─ metadata.json
 │       └─ content.pdf
 ├─  ZIP archive/
-│       └─  metadata.json
+│       ├─ metadata.json
 │       └─ content.pdf
 └─ ...
 ```
+</figure>
 
 Each ZIP archive embeds a PDF content as flat file, alongside a JSON listing the metadata which we'll have to attach to the PDF document (before any injection-or-else phase).
 
 The metadata contained in the JSON files are simply arranged like so:
 
+<figure markdown>
 ```json
 {
   "agency": "Agency_name",
@@ -35,6 +38,7 @@ The metadata contained in the JSON files are simply arranged like so:
   "treatmentType": "Archiving"
 }
 ```
+</figure>
 
 ## 🤔 Where to go ?
 
@@ -55,7 +59,10 @@ Once accessible, the JSON file can be parsed by the _**JSTranform**_ task. Choic
 
 Not a big deal, right ? Let's then tackle this challenge right away, shall we !!
 
+<figure markdown>
 ![TopGun GIF](../assets/img/cookbooks/top-gun_aircraft-salute.gif){ width="70%" }
+</figure>
+
 <br/>
 <br/>
 

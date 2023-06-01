@@ -170,10 +170,10 @@ nav:
     - HTTPS: advanced/https.md
     # - Optimization: advanced/optimization.md
     # - Get ready for production: advanced/get-ready-for-production.md
-  - Environments specifities:
-    - setup-environments/index.md
-    - Setup for Documentum: setup-environments/documentum.md
-    - Setup for IBM CMOD: setup-environments/ibm-cmod.md
+    - Environments specifities:
+      - setup-environments/index.md
+      - Setup for Documentum: setup-environments/documentum.md
+      - Setup for IBM CMOD: setup-environments/ibm-cmod.md
   - Cookbooks:
     - cookbooks/index.md
     - Punnets management: cookbooks/punnet_basics.md
