@@ -157,14 +157,14 @@ nav:
     - Dashboards: components/dashboards.md
   - Catalog:
     - catalog/index.md
-    - Sources: catalog/sources.md
-    - Content sources: catalog/content-sources.md
-    - Credentials: catalog/credentials.md
-    - Injectors: catalog/injectors.md
-    - "Transformation tasks" : catalog/transformation-tasks.md
-    - "Conversion tasks" : catalog/conversion-tasks.md
-    - Tools: catalog/tools.md
-    - Helpers: catalog/helpers.md
+    - Content sources: catalog/ContentSource.md
+    - "Conversion tasks" : catalog/Converter.md
+    - Credentials: catalog/Credentials.md
+    - Helpers: catalog/Helper.md
+    - Injectors: catalog/Loader.md
+    - Sources: catalog/Source.md
+    - Tools: catalog/Tool.md
+    - "Transformation tasks" : catalog/Transformer.md
   - Advanced:
     - advanced/index.md
     - Drools: advanced/drools.md
