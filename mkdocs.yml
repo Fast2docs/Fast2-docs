@@ -157,14 +157,14 @@ nav:
     - Dashboards: components/dashboards.md
   - Catalog:
     - catalog/index.md
-    - Content sources: catalog/ContentSource.md
-    - "Conversion tasks" : catalog/Converter.md
+    - Sources: catalog/source.md
+    - Content sources: catalog/contentsource.md
+    - "Conversion tasks" : catalog/converter.md
     - Credentials: catalog/credentials.md
-    - Helpers: catalog/Helper.md
-    - Injectors: catalog/Loader.md
-    - Sources: catalog/Source.md
-    - Tools: catalog/Tool.md
-    - "Transformation tasks" : catalog/Transformer.md
+    - Helpers: catalog/helper.md
+    - Injectors: catalog/loader.md
+    - Tools: catalog/tool.md
+    - "Transformation tasks" : catalog/transformer.md
   - Advanced:
     - advanced/index.md
     - Drools: advanced/drools.md
@@ -181,8 +181,8 @@ nav:
       - Setup for Documentum: setup-environments/documentum.md
       - Setup for IBM CMOD: setup-environments/ibm-cmod.md
   # - Resources:
-  - 🟠 FAQ:
-    - "FAQ & Troubleshooting" : faq-troubleshooting/index.md
+  #- 🟠 FAQ:
+  #  - "FAQ & Troubleshooting" : faq-troubleshooting/index.md
   - Cookbooks:
     - cookbooks/index.md
     - Punnets management: cookbooks/punnet_basics.md
