@@ -112,7 +112,7 @@
 		<xsl:if test="longDescription">
 			<xsl:call-template name="string-replace-all">
 				<xsl:with-param name="text" select="normalize-space(longDescription/text())"/>
-				<xsl:with-param name="replace">-</xsl:with-param>
+				<xsl:with-param name="replace"> - </xsl:with-param>
 				<xsl:with-param name="by">&lt;br/&gt;-</xsl:with-param>
 			</xsl:call-template>
 

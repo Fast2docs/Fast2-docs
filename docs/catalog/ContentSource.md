@@ -11,11 +11,13 @@
 
 <b>Optional settings</b>
 
-|Key      | Type    | Description | 
-| - | - | - |
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
  | ARN key for getAwsPrefixKMS encryption | `String` |  | 
- | Extract punnet contents from S3 Objects | `Boolean` |  | 
+ | Bucket name | `String` | Name of the S3 bucket where the content is stored. | `${bucket} ` | 
+ | Content path (S3 object key) | `String` | Path leading to S3 object corresponding to the content you intend to extract from the bucket. To use this options, you must enable the content extraction option. <br/> <p> Ex/  ${contentPath}</p> | 
  | Process s3 objects as punnets | `Boolean` |  | 
+ | Extract punnet contents from S3 Objects | `Boolean` | All existing contents of documents will be replaced by the newly found contents, retrieved from the S3 bucket. | 
 
 
 
@@ -62,7 +64,7 @@ This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco RE
 
 ## CMContentExtractor <small> - Basic content extractor from Content Manager </small> {#CMContentExtractor data-toc-label="CMContentExtractor"}
 
-This class is dedicated to the extraction of content for the Content Manager solution. You'll have the possiblity to extract annotations custom properties or even logs
+This class is dedicated to the extraction of content for the Content Manager solution. You'll have the possiblity to extract annotations, custom properties or even logs.
 
 <b>Mandatory settings</b>
 
@@ -76,16 +78,16 @@ This class is dedicated to the extraction of content for the Content Manager sol
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Extract document annotation | `Boolean` |  | `false ` | 
- | Extract standard system properties | `Boolean` |  | `true ` | 
  | Extract advanced system properties from DKDDO object | `Boolean` |  | `true ` | 
+ | Extract standard system properties | `Boolean` |  | `true ` | 
  | Extract note logs | `Boolean` |  | `false ` | 
- | Default page height, used when extracting annotations | `Float` |  | `842.0f ` | 
- | Extract custom properties | `Boolean` |  | `true ` | 
+ | Default page height | `Float` | This value is used when converting annotations to XFDF. Its type is float. | `842.0f ` | 
  | Extract note logs as annotations | `Boolean` |  | `false ` | 
+ | Extract custom properties | `Boolean` |  | `true ` | 
  | Annotation converter | CMAnnotationConverter |  | 
  | Extact history logs | `Boolean` |  | `true ` | 
- | Default page width, used when extracting annotations | `Float` |  | `595.0f ` | 
- | Save annotations as XFDF instead of raw CM format | `Boolean` |  | `true ` | 
+ | Default page width | `Float` | This value is used when converting annotations to XFDF. Its type is float. | `595.0f ` | 
+ | Save annotations as XFDF | `Boolean` | If disabled, annotations will be saved under raw CM format. | `true ` | 
  | Extract document content | `Boolean` |  | `true ` | 
 
 
@@ -106,12 +108,13 @@ This class is dedicated to the extraction of content for the Content Manager sol
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Pattern to store resource files | `String` |  | `${resourceId} ` | 
+ | Export attached CMOD resources | `Boolean` |  | `true ` | 
 
 
 
 ## DctmContentExtractor <small> - Extract document-related details from Documentum </small> {#DctmContentExtractor data-toc-label="DctmContentExtractor"}
 
-This Documentum connector is designed for extraction of document versions, metadata, folders and content (only the 1st content of a document) from a Documentum repository. Multiversion documents will be retrieved from the shared 'i_chronicle_id'. Since Documentum architecture involves particular port and access management, a worker should be started on the same server where Documentum is running; Documentum configuration files (such as `dfc.keystore` and `dfc.properties`) need to be added into `./worker-libs/` folder of the worker extracting from Documentum.
+This Documentum connector is designed for extraction of document versions, metadata, folders and content (only the 1st content of a document) from a Documentum repository. Multiversion documents will be retrieved from the shared 'i_chronicle_id'. Since Documentum architecture involves particular port and access management, a worker should be started on the same server where Documentum is running; <br/><br/>Make sure to check the basic requirements at <a href=_https://www.fast2.tech/documentation/setup-with-environment/documentum/_>the setup for Documentum</a> on the official Fast2 documentation.
 
 
 
@@ -121,6 +124,7 @@ This Documentum connector is designed for extraction of document versions, metad
 | - | - | - | - |
  | Connexion information to Documentum Repository | [DctmConnectionProvider](../Credentials/#DctmConnectionProvider) |  | 
  | Extract folders | `Boolean` |  | `true ` | 
+ | Extract renditions | `Boolean` | Check this option to extract renditions of each document. They will be attached as side-contents in the document, with properties populated from original renditions properties. | 
  | Whitelist for metadata to extract | `String` | All values need to be separated by comma `,`. | 
  | Extract metadata | `Boolean` |  | `true ` | 
  | Continue on fail | `Boolean` | If `true`, any error which occurs during extraction of either metadata, content or folders will trigger an exception. Otherwise, the error will be found in the logs. | 
@@ -166,38 +170,48 @@ This task is not a real source task. The documents to be extracted are identifie
  | Property Helper to use | [PropertyHelper](../Tool/#PropertyHelper) |  | 
  | Extract object type properties | `Boolean` | The FileNet P8 metadata of the document which are Object type will be saved at the punnet level | `false ` | 
  | Compound parent data for children references | `String` | Name of the parent document property under which the children properties will be stored. | 
- | Object store name | `String` | Name of the repository to extract from | 
  | Compound children data to record | `String` | Name of the child property to store in the parent. Consider setting parent data name as well. | 
+ | Object store name | `String` | Name of the repository to extract from | 
  | Extract FileNet system properties | `Boolean` | Save the FileNet system properties as document metadata | `false ` | 
  | Skip annotation exceptions | `Boolean` | Extract documents even if related annotations are in exception like null content | `false ` | 
+ | Default mimetype | `String` | Default mimetype to set if the one from FileNet is empty | 
  | Extract FileNet security | `Boolean` | The security of the document will be saved at the punnet level | `false ` | 
- | Extract folders absolute path | `Boolean` | The absolute path of the folder inside the FileNet instance will be extracted during the process | `false ` | 
  | SQL fetch query | `String` | Use this SQL to fetch documents based on your criteria. <br/> <p> Ex/  SELECT [Id],[DocumentTitle] FROM Document WHERE [Property] = '${myCriterion}'</p> | 
+ | Extract folders absolute path | `Boolean` | The absolute path of the folder inside the FileNet instance will be extracted during the process | `false ` | 
  | Extract content | `Boolean` | The document content will be extracted during the process | `true ` | 
- | Extract all versions | `Boolean` | Extract the superseded versions of the documents matching the query | 
  | Extract annotations | `Boolean` | All annotations owned by the document will be extracted | `true ` | 
+ | Extract all versions | `Boolean` | Extract the superseded versions of the documents matching the query | 
 
 
 
-## FlowerContentExtractor <small> -  </small> {#FlowerContentExtractor data-toc-label="FlowerContentExtractor"}
+## IDMISContentExtractor <small> - ImageServices WAL JNI-bridged Extractor </small> {#IDMISContentExtractor data-toc-label="IDMISContentExtractor"}
 
-
+This task extracts documents from the Panagon Image Services ECM (indexes, optional content and annotations). One punnet of one document for each ECM document. However, it's not a real source task. The documents to be extracted are identified by a [BlankSource](#BlankSource) task generating a set of empty Punnets, i.e. containing only documents each bearing a document number (documentId) to extract.
 
 <b>Mandatory settings</b>
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Flower component category (DOCUMENT, TASK, FOLDER or VIRTUAL_FOLDER) | `String` |  | 
+ | Password | `String` | Password of the aforementioned username | 
+ | Connection domain | `String` | Domain name of the connection | 
+ | Connection organization | `String` | Organization name for the connection | 
+ | Username | `String` | Login with scope to access the docbase with proper rights | 
 
 
 <b>Optional settings</b>
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Extract document annotations | `Boolean` |  | `false ` | 
- | Extract component facts | `Boolean` |  | `false ` | 
- |  | [FlowerDocsConnectionProvider](../Credentials/#FlowerDocsConnectionProvider) |  | 
- | Extract document file content | `Boolean` |  | `false ` | 
+ | Annotations in ARender format | `Boolean` | Convert annotations to ARender format | `false ` | 
+ | Annotation converter | ParseISAnnotation | Specific converter from IS format. Allow to resize the extracted annotations | 
+ | Annotations in raw format | `Boolean` | Save annotation contents in raw format inside the punnet | `false ` | 
+ | Version of libIDMIS | `String` | This task is based on the WAL library and on the specific Fast2 library 'libIDMIS.dll'. This library must be in a directory of the Windows PATH. In the wrapper.conf or hmi-wrapper.conf file, activate the use of this library: wrapper.java.library.path. <increment> = ../libIDMIS/w32For the moment, only 32-bit libraries are configured | `libIDMIS-1.0.15 ` | 
+ | Test scenarios | `Boolean` | Empty testing stub instead of libIDMIS | `false ` | 
+ | Connection terminal | `String` | Terminal name for the connection | 
+ | Use opacity for annotations | `Boolean` |  | `false ` | 
+ | Unrecognized annotation file path | `String` | Path of the alternative annotation xml file for unrecognized annotation. If not specified the punnet will go in exception | 
+ | Extract document content | `Boolean` | The document will be extracted with its content | `true ` | 
+ | Extract document annotation | `Boolean` | The associated annotations will be extracted | `true ` | 
 
 
 
@@ -233,8 +247,8 @@ The MDOParserExternalContent task is used to retrieve external content for each 
  | File scanner | FileScanner | Recovers your files | 
  | Date format | `String` | Date format used in MDO file. Must be the same for each line of the document | `yyyy-MM-dd ` | 
  | Property name containing path content | `String` | Name of the field in the configuration file that contains the path to the content. If not filled, the content will not be saved in the punnet | 
- | Create one punnet for each document of FWTF | `Boolean` | If true then a punnet with one document will be created for each entry in the MDO file. Otherwise, one punnet will be created containing as many documents as there are entries in the MDO file | `false ` | 
  | Dataline property name | `String` | Name of the metadata that will contain the MDO line read. If not specified, the line read will not be saved in the punnet | 
+ | Create one punnet for each document of FWTF | `Boolean` | If true then a punnet with one document will be created for each entry in the MDO file. Otherwise, one punnet will be created containing as many documents as there are entries in the MDO file | `false ` | 
  | contentLocationAbsolute | `Boolean` |  | 
  | Last punnet property name | `String` | Data name indicating which punnet is the last of document in punnet. If null, data isn't added in punnet. For multipunnet case only | 
 
@@ -258,8 +272,8 @@ Like the MDOParserExternalContent task, the MDOParserExternalContent source allo
  | File scanner | FileScanner | Recovers your files | 
  | Date format | `String` | Date format used in MDO file. Must be the same for each line of the document | `yyyy-MM-dd ` | 
  | End tag | `String` | End tag property name signifying the end of the content | 
- | Create one punnet for each document of FWTF | `Boolean` | If true then a punnet with one document will be created for each entry in the MDO file. Otherwise, one punnet will be created containing as many documents as there are entries in the MDO file | `false ` | 
  | Dataline property name | `String` | Name of the metadata that will contain the MDO line read. If not specified, the line read will not be saved in the punnet | 
+ | Create one punnet for each document of FWTF | `Boolean` | If true then a punnet with one document will be created for each entry in the MDO file. Otherwise, one punnet will be created containing as many documents as there are entries in the MDO file | `false ` | 
  | Last punnet property name | `String` | Data name indicating which punnet is the last of document in punnet. If null, data isn't added in punnet. For multipunnet case only | 
  | Original text content property name | `String` | Data name containing original text content. If null, data isn't added in the punnet | 
 
