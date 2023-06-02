@@ -6,7 +6,7 @@ Reorganize your files inside your AWS S3 environment.
 
 |Key      | Type    | Description | 
 | - | - | - |
- | AWS access credentials | [AWSConnectionProvider](../Credentials/#AWSConnectionProvider) | Must have granted AmazonS3FullAccess permission | 
+ | AWS access credentials | [AWSConnectionProvider](../credentials/#AWSConnectionProvider) | Must have granted AmazonS3FullAccess permission | 
  | Target key | `String` | The destination path inside your bucket where the document must be placed. Use as standard Pattern (includes S3 Folders) | 
 
 
@@ -121,7 +121,7 @@ This task will be useful when your needs will be to move a given email conversat
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Email provider | [MailBoxProvider](../Credentials/#MailBoxProvider) | The Fast2 module establishing the connection to the email server, from the account of a given user. For more about the configuration of the object, please refer to the appropriate section | 
+ | Email provider | [MailBoxProvider](../credentials/#MailBoxProvider) | The Fast2 module establishing the connection to the email server, from the account of a given user. For more about the configuration of the object, please refer to the appropriate section | 
  | Destination folder | `String` | The folder where the email will eventually be moved to. This value will be resolved by Fast2 prior to the task execution | 
 
 
@@ -314,7 +314,7 @@ This task is responsible to find the mime type of a document accross either its 
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Mime type retriever | [MimeTypeFinder](../Tool/#MimeTypeFinder) | Module to find content mime type | 
+ | Mime type retriever | [MimeTypeFinder](../tool/#MimeTypeFinder) | Module to find content mime type | 
 
 
 <b>Optional settings</b>
