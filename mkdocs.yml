@@ -159,7 +159,7 @@ nav:
     - catalog/index.md
     - Content sources: catalog/ContentSource.md
     - "Conversion tasks" : catalog/Converter.md
-    - Credentials: catalog/Credentials.md
+    - Credentials: catalog/credentials.md
     - Helpers: catalog/Helper.md
     - Injectors: catalog/Loader.md
     - Sources: catalog/Source.md
