@@ -128,7 +128,7 @@ This task is used to provide connection information to connect specifically to t
 |Key      | Type    | Description | 
 | - | - | - |
  | WCM Config resource | `String` |  | 
- | URL settings | [WcmApiConfigSettings](../Helper/#WcmApiConfigSettings) | Class used for setting multiple URLs (download, upload...) | 
+ | URL settings | [WcmApiConfigSettings](../helper/#WcmApiConfigSettings) | Class used for setting multiple URLs (download, upload...) | 
  | Object store name | `String` | Name of the docbase involved in the migration | 
 
 
