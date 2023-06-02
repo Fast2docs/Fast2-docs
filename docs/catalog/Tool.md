@@ -29,11 +29,11 @@ This task will add the number of pages as a metadata to the document.
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
- | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime<br/>-type. By default, Fast2 will check at content level | `false ` | 
+ | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | Process annotation contents | `Boolean` | If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata | `false ` | 
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 
  | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
- | Supported mime-types | `String list` | Specify the list of all mime<br/>-types of documents which Fast2 will convert | 
+ | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
  | Property name | `String` | Name of the property to which the number of pages will be linked | `F_PAGES ` | 
 
 
@@ -69,7 +69,7 @@ This task will generates different exception types : either TaskException or Run
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Runtime exceptions ratio | `Integer` | The number of runtime exception which will be thrown by Fast2 | `3 ` | 
- | No-exception ratio | `Integer` | The number of no<br/>-exception which will be thrown by Fast2 | `4 ` | 
+ | No-exception ratio | `Integer` | The number of no-exception which will be thrown by Fast2 | `4 ` | 
  | Task exceptions ratio | `Integer` | The number of task exception which will be thrown by Fast2 | `3 ` | 
 
 
@@ -98,15 +98,15 @@ This task computes the hash of a given document content. This new hash can be co
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Suffix of ouptut file | `String` | Suffix of the external file containing the hash value to compare with | 
  | Conten key for hash | `String` | Name of the metadata where the hash value will be stored. This value will be attached to the content and the document dataset itself | `hash ` | 
+ | Suffix of ouptut file | `String` | Suffix of the external file containing the hash value to compare with | 
  | Algorithm | `String` | The algorithm of hashing which will be used for document content | `SHA-256 ` | 
  | Process annotation contents | `Boolean` | If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata | `false ` | 
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 
- | Supported mime-types | `String list` | Specify the list of all mime<br/>-types of documents which Fast2 will convert | 
+ | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
  | Block size | `Integer` | In bytes. The default value is 256 * 1024 | `262144 ` | 
  | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
- | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime<br/>-type. By default, Fast2 will check at content level | `false ` | 
+ | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | Existing hash to compare | `String` | Document data name to compare the new hash with. Throws TaskException when different | 
  | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
  | Document key for hash | `String` | Name of the metadata where the hash value will be stored, at document level | 
@@ -133,7 +133,7 @@ This task will be useful when your needs will be to move a given email conversat
  | Data to find | `String` | The data to look for. This value will be resolved by Fast2 prior to the task execution | `${Message-Id} ` | 
  | Maximum connection TTL | `Long` | Fill the value in milliseconds | `60 ` | 
  | Create destination folder | `Boolean` | Ask Fast2 to create the destination folder to move the email into, in case this specific folder does not exist yet | `false ` | 
- | Search field name | `String` | The name of the field where to find the data. Only 'Subject' and 'Message<br/>-Id' are available | `Message-Id ` | 
+ | Search field name | `String` | The name of the field where to find the data. Only 'Subject' and 'Message-Id' are available | `Message-Id ` | 
 
 
 
@@ -150,11 +150,11 @@ This task is used for automatic detection of mime type for documents
  | Process annotation contents | `Boolean` | If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata | `false ` | 
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 
  | Stop at first exception | `Boolean` | Stop processing punnets when one could not been properly processed | `false ` | 
- | Supported mime-types | `String list` | Specify the list of all mime<br/>-types of documents which Fast2 will convert | 
+ | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
  | Use most specific mime type | `Boolean` | Otherwise use the first mime type found | `false ` | 
  | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
- | Default mime type | `String` | The default mime<br/>-type to set if none has been found. This value must be set, or it will throw a RuntimeException | `application/octet-stream ` | 
- | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime<br/>-type. By default, Fast2 will check at content level | `false ` | 
+ | Default mime type | `String` | The default mime-type to set if none has been found. This value must be set, or it will throw a RuntimeException | `application/octet-stream ` | 
+ | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | Update document mime type | `Boolean` | Otherwise update only page or content mimetype | `true ` | 
  | Force to identify mime type | `Boolean` | If the mime type could not be found by looking at the metadata, either Fast2 skips the document or digs deeper into the content to retrieve the mime type | `false ` | 
  | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
@@ -171,8 +171,8 @@ Based on the mime-type of the content, this task will resolve the correct extens
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
+ | Document mime-type | `String` | This value will be resolved by Fast2, `${...}` syntax is supported. Use this option when only the document mime-type has been provided, without the actual content. | 
  | Key of name property | `String` | Key of the current name metadata, whose value will be appended by the matching extension. | `name ` | 
- | Document mime-type | `String` | This value will be resolved by Fast2, `${...}` syntax is supported. Use this option when only the document mime<br/>-type has been provided, without the actual content. | 
 
 
 
@@ -211,11 +211,11 @@ This task is responsible for moving content of documents from a given folder int
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 
  | Exclude file name for renaming file | `Boolean` | Renamed the file based on the value of the destination folder only | `false ` | 
  | Wait until target file exists | `Boolean` | Only process next document when the current has successfully been migrated | `false ` | 
- | Supported mime-types | `String list` | Specify the list of all mime<br/>-types of documents which Fast2 will convert | 
+ | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
  | Allowed retries | `Integer` | Number of checks before despair and exception | `60 ` | 
  | Source folder | `String` | Set here the common prefix of all document contents to move. If null use file folder | 
  | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
- | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime<br/>-type. By default, Fast2 will check at content level | `false ` | 
+ | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | File extension | `String` | The extension to append to the name of the files once they'll be moved | 
  | Keep original filename | `Boolean` | Set the destination file name to the 'title' property defined at the content level. Otherwise, keep the name of the file pointed by the URL | `false ` | 
  | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
@@ -267,7 +267,7 @@ This task does not perform anything, hence you don't have to configure it. All d
  | Date format | `String` |  | `MM dd HH:mm:ss z yyyy ` | 
  | Property name used to explicitly skip Data | `String` |  | 
  | Do not throw Date parsing exceptions | `Boolean` |  | 
- | Store object-store as name | `Boolean` | By default, Fast2 is expecting FileNet UUID as object<br/>-store reference on object<br/>-typed properties. Enable this option to deal with the object<br/>-store name instead of its UUID. This parameter is only use at extraction. | 
+ | Store object-store as name | `Boolean` | By default, Fast2 is expecting FileNet UUID as object-store reference on object-typed properties. Enable this option to deal with the object-store name instead of its UUID. This parameter is only use at extraction. | 
 
 
 
@@ -275,6 +275,13 @@ This task does not perform anything, hence you don't have to configure it. All d
 
 This task is responsible for serializing a punnet to an XML file. That can be interesting to check punnet metadata or freeze a punnet at a certain state.
 
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Serialize punnets as JSON | `Boolean` | If enabled, punnet will be serialized as Json file. Otherwise, it will be a XML file. | `false ` | 
 
 
 
@@ -316,7 +323,7 @@ This task is responsible to find the mime type of a document accross either its 
 | - | - | - | - |
  | Dry run | `Boolean` | Process all punnets without editing their state or metadata | `false ` | 
  | Force to identify mime type | `Boolean` | Ask Fast2 to dig deeper into the content to find a mime type. The metadata will be added to the content | `false ` | 
- | Maximum number of page read per content | `Integer` | Only for multi<br/>-page content | `Integer.MAX_VALUE ` | 
+ | Maximum number of page read per content | `Integer` | Only for multi-page content | `Integer.MAX_VALUE ` | 
 
 
 

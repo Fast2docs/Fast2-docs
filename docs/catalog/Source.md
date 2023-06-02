@@ -16,9 +16,9 @@ This AWS extractor performs from a list of sources the extraction of your docume
 | - | - | - |
  | AWS start-after key | `String` | Absolute path of S3 object to start after | 
  | ARN key for KMS encryption | `String` |  | 
- | AWS suffix | `String` | S3<br/>-object will be extracted if its key has such suffix | 
+ | AWS suffix | `String` | S3-object will be extracted if its key has such suffix | 
  | Source folders | `String list` | Folders in the S3 bucket(s) containing the files to migrate | 
- | AWS prefix | `String` | S3<br/>-object will be extracted if its key has such prefix | 
+ | AWS prefix | `String` | S3-object will be extracted if its key has such prefix | 
 
 
 
@@ -61,8 +61,8 @@ Through an SQL query, this alfresco extractor will use the CMIS technology to fe
 | - | - | - | - |
  | Property Helper | PropertyHelper |  | 
  | Number of items per result page | `Integer` | Maximum number of results provided | `1 ` | 
- | Number of documents per punnet | `Integer` |  | `1 ` | 
  | Extract document properties | `Boolean` |  | `true ` | 
+ | Number of documents per punnet | `Integer` |  | `1 ` | 
  | Keep folder structure within document | `Boolean` | requires extractProperties to be true | `true ` | 
  | Extract document content | `Boolean` | Does not work asynchronously | `false ` | 
 
@@ -96,17 +96,18 @@ This task is used to extract documents in the Content-Manager On Demand ECM. One
 |Key      | Type    | Description | 
 | - | - | - |
  | CMOD connection provider | [CMODConnectionProvider](../Credentials/#CMODConnectionProvider) |  | 
+ | Folders to extract | `String list` | List of CMOD folders which will be scanned. Additional level(s) of filter can be used with the SQL query down below. | 
 
 
 <b>Optional settings</b>
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | SQL query to extract documents | `String` | These requests are made on the indexes of CMOD documents <br/> <p> Ex/  'SELECT * FROM exampleTable WHERE Date = '2012-11-14'</p> | 
+ | SQL query to extract documents | `String` | Enter here the `WHERE` clause used to filter documents. Since this request is made on the indexes of CMOD documents, the property used to filter out the documents need to be indexed in CMOD prior to any extraction. <br/> <p> Ex/  WHERE Date = '2012-11-14'</p> | 
  | Extract document annotations | `Boolean` | The document annotation will be extracted during the process | `false ` | 
+ | Number of documents per punnet | `Integer` |  | `1 ` | 
  | Extract document content | `Boolean` | The document content will be extracted during the process | `false ` | 
- | Maximum results count | `Integer` |  | `2_000 ` | 
- | Folders to extract | `String list` |  | 
+ | Maximum results count | `Integer` |  | `2000 ` | 
 
 
 
@@ -119,18 +120,18 @@ This task is used to extract documents in the Content-Manager On Demand ECM. One
 |Key      | Type    | Description | 
 | - | - | - |
  | CM connection provider | [CMConnectionProvider](../Credentials/#CMConnectionProvider) |  | 
+ | SQL query | `String` | Select precisely documents you want to extract through a classic SQL query | 
 
 
 <b>Optional settings</b>
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Extract standard system properties | `Boolean` |  | `false ` | 
  | Extract advanced system properties from DKDDO object | `Boolean` |  | `false ` | 
+ | Extract standard system properties | `Boolean` |  | `false ` | 
  | Maximum results returned by the query | `Integer` | Set to 0 to disable limiting number of results | `0 ` | 
- | SQL query | `String` | Select precisely documents you want to extract through a classic SQL query | 
  | Extract custom properties | `Boolean` |  | `false ` | 
- | Query type (integer | `Integer` | See com.ibm.mm.beans.CMBBaseConstant for further details | `XPath (7) ` | 
+ | Query type | `Integer` | See com.ibm.mm.beans.CMBBaseConstant for further details. Default value is XPath (7) | `7 ` | 
 
 
 
@@ -150,12 +151,12 @@ This task can be used to start a migration from a CSV file. By default, the firs
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | CSV file path metadata | `String` | Punnet property name containing the CSV file path. Set to empty or null to disable | 
- | File name for error CSV file | `String` | This option might be useful when you need to have a specific file name where to register the lines in error of your CSV file. The name can both be linked to some workflow properties surrounded with `${...}` (ex/ campaign, punnetId, etc) or hard<br/>-written. Warning: This value can be overwritten by the _Associate CSV<br/>-error file with original CSV filename_ option | `lines_in_error.csv ` | 
+ | File name for error CSV file | `String` | This option might be useful when you need to have a specific file name where to register the lines in error of your CSV file. The name can both be linked to some workflow properties surrounded with `${...}` (ex/ campaign, punnetId, etc) or hard-written. Warning: This value can be overwritten by the _Associate CSV-error file with original CSV filename_ option | `lines_in_error.csv ` | 
  | New column names to set | `String list` | If empty, populated from first line | 
- | Folder path for error CSV file | `String` | The error file will be stored in your system. You can choose where by configuring this very field. Here as well you can set the path either with workflow properties (`${...}`) or hard<br/>-write it | `./csv_errors/ ` | 
+ | Folder path for error CSV file | `String` | The error file will be stored in your system. You can choose where by configuring this very field. Here as well you can set the path either with workflow properties (`${...}`) or hard-write it | `./csv_errors/ ` | 
  | Number of lines to skip | `Integer` | This option helps to skip lines, meaning their data will not be processed. By default, only the 1st line is skipped considering it surely consists in the headers row <br/> <p> Ex/  In a file of 10 lines, putting '3' in the input field will skip the 1st, 2nd and 3rd lines</p> | `1 ` | 
  | Generate hash of CSV content | `Boolean` | The hash of the content will be generated and stored in the punnet among a property named hashData | `false ` | 
- | Continue on fail | `Boolean` | If enabled, the following errors will not trigger an exception: <br /><br/>- CSV file does not exist <br /><br/>- CSV file is empty (no line) <br /><br/>- CSV file has only headers and no line for documents.<br /><br />Note that if you give 5 CSV paths and the number 3rd is in error, only the Fast2 logs will provide information regarding the failing CSV file. | 
+ | Continue on fail | `Boolean` | If enabled, the following errors will not trigger an exception: <br />- CSV file does not exist <br />- CSV file is empty (no line) <br />- CSV file has only headers and no line for documents.<br /><br />Note that if you give 5 CSV paths and the number 3rd is in error, only the Fast2 logs will provide information regarding the failing CSV file. | 
  | Column headers in first CSV file only | `Boolean` | Only read column definitions from the first parsed CSV file | `false ` | 
  | File encoding | `String` | CSV encoding character set | `UTF-8 ` | 
  | CSV separator | `String` | Only the first character will be considered | `; ` | 
@@ -172,7 +173,7 @@ This task can be used to start a migration from a CSV file. By default, the firs
 
 ## DctmSource <small> - Complete extractor from Documentum </small> {#DctmSource data-toc-label="DctmSource"}
 
-This connector will extract basic information from the source Documentum repository. Since Documentum architecture involves particular port and access management, a worker should be started on the same server where Documentum is running; Documentum configuration files (such as `dfc.keystore` and `dfc.properties`) need to be added into `./worker-libs/` folder of the worker extracting from Documentum.
+This connector will extract basic information from the source Documentum repository. Since Documentum architecture involves particular port and access management, a worker should be started on the same server where Documentum is running.<br/><br/>Make sure to check the basic requirements at <a href=_https://www.fast2.tech/documentation/setup-with-environment/documentum/_>the setup for Documentum</a> on the official Fast2 documentation.
 
 <b>Mandatory settings</b>
 
@@ -186,7 +187,7 @@ This connector will extract basic information from the source Documentum reposit
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Batch size | `Integer` | If size is <1, the size will be defined from the Documentum server<br/>-side. | `50 ` | 
+ | Batch size | `Integer` | If size is <1, the size will be defined from the Documentum server-side. | `50 ` | 
 
 
 
@@ -238,52 +239,7 @@ The FileNetSource source retrieves existing documents from the FileNet P8 5.x EC
  | Extract documents instance informations | `Boolean` | The fetchInstance method makes a round trip to the server to retrieve the property values of the ObjectStore object | `false ` | 
  | Extract FileNet security | `Boolean` | The security of the document will be saved at the punnet level | `false ` | 
  | Extract folders absolute path | `Boolean` | The absolute path of the folder inside the FileNet instance will be extracted during the process | `false ` | 
-
-
-
-## FlowerSource <small> - Flower extractor </small> {#FlowerSource data-toc-label="FlowerSource"}
-
-Allows components extraction from Flower using JSON formatted Flower request.
-Components can be documents, folders, virtual folders or tasks.
-
-<b>Mandatory settings</b>
-
-|Key      | Type    | Description | 
-| - | - | - |
- | FlowerDocs connection provider | [FlowerDocsConnectionProvider](../Credentials/#FlowerDocsConnectionProvider) |  | 
- | Flower component category | `String` | Choose among DOCUMENT, TASK, FOLDER or VIRTUAL_FOLDER | 
- | JSON Flower Search Request | `String` |  | 
-
-
-
-## IDMISContentExtractor <small> - ImageServices WAL JNI-bridged Extractor </small> {#IDMISContentExtractor data-toc-label="IDMISContentExtractor"}
-
-This task extracts documents from the Panagon Image Services ECM (indexes, optional content and annotations). One punnet of one document for each ECM document. However, it's not a real source task. The documents to be extracted are identified by a [BlankSource](#BlankSource) task generating a set of empty Punnets, i.e. containing only documents each bearing a document number (documentId) to extract.
-
-<b>Mandatory settings</b>
-
-|Key      | Type    | Description | 
-| - | - | - |
- | Password | `String` | Password of the aforementioned username | 
- | Connection domain | `String` | Domain name of the connection | 
- | Connection organization | `String` | Organization name for the connection | 
- | Username | `String` | Login with scope to access the docbase with proper rights | 
-
-
-<b>Optional settings</b>
-
-|Key      | Type    | Description |  Default value |
-| - | - | - | - |
- | Annotations in ARender format | `Boolean` | Convert annotations to ARender format | `false ` | 
- | Annotation converter | ParseISAnnotation | Specific converter from IS format. Allow to resize the extracted annotations | 
- | Annotations in raw format | `Boolean` | Save annotation contents in raw format inside the punnet | `false ` | 
- | Version of libIDMIS | `String` | This task is based on the WAL library and on the specific Fast2 library 'libIDMIS.dll'. This library must be in a directory of the Windows PATH. In the wrapper.conf or hmi<br/>-wrapper.conf file, activate the use of this library: wrapper.java.library.path. <increment> = ../libIDMIS/w32For the moment, only 32<br/>-bit libraries are configured | `libIDMIS-1.0.15 ` | 
- | Test scenarios | `Boolean` | Empty testing stub instead of libIDMIS | `false ` | 
- | Connection terminal | `String` | Terminal name for the connection | 
- | Use opacity for annotations | `Boolean` |  | `false ` | 
- | Unrecognized annotation file path | `String` | Path of the alternative annotation xml file for unrecognized annotation. If not specified the punnet will go in exception | 
- | Extract document content | `Boolean` | The document will be extracted with its content | `true ` | 
- | Extract document annotation | `Boolean` | The associated annotations will be extracted | `true ` | 
+ | Throw error if no result | `Boolean` | Throw exception when SQL Query finds no result. | 
 
 
 
@@ -302,12 +258,13 @@ This class will search for local files to analyze them from a defined path
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Fallback XML parsing | `Boolean` | If true, the file will be added as document content in the punnet when XML parsing fails. Consider adding this file as a regular file (not an XML) | `false ` | 
+ | Fallback XML/Json parsing | `Boolean` | If true, the file will be added as document content in the punnet when XML parsing fails. Consider adding this file as a regular file (not an XML) | `false ` | 
  | Skip parse exceptions | `Boolean` | The task does not throw an error when XML parsing fails. Do not stop parsing and resume to next candidate | `false ` | 
  | XSL Stylesheet path | `String` | The XSL stylesheet file to use when parsing XML files | 
  | Number of files per punnet | `Integer` | If the files are not in XML format, the punnet will contain as many documents as defined in this option | `1 ` | 
+ | Allow any kind of file | `Boolean` | All types of files can be added. Otherwise, only XML-based Punnet descriptions are allowed | `true ` | 
  | Skip XML parsing | `Boolean` | The XML file will not be parsed before being added to the punnet. Not recommended in most cases | `false ` | 
- | Allow any kind of file | `Boolean` | All types of files can be added. Otherwise, only XML<br/>-based Punnet descriptions are allowed | `true ` | 
+ | Maximum number of files scanned | `Integer` | If this field is completed, the number of files scanned will not exceed the value filled in. Leave empty to retrieve all files matching input pattern filter | ` ` | 
 
 
 
@@ -326,13 +283,16 @@ The MailSource task extracts messages from an e-mail box. Each extracted message
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Header names | `String list` | List of header names (case<br/>-sensitive) to retrieve from the mail. Message<br/>-Id, Subject, From, To, Cc and Date are added by default | 
- | Search criterion | SearchTerm | Search criteria to filter the messages to extract. If filled, then the 'Start Id' and 'Maximum number of mail' fields will not be used | 
+ | Search in Headers | `String` | Enter a pair of header and pattern to search separated by a colon `:`. <br/> <p> Ex/  cc:copy</p> | 
+ | Header names | `String list` | List of header names (case-sensitive) to retrieve from the mail. Message-Id, Subject, From, To, Cc and Date are added by default | 
  | Start Id | `Integer` | Index from which the first message should be extracted | `1 ` | 
  | Update document with mail root folder name | `String` | Name of the metadata to add to the document. If filled, the full name of the source folder is indexed in this metadata. Set to null or empty to disable updating | 
  | Folders to scan | `String list` | List of files to scan in the mailbox. If filled, override root folder name from MailBox connection provider configuration | 
- | Maximum number of mail to extract | `Integer` | By default, Integer.MAX_VALUE = 2147483647 | `2147483647 ` | 
- | Forbidden characters | `String` | List of characters to remove from Message<br/>-Id when building the DocumentId | `<>:\"/\\|?* ` | 
+ | AND condition for search | `Boolean` | Checking this options will only retrieve messages matching all search conditions possible (unread messages, text in header, body or subject). If unchecked, the 'OR' operand will be applied. | 
+ | Forbidden characters | `String` | List of characters to remove from Message-Id when building the DocumentId | `<>:\"/\\|?* ` | 
+ | Only unread messages | `Boolean` |  | 
+ | Search in Subject | `String` |  | 
+ | Search in Body | `String` |  | 
 
 
 
@@ -356,8 +316,8 @@ Randomly produces punnets containing documents, metadata, content...
  | Minimum metadata number | `Integer` | Included | `1 ` | 
  | Minimum punnet number | `Integer` | If not set, the number of generated punnets will be exactly the number set at 'Number of punnets to generate' | 
  | Maximum number of metadata values | `Integer` | Included | `6000 ` | 
- | Maximum content number | `Integer` | Excluded | 
  | Minimum number of metadata values | `Integer` | Included | `0 ` | 
+ | Maximum content number | `Integer` | Excluded | 
  | Maximum metadata number | `Integer` | Excluded | `10 ` | 
  | Minimum document number | `Integer` | Included | `1 ` | 
 
@@ -381,6 +341,7 @@ Extract and map to punnet or document layout specified properties
 | - | - | - | - |
  | Property name to group by document | `String` | Column used to group lines by document. If used set an 'ORDER BY' in your sql query | 
  | SQL mapping for punnet | `String/String map` | Mapping of SQL properties to punnet metadata. Use 'punnetId' for Punnet Id | 
+ | Allow duplicates data | `Boolean` |  | 
  | Property name to group by punnet | `String` | Column used to group lines by punnet. If used set an 'ORDER BY' in your sql query | 
  | SQL mapping for document | `String/String map` | Mapping of SQL properties to document metadata. Use 'documentId' for Document Id, otherwise the first column will be used as documentId | 
  | Push remaining, non-mapped columns as document properties | `Boolean` |  | `true ` | 
