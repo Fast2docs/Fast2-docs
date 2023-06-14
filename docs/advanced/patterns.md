@@ -116,22 +116,30 @@ ${T(java.util.UUID).randomUUID().toString()}
 An other example could be to add today's date as a new data. Such a pattern might go like:
 
 ```java
+${T(java.time.LocalDate).now().toString()}
+```
+
+Bringing it further, we might also want the time when the document got through the migration (namely this _**AlterDocumentProperties**_ task), with
+
+```java
 ${T(java.time.LocalDateTime).now().toString()}
 ```
 
-Mapping this pattern to a new `today` data will result in the following punnet :
+Mapping these patterns respectively to a new `today` and `currentTime` data will result in the following punnet :
 
-```json hl_lines="10"
+```json hl_lines="11-12"
 {
 	"punnetId": "doc_0_0#1",
 	"data": {
-		...
+        ...
 	},
 	"documents": [
 		{
 			"documentId": "doc_0_0",
 			"data": {
-				"today": "2023-06-14T09:26:29.849790200"
+				...
+				"currentTime": "2023-06-14T10:42:15.204958800",
+				"today": "2023-06-14"
 			}
 		}
 	]
