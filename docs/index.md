@@ -10,10 +10,19 @@ This comprehensive resource is designed to provide you with all the information 
 
 : The User Guides section contains detailed information on each aspect of the software. From the core functionalities to advanced features, these guides provide in-depth explanations, tutorials, and examples to help you make the most of Fast2. Whether you're looking to perform specific tasks, customize settings, or troubleshoot issues, the User Guides section has you covered.
 
+**Catalog**
+
+: The catalog section lists all the different tasks available, to help you understand the basic and advanced configuration settings available.
+
 **Advanced**
+
 : For developers and integrators, the API Reference section provides detailed documentation on the available APIs, libraries, and SDKs offered by Fast2. This resource will assist you in integrating Fast2 with other systems, extending its capabilities, and building custom applications.
 
-**Environments specifities**
+**Cookbooks**
+
+: In this section, you'll unlock the power of data manipulation through concise code snippets. Discover a wealth of practical examples and operations to efficiently handle and transform your data. Whether you're a novice or a seasoned programmer, our comprehensive collection of code samples and step-by-step instructions will guide you in leveraging the full potential of our software. Enhance your data manipulation skills and unleash your creativity to achieve exceptional results in your coding endeavors.
+
+<!-- **Environments specifities**
 
 : todo
 
@@ -23,7 +32,7 @@ This comprehensive resource is designed to provide you with all the information 
 
 **FAQs and Troubleshooting**
 
-: Encountering issues or have questions? Check out our FAQs and Troubleshooting section, where you'll find answers to common queries and solutions to known problems. This section aims to provide quick resolutions and helpful tips to ensure a smooth experience with Fast2.
+: Encountering issues or have questions? Check out our FAQs and Troubleshooting section, where you'll find answers to common queries and solutions to known problems. This section aims to provide quick resolutions and helpful tips to ensure a smooth experience with Fast2. -->
 
 We hope this documentation proves valuable in your journey with Fast2. If you have any suggestions, feedback, or questions regarding the documentation, please don't hesitate to reach out. Enjoy exploring Fast2 and unlocking its full potential!
 
