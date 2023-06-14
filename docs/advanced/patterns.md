@@ -110,3 +110,30 @@ For example, adding an UUID created on-the-fly would just required using the fol
 ```java
 ${T(java.util.UUID).randomUUID().toString()}
 ```
+
+<br />
+
+An other example could be to add today's date as a new data. Such a pattern might go like:
+
+```java
+${T(java.time.LocalDateTime).now().toString()}
+```
+
+Mapping this pattern to a new `today` data will result in the following punnet :
+
+```json hl_lines="10"
+{
+	"punnetId": "doc_0_0#1",
+	"data": {
+		...
+	},
+	"documents": [
+		{
+			"documentId": "doc_0_0",
+			"data": {
+				"today": "2023-06-14T09:26:29.849790200"
+			}
+		}
+	]
+}
+```

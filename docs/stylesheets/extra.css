@@ -15,12 +15,16 @@ a.external-link:link::after {
     /* font-family: themify; */
 }
 
+.md-grid {
+    max-width: 65rem;
+}
+
 article > * {
     text-align:justify!important;
     font-weight: lighter;
 }
 
-strong {
+strong_disabled {
     font-weight: bold;
     /* --tw-gradient-from: #EC008C; // rose */
     /* --tw-gradient-from: #8200ec; // violet */
