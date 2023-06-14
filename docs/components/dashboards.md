@@ -90,6 +90,18 @@ opensearch.hosts: ["http://localhost:1790"]
 
 ## Advanced use
 
+## Create the index pattern
+
+The visualizations created from the dashboards add-on needs to be attached to the `f2_*` index. If this index pattern is not existing, create it via the add-on management tools:
+
+1. Stack management > Index pattern <br />![Dashboards : create index, step 1 out of 3](../assets/img/components/dashboards_create-index_1-3.png){ width="60%" }<br /><br />
+1. Create a new index <br />![Dashboards : create index, step 2 out of 3](../assets/img/components/dashboards_create-index_2-3.png){ width="60%" }<br /><br />
+1. Set _time filter_ to **none**<br />![Dashboards : create index, step 3 out of 3](../assets/img/components/dashboards_create-index_3-3.png){ width="60%" }<br /><br />
+
+!!! Warning
+
+    Make sure to set the *time filter* to _"I don't want to use the time filter"_ to prevent any issue when trying to pull the data out from the database.
+
 !!! Note
 
     If the metadata you are looking for is not available and cannot be found in the dropdown options, refresh the <code>f2\_\*</code> index (which can be manually triggered from the list of saved objects).
