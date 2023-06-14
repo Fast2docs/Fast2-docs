@@ -90,7 +90,7 @@ opensearch.hosts: ["http://localhost:1790"]
 
 ## Advanced use
 
-## Create the index pattern
+### Create the index pattern
 
 The visualizations created from the dashboards add-on needs to be attached to the `f2_*` index. If this index pattern is not existing, create it via the add-on management tools:
 
