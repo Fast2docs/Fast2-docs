@@ -191,11 +191,12 @@ nav:
     - Dataset management: cookbooks/dataset_basics.md
     - Interact with a SQL database: cookbooks/jdbc-for-sql.md
     - From ZIP to punnet: cookbooks/from-zip-to-punnet.md
-    # - Inject document into an S3 bucket: cookbooks/inject-to-S3.md
-    # - Retrieve content and metadata from an S3 bucket: cookbooks/extract-from-S3.md
-    # - Sort documents in a punnet: cookbooks/javascript-sort-documents.md
-    # - "CSV source: a step further": cookbooks/csv-source.md
-    # - Data from file name: cookbooks/data_from_filename.md
+    - Update content and metadata in a S3 bucket : cookbooks/upload-content-and-metadata-in-s3.md
+    - Inject document into an S3 bucket: cookbooks/upload-content-and-metadata-in-s3.md
+    - Retrieve content and metadata from an S3 bucket: cookbooks/content-metadata-from-s3.md
+    - "CSV source : a step further" : cookbooks/csvsource_further.md
+    - Sort documents in a punnet: cookbooks/js-sort-documents.md
+    - Data from file name: cookbooks/data_from_filename.md
   # - 🟠 Release notes:
   #   - release-notes/index.md
   #   - v2.5.0: release-notes/2.5.0.md

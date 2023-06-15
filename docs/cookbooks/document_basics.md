@@ -96,7 +96,7 @@ This data can also be set from the document level:
 myDoc.setMimeType("myMimetype");
 ```
 
-As said earlier, this method is just a shortcut to add a mime-type data into the document [dataset](/cookbooks/boilerplate_for_dataset).
+As said earlier, this method is just a shortcut to add a mime-type data into the document [dataset](/cookbooks/dataset_basics).
 
 ## Folders
 

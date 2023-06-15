@@ -15,7 +15,7 @@ Contents are often referred as **ContentContainers**.
 
 This section relates of how to add a content from the code.
 
-If you wish to add a content (or delete it), head out to the [AlterDocumentContent](../../documentation/todo) task.
+If you wish to add a content (or delete it), head out to the [AlterDocumentContent](../../catalog/transformer/#AlterDocumentContent) task.
 
 ```java
 
@@ -76,13 +76,13 @@ RandomAccessInterface myRAI = task.getManager()
 
 ## Mime-type
 
-The content mime-type is a property usually added by the [MimetypeFinder](../../documentation/todo) task. However you could be willing to force it, which can be done like so:
+The content mime-type is a property usually added by the [MimeTypeFinder](../../catalog/tool/#MimeTypeFinder) task. However you could be willing to force it, which can be done like so:
 
 ```java
 myContent.setMimeType("the right mime-type");
 ```
 
-This is basically what the [MimetypeFinder](../../documentation/todo) will do once the mime-type resolved from the content format.
+This is basically what the [MimeTypeFinder](../../catalog/tool/#MimeTypeFinder) will do once the mime-type resolved from the content format.
 
 To access this value, a regular java getter will do:
 
