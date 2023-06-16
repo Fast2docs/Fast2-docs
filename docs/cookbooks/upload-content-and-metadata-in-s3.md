@@ -22,8 +22,8 @@ This can easily be done with the off-the-shelf tasks of Fast2, namely the [Punne
 
 In the end, we expect the bucket to have 2 contents for 1 document :
 
- • 1 content in PDF, the original content of our document, whose name is the ID of the document with the correct extension (`.pdf`) <br/>
- • 1 content in XML, filled with the metadata of the original document, whose name is the ID of the document with the correct extension (`.xml`)
+- 1 content in PDF, the original content of our document, whose name is the ID of the document with the correct extension (`.pdf`) <br/>
+- 1 content in XML, filled with the metadata of the original document, whose name is the ID of the document with the correct extension (`.xml`)
 
 
 
@@ -67,8 +67,8 @@ From now on, we can use a pattern to append the extension based on the content t
 The final pattern to use as "Destination file name" from the injector configuration is the following :
 ```java
 ${documentId}.${CurrentContainer.mimeType.substring(CurrentContainer.mimeType.indexOf("/")+1)}
-In the task configuration, the field to update is the "Destination file name" :
 ```
+In the task configuration, the field to update is the "Destination file name" :
 ![AWS injector configuration](../assets/img/cookbooks/aws-injector-configuration.png){ width="50%" }
 
 

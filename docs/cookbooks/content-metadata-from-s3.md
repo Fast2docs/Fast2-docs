@@ -19,16 +19,18 @@ For this case, let's supposed our documents have been injected in S3 bucket (dir
 
 <figure markdown>
 ```txt
-⨽ bucket S3
-    ⨽ folder_A
-    |   ⨽ document_A_1.xml
-    |   ⨽ document_A_1.pdf
-    |   ⨽ …
-    ⨽ folder_B
-    |   ⨽ document_B_1.xml
-    |   ⨽ document_B_1.pdf
-    |   ⨽ …
-    ⨽ …
+├─ Bucket S3/
+│       ├─ folder A
+│       │     ├─ document_A_1.xml
+│       │     ├─ document_A_1.pdf
+│       │     └─ ...
+│       │
+│       ├─ folder B
+│       │     ├─ document_B_1.xml
+│       │     ├─ document_B_1.pdf
+│       │     └─ ...
+│       └─...
+└─ ...  
 ```
 </figure>
 Another constraint is that the PDF path information has been set into the XML file during the serialisation prior to the injection. So, once stored in the S3 bucket, it is not up-to-date.
@@ -54,8 +56,8 @@ Optionally, you can also provide the concerned folder(s) in the Source folders i
 
 In the [AWSContentSource](../../catalog/contentsource/#AWSContentSource) task configuration, fields to fill are :
 
- • Bucket name : `${bucket}` <br/>
- • Content path (S3 object key) :
+ - Bucket name : `${bucket}` 
+ - Content path (S3 object key) :
 
 ```java
 ${s3_key.substring(0, s3_key.lastIndexOf(“/”))+”/”+docName}

@@ -19,19 +19,24 @@ For the educational aspect of this topic, let us consider a folder gathering sev
 
 Our folder looks like this:
 
+<figure markdown>
 ```txt
-ㄴ folder-to-extract
-    |
-	ㄴ contract-123-ABC.pdf
-	ㄴ contract-346-DEF.pdf
-    |
-	ㄴ bill-123-ABC.pdf
-	ㄴ bill-346-DEF.pdf
-    |
-	ㄴ draft-123-ABC.pdf
-	ㄴ draft-346-DEF.pdf
+├─ folder-to-extract
+│       ├─ contract-123-ABC.pdf
+│       ├─ contract-346-DEF.pdf
+│       │             
+│       ├─ bill-123-ABC.pdf
+│       ├─ bill-346-DEF.pdf
+│       │ 
+│       ├─ contract-123-ABC.pdf
+│       ├─ contract-346-DEF.pdf
+│       │             
+│       ├─ draft-123-ABC.pdf
+│       ├─ draft-346-DEF.pdf
+│       └─ ...
+└─ ...
 ```
-
+</figure>
 ## :thinking: Where to go ?
 
 At a glance, we are just 3 (major) steps away from having a PDF content in our punnet, with a basic dataset populated from the JSON metadata :

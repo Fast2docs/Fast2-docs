@@ -19,22 +19,25 @@ For the educational aspect of this topic, let us consider a punnet gathering sev
 
 Our punnet would look like this:
 
+<figure markdown>
 ```txt
-ㄴ punnet
-    ㄴ document_1
-        ㄴ dataset
-            ㄴ creation_date=03/3/2020 3:03:03 PM
-            ㄴ ...
-    ㄴ document_2
-        ㄴ dataset
-            ㄴ creation_date=01/1/2020 1:01:01 PM
-            ㄴ ...
-    ㄴ document_3
-        ㄴ dataset
-            ㄴ creation_date=02/2/2020 2:02:02 PM
-            ㄴ ...
-
+├─ Punnet
+│     ├─ document_1
+│     │       └─ dataset
+│     │             ├─ creation_date=03/3/2020 3:03:03 PM
+│     │             └─ ...
+│     ├─ document_2
+│     │       └─ dataset
+│     │             ├─ creation_date=01/1/2020 1:01:01 PM
+│     │             └─ ...
+│     ├─ document_3
+│     │       └─ dataset
+│     │             ├─ creation_date=02/2/2020 2:02:02 PM
+│     │             └─ ...
+│     └─ ...
+└─ ...
 ```
+</figure>
 
 As we can see, the correct order should be **document_2**, then **document_3** and finally **document_1**.
 
@@ -43,7 +46,9 @@ At a glance, we are just couple steps away from sorting our documents : we need 
 
 However we need to go through a String-to-Date conversion so the sorting will be done correctly over datetimes values, instead of alphabetical values.
 
-We will just reorganise all the documents within the punnet, they will be considered like tiles to rearrange, but we need not to mix their own data up (for obvious data integrity reasons).
+!!! Check
+
+    We will just reorganise all the documents within the punnet, they will be considered like tiles to rearrange, but we need not to mix their own data up (for obvious data integrity reasons).
 
 
 
@@ -82,9 +87,10 @@ Collections.sort(punnet.getDocuments(), compareByDate);
 
 Explanations :
 
-  • L7 : the data which you want to sort, in our case the `creation_date`<br/>
-  • L8 : the date format we deduced from the `String` value of the previous data <br/>
-  • L12-L17 : we need to parse the value as date, to compare the date as so instead of regular `String` values (which could be too approximative) <br/><br/>
+- L7 : the data which you want to sort, in our case the `creation_date`
+- L8 : the date format we deduced from the `String` value of the previous data 
+- L12-L17 : we need to parse the value as date, to compare the date as so instead of regular `String` values (which could be too approximative) <br/>
+
 The output of this task will be the same documents in the punnet, just ordered by creation date ascending.
 
 <br/>
@@ -95,21 +101,25 @@ Head out now to the Run screen, and start your campaign.
 ### 🏁 Result
 At the latest stage of your workflow, the document dataset is filled with the properties found in the JSON and integrated as metadata.
 
+<figure markdown>
 ```txt
-ㄴ punnet
-    ㄴ document_2
-        ㄴ dataset
-            ㄴ creation_date=01/1/2020 1:01:01 PM
-            ㄴ ...
-    ㄴ document_3
-        ㄴ dataset
-            ㄴ creation_date=02/2/2020 2:02:02 PM
-            ㄴ ...
-    ㄴ document_1
-        ㄴ dataset
-            ㄴ creation_date=03/3/2020 3:03:03 PM
-            ㄴ ...
+├─ Punnet
+│     ├─ document_2
+│     │       └─ dataset
+│     │             ├─ creation_date=01/1/2020 1:01:01 PM
+│     │             └─ ...
+│     ├─ document_3
+│     │       └─ dataset
+│     │             ├─ creation_date=02/2/2020 2:02:02 PM
+│     │             └─ ...
+│     ├─ document_4
+│     │       └─ dataset
+│     │             ├─ creation_date=03/3/2020 3:03:03 PM
+│     │             └─ ...
+│     └─ ...
+└─ ...
 ```
+</figure>
 
 ## 👏 Let's sum up
 We can bring this scenario further by sorting based on 2 or more data, regular `int` values or else.

@@ -26,7 +26,7 @@ Each ZIP archive embeds a PDF content as flat file, alongside a JSON listing the
 
 The metadata contained in the JSON files are simply arranged like so:
 
-<figure markdown>
+
 ```json
 {
   "agency": "Agency_name",
@@ -38,7 +38,7 @@ The metadata contained in the JSON files are simply arranged like so:
   "treatmentType": "Archiving"
 }
 ```
-</figure>
+
 
 ## 🤔 Where to go ?
 
@@ -59,9 +59,9 @@ Once accessible, the JSON file can be parsed by the [JSTransform](../../catalog/
 
 Not a big deal, right ? Let's then tackle this challenge right away, shall we !!
 
-<figure markdown>
-![TopGun GIF](../assets/img/cookbooks/top-gun_aircraft-salute.gif){ width="70%" }
-</figure>
+
+![TopGun GIF](../assets/img/cookbooks/top-gun_aircraft-salute.gif){ width="45%" }
+
 
 <br/>
 <br/>
@@ -70,7 +70,7 @@ Not a big deal, right ? Let's then tackle this challenge right away, shall we !!
 
 Inside Fast2, the map design is now pretty straightforward, given our ideas are rather clear in terms of <strike>the mission</strike> the overall order of the operations.
 
-The map is even quite close to the 3 steps detailed earlier. The [DispatchingArchive](../../catalog/converter/#DispatchingArchive) task just needs to be preceeded by a _**MimetypeFinder**_ task to highlight the archive format (here the ZIP extension is correct, but you could deal with archives without any extension, or mis-identified format).
+The map is even quite close to the 3 steps detailed earlier. The [DispatchingArchive](../../catalog/converter/#DispatchingArchive) task just needs to be preceeded by a [MimeTypeFinder](../../catalog/tool/#MimeTypeFinder) task to highlight the archive format (here the ZIP extension is correct, but you could deal with archives without any extension, or mis-identified format).
 
 That way, we end up with 4 tasks :
 
@@ -79,7 +79,7 @@ That way, we end up with 4 tasks :
 - [DispatchingArchive](../../catalog/converter/#DispatchingArchive), to open up the ZIPs,
 - [JSTransform](../../catalog/transformer/#JSTransform), to focus on the JSONs and parse its content.
 
-![Map to build for ZIP extractio](../assets/img/cookbooks/fromZip2Punnet_map.png)
+![Map to build for ZIP extraction](../assets/img/cookbooks/fromZip2Punnet_map.png)
 
 Although the configuration of the 3 first tasks can be easily guessed, the [JSTransform](../../catalog/transformer/#JSTransform) may need some extra consideration: the focus on the JSON content of the ZIP content of the document of the punnet (see where we are heading, here ? 👀) plus the parsing phase all happen here.
 
