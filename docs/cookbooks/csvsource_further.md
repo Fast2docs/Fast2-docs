@@ -3,7 +3,6 @@ title : "CSV source : a step further"
 author: Joseph TESSIER
 tags: ["csv"]
 ---
-<link href="../../stylesheets/extra.css" rel="stylesheet"></link>
 
 ![unsplash drawers](../assets/img/cookbooks/unsplash-drawers.jpg)
 
