@@ -93,15 +93,18 @@ If the dashboard component is installed, the database port also needs to be upda
 
 The more documents, the more data. The more data, the more Elasticsearch will need resources to digest, store, process data and respond to the broker.
 
-Head out to the `./opensearch-X.X.X/config/jvm.options` file.
+Head out to the `./opensearch-X.Y.Z/config/jvm.options` file.
 
 The configuration required are the following:
 
-|                Configuration | Purpose                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                     `-Xms4g` | This setting will allocate 4GB of RAM to the Elasticsearch JVM heap, directly on startup.                                                                                                                                                                                                                                         |
-|                     `-Xmx8g` | Here, you specify the maximum memory which can be used, if available, by the database.                                                                                                                                                                                                                                            |
-| `−XX:MaxDirectMemorySize=4g` | A Java process/service doesn't use only the amount of memory defined for the JVM Heap but it will make use native (off-heap) memory. <br/>For a JVM Max Heap size of 4GB, in recent versions of Elasticsearch is going to limit the `XX:MaxDirectMemorySize` to 50% of the JVM Max Heap size (2GB in our case) for direct memory. |
+| Configuration | Purpose                                                                                   |
+| ------------: | :---------------------------------------------------------------------------------------- |
+|      `-Xms8g` | This setting will allocate 8GB of RAM to the Elasticsearch JVM heap, directly on startup. |
+|      `-Xmx8g` | Here, you specify the maximum memory which can be used, if available, by the database.    |
+
+!!! warning
+
+    As specified in the `./opensearch-X.Y.Z/config/jvm.options` file, you should always set the min and max JVM heap size to **the same value**. <br /><br />See the [Official OpenSearch documentation](https://opensearch.org/docs/opensearch/install/important-settings/) for more information.
 
 For further comprehension of these parameters, check out the [Elasticsearch official documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/important-settings.html#heap-size-settings) on the topic or [OpenSearch official documenation](https://opensearch.org/docs/1.1/opensearch/install/important-settings/).
 Upgrading the metrics will prevent `java.lang.OutOfMemoryError` to pop up during heavy migration executions.
