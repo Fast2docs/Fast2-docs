@@ -66,4 +66,10 @@ strong_disabled {
     /* // --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(51, 140, 245, 0)); */
 }
 
+a.headerlink {
+    visibility: hidden;
+}
 
+h2:hover::after{
+    content:"x"
+}
