@@ -173,7 +173,7 @@ nav:
     - Shared objects: advanced/shared-objects.md
     - Custom module: advanced/custom-module.md
     - JavaScript: advanced/javascript.md
-    - HTTPS: advanced/https.md
+    - HTTPS: advanced/ui-as-https.md
     # - Optimization: advanced/optimization.md
     # - Get ready for production: advanced/get-ready-for-production.md
     - Environments specifities:
