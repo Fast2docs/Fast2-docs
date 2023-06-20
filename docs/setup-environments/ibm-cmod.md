@@ -6,7 +6,7 @@ This section here is about the raw requirement to get Fast2 to communicate with 
 
 Store under the `LD_LIBRARY_PATH` environment variable the path of the libs where the worker will have to look up for the CMOD libs (ex/ `/opt/fast2/ondemand/V10.5/www` _vs_ `/opt/fast2/ondemand/V10.5/www/lib64`).
 
-## 🐧 Linux
+## :simple-linux: Linux
 
 Make sure the 2 following `.rpm` packages, shipped in ODWEK client bundle package, are properly installed
 
@@ -35,7 +35,7 @@ When they are present they should be resolved to `/lib64/lib*.so`.
 
         (This value is hard-coded in the `libarswapi64.so` library)
 
-## ⚙️ Configure Fast2
+## :octicons-tools-24: Configure Fast2
 
 ### Required libs
 
@@ -67,7 +67,7 @@ SET PATH=%PATH%;cmod-dlls\
 %JAVA% -Djava.library.path=cmod-dlls\dll64\ -Dfile.encoding...
 ```
 
-## 🪲 Troubleshooting
+## :octicons-bug-24: Troubleshooting
 
 ### Error opening folder DLL
 
