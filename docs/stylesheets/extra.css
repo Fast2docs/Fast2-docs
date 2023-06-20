@@ -69,7 +69,3 @@ strong_disabled {
 a.headerlink {
     visibility: hidden;
 }
-
-h2:hover::after{
-    content:"x"
-}
