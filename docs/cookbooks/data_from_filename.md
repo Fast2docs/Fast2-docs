@@ -19,19 +19,24 @@ For the educational aspect of this topic, let us consider a folder gathering sev
 
 Our folder looks like this:
 
+<figure markdown>
 ```txt
-ㄴ folder-to-extract
-    |
-	ㄴ contract-123-ABC.pdf
-	ㄴ contract-346-DEF.pdf
-    |
-	ㄴ bill-123-ABC.pdf
-	ㄴ bill-346-DEF.pdf
-    |
-	ㄴ draft-123-ABC.pdf
-	ㄴ draft-346-DEF.pdf
+├─ folder-to-extract
+│       ├─ contract-123-ABC.pdf
+│       ├─ contract-346-DEF.pdf
+│       │             
+│       ├─ bill-123-ABC.pdf
+│       ├─ bill-346-DEF.pdf
+│       │ 
+│       ├─ contract-123-ABC.pdf
+│       ├─ contract-346-DEF.pdf
+│       │             
+│       ├─ draft-123-ABC.pdf
+│       ├─ draft-346-DEF.pdf
+│       └─ ...
+└─ ...
 ```
-
+</figure>
 ## :thinking: Where to go ?
 
 At a glance, we are just 3 (major) steps away from having a PDF content in our punnet, with a basic dataset populated from the JSON metadata :
@@ -47,14 +52,14 @@ At a glance, we are just 3 (major) steps away from having a PDF content in our p
 
 Inside Fast2, the map design is now pretty straightforward, given our ideas are rather clear in terms of the overall order of the operations.
 
-The map is even quite close to the 3 steps detailed earlier. The [LocalSource](/todo) task just needs to be given the path of the folders to deal with. This task will also identify the file name and attach the metadata to the document dataset.
+The map is even quite close to the 3 steps detailed earlier. The [LocalSource](../../catalog/source/#LocalSource) task just needs to be given the path of the folders to deal with. This task will also identify the file name and attach the metadata to the document dataset.
 
-Then the [JSTranform](/todo) will retrieve the corresponding document path, and carry on with the data mapping.
+Then the [JSTranform](../../catalog/transformer/#JSTransform) will retrieve the corresponding document path, and carry on with the data mapping.
 
 That way, we end up with 4 tasks :
 
-- [LocalSource](/todo), to collect the documents from local storage,
-- [JSTranform](/todo), whose role will be to :</br>
+- [LocalSource](../../catalog/source/#LocalSource), to collect the documents from local storage,
+- [JSTranform](../../catalog/transformer/#JSTransform), whose role will be to :</br>
   :one: parse the file name</br>
   :two: add the data to the dataset
 
@@ -67,7 +72,7 @@ That way, we end up with 4 tasks :
 
 ### :test_tube: JavaScript elaboration
 
-Although the configuration of the first task can be easily guessed, the [JSTranform](/todo) final resulting script should look something like this :
+Although the configuration of the first task can be easily guessed, the [JSTranform](../../catalog/transformer/#JSTransform) final resulting script should look something like this :
 
 ```js
 punnet.getDocuments().forEach(function (doc) {
@@ -133,7 +138,7 @@ At the latest stage of your workflow, the document dataset is filled with the pr
 
 ## :clap: Let's sum up
 
-We can bring this scenario further by mapping data from the parent folder(s). We would just need the document path, which can be retrieved easily, as explained in [the advanced section of how to handle the JS Tranform task](/todo).
+We can bring this scenario further by mapping data from the parent folder(s). We would just need the document path, which can be retrieved easily, as explained in [the advanced section of how to handle the JS Tranform task](../../advanced/javascript/).
 
 For a OS-proofed script (Linux or Windows have their own subtleties when it comes to paths), you may need to make sure the parsing is done correctly, by standardizing the folder-architecture-related special characters from the Windows `\` to a regular `/`.
 

@@ -1,4 +1,4 @@
-Using the _**JSTransform**_ task can comes in quite handy for any tweaking of metadata, but will also get you covered in case of heavier operations, as long as your JavaScript talents match you problem solving skills !
+Using the [JSTransform](../../catalog/transformer/#JSTransform) task can comes in quite handy for any tweaking of metadata, but will also get you covered in case of heavier operations, as long as your JavaScript talents match you problem solving skills !
 To iterate through all documents crossing your JS task, here is a short code snippet to help you get started:
 
 ```js
@@ -72,7 +72,7 @@ the ouput punnet would then look like this:
 }
 ```
 
-Next step could be to attach the document content to your document, now that you have the `contentPath` data with its value easily resolved by the _**AlterDocumentContent**_ task.
+Next step could be to attach the document content to your document, now that you have the `contentPath` data with its value easily resolved by the [AlterDocumentContent](../../catalog/transformer/#AlterDocumentContent) task.
 
 ## Example #2 <small>Delete content based on property</small> { #delete-content data-toc-label="#2: Delete specific content" }
 

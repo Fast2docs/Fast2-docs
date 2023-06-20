@@ -1,6 +1,6 @@
 ## Create your own custom task, ok but why? { #why data-toc-label="Why ?" }
 
-You are no doubt aware of both tasks, the _**XSLTransform**_ and _**JSTransform**_ (checkout [here](../javascript) for how to use the latter), which are quite handy for quick and light changes of the migrated data. For deeper customization and operations though, you might need to build a dedicated task, a dedicated injector for your in-house storage system, and so on!
+You are no doubt aware of both tasks, the [XSLTransform](../../catalog/transformer/#XSLTransform) and [JSTransform](../../catalog/transformer/#JSTransform) (checkout [here](../javascript) for how to use the latter), which are quite handy for quick and light changes of the migrated data. For deeper customization and operations though, you might need to build a dedicated task, a dedicated injector for your in-house storage system, and so on!
 
 ## Create your own custom task, how? { #how data-toc-label="How ?" }
 

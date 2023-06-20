@@ -24,6 +24,29 @@ article > * {
     font-weight: lighter;
 }
 
+img {
+    display: block;
+    float: none;
+    margin: auto;
+}
+
+.float-left{
+    display: inline;
+    float: left;
+    border: none;
+    margin: none;
+    padding-right: 1em ;
+}
+
+.float-right{
+    display: inline;
+    float: right;
+    border: none;
+    margin: none;
+    padding: auto;
+    padding-left: 1em ;
+}
+
 strong_disabled {
     font-weight: bold;
     /* --tw-gradient-from: #EC008C; // rose */
@@ -42,3 +65,5 @@ strong_disabled {
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(236, 0, 140, 0));
     /* // --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(51, 140, 245, 0)); */
 }
+
+
