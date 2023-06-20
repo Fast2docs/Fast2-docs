@@ -150,7 +150,7 @@ nav:
     - Installation: getting-started/installation.md
     - Create a workflow: getting-started/create-workflow.md
   - Components:
-    # - components/index.md
+    - components/index.md
     - Broker: components/broker.md
     - Worker: components/worker.md
     - Database: components/database.md
