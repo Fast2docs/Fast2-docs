@@ -68,7 +68,7 @@ These examples are basic ones but they highlight the interest of using cron expr
 
 ### Describe your expression
 !!! Rendering "Try it"
-    <input type="text" name="expression" id="cronExpression" class="border radius ligthGrey p-5" onChange="cronDescribe()" placeholder="Expression">
+    <input type="text" name="expression" id="cronExpression" class="border radius ligthGrey p-5" onChange="cronDescribe()" placeholder="Test here your expression">
     <div id="cronDescription"></div>
 Cron expressions can be really useful but might quite hard to use.
 
