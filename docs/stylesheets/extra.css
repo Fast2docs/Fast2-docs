@@ -69,3 +69,22 @@ strong_disabled {
 a.headerlink {
     visibility: hidden;
 }
+
+@media (min-width: 960px) {
+  .overflow-x-none > .md-typeset__scrollwrap {
+    overflow-x: hidden;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+.border {
+  border: 0.05rem solid var(--md-typeset-table-color);
+}
+.radius {
+    border-radius: 5px;
+}
+.p-5{
+    padding: 5px;
+}

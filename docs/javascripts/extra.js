@@ -27,3 +27,27 @@ async function copyTextToClipboard(text) {
     console.error("Error in copying text: ", err);
   }
 }
+
+function cronDescribe() {
+  document$.subscribe(function () {
+    var input = document.querySelector("#cronExpression");
+    var description = document.querySelector("#cronDescription");
+
+    try {
+      var requestOptions = {
+        method: "POST",
+        redirect: "follow",
+      };
+      fetch(
+        "https://www.freeformatter.com/quartz-cron2text?expression=" +
+          input.value,
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => (description.innerHTML = result))
+        .catch((error) => console.log("error", error));
+    } catch (error) {
+      console.error(error);
+    }
+  });
+}
