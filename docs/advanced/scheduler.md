@@ -44,10 +44,33 @@ A CRON is a String composed of 6 or 7 fields separated by spaces. Each field rep
 
 These examples are basic ones but they highlight the interest of using cron expressions.
 
-- `0 15 10 * * ?` &rarr; Fire at 10:15am every day
-- `* _/5 _ * * * ?` &rarr; Fire every 5th minute
-- `* 0 0 12 ? * SUN` &rarr; Fire every Sunday at noon
+<div class="overflow-x-none" markdown="block">
 
+- Every 2 minutes 
+
+| Seconds   | Minutes   | Hours	| Day Of Month  | Month | Day Of Week   | Year  |
+| :-------: | :-------: | :---: | :-----------: | :---: | :-----------: | :---: |
+| 0	        | 0/2       | *     | ?             | *     | *             | *     | 
+
+- Fire at 10:15am every day
+
+| Seconds   | Minutes   | Hours	| Day Of Month  | Month | Day Of Week   | Year  |
+| :-------: | :-------: | :---: | :-----------: | :---: | :-----------: | :---: |
+| 0	        | 15        | 10    | ?             | *     | *             | *     | 
+
+-  Fire every Sunday at noon
+
+| Seconds   | Minutes   | Hours	| Day Of Month  | Month | Day Of Week   | Year  |
+| :-------: | :-------: | :---: | :-----------: | :---: | :-----------: | :---: |
+| 0	        | 0         | 12    | ?             | *     | SUN           | *     | 
+
+</div>
+
+### Describe your expression
+!!! Rendering "Try it"
+    <input type="text" name="expression" id="cronExpression" class="border radius ligthGrey p-5" onChange="cronDescribe()" placeholder="Expression">
+    <div id="cronDescription"></div>
+    
 Cron expressions can be really useful but might quite hard to use.
 
 !!! tip "Build it yourself"
