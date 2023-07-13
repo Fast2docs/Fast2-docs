@@ -27,3 +27,14 @@ async function copyTextToClipboard(text) {
     console.error("Error in copying text: ", err);
   }
 }
+
+//FIX SCRIPT ISSUE
+document$.subscribe(function () {
+  var localIsClean = localStorage.getItem("clean") == "true";
+
+  if (!localIsClean) {
+    localStorage.clear();
+    localStorage.setItem("clean", "true");
+    console.log("clean localstorage");
+  }
+});
