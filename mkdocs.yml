@@ -171,15 +171,15 @@ nav:
     - Patterns: advanced/patterns.md
     - Scheduler: advanced/scheduler.md
     - Shared objects: advanced/shared-objects.md
-    - Custom module: advanced/custom-module.md
+    # - Custom module: advanced/custom-module.md
     - JavaScript: advanced/javascript.md
     - HTTPS: advanced/ui-as-https.md
     # - Optimization: advanced/optimization.md
     # - Get ready for production: advanced/get-ready-for-production.md
-    - Environments specifities:
-      - setup-environments/index.md
-      - Setup for Documentum: setup-environments/documentum.md
-      - Setup for IBM CMOD: setup-environments/ibm-cmod.md
+    # - Environments specifities:
+    #   - setup-environments/index.md
+    #   - Setup for Documentum: setup-environments/documentum.md
+    #   - Setup for IBM CMOD: setup-environments/ibm-cmod.md
   # - Resources:
   #- 🟠 FAQ:
   #  - "FAQ & Troubleshooting" : faq-troubleshooting/index.md
