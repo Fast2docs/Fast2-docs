@@ -137,7 +137,7 @@ extra_css:
   - stylesheets/extra.css
 
 extra_javascript:
-  - javascripts/extra.js
+  - javascripts/extra.js?v1
 
 
 # -----------------------------------------------------   # Page tree
