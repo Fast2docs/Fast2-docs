@@ -36,4 +36,8 @@ This comprehensive resource is designed to provide you with all the information 
 
 We hope this documentation proves valuable in your journey with Fast2. If you have any suggestions, feedback, or questions regarding the documentation, please don't hesitate to reach out. Enjoy exploring Fast2 and unlocking its full potential!
 
+!!! Note
+
+    For advanced questions or further assistance, please head out to the [Fast2 Support Customer Portal](https://arondor.atlassian.net/servicedesk/customer/portal/82).
+
 Fast2 Team ✌️
