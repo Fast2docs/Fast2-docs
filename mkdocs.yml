@@ -173,7 +173,7 @@ nav:
     - Shared objects: advanced/shared-objects.md
     # - Custom module: advanced/custom-module.md
     - JavaScript: advanced/javascript.md
-    - HTTPS: advanced/ui-as-https.md
+    # - HTTPS: advanced/ui-as-https.md
     # - Optimization: advanced/optimization.md
     # - Get ready for production: advanced/get-ready-for-production.md
     # - Environments specifities:
@@ -189,12 +189,15 @@ nav:
     - Documents management: cookbooks/document_basics.md
     - Contents management: cookbooks/content_basics.md
     - Dataset management: cookbooks/dataset_basics.md
-    - Interact with a SQL database: cookbooks/jdbc-for-sql.md
     - From ZIP to punnet: cookbooks/from-zip-to-punnet.md
     - Upload content and metadata in a S3 bucket : cookbooks/upload-content-and-metadata-in-s3.md
     - Retrieve content and metadata from an S3 bucket: cookbooks/content-metadata-from-s3.md
     - "CSV source : a step further" : cookbooks/csvsource_further.md
-    - Sort documents in a punnet: cookbooks/js-sort-documents.md
+    # now in Knowledge-Base:
+    # - Sort documents in a punnet: cookbooks/js-sort-documents.md 
+    - Sort documents in a punnet: https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4009459769 
+    # - Interact with a SQL database: cookbooks/jdbc-for-sql.md
+    - Interact with a SQL database: https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4008771588
     - Data from file name: cookbooks/data_from_filename.md
   # - 🟠 Release notes:
   #   - release-notes/index.md
