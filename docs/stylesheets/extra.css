@@ -15,6 +15,29 @@ a.external-link:link::after {
     /* font-family: themify; */
 }
 
+nav > div > ul > li > a[href^="https://arondor.atlassian.net/servicedesk/"] {
+    border : 1px solid orange;
+    padding: 7px 20px;
+    border-radius: 20px;
+    /* background: #1a97a7!important; */
+    box-shadow: 2px 3px 8px 3px rgba(0, 0, 0, 0.2);
+    /* box-shadow: -20px 20px 60px #16808e, 20px -20px 60px #1eaec0!important; */
+    align-items: center;
+}
+/* nav>div>ul>li>a[href^="https://arondor.atlassian.net/servicedesk/"]::before {
+    content:url(https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/material/.icons/fontawesome/solid/headset.svg);
+    max-height: 1rem; 
+    background-image: url(https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/material/.icons/fontawesome/solid/headset.svg);
+    background-size: 15px;
+    background-position: 0px 0px;
+    display: inline-block;
+    top: 0px;
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-repeat: no-repeat;
+} */
+
 .md-grid {
     max-width: 65rem;
 }
