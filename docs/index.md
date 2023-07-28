@@ -38,6 +38,6 @@ We hope this documentation proves valuable in your journey with Fast2. If you ha
 
 !!! Note
 
-    For advanced questions or further assistance, please head out to the [Fast2 Support Customer Portal](https://arondor.atlassian.net/servicedesk/customer/portal/82).
+    For advanced questions or further assistance, please head out to the [Fast2 Support Customer Portal](https://arondor.atlassian.net/servicedesk/customer/).
 
 Fast2 Team ✌️
