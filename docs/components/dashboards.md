@@ -80,7 +80,7 @@ If this port needs to be exposed and accessible from a different machine, the da
 server.host: "0.0.0.0"
 ```
 
-### What is the database port is changed ?
+### What if the database port is changed ?
 
 To make sure the dashboards still reach the database, make sure the port is still up-to-date in the dashboards config file :
 
