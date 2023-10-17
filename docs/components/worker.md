@@ -57,6 +57,15 @@ In order to have specific worker tied to particular queues, the configuration ne
 # worker.queue.regex=.*
 ```
 
+### Disabled the embedded worker
+
+In case serveral workers are required for specific queues and tasks, there might be no more need of the embedded worker itself. To make sure not to have it running pointlessly, this worker can be disactivated from the `./config/application.properties` files, as so :
+
+```ini title="./config/application.properties" hl_lines="2"
+# Disable auto-launch of embedded worker
+broker.embedded.worker.autostart=false
+```
+
 ## :octicons-zap-24: Advanced use
 
 One of the major aspects of a promising migration project is what all project managers will ask you to vouch for: performance metrics.
