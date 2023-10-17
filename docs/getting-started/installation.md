@@ -3,7 +3,6 @@ weight: 10
 draft: false
 
 title: Installation
-icon: las la-laptop-code
 ---
 
 ## Requirements

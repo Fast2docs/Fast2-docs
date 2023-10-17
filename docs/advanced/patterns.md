@@ -2,7 +2,6 @@
 draft: false
 
 title: Patterns
-icon: las la-magic
 tags: ["configuration", "Java"]
 ---
 
