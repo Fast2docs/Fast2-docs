@@ -97,7 +97,7 @@ markdown_extensions:
 
 
 # ---------------------------------------------------------   Footer 
-copyright: Copyright &copy; 2019 - 2022 Fast2 — All rights reserved
+copyright: Copyright &copy; 2019 - 2023 Fast2 — All rights reserved
 
 extra:
   social:
@@ -200,6 +200,7 @@ nav:
     - Interact with a SQL database: https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4008771588
     - Data from file name: cookbooks/data_from_filename.md
   - "Get Support" : https://arondor.atlassian.net/servicedesk/customer/portals
+  - "Search the Knowledge-Base" : "https://arondor.atlassian.net/servicedesk/customer/portals?q="
   # - 🟠 Release notes:
   #   - release-notes/index.md
   #   - v2.5.0: release-notes/2.5.0.md
