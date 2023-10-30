@@ -39,7 +39,7 @@ This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco RE
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Max item to return per call | `Integer` | Set the paging max items threshold to specify the number of Alfresco objects to retrieve per call. | `100 ` | 
- | Fields to extract | `String` | The less the better ! Only the 'id' is necessary to start the migration workflow. Separate the different values with a comma, no space. Use properties from `com.alfresco.client.api.common.constant.PublicAPIConstant` library. <br/> <p> Ex/  id,name</p> | `id ` | 
+ | Fields to extract | `String` | The less the better ! Only the 'id' is necessary to start the migration workflow. Separate the different values with a comma, no space. Use properties from <a href="https://github.com/Alfresco/alfresco-client-sdk/blob/master/client-java/alfresco-java-client/src/main/java/com/alfresco/client/api/common/constant/PublicAPIConstant.java#L27">com.alfresco.client.api.common.constant.PublicAPIConstant</a> library. <br/> <p> Ex/  id,name</p> | `id ` | 
 
 
 
@@ -61,8 +61,8 @@ Through an SQL query, this alfresco extractor will use the CMIS technology to fe
 | - | - | - | - |
  | Property Helper | PropertyHelper |  | 
  | Number of items per result page | `Integer` | Maximum number of results provided | `1 ` | 
- | Extract document properties | `Boolean` |  | `true ` | 
  | Number of documents per punnet | `Integer` |  | `1 ` | 
+ | Extract document properties | `Boolean` |  | `true ` | 
  | Keep folder structure within document | `Boolean` | requires extractProperties to be true | `true ` | 
  | Extract document content | `Boolean` | Does not work asynchronously | `false ` | 
 
@@ -156,14 +156,14 @@ This task can be used to start a migration from a CSV file. By default, the firs
  | Folder path for error CSV file | `String` | The error file will be stored in your system. You can choose where by configuring this very field. Here as well you can set the path either with workflow properties (`${...}`) or hard-write it | `./csv_errors/ ` | 
  | Number of lines to skip | `Integer` | This option helps to skip lines, meaning their data will not be processed. By default, only the 1st line is skipped considering it surely consists in the headers row <br/> <p> Ex/  In a file of 10 lines, putting '3' in the input field will skip the 1st, 2nd and 3rd lines</p> | `1 ` | 
  | Generate hash of CSV content | `Boolean` | The hash of the content will be generated and stored in the punnet among a property named hashData | `false ` | 
- | Continue on fail | `Boolean` | If enabled, the following errors will not trigger an exception: <br />- CSV file does not exist <br />- CSV file is empty (no line) <br />- CSV file has only headers and no line for documents.<br /><br />Note that if you give 5 CSV paths and the number 3rd is in error, only the Fast2 logs will provide information regarding the failing CSV file. | 
  | Column headers in first CSV file only | `Boolean` | Only read column definitions from the first parsed CSV file | `false ` | 
+ | Continue on fail | `Boolean` | If enabled, the following errors will not trigger an exception: <br />- CSV file does not exist <br />- CSV file is empty (no line) <br />- CSV file has only headers and no line for documents.<br /><br />Note that if you give 5 CSV paths and the number 3rd is in error, only the Fast2 logs will provide information regarding the failing CSV file. | 
  | File encoding | `String` | CSV encoding character set | `UTF-8 ` | 
  | CSV separator | `String` | Only the first character will be considered | `; ` | 
  | Associate CSV-errors file with original CSV filename | `Boolean` | This checkbox allows you to match your error file with your original CSV file, just suffixing the original name with '_KO'. That way, if you use multiple files, all the lines in error will be grouped by file name. Using this option overwrite the *File name for error CSV file*, but still can be used in addition of the *Folder path for error CSV file* | `false ` | 
  | Stop at first error in CSV | `Boolean` | Fast2 will automatically be stopped at the first error encountered in the CSV | `false ` | 
- | File scanner (Deprecated) | FileScanner | *THIS OPTIONS IS DEPRECATED*, consider using the 'CSV paths' instead. | 
  | Column of document ID | `String` | Column header of the metadata to set as the document ID | `documentId ` | 
+ | File scanner (Deprecated) | FileScanner | *THIS OPTIONS IS DEPRECATED*, consider using the 'CSV paths' instead. | 
  | Document property name containing CSV file path | `String` | Set to empty or null to disable | 
  | Move to path when finished | `String` | Consider using ${variable} syntax | 
  | Document per punnet | `Integer` | Number of documents each punnet punnet will carry <br/> <p> Ex/  By setting this value to 2, each punnet created will contained 2 documents</p> | `1 ` | 
@@ -207,7 +207,7 @@ The FileNet35Source retrieves existing documents from the FileNet P8 3.5 ECM thr
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Attribute used for Document IDs | `String` | Name of the FileNet P8 3.5 attribute corresponding to the values ​​retrieved in the Document IDs list | `Id ` | 
+ | Attribute used for Document IDs | `String` | Name of the FileNet P8 3.5 attribute corresponding to the values ??retrieved in the Document IDs list | `Id ` | 
  | Empty punnet when no result | `Boolean` | An empty punnet will be created even if the result of the query is null | `false ` | 
  | Documents per punnet | `Integer` | Number of documents each punnet punnet must carry on <br/> <p> Ex/  By setting this value to 2, each punnet created will contained 2 documents</p> | `1 ` | 
  | Document IDs | DocumentIdList | Source list of documents to extract from their IDs | 
@@ -231,8 +231,8 @@ The FileNetSource source retrieves existing documents from the FileNet P8 5.x EC
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Documents per punnet | `Integer` | Number of documents each punnet punnet must carry on <br/> <p> Ex/  By setting this value to 2, each punnet created will contained 2 documents</p> | `1 ` | 
  | Number of entries per result page | `Integer` | Number of results returned per page by the FileNet P8 query | `1000 ` | 
+ | Documents per punnet | `Integer` | Number of documents each punnet punnet must carry on <br/> <p> Ex/  By setting this value to 2, each punnet created will contained 2 documents</p> | `1 ` | 
  | Extract object type properties | `Boolean` | The FileNet P8 metadata of the document which are Object type will be saved at the punnet level | `false ` | 
  | Extract FileNet system properties | `Boolean` | System metadata during extraction is saved at the punnet level | `false ` | 
  | Properties to extract | `String list` | Exhaustive list of FileNet metadata to extract. If empty, all properties will be extracted. | 
@@ -258,7 +258,7 @@ This class will search for local files to analyze them from a defined path
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Fallback XML/Json parsing | `Boolean` | If true, the file will be added as document content in the punnet when XML parsing fails. Consider adding this file as a regular file (not an XML) | `false ` | 
+ | Fallback XML parsing | `Boolean` | If true, the file will be added as document content in the punnet when XML parsing fails. Consider adding this file as a regular file (not an XML) | `false ` | 
  | Skip parse exceptions | `Boolean` | The task does not throw an error when XML parsing fails. Do not stop parsing and resume to next candidate | `false ` | 
  | XSL Stylesheet path | `String` | The XSL stylesheet file to use when parsing XML files | 
  | Number of files per punnet | `Integer` | If the files are not in XML format, the punnet will contain as many documents as defined in this option | `1 ` | 

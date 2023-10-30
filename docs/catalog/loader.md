@@ -163,21 +163,21 @@ Use this task to inject documents and data into a FileNet P8 3.5
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Try using 'DocumentTitle' property | `Boolean` | When filing a document in a folder, try to use the FileNet DocumentTitle property for the RelationShip name | 
- | Dry run | `Boolean` | Needs to set 'UpdatingBatch on documents' to `true` | 
  | Process multi-pages content as multi-content | `Boolean` | Treat the content of multi-pages document as multi-content document in FileNet. | 
+ | Dry run | `Boolean` | Needs to set 'UpdatingBatch on documents' to `true` | 
  | WHERE clause for folder case | `String` | where clause to define for case research | 
  | Restrain search results to documents | `Boolean` | Force Document search to limit to the class name provided on the document | 
  | Only process 1st content | `Boolean` | Relevant for multi-content documents | 
  | Restrain search results to folders | `Boolean` | Force folder search to limit to the class name provided on the folder | 
  | Skip content injection | `Boolean` | Skip document content injection, only load the metadata and/or annotations of the processed document | 
  | Skip document unfiling | `Boolean` | Force to skip Document unfiling to existing folders before linking it to the provided folders ; new linkages will be added to the existing ones | 
- | Restrain search results to case | `Boolean` | Force case search to limit to the class name provided on the case | 
  | Clear in-place annotations | `Boolean` | If source document contains annotations, cleanup existing ones in P8 | 
+ | Restrain search results to case | `Boolean` | Force case search to limit to the class name provided on the case | 
  | Synchronous folder creation | `Boolean` | Enforce synchronous folder creation, to make them more thread-safe | `true ` | 
  | Metadata carrying document UUID | `String` | Leave empty to disable updating | `fileNetDocumentId ` | 
- | WHERE clause for folder research | `String` | Fast2 will update all folders matching the following WHERE statement | 
- | Force deletion | `Boolean` | If no matching document can be found, an error is thrown | 
  | Variable name of annotation ID | `String` | Variable name of annotation id used to replace it by generated FileNet annotation id | `${annotationId} ` | 
+ | Force deletion | `Boolean` | If no matching document can be found, an error is thrown | 
+ | WHERE clause for folder research | `String` | Fast2 will update all folders matching the following WHERE statement | 
  | Associate annotation FileNet ID to its content | `Boolean` | Update annotation content with its generated FileNet id according to annotation id variable | 
  | Delete in-place version | `Boolean` | Delete the last document version after checkin a new one | 
  | Update system properties | `Boolean` | It can only be used for either document creation or update (when a new version is created) | 
@@ -206,11 +206,11 @@ Use this task to inject documents and data into a FileNet. If all documents have
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Property Helper | [PropertyHelper](../tool/#PropertyHelper) |  | 
  | Try using 'DocumentTitle' property | `Boolean` | When filing a document into a folder, try to use the FileNet 'DocumentTitle' for the RelationShip name | 
- | Dry run | `Boolean` | Do not perform anything, just prepare UpdatingBatch and drop when finished. It implies to activate 'Use UpdatingBatch on documents'. | 
- | Keep original VersionSeries ID | `Boolean` | If true, Fast2 will create the multiversion documents with the VersionSeries ID specified in the 'VersionSeries metadata' configuration field. | 
+ | Property Helper | [PropertyHelper](../tool/#PropertyHelper) |  | 
  | Process multi-pages content as multi-content | `Boolean` | Treat the content of multi-pages document as multi-content document in FileNet | 
+ | Keep original VersionSeries ID | `Boolean` | If true, Fast2 will create the multiversion documents with the VersionSeries ID specified in the 'VersionSeries metadata' configuration field. | 
+ | Dry run | `Boolean` | Do not perform anything, just prepare UpdatingBatch and drop when finished. It implies to activate 'Use UpdatingBatch on documents'. | 
  | Restrain search results to documents | `Boolean` | Force Document search to limit to the class name provided on the document | 
  | Metadata carrying parent folder UUID | `String` | Name of the metadata where Fast2 will store the UUID of the parent folder of the document injected into FileNet P8. Leave empty to disable updating | 
  | Only process 1st content | `Boolean` | When a document has multiple contents, its forces to process the first one only. The others are then skipped | 
@@ -222,11 +222,11 @@ Use this task to inject documents and data into a FileNet. If all documents have
  | Auto-classiify at checking | `Boolean` | Enable the FileNet Auto-Classify feature when the document is at checking stage | 
  | Clear in-place annotations | `Boolean` | If source document contains annotations, clean up existing ones in P8 | 
  | Synchronous folder creation | `Boolean` | Enforce synchronous folder creation, to make them more thread-safe | `true ` | 
- | Safe update of document | `Boolean` | Try updating a document. If no older version of the document can be found, create it | 
  | Metadata carrying document UUID | `String` | Name of the metadata where Fast2 will store the UUID of the document injected into FileNet P8. Leave empty to disable updating | `fileNetDocumentId ` | 
- | Use UpdatingBatch of folders | `Boolean` | Use FileNet UpdatingBatch also for folders creation, which may not be thread-safe | 
- | Force deletion | `Boolean` | Force document delete action. If no matching document can be found, an error is thrown | 
+ | Safe update of document | `Boolean` | Try updating a document. If no older version of the document can be found, create it | 
  | Variable name of annotation ID | `String` | Variable name of annotation id used to replace it by generated FileNet annotation id | `${annotationId} ` | 
+ | Force deletion | `Boolean` | Force document delete action. If no matching document can be found, an error is thrown | 
+ | Use UpdatingBatch of folders | `Boolean` | Use FileNet UpdatingBatch also for folders creation, which may not be thread-safe | 
  | Associate annotation FileNet ID to its content | `Boolean` | Update annotation content with its generated FileNet id according to annotation id variable | 
  | Delete in-place version | `Boolean` | Delete the last document version after checkin a new one | 
  | Update system properties | `Boolean` | It can only be used for either document creation or update (when a new version is created) | 
@@ -234,9 +234,9 @@ Use this task to inject documents and data into a FileNet. If all documents have
  | Default MimeType | `String` | The mime-type to set when no MimeType has been provided neither in document nor its content | 
  | Limit CE connection life-time | `Long` | At end of TTL, the connection will be replaced by a brand new one | `Long.MAX_VALUE ` | 
  | Fields to update | `String` | Default query to select fields to update | `* ` | 
- | Force folder creation | `Boolean` | Overwrite folder canCreate property : create folders when they do not exist | 
  | Post-commit delta | `Integer` | Time to wait after a commit instruction, may be useful to let FileNet perform asynchronous handling of document injection | `0 ` | 
  | VersionSeries metadata | `String` | Name of the VersionSeries property common to all documents in punnet. If all documents have the same value, they will be considered as one same multiversioned document in FileNet. | `VersionSeries ` | 
+ | Force folder creation | `Boolean` | Overwrite folder canCreate property : create folders when they do not exist | 
  | Prevent document overwriting | `Boolean` | Check if the document already exists before creating it using `WHERE` clause. You can throw an exception in case an older document can be found (see _Throw exception if document already exists_). If false, create all documents without control | 
  | Force to perform update | `Boolean` | Force document Update action. In case the document did not exist, an error is thrown | 
  | WHERE clause for update | `String` | The criteria which the documents to update will have to match <br/> <p> Ex/  [Id]=${myFileNetDocumentId}</p> | 
@@ -326,8 +326,8 @@ This task load documents and metadata into a given Nuxeo instance using the Nuxe
  | Attach document data | `Boolean` | Check this option to map the document data to Nuxeo properties | `true ` | 
  | Injection path | `String` | Default path to inject your documents | `/ ` | 
  | Attach folders | `Boolean` | Check this option to upload the documents into a specified folder architecture based on the details embedded in the document | `true ` | 
- | Replace document if already present | `Boolean` | Check this option to replace all versions of a document in Nuxeo, based on the data `documentId`. This feature acts like a replacement. If the document did not already exist, then it will be created from scratch. | 
  | Delete annotations when they already exist | `Boolean` |  | `true ` | 
+ | Replace document if already present | `Boolean` | Check this option to replace all versions of a document in Nuxeo, based on the data `documentId`. This feature acts like a replacement. If the document did not already exist, then it will be created from scratch. | 
  | Attach content | `Boolean` |  | `true ` | 
 
 
@@ -395,8 +395,8 @@ With this task, you will be able to perform any SQL instruction (such as inserti
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Inject annotations | `Boolean` | Fast2 will either throw an error if the statement has not properly been executed, or fail silently | 
- | Skip exceptions | `Boolean` |  | 
+ | Inject annotation | `Boolean` | Fast2 will either throw an error if the statement has not properly been executed, or fail silently | 
+ | Inject annotations | `Boolean` |  | 
 
 
 

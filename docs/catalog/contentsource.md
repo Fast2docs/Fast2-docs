@@ -77,17 +77,13 @@ This class is dedicated to the extraction of content for the Content Manager sol
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Extract document annotation | `Boolean` |  | `false ` | 
+ | Extact history logs | `Boolean` |  | `true ` | 
  | Extract advanced system properties from DKDDO object | `Boolean` |  | `true ` | 
  | Extract standard system properties | `Boolean` |  | `true ` | 
+ | Extract document annotation | `Boolean` |  | `false ` | 
  | Extract note logs | `Boolean` |  | `false ` | 
- | Default page height | `Float` | This value is used when converting annotations to XFDF. Its type is float. | `842.0f ` | 
- | Extract note logs as annotations | `Boolean` |  | `false ` | 
  | Extract custom properties | `Boolean` |  | `true ` | 
- | Annotation converter | CMAnnotationConverter |  | 
- | Extact history logs | `Boolean` |  | `true ` | 
- | Default page width | `Float` | This value is used when converting annotations to XFDF. Its type is float. | `595.0f ` | 
- | Save annotations as XFDF | `Boolean` | If disabled, annotations will be saved under raw CM format. | `true ` | 
+ | Extract note logs as annotations | `Boolean` |  | `false ` | 
  | Extract document content | `Boolean` |  | `true ` | 
 
 
@@ -122,8 +118,8 @@ This Documentum connector is designed for extraction of document versions, metad
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Connexion information to Documentum Repository | [DctmConnectionProvider](../credentials/#DctmConnectionProvider) |  | 
  | Extract folders | `Boolean` |  | `true ` | 
+ | Connexion information to Documentum Repository | [DctmConnectionProvider](../credentials/#DctmConnectionProvider) |  | 
  | Extract renditions | `Boolean` | Check this option to extract renditions of each document. They will be attached as side-contents in the document, with properties populated from original renditions properties. | 
  | Whitelist for metadata to extract | `String` | All values need to be separated by comma `,`. | 
  | Extract metadata | `Boolean` |  | `true ` | 
@@ -176,11 +172,11 @@ This task is not a real source task. The documents to be extracted are identifie
  | Skip annotation exceptions | `Boolean` | Extract documents even if related annotations are in exception like null content | `false ` | 
  | Default mimetype | `String` | Default mimetype to set if the one from FileNet is empty | 
  | Extract FileNet security | `Boolean` | The security of the document will be saved at the punnet level | `false ` | 
- | SQL fetch query | `String` | Use this SQL to fetch documents based on your criteria. <br/> <p> Ex/  SELECT [Id],[DocumentTitle] FROM Document WHERE [Property] = '${myCriterion}'</p> | 
  | Extract folders absolute path | `Boolean` | The absolute path of the folder inside the FileNet instance will be extracted during the process | `false ` | 
+ | SQL fetch query | `String` | Use this SQL to fetch documents based on your criteria. <br/> <p> Ex/  SELECT [Id],[DocumentTitle] FROM Document WHERE [Property] = '${myCriterion}'</p> | 
  | Extract content | `Boolean` | The document content will be extracted during the process | `true ` | 
- | Extract annotations | `Boolean` | All annotations owned by the document will be extracted | `true ` | 
  | Extract all versions | `Boolean` | Extract the superseded versions of the documents matching the query | 
+ | Extract annotations | `Boolean` | All annotations owned by the document will be extracted | `true ` | 
 
 
 
@@ -193,8 +189,8 @@ This task extracts documents from the Panagon Image Services ECM (indexes, optio
 |Key      | Type    | Description | 
 | - | - | - |
  | Password | `String` | Password of the aforementioned username | 
- | Connection domain | `String` | Domain name of the connection | 
  | Connection organization | `String` | Organization name for the connection | 
+ | Connection domain | `String` | Domain name of the connection | 
  | Username | `String` | Login with scope to access the docbase with proper rights | 
 
 
@@ -227,7 +223,7 @@ It consists of the following columns, separated by a comma:
 - Length: length of the metadata. If the value is greater than this length, then it will be truncated. If the value is lower, it will be completed by spaces on the right \n
 - Offset: position in MDO file \n
 - Mandatory: Y / N \n
-- Occurs: number of occurrences allowed for the field. The successive values ​​of the field will then be added to the values ​​of the metadata (respecting the Length parameter for each one) \n
+- Occurs: number of occurrences allowed for the field. The successive values ??of the field will then be added to the values ??of the metadata (respecting the Length parameter for each one) \n
 - Type: Type of metadata to add to the punnet document \n
 
 
@@ -247,8 +243,8 @@ The MDOParserExternalContent task is used to retrieve external content for each 
  | File scanner | FileScanner | Recovers your files | 
  | Date format | `String` | Date format used in MDO file. Must be the same for each line of the document | `yyyy-MM-dd ` | 
  | Property name containing path content | `String` | Name of the field in the configuration file that contains the path to the content. If not filled, the content will not be saved in the punnet | 
- | Dataline property name | `String` | Name of the metadata that will contain the MDO line read. If not specified, the line read will not be saved in the punnet | 
  | Create one punnet for each document of FWTF | `Boolean` | If true then a punnet with one document will be created for each entry in the MDO file. Otherwise, one punnet will be created containing as many documents as there are entries in the MDO file | `false ` | 
+ | Dataline property name | `String` | Name of the metadata that will contain the MDO line read. If not specified, the line read will not be saved in the punnet | 
  | contentLocationAbsolute | `Boolean` |  | 
  | Last punnet property name | `String` | Data name indicating which punnet is the last of document in punnet. If null, data isn't added in punnet. For multipunnet case only | 
 
@@ -272,8 +268,8 @@ Like the MDOParserExternalContent task, the MDOParserExternalContent source allo
  | File scanner | FileScanner | Recovers your files | 
  | Date format | `String` | Date format used in MDO file. Must be the same for each line of the document | `yyyy-MM-dd ` | 
  | End tag | `String` | End tag property name signifying the end of the content | 
- | Dataline property name | `String` | Name of the metadata that will contain the MDO line read. If not specified, the line read will not be saved in the punnet | 
  | Create one punnet for each document of FWTF | `Boolean` | If true then a punnet with one document will be created for each entry in the MDO file. Otherwise, one punnet will be created containing as many documents as there are entries in the MDO file | `false ` | 
+ | Dataline property name | `String` | Name of the metadata that will contain the MDO line read. If not specified, the line read will not be saved in the punnet | 
  | Last punnet property name | `String` | Data name indicating which punnet is the last of document in punnet. If null, data isn't added in punnet. For multipunnet case only | 
  | Original text content property name | `String` | Data name containing original text content. If null, data isn't added in the punnet | 
 

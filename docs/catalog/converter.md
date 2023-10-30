@@ -16,6 +16,23 @@ Zip punnets into a zip file. A zip cannot contains a few punnets but documents c
 
 
 
+## ConvertCMToP8 <small> - Convert CM annotations to FileNet P8 annotations. Input annotation format is INI. </small> {#ConvertCMToP8 data-toc-label="ConvertCMToP8"}
+
+Supported types : <ul><li>CMBAnnotationConstants.ANN_TEXT</li><li>CMBAnnotationConstants.ANN_ARROW</li><li>CMBAnnotationConstants.ANN_HIGHLIGHT</li><li>CMBAnnotationConstants.ANN_NOTE</li><li>CMBAnnotationConstants.ANN_RECT</li><li>CMBAnnotationConstants.ANN_LINE</li><li>CMBAnnotationConstants.ANN_STAMP</li><li>CMBAnnotationConstants.ANN_NOTE</li><li>CMBAnnotationConstants.ANN_MASK</li><li>Polygon</li><li>Freehand</li><ul>
+
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | ViewOne annotation parser | ViewOneAnnotationConverter |  | 
+ | Transform rectangle into highlight | `Boolean` | Rectangles does not support transparency. Turn them into highlight to keep tranparency | `false ` | 
+ | Apply ratio | `Boolean` | Transform annotation positions using document DPI | `true ` | 
+ | Watermarks on all pages | `Boolean` | Apply watermark annotations on each pages of the document | `false ` | 
+
+
+
 ## ConvertDoc <small> - Document conversion </small> {#ConvertDoc data-toc-label="ConvertDoc"}
 
 Convert your documents using the ConvertDoc library.
@@ -57,8 +74,8 @@ To improve the performances add these 3 parameters to the startup-worker.bat scr
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Postit annotation position | PageRelativePosition | Default position when an exception is thrown | 
  | Overload text and postit page to the first one if related exception is thrown | `Boolean` |  | 
+ | Postit annotation position | PageRelativePosition | Default position when an exception is thrown | 
  | Skip conversion error | `Boolean` | Do not throw an exception for conversion errors | `false ` | 
  | All note font are black | `Boolean` |  | 
  | Keep converted annotations | `Boolean` | Do not interrupt punnets if at least one annotation has been converted. Punnets carrying annotations that haven't been converted will be flagged with a data named 'ToReplay' | `false ` | 
@@ -125,8 +142,8 @@ This class allows you to compress your PDF files in order to be lighter than ori
  | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | Maximum ratio to apply | `Float` | Images will not beconverted if the ratio computation is larger to this value | `1.0 ` | 
  | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
- | Target DPI | `Integer` | Required target Image dpi | `300 ` | 
  | Target compression quality | `Float` |  | `0.7 ` | 
+ | Target DPI | `Integer` | Required target Image dpi | `300 ` | 
 
 
 
@@ -232,8 +249,8 @@ Convert your talk files to PDF using iText Library.
  | Charset used for text | `String` |  | `windows-1252 ` | 
  | Tiff embed annotations | `Boolean` |  | 
  | Fail if no annotation was parsed | `Boolean` |  | 
- |  | `Integer` |  | 
  | Skip annotation parse exceptions | `Boolean` |  | 
+ |  | `Integer` |  | 
 
 
 
@@ -248,6 +265,36 @@ Convert your XFDF annotations P8 format. This is mostly used to rollback from P8
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Skip conversion error | `Boolean` | Do not throw an exception when a conversion is triggered | `true ` | 
+
+
+
+## ConverterCMToXFDF <small> - Convert CM annotations to XFDF annotations </small> {#ConverterCMToXFDF data-toc-label="ConverterCMToXFDF"}
+
+Supported types : <ul><li>CMBAnnotationConstants.ANN_TEXT</li><li>CMBAnnotationConstants.ANN_ARROW</li><li>CMBAnnotationConstants.ANN_HIGHLIGHT</li><li>CMBAnnotationConstants.ANN_STAMP</li><li>CMBAnnotationConstants.ANN_RECT</li><ul>
+
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+ | fontConversionList | `String` |  | 
+ |  | PageRelativePosition |  | 
+ |  | double |  | 
+ |  | `Float` |  | 
+ |  | `Integer` |  | 
+ |  | PageRelativePosition |  | 
+ |  | `String` |  | 
+ |  | `String` |  | 
+ |  | [I |  | 
+ |  | PageRelativePosition |  | 
+ |  | `Float` |  | 
+ |  | `Float` |  | 
+ |  | `Integer` |  | 
+ |  | `String` |  | 
+ |  | `Float` |  | 
+ |  | `String` |  | 
+ |  | `Float` |  | 
 
 
 
@@ -288,8 +335,8 @@ This class allow you to convert emails to a PDF format. Formats supported are ap
  | Custom mail header | `String` | Mail header to prefix the subject of the mail as pdf title in ARender | `Mail ` | 
  | includeInlineBodyWithHeaders | `Boolean` |  | 
  | Convert Configuration | Eml2PdfConfiguration | Mail to pdf convert options. Can be null | 
- | Attachment in separate folder | `Boolean` | All attachments are included in a separated folder | `false ` | 
  | Mail subject in title | `Boolean` | Display mail subject in title | `true ` | 
+ | Attachment in separate folder | `Boolean` | All attachments are included in a separated folder | `false ` | 
  | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
  | Separator | `String` | Separator between prefix and mail subject | `: ` | 
  | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
@@ -466,10 +513,10 @@ This task serializes document metadata in an MDO file format with a fixed length
  | Throw exception on missing mandatory data | `Boolean` | Throw exceptions if mandatories data are missing. Otherwise, silent fail | `false ` | 
  | MDO format specification file path | `String` | CSV configuration file path containing MDO format specification | 
  | End tag of document content | `String` |  | 
- | Data name to add dataline into document data | `String` | If null data isn't added in document | 
  | Skip from specific index | `Integer` | Skip writing documents from this index | `0 ` | 
- | Fallback on missing data | `Boolean` | When data is missing in the document being written, try to search it in the first document | `true ` | 
+ | Data name to add dataline into document data | `String` | If null data isn't added in document | 
  | MDO-format with internal content | `Boolean` | Generate MDO-format document with internal content | `false ` | 
+ | Fallback on missing data | `Boolean` | When data is missing in the document being written, try to search it in the first document | `true ` | 
  | Data name containing original text content | `String` | If null text content isn't added to MDO file, internal content only | 
 
 
@@ -522,8 +569,8 @@ Merge your tiff files into PDF format using the PDFBox library (v1.2.1).
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Remove document direct content | `Boolean` | Not referenced from folders (deprecated) | `false ` | 
  | Convert resursive folders | `Boolean` | Folders referencesd by the document are converted recursively (deprecated) | `false ` | 
+ | Remove document direct content | `Boolean` | Not referenced from folders (deprecated) | `false ` | 
  | Ignore conversion exceptions | `Boolean` | Each exception during the conversion becomes a silent fail indexed in logs | `false ` | 
  | Supported source mime types | `String list` | List of all accepted mime types | 
 
@@ -557,8 +604,8 @@ Complete converter from office file to PDF format using OpenOffice / LibreOffice
  | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | Delay to startup Office Manager | `Integer` | Delay in seconds | `0 ` | 
  | Shutdown Office Manager when exiting | `Boolean` | Force Office Manager to shutdown at the end of the workflow | `false ` | 
- | officeHome | `String` |  | 
  | Office Manager as singleton | `Boolean` | Use static singleton OfficeManager to reuse process between two campaigns | `false ` | 
+ | officeHome | `String` |  | 
  | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
  | Stop cmd for LibreOffice / OpenOffice | `String` | Command to use to force LibreOffice or OpenOffice process to stop | 
 
@@ -720,8 +767,8 @@ This task uses the IText library to convert content of TIFF documents into PDF f
  | Ignore conversion exceptions | `Boolean` | Fast2 will either throw an error if the image has not properly been converted, or fail silently | `false ` | 
  | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
  | Verbose logs | `Boolean` | Check this item to have more logs for fine-tuning stage | `false ` | 
- | Temp file cleaner | TempFileCleaner | Select here the module you want to clean the temporary files | 
  | imageSourceHeightProperty | `String` |  | 
+ | Temp file cleaner | TempFileCleaner | Select here the module you want to clean the temporary files | 
  | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
  | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | DPI correction | `Boolean` | Check this to correct the DPI related to the image dimensions | `false ` | 

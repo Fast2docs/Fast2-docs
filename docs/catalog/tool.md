@@ -171,8 +171,8 @@ Based on the mime-type of the content, this task will resolve the correct extens
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Document mime-type | `String` | This value will be resolved by Fast2, `${...}` syntax is supported. Use this option when only the document mime-type has been provided, without the actual content. | 
  | Key of name property | `String` | Key of the current name metadata, whose value will be appended by the matching extension. | `name ` | 
+ | Document mime-type | `String` | This value will be resolved by Fast2, `${...}` syntax is supported. Use this option when only the document mime-type has been provided, without the actual content. | 
 
 
 
@@ -275,13 +275,6 @@ This task does not perform anything, hence you don't have to configure it. All d
 
 This task is responsible for serializing a punnet to an XML file. That can be interesting to check punnet metadata or freeze a punnet at a certain state.
 
-
-
-<b>Optional settings</b>
-
-|Key      | Type    | Description |  Default value |
-| - | - | - | - |
- | Serialize punnets as JSON | `Boolean` | If enabled, punnet will be serialized as Json file. Otherwise, it will be a XML file. | `false ` | 
 
 
 

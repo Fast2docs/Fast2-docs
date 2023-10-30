@@ -6,8 +6,8 @@ With an access key id and the secret access key, you have the option to connect 
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Access key Id | `String` | This field is mandatory unless 'Use Instance Profile' is set | 
  | Secret access key | `String` | This field is mandatory unless 'Use Instance Profile' is set | 
+ | Access key Id | `String` | This field is mandatory unless 'Use Instance Profile' is set | 
  | AWS Region | `String` |  | 
 
 
@@ -66,11 +66,11 @@ The CM connection provider will help you to manage a pool of connections. For pe
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Data source type | `String` |  | `ICM ` | 
  | Connection pool size | `Integer` | Maximum number of connections to be created | `64 ` | 
+ | Data source type | `String` |  | `ICM ` | 
  | Server name | `String` | Name of the server involved in the migration | `ICMNLSDB ` | 
- | Connection free pool size | `Integer` | Maximum number of connections that may be held in the free pool | `5 ` | 
  | Internal connection | `Integer` | Maximum number of connections for internal side | `64 ` | 
+ | Connection free pool size | `Integer` | Maximum number of connections that may be held in the free pool | `5 ` | 
  | Connection duration | `Long` | Length of time to kill a free connection in milliseconds | `100000 ` | 
 
 

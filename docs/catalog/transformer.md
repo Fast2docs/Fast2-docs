@@ -14,9 +14,9 @@ Use this task to remove existing content of a processed document, add content to
 |Key      | Type    | Description | 
 | - | - | - |
  | Check if file exists | `Boolean` | Check if the content referenced by the path is existing and accessible. If not, an exception is thrown. <br />If a wildcard is used as content path, the new content path will be skipped if this option is disabled. | 
- | Files to exclude | `String list` | List here all patterns for files you wish to exclude. One line per match. <br/> <p> Ex/  <br />`**/*.xml`<br />`**/folder/to/exclude/`<br />`*.json` to ignore all JSON files</p> | 
- | Add content as annotation | `Boolean` | Check this option to add the content as annotation for document. If disabled, the content will be added as regular content to the document. | 
  | Delete in-place content | `Boolean` | Override existing content with the new one, or remove the content attached to the document | 
+ | Add content as annotation | `Boolean` | Check this option to add the content as annotation for document. If disabled, the content will be added as regular content to the document. | 
+ | Files to exclude | `String list` | List here all patterns for files you wish to exclude. One line per match. <br/> <p> Ex/  <br />`**/*.xml`<br />`**/folder/to/exclude/`<br />`*.json` to ignore all JSON files</p> | 
 
 
 
@@ -123,8 +123,8 @@ Simple task to update SQL database with document data.
 | - | - | - | - |
  | Data name to report results | `String` | Name of the property where the result status is stored inside the punnet | `CsvQueryTaskStatus ` | 
  | Check result unicity | `Boolean` | If it's not, populate first found result | `false ` | 
- | Skip exception | `Boolean` | Silent fail instead of throwing exceptions | `false ` | 
  | Definition of the CSV to read | CsvDescriptor |  | 
+ | Skip exception | `Boolean` | Silent fail instead of throwing exceptions | `false ` | 
 
 
 
@@ -250,8 +250,8 @@ This class allow you to connect to your mail box and select mails to delete. You
  | Mail connection provider | [MailBoxProvider](../credentials/#MailBoxProvider) |  | 
  | Maximum connection ttl | `Long` | Time in milliseconds | `60 ` | 
  | Search term type | `String` |  | `Message-Id ` | 
- | Pattern to evaluate property | `String` |  | `${Message-Id} ` | 
  | Exception when mail not found | `Boolean` | Throw an exception when the mail is not found. Otherwise, silent fail | `true ` | 
+ | Pattern to evaluate property | `String` |  | `${Message-Id} ` | 
  | Save message changes | `Boolean` |  | `true ` | 
 
 
