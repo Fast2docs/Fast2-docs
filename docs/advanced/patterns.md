@@ -82,7 +82,7 @@ From now on, if the 'missingData' is not fount either at the punnet or document 
 
 ### Access data of Fast2 objects
 
-Whether you need [subtypes](../../getting-started/overall-concepts/#fast2-objects) properties for conditional routing or medatada elaboration, Fast2 gives you access to any data stored in the punnet.
+Whether you need [subtypes](../../getting-started/overall-concepts/#fast2-objects) properties for conditional routing or metadata elaboration, Fast2 gives you access to any data stored in the punnet.
 
 However targetting object is not always intuitive, so here are the different keywords required to access the [Fast2 objects](../../getting-started/overall-concepts/#fast2-objects) :
 
