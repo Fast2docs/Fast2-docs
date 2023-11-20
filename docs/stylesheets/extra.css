@@ -142,6 +142,9 @@ body[data-md-color-scheme="default"] .popup-container {
 }
 
 .search-btn {
+    position:absolute;
+    top:0;
+    right:0;
     height: 28px; 
     background-color: var(--fast2-color);
     border: none;
