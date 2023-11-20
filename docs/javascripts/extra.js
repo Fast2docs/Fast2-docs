@@ -100,7 +100,7 @@ function checkResultSearchBar() {
   if (metaDiv && metaDiv.textContent.trim() === 'No matching documents') {
       if (!metaDiv.querySelector('button')) {
           var newBtn = document.createElement('button');
-          newBtn.textContent = 'Search in Knolage Base';
+          newBtn.textContent = 'Search in Knowledge Base';
           newBtn.classList.add('search-btn');
           metaDiv.appendChild(newBtn);
           newBtn.addEventListener('click', function () {
