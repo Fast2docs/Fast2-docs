@@ -52,7 +52,7 @@ function generatePopup() {
     <div class="popup-content">
       <p class="text-sm text-gray-700 dark:text-gray-400">
         You don't find what you want ? <br>
-        Did you check the <a href="https://arondor.atlassian.net/jira/servicedesk/projects/TMAFAST/knowledge/articles">Knowledge Base</a> ?
+        Did you check the <a href="https://arondor.atlassian.net/servicedesk/customer/portals?q=">Knowledge Base</a> ?
       </p>
       <button class="dont-show-again-btn">Don't show again</button>
     </div>
@@ -103,7 +103,7 @@ function checkResultSearchBar() {
           newBtn.classList.add('search-btn');
           metaDiv.appendChild(newBtn);
           newBtn.addEventListener('click', function () {
-            window.open("https://arondor.atlassian.net/jira/servicedesk/projects/TMAFAST/knowledge/articles");
+            window.open("https://arondor.atlassian.net/servicedesk/customer/portals?q=");
           });
       }
   }
