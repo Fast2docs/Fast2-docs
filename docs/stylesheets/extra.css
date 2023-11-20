@@ -141,7 +141,7 @@ body[data-md-color-scheme="default"] .popup-container {
     cursor: pointer;
 }
 
-.mon-bouton-stylise {
+.search-btn {
     height: 28px; 
     background-color: var(--fast2-color);
     border: none;

@@ -66,7 +66,7 @@ function generatePopup() {
   });
 }
 var lastScrollPosition = 0;
-function verifierPositionDeDefilement() {
+function checkPos() {
   if (!sessionStorage.getItem("popupHidden")) {
     var popupContainer = document.querySelector(".popup-container");
     var currentScrollPosition = window.scrollY;
@@ -86,7 +86,7 @@ function verifierPositionDeDefilement() {
   }
 }
 
-window.addEventListener("scroll", verifierPositionDeDefilement);
+window.addEventListener("scroll", checkPos);
 
 window.addEventListener("beforeunload", function () {
   sessionStorage.removeItem("popupHidden");
@@ -94,20 +94,20 @@ window.addEventListener("beforeunload", function () {
 
 generatePopup();
 
-function verifierContenuEtAjouterBouton() {
+function checkResultSearchBar() {
   var metaDiv = document.querySelector('div.md-search-result__meta');
 
   if (metaDiv && metaDiv.textContent.trim() === 'No matching documents') {
       if (!metaDiv.querySelector('button')) {
-          var nouveauBouton = document.createElement('button');
-          nouveauBouton.textContent = 'Search in Knolage Base';
-          nouveauBouton.classList.add('mon-bouton-stylise');
-          metaDiv.appendChild(nouveauBouton);
-          nouveauBouton.addEventListener('click', function () {
+          var newBtn = document.createElement('button');
+          newBtn.textContent = 'Search in Knolage Base';
+          newBtn.classList.add('search-btn');
+          metaDiv.appendChild(newBtn);
+          newBtn.addEventListener('click', function () {
             window.location.href = "https://arondor.atlassian.net/jira/servicedesk/projects/TMAFAST/knowledge/articles";
           });
       }
   }
 }
 
-setInterval(verifierContenuEtAjouterBouton, 5000);
+setInterval(checkResultSearchBar, 5000);
