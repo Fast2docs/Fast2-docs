@@ -140,3 +140,14 @@ body[data-md-color-scheme="default"] .popup-container {
 .dont-show-again-btn  {
     cursor: pointer;
 }
+
+.mon-bouton-stylise {
+    height: 28px; 
+    background-color: var(--fast2-color);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 6px;
+    cursor: pointer;
+}

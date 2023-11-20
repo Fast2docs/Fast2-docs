@@ -93,3 +93,21 @@ window.addEventListener("beforeunload", function () {
 });
 
 generatePopup();
+
+function verifierContenuEtAjouterBouton() {
+  var metaDiv = document.querySelector('div.md-search-result__meta');
+
+  if (metaDiv && metaDiv.textContent.trim() === 'No matching documents') {
+      if (!metaDiv.querySelector('button')) {
+          var nouveauBouton = document.createElement('button');
+          nouveauBouton.textContent = 'Search in Knolage Base';
+          nouveauBouton.classList.add('mon-bouton-stylise');
+          metaDiv.appendChild(nouveauBouton);
+          nouveauBouton.addEventListener('click', function () {
+            window.location.href = "https://arondor.atlassian.net/jira/servicedesk/projects/TMAFAST/knowledge/articles";
+          });
+      }
+  }
+}
+
+setInterval(verifierContenuEtAjouterBouton, 5000);
