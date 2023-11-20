@@ -76,7 +76,7 @@ function checkPos() {
           popupContainer.classList.remove("hidden");
           setTimeout(function () {
             popupContainer.classList.add("hidden");
-          }, 5000);
+          }, 2000);
         }
       }
     }
@@ -96,14 +96,15 @@ generatePopup();
 function checkResultSearchBar() {
   var metaDiv = document.querySelector('div.md-search-result__meta');
 
-  if (metaDiv && metaDiv.textContent.trim() === 'No matching documents') {
+  if (metaDiv && metaDiv.textContent.includes('matching document')) {
       if (!metaDiv.querySelector('button')) {
           var newBtn = document.createElement('button');
           newBtn.textContent = 'Search in Knowledge Base';
           newBtn.classList.add('search-btn');
           metaDiv.appendChild(newBtn);
           newBtn.addEventListener('click', function () {
-            window.open("https://arondor.atlassian.net/servicedesk/customer/portals?q=");
+            var input = document.querySelector('.md-search__input').value;
+            window.open("https://arondor.atlassian.net/servicedesk/customer/portals?q="+input);
           });
       }
   }
