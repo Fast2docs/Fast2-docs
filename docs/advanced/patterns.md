@@ -11,10 +11,10 @@ Our migration tool relies on a specific syntax used to dynamically retrieve info
 
 !!! Tips
 
-        For a successful pattern recognition, only use the data known by Fast2, such as :
+    For a successful pattern recognition, only use the data known by Fast2, such as :
 
-        - Data stored in the punnet and/or documents datasets
-        - Migration specific details, listed [down below](#access-data-of-fast2-objects).
+    - Data stored in the punnet and/or documents datasets
+	- Migration specific details, listed [down below](#access-data-of-fast2-objects).
 
 ## Patterns, what are they anyway ? {#context-and-definition data-toc-label="Context and definition" }
 

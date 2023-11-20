@@ -112,8 +112,8 @@ body[data-md-color-scheme="default"] .popup-container {
     padding: 1rem;
     border-radius: 8px;
     position: fixed;
-    top: 50%;
-    right: 10%;
+    top: 80%;
+    right: 11%;
     text-size-adjust: 10;
     transform: translate(50%, -50%);
     transition: visibility 0.3s ease;

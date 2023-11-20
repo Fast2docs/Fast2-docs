@@ -76,7 +76,7 @@ function checkPos() {
           popupContainer.classList.remove("hidden");
           setTimeout(function () {
             popupContainer.classList.add("hidden");
-          }, 2000);
+          }, 5000);
         }
       }
     }
@@ -110,4 +110,4 @@ function checkResultSearchBar() {
   }
 }
 
-setInterval(checkResultSearchBar, 5000);
+setInterval(checkResultSearchBar, 3000);
