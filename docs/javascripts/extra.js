@@ -76,7 +76,6 @@ function checkPos() {
           popupContainer.classList.remove("hidden");
           setTimeout(function () {
             popupContainer.classList.add("hidden");
-            sessionStorage.removeItem("popupHidden");
           }, 5000);
         }
       }
@@ -104,7 +103,7 @@ function checkResultSearchBar() {
           newBtn.classList.add('search-btn');
           metaDiv.appendChild(newBtn);
           newBtn.addEventListener('click', function () {
-            window.location.href = "https://arondor.atlassian.net/jira/servicedesk/projects/TMAFAST/knowledge/articles";
+            window.open("https://arondor.atlassian.net/jira/servicedesk/projects/TMAFAST/knowledge/articles");
           });
       }
   }
