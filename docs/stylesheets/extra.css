@@ -112,12 +112,17 @@ body[data-md-color-scheme="default"] .popup-container {
     padding: 1rem;
     border-radius: 8px;
     position: fixed;
+    right:4%;
     top: 80%;
-    right: 11%;
     text-size-adjust: 10;
-    transform: translate(50%, -50%);
-    transition: visibility 0.3s ease;
+    transition: transform 0.5s ease-in-out;
+    width: 300px;
 }
+
+.popup-container.hidden {
+    transform: translateX(180%);
+}
+
 .popup-container a {
     color: var(--fast2-color);
 }
@@ -131,15 +136,12 @@ body[data-md-color-scheme="default"] .popup-container {
     margin-left: 1rem;
     font-size: 13px;
 }
-.hidden {
-    visibility: hidden;
-    opacity: 0; 
-    transition: opacity 0.3s ease;
-  }
+
 
 .dont-show-again-btn  {
     cursor: pointer;
 }
+
 
 .search-btn {
     float: right;
@@ -151,4 +153,16 @@ body[data-md-color-scheme="default"] .popup-container {
     padding: 6px;
     margin: 6px;
     cursor: pointer;
+}
+@media (max-width: 960px) {
+    .overflow-x-none>.md-typeset__scrollwrap {
+        overflow-x: hidden;
+    }
+    
+.popup-container {
+    transform: translateX(-50%);
+    right: 0px;
+    
+}
+
 }

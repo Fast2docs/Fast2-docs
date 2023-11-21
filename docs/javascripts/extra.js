@@ -39,6 +39,7 @@ document$.subscribe(function () {
   }
 });
 
+var kbUrl = "https://arondor.atlassian.net/servicedesk/customer/portals?q="
 
 function generatePopup() {
   var popupContainer = document.createElement("div");
@@ -52,7 +53,7 @@ function generatePopup() {
     <div class="popup-content">
       <p class="text-sm text-gray-700 dark:text-gray-400">
         You don't find what you want ? <br>
-        Did you check the <a href="https://arondor.atlassian.net/servicedesk/customer/portals?q=">Knowledge Base</a> ?
+        Did you check the <a href="${kbUrl}">Knowledge Base</a> ?
       </p>
       <button class="dont-show-again-btn">Don't show again</button>
     </div>
@@ -66,6 +67,7 @@ function generatePopup() {
   });
 }
 var lastScrollPosition = 0;
+
 function checkPos() {
   if (!sessionStorage.getItem("popupHidden")) {
     var popupContainer = document.querySelector(".popup-container");
@@ -92,22 +94,28 @@ window.addEventListener("beforeunload", function () {
 });
 
 generatePopup();
+var input = document.querySelector('.md-search__input');
 
 function checkResultSearchBar() {
-  var metaDiv = document.querySelector('div.md-search-result__meta');
+  setTimeout(() => {
+    var metaDiv = document.querySelector('div.md-search-result__meta');
 
-  if (metaDiv && metaDiv.textContent.includes('matching document')) {
+    if (metaDiv && metaDiv.textContent.includes('matching document')) {
       if (!metaDiv.querySelector('button')) {
-          var newBtn = document.createElement('button');
-          newBtn.textContent = 'Search in Knowledge Base';
-          newBtn.classList.add('search-btn');
-          metaDiv.appendChild(newBtn);
-          newBtn.addEventListener('click', function () {
-            var input = document.querySelector('.md-search__input').value;
-            window.open("https://arondor.atlassian.net/servicedesk/customer/portals?q="+input);
-          });
+        var newBtn = document.createElement('button');
+        newBtn.textContent = 'Search in the Knowledge Base';
+        newBtn.classList.add('search-btn');
+        metaDiv.appendChild(newBtn);
+        newBtn.addEventListener('click', function () {
+          window.open(kbUrl + input.value);
+        });
       }
-  }
+
+    }
+  }, 100)
 }
 
-setInterval(checkResultSearchBar, 3000);
+
+input.addEventListener('input', (event) => {
+  checkResultSearchBar();
+});
