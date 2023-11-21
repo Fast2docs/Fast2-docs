@@ -1,6 +1,6 @@
 :root>* {
     --fast2-color: #1A97A7;
-    --slate-gb-color : #1e2129;
+    --slate-gb-color: #1e2129;
     --md-primary-fg-color: var(--fast2-color);
     --md-primary-fg-color--light: var(--fast2-color);
     --md-primary-fg-color--dark: var(--fast2-color);
@@ -98,12 +98,12 @@ a.headerlink {
 
 body[data-md-color-scheme="slate"] .popup-container {
     background-color: var(--slate-gb-color);
-    box-shadow: 0px 10px 15px -3px rgba(243, 242, 242, 0.1),0px 10px 30px 10px rgba(241, 240, 240, 0.1);
+    box-shadow: 0px 10px 15px -3px rgba(243, 242, 242, 0.1), 0px 10px 30px 10px rgba(241, 240, 240, 0.1);
 }
 
 body[data-md-color-scheme="default"] .popup-container {
     background-color: #fff;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 30px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 10px 30px 10px rgba(0, 0, 0, 0.1);
 }
 
 .popup-container {
@@ -112,7 +112,7 @@ body[data-md-color-scheme="default"] .popup-container {
     padding: 1rem;
     border-radius: 8px;
     position: fixed;
-    right:4%;
+    right: 4%;
     top: 80%;
     text-size-adjust: 10;
     transition: transform 0.5s ease-in-out;
@@ -138,14 +138,14 @@ body[data-md-color-scheme="default"] .popup-container {
 }
 
 
-.dont-show-again-btn  {
+.dont-show-again-btn {
     cursor: pointer;
 }
 
 
 .search-btn {
     float: right;
-    height: 28px; 
+    height: 28px;
     background-color: var(--fast2-color);
     border: none;
     color: white;
@@ -154,15 +154,12 @@ body[data-md-color-scheme="default"] .popup-container {
     margin: 6px;
     cursor: pointer;
 }
+
 @media (max-width: 960px) {
-    .overflow-x-none>.md-typeset__scrollwrap {
-        overflow-x: hidden;
+    .popup-container {
+        transform: translateX(-50%);
+        right: 0px;
+
     }
-    
-.popup-container {
-    transform: translateX(-50%);
-    right: 0px;
-    
-}
 
 }
