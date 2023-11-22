@@ -53,7 +53,7 @@ function generatePopup() {
     <div class="popup-content">
       <p class="text-sm text-gray-700 dark:text-gray-400">
         You don't find what you want ? <br>
-        Did you check the <a href="${kbUrl}">Knowledge Base</a> ?
+        Did you check the <a href="${kbUrl}">Knowledge Base</a>&nbsp;?
       </p>
       <button class="dont-show-again-btn">Don't show again</button>
     </div>
