@@ -152,7 +152,7 @@ worker.queue.regex=metadata-queue,default
 
 ### Limits
 
-Just like any architectural decisions, such model comes with is drawbacks and benefits. If the benefits can sound quite obvious given past explanations, the downsides are worth mentioning. We will shortly discuss here aout the two the most current:
+Just like any architectural decisions, such model comes with its drawbacks and benefits. If the benefits can sound quite obvious given past explanations, the downsides are worth mentioning. We will shortly discuss here about the two most current:
 
 - Resource sharing: the more workers you’ll start on the same machine, the less they’ll have individually available resources.
 - Connections and sessions: duplication of workers induces duplications of server calls, therefore opened sessions.
