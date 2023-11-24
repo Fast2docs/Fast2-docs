@@ -118,7 +118,7 @@ Plug the worker-S onto the Fast2 broker (yes, the workers -- as [illustrated her
 Update the name (or IP address) of the machine where Fast2 is running (`broker.host`), and the name of the queue which the worker will be assigned to (ex/ “extraction”).
 
 1. Start now the Fast2 server ([documentation here](../../getting-started/installation/#start-fast2-broker)) to have it up and running alongside the worker-D. This latter will be assigned to both the _mapping_ of the metadata and the injection of the documents in the destination environment.
-2. The start the worker-S ([documentation here](../../getting-started/installation/##start-fast2-worker)).
+2. Then start the worker-S ([documentation here](../../getting-started/installation/##start-fast2-worker)).
 
 ![Schema of the architecture for a 2-worker migration](../assets/img/components/workers.png){ width="80%" }
 
