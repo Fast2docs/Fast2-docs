@@ -122,7 +122,7 @@ Update the name (or IP address) of the machine where Fast2 is running (`broker.h
 
 ![Schema of the architecture for a 2-worker migration](../assets/img/components/workers.png){ width="80%" }
 
-Open your browser to reach the Fast2 UI, and the build up your migration workflow. For the sake of this example, 3 tasks only will suit our needs of extraction, metadata transformation and load.
+Open your browser to reach the Fast2 UI, and then build up your migration workflow. For the sake of this example, 3 tasks only will suit our needs of extraction, metadata transformation and load.
 
 > 3 tasks, 3 queues, 2 workers: lock and load !!
 
