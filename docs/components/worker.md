@@ -81,7 +81,7 @@ But let’s complicate things a little bit here: in-between the extraction and t
 
 ### How to set up
 
-Checkout in the official documentation the required Fast2 files and folders to set up a new worker. Leave a copy of the required files and folder on the machine hosting the source environment. This worker -- let’s label it as worker-S for “source” -- will be assigned to the extraction part.
+Checkout in the official documentation the required Fast2 files and folders to set up a new worker. Leave a copy of the required files and folders on the machine hosting the source environment. This worker -- let’s label it as worker-S for “source” -- will be assigned to the extraction part.
 As indicated in the installation section, starting Fast2 will launch an embedded worker, assigned by default to all tasks composing the migration workflow. This worker here will be our worker-D (for “Destination”, or “Default”).
 
 Plug the worker-S onto the Fast2 broker (yes, the workers -- as [illustrated here](../../presentation/#architecture) -- manifest themselves to the broker, and not the other way around) : to do so, open the `config/application.properties` of the worker-S :
