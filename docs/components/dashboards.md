@@ -8,7 +8,7 @@ Since Fast2 stores every single byte of migration information into its internal 
 
     However the configuration of these tools are very close (if not identical).
 
-The dashboard only communicates with the database (as illustrated in the [architecture section](/getting-started/overall-concepts/#architecture).
+The dashboard only communicates with the database (as illustrated in the [architecture section](/getting-started/overall-concepts/#architecture)).
 
 All the chart visualizations which can be built up with this add-on and integrated to the most advanced dashboards, solely serve one purpose: data digestion for tracking progress, by making now possible to follow edge-cases of a handful of documents lost in a week-long non-stopping flood, and building reports out of it.
 
