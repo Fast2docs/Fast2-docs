@@ -1,3 +1,23 @@
+## AlfrescoRestDeleteNode <small> - Alfresco delete nodes using Alfresco REST protocol </small> {#AlfrescoRestDeleteNode data-toc-label="AlfrescoRestDeleteNode"}
+
+This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco REST client) to delete nodes.
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+ | Alfresco connection provider | [AlfrescoRESTConnectionProvider](../credentials/#AlfrescoRESTConnectionProvider) |  | 
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Permanent deletion of the node | `Boolean` | If true then the node is deleted permanently, without moving to the trashcan. Only the owner of the node or an admin can permanently delete the node. | `true ` | 
+ | The pattern to get the node Id from the document | Pattern |  | 
+
+
+
 ## AwsMove <small> - AWS S3 file mover </small> {#AwsMove data-toc-label="AwsMove"}
 
 Reorganize your files inside your AWS S3 environment.
@@ -35,6 +55,30 @@ This task will add the number of pages as a metadata to the document.
  | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
  | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
  | Property name | `String` | Name of the property to which the number of pages will be linked | `F_PAGES ` | 
+
+
+
+## DeduplicatePunnets <small> - De-duplicate tasks based on some pattern </small> {#DeduplicatePunnets data-toc-label="DeduplicatePunnets"}
+
+This task is used to get rid of duplicate punnets
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+ | Save values to this file | Pattern |  | 
+ | The pattern to use to get the unique value | Pattern |  | 
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Iterate over punnets (default: false) or over documents (true) | `Boolean` |  | `false ` | 
+ | The pattern to use to explain which element this is duplicate with | Pattern |  | 
+ | Size of per-file hash table | `Integer` | Each file has a table attached to access the existing elements faster (the larger the table, the faster the search). Each individual file will store n elements (size of file / size of each elements), the recommended value for hash table should not be less than 10% of the number elements per file, which means each hash table entry references ~10 elemens. Example : storing 50 bytes of identifications (from the Identification pattern), each element will be ~100 bytes (including key, ..), so a 64MBytes file will store ~671088 elements per file. The hash table being 64k, each hash table entry references ~10 elements | `65536 ` | 
+ | Size of each individual file, in MBytes | `Integer` | Multiple files will be created on-demand to store all elements as required. | `64 ` | 
+ | In which property we put the identification of the first element we are duplicate with | `String` |  | 
 
 
 
@@ -98,8 +142,8 @@ This task computes the hash of a given document content. This new hash can be co
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Conten key for hash | `String` | Name of the metadata where the hash value will be stored. This value will be attached to the content and the document dataset itself | `hash ` | 
  | Suffix of ouptut file | `String` | Suffix of the external file containing the hash value to compare with | 
+ | Conten key for hash | `String` | Name of the metadata where the hash value will be stored. This value will be attached to the content and the document dataset itself | `hash ` | 
  | Algorithm | `String` | The algorithm of hashing which will be used for document content | `SHA-256 ` | 
  | Process annotation contents | `Boolean` | If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata | `false ` | 
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 
@@ -130,8 +174,8 @@ This task will be useful when your needs will be to move a given email conversat
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | mailNotFoundException | `Boolean` |  | 
- | Data to find | `String` | The data to look for. This value will be resolved by Fast2 prior to the task execution | `${Message-Id} ` | 
  | Maximum connection TTL | `Long` | Fill the value in milliseconds | `60 ` | 
+ | Data to find | `String` | The data to look for. This value will be resolved by Fast2 prior to the task execution | `${Message-Id} ` | 
  | Create destination folder | `Boolean` | Ask Fast2 to create the destination folder to move the email into, in case this specific folder does not exist yet | `false ` | 
  | Search field name | `String` | The name of the field where to find the data. Only 'Subject' and 'Message-Id' are available | `Message-Id ` | 
 
@@ -171,8 +215,8 @@ Based on the mime-type of the content, this task will resolve the correct extens
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Key of name property | `String` | Key of the current name metadata, whose value will be appended by the matching extension. | `name ` | 
  | Document mime-type | `String` | This value will be resolved by Fast2, `${...}` syntax is supported. Use this option when only the document mime-type has been provided, without the actual content. | 
+ | Key of name property | `String` | Key of the current name metadata, whose value will be appended by the matching extension. | `name ` | 
 
 
 
@@ -262,7 +306,7 @@ This task does not perform anything, hence you don't have to configure it. All d
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Blacklist for extraction | `String list` |  | 
+ | Blacklist for extraction | `String list` | Default blacklist is: `ActiveMarkings`, `AuditedEvents`, `Annotations`, `ChildDocuments`, `ChildRelationships`, `CmHoldRelationships`, `CmThumbnails`, `Containers`, `CoordinatedTasks`, `CurrentVersion`, `DependentDocuments`, `DestinationDocuments`, `ExternalReplicaIdentities`, `ParentDocuments`, `ParentRelationships`, `Permissions`, `ReleasedVersion`, `StorageArea`, `StoragePolicy`, `This`, `Versions`, `WorkflowSubscriptions` | 
  | Force user names | `Boolean` | Force assigning users (e.g. Creator, LastModifier) when they don't exist in the destination environment | `true ` | 
  | Date format | `String` |  | `MM dd HH:mm:ss z yyyy ` | 
  | Property name used to explicitly skip Data | `String` |  | 
@@ -275,6 +319,13 @@ This task does not perform anything, hence you don't have to configure it. All d
 
 This task is responsible for serializing a punnet to an XML file. That can be interesting to check punnet metadata or freeze a punnet at a certain state.
 
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Serialize punnets as JSON | `Boolean` | If enabled, punnet will be serialized as Json file. Otherwise, it will be a XML file. | `false ` | 
 
 
 
@@ -315,8 +366,8 @@ This task is responsible to find the mime type of a document accross either its 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Dry run | `Boolean` | Process all punnets without editing their state or metadata | `false ` | 
- | Force to identify mime type | `Boolean` | Ask Fast2 to dig deeper into the content to find a mime type. The metadata will be added to the content | `false ` | 
  | Maximum number of page read per content | `Integer` | Only for multi-page content | `Integer.MAX_VALUE ` | 
+ | Force to identify mime type | `Boolean` | Ask Fast2 to dig deeper into the content to find a mime type. The metadata will be added to the content | `false ` | 
 
 
 

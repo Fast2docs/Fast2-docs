@@ -12,13 +12,25 @@ This AWS extractor performs from a list of sources the extraction of your docume
 
 <b>Optional settings</b>
 
-|Key      | Type    | Description | 
-| - | - | - |
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Accept quotes in values | `Boolean` | If enabled, this option will accept quotes in values | 
  | AWS start-after key | `String` | Absolute path of S3 object to start after | 
  | ARN key for KMS encryption | `String` |  | 
+ | New column names to set | `String list` | If empty, populated from first line | 
+ | Replace empty titles | `Boolean` | If enabled, any empty title in the CSV file will be replaced by the default value. If several titles miss, the default title will be suffixed with an incremental index. | 
  | AWS suffix | `String` | S3-object will be extracted if its key has such suffix | 
+ | Number of lines to skip | `Integer` | This option helps to skip lines, meaning their data will not be processed. By default, only the 1st line is skipped considering it surely consists in the headers row <br/> <p> Ex/  In a file of 10 lines, putting '3' in the input field will skip the 1st, 2nd and 3rd lines</p> | `1 ` | 
+ | Default column title | `String` | Default value used for untitled columns. Will be incremented with a number if many. Will only be used if the replace empty titles option is enabled. | `Untitled ` | 
+ | Continue processing CSV on fail | `Boolean` | If enabled, the following errors will not trigger an exception: <br />- CSV file does not exist <br />- CSV file is empty (no line) <br />- CSV file has only headers and no line for documents.<br /><br />Note that if you give 5 CSV paths and the number 3rd is in error, only the Fast2 logs will provide information regarding the failing CSV file. | 
  | Source folders | `String list` | Folders in the S3 bucket(s) containing the files to migrate | 
  | AWS prefix | `String` | S3-object will be extracted if its key has such prefix | 
+ | Stop at first error in CSV | `Boolean` | Fast2 will automatically be stopped at the first error encountered in the CSV | `false ` | 
+ | Column headers in first CSV file only | `Boolean` | Only read column definitions from the first parsed CSV file | `false ` | 
+ | Documents per punnet from CSV | `Integer` | Number of documents each punnet will carry when processing a CSV file <br/> <p> Ex/  By setting this value to 2, each punnet created will contain 2 documents</p> | `1 ` | 
+ | CSV separator | `String` | Separator between each value. This option will be ignored if 'Process files as list of punnets' is disabled. | `, ` | 
+ | Process files as list of punnets | `Boolean` | The expected format is a CSV file (1 row for headers, next rows for 1 punnet each), but the `.csv` extension is not mandatory. Only single-documents punnets will be created (ex/ not working for multiversions documents). Multivalue data will be concatenated to one whole String value. The first line of the file will be considered as CSV header line. | 
+ | extraColumns | `String list` |  | 
 
 
 
@@ -30,7 +42,7 @@ This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco RE
 
 |Key      | Type    | Description | 
 | - | - | - |
- | CMIS query | `String` | Query used to retrieve the objects from Alfresco <br/> <p> Ex/  SELECT * FROM cmis:document WHERE cmis:name LIKE 'test%'</p> | 
+ | CMIS query or AFTS query | `String` | Query used to retrieve the objects from Alfresco <br/> <p> Ex/  SELECT * FROM cmis:document WHERE cmis:name LIKE 'test%' or cm:title:'test%'</p> | 
  | Alfresco connection provider | [AlfrescoRESTConnectionProvider](../credentials/#AlfrescoRESTConnectionProvider) |  | 
 
 
@@ -127,9 +139,10 @@ This task is used to extract documents in the Content-Manager On Demand ECM. One
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Extract advanced system properties from DKDDO object | `Boolean` |  | `false ` | 
  | Extract standard system properties | `Boolean` |  | `false ` | 
+ | Extract advanced system properties from DKDDO object | `Boolean` |  | `false ` | 
  | Maximum results returned by the query | `Integer` | Set to 0 to disable limiting number of results | `0 ` | 
+ | Number of documents per Punnet | `Integer` | Set the number of documents each punnet will hold | `1) ` | 
  | Extract custom properties | `Boolean` |  | `false ` | 
  | Query type | `Integer` | See com.ibm.mm.beans.CMBBaseConstant for further details. Default value is XPath (7) | `7 ` | 
 
@@ -150,23 +163,26 @@ This task can be used to start a migration from a CSV file. By default, the firs
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
+ | Accept quotes in values | `Boolean` | If enabled, this option will accept quotes in values | 
  | CSV file path metadata | `String` | Punnet property name containing the CSV file path. Set to empty or null to disable | 
  | File name for error CSV file | `String` | This option might be useful when you need to have a specific file name where to register the lines in error of your CSV file. The name can both be linked to some workflow properties surrounded with `${...}` (ex/ campaign, punnetId, etc) or hard-written. Warning: This value can be overwritten by the _Associate CSV-error file with original CSV filename_ option | `lines_in_error.csv ` | 
  | New column names to set | `String list` | If empty, populated from first line | 
+ | Replace empty titles | `Boolean` | If enabled, any empty title in the CSV file will be replaced by the default value. If several titles miss, the default title will be suffixed with an incremental index. | 
  | Folder path for error CSV file | `String` | The error file will be stored in your system. You can choose where by configuring this very field. Here as well you can set the path either with workflow properties (`${...}`) or hard-write it | `./csv_errors/ ` | 
  | Number of lines to skip | `Integer` | This option helps to skip lines, meaning their data will not be processed. By default, only the 1st line is skipped considering it surely consists in the headers row <br/> <p> Ex/  In a file of 10 lines, putting '3' in the input field will skip the 1st, 2nd and 3rd lines</p> | `1 ` | 
+ | Default column title | `String` | Default value used for untitled columns. Will be incremented with a number if many. Will only be used if the replace empty titles option is enabled. | `Untitled ` | 
  | Generate hash of CSV content | `Boolean` | The hash of the content will be generated and stored in the punnet among a property named hashData | `false ` | 
- | Column headers in first CSV file only | `Boolean` | Only read column definitions from the first parsed CSV file | `false ` | 
- | Continue on fail | `Boolean` | If enabled, the following errors will not trigger an exception: <br />- CSV file does not exist <br />- CSV file is empty (no line) <br />- CSV file has only headers and no line for documents.<br /><br />Note that if you give 5 CSV paths and the number 3rd is in error, only the Fast2 logs will provide information regarding the failing CSV file. | 
+ | Continue processing CSV on fail | `Boolean` | If enabled, the following errors will not trigger an exception: <br />- CSV file does not exist <br />- CSV file is empty (no line) <br />- CSV file has only headers and no line for documents.<br /><br />Note that if you give 5 CSV paths and the number 3rd is in error, only the Fast2 logs will provide information regarding the failing CSV file. | 
  | File encoding | `String` | CSV encoding character set | `UTF-8 ` | 
- | CSV separator | `String` | Only the first character will be considered | `; ` | 
  | Associate CSV-errors file with original CSV filename | `Boolean` | This checkbox allows you to match your error file with your original CSV file, just suffixing the original name with '_KO'. That way, if you use multiple files, all the lines in error will be grouped by file name. Using this option overwrite the *File name for error CSV file*, but still can be used in addition of the *Folder path for error CSV file* | `false ` | 
  | Stop at first error in CSV | `Boolean` | Fast2 will automatically be stopped at the first error encountered in the CSV | `false ` | 
- | Column of document ID | `String` | Column header of the metadata to set as the document ID | `documentId ` | 
  | File scanner (Deprecated) | FileScanner | *THIS OPTIONS IS DEPRECATED*, consider using the 'CSV paths' instead. | 
+ | Column of document ID | `String` | Column header of the metadata to set as the document ID | `documentId ` | 
  | Document property name containing CSV file path | `String` | Set to empty or null to disable | 
  | Move to path when finished | `String` | Consider using ${variable} syntax | 
- | Document per punnet | `Integer` | Number of documents each punnet punnet will carry <br/> <p> Ex/  By setting this value to 2, each punnet created will contained 2 documents</p> | `1 ` | 
+ | Column headers in first CSV file only | `Boolean` | Only read column definitions from the first parsed CSV file | `false ` | 
+ | Documents per punnet from CSV | `Integer` | Number of documents each punnet will carry when processing a CSV file <br/> <p> Ex/  By setting this value to 2, each punnet created will contain 2 documents</p> | `1 ` | 
+ | CSV separator | `String` | Separator between each value. This option will be ignored if 'Process files as list of punnets' is disabled. | `, ` | 
  | Extra columns | `String list` | List of the form target=function:arg1:arg2:... | 
 
 
@@ -207,7 +223,7 @@ The FileNet35Source retrieves existing documents from the FileNet P8 3.5 ECM thr
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Attribute used for Document IDs | `String` | Name of the FileNet P8 3.5 attribute corresponding to the values ??retrieved in the Document IDs list | `Id ` | 
+ | Attribute used for Document IDs | `String` | Name of the FileNet P8 3.5 attribute corresponding to the values ​​retrieved in the Document IDs list | `Id ` | 
  | Empty punnet when no result | `Boolean` | An empty punnet will be created even if the result of the query is null | `false ` | 
  | Documents per punnet | `Integer` | Number of documents each punnet punnet must carry on <br/> <p> Ex/  By setting this value to 2, each punnet created will contained 2 documents</p> | `1 ` | 
  | Document IDs | DocumentIdList | Source list of documents to extract from their IDs | 
@@ -236,10 +252,25 @@ The FileNetSource source retrieves existing documents from the FileNet P8 5.x EC
  | Extract object type properties | `Boolean` | The FileNet P8 metadata of the document which are Object type will be saved at the punnet level | `false ` | 
  | Extract FileNet system properties | `Boolean` | System metadata during extraction is saved at the punnet level | `false ` | 
  | Properties to extract | `String list` | Exhaustive list of FileNet metadata to extract. If empty, all properties will be extracted. | 
- | Extract documents instance informations | `Boolean` | The fetchInstance method makes a round trip to the server to retrieve the property values of the ObjectStore object | `false ` | 
  | Extract FileNet security | `Boolean` | The security of the document will be saved at the punnet level | `false ` | 
+ | Extract documents instance informations | `Boolean` | The fetchInstance method makes a round trip to the server to retrieve the property values of the ObjectStore object | `false ` | 
  | Extract folders absolute path | `Boolean` | The absolute path of the folder inside the FileNet instance will be extracted during the process | `false ` | 
  | Throw error if no result | `Boolean` | Throw exception when SQL Query finds no result. | 
+
+
+
+## FlowerSource <small> - Flower extractor </small> {#FlowerSource data-toc-label="FlowerSource"}
+
+Allows components extraction from Flower using JSON formatted Flower request.
+Components can be documents, folders, virtual folders or tasks.
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+ | FlowerDocs connection provider | [FlowerDocsConnectionProvider](../credentials/#FlowerDocsConnectionProvider) |  | 
+ | Flower component category | `String` | Choose among DOCUMENT, TASK, FOLDER or VIRTUAL_FOLDER | 
+ | JSON Flower Search Request | `String` |  | 
 
 
 
@@ -251,14 +282,15 @@ This class will search for local files to analyze them from a defined path
 
 |Key      | Type    | Description | 
 | - | - | - |
- | File scanner | FileScanner | Recovers your files | 
+ | Files paths | `String list` | List of paths to files to be parsed. Patterns `${...}` are not supported. The threshold can be maxed-out, exclusions are not supported. <br/> <p> Ex/  <br />`C:/samples/myDocument.txt` -> retrieve only one document<br />`C:\\samples\\myDocument.txt`<br />`C:\\\\samples\\\\myDocument.txt`<br />`\"C:\\samples\\myDocument.txt\"`<br />`C:/samples/*.*` -> retrieve all files directly at the root of the `samples/` folder, no matter their extension<br />`C:/samples/**` -> retrieve all files directly at the root of the `samples/` folder, as well as file inside subfolders<br />`C:/samples/**/*.yes` -> retrieve all files directly at the root of the `samples/` folder, as well as file inside subfolders, whose extension is `.yes`.</p> | 
 
 
 <b>Optional settings</b>
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Fallback XML parsing | `Boolean` | If true, the file will be added as document content in the punnet when XML parsing fails. Consider adding this file as a regular file (not an XML) | `false ` | 
+ | File scanner (Deprecated) | FileScanner | *THIS OPTIONS IS DEPRECATED*, consider using the 'Files paths' instead. | 
+ | Fallback XML/Json parsing | `Boolean` | If true, the file will be added as document content in the punnet when XML parsing fails. Consider adding this file as a regular file (not an XML) | `false ` | 
  | Skip parse exceptions | `Boolean` | The task does not throw an error when XML parsing fails. Do not stop parsing and resume to next candidate | `false ` | 
  | XSL Stylesheet path | `String` | The XSL stylesheet file to use when parsing XML files | 
  | Number of files per punnet | `Integer` | If the files are not in XML format, the punnet will contain as many documents as defined in this option | `1 ` | 
@@ -290,9 +322,31 @@ The MailSource task extracts messages from an e-mail box. Each extracted message
  | Folders to scan | `String list` | List of files to scan in the mailbox. If filled, override root folder name from MailBox connection provider configuration | 
  | AND condition for search | `Boolean` | Checking this options will only retrieve messages matching all search conditions possible (unread messages, text in header, body or subject). If unchecked, the 'OR' operand will be applied. | 
  | Forbidden characters | `String` | List of characters to remove from Message-Id when building the DocumentId | `<>:\"/\\|?* ` | 
- | Only unread messages | `Boolean` |  | 
  | Search in Subject | `String` |  | 
  | Search in Body | `String` |  | 
+ | Only unread messages | `Boolean` |  | 
+
+
+
+## OpenTextSource <small> - OpenText extractor using OpenText REST protocol </small> {#OpenTextSource data-toc-label="OpenTextSource"}
+
+
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+ | OpenText credentials | [OpenTextCredentials](../credentials/#OpenTextCredentials) |  | 
+ | OpenText client | OpenTextRestClient |  | 
+ | Node Id | `Integer` |  | 
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Order by named column | `String` | Format can be 'name' or 'asc_name' or 'desc_name'. If the prefix of asc or desc is not used then asc will be assumed <br/> <p> Ex/  asc_name</p> | 
+ | Ticket period | `Integer` | Time in seconds between two ticket creation | `60 ` | 
 
 
 
@@ -312,12 +366,10 @@ Randomly produces punnets containing documents, metadata, content...
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Maximum document number | `Integer` | Excluded | `1 ` | 
- | Minimum content number | `Integer` | Included | 
  | Minimum metadata number | `Integer` | Included | `1 ` | 
  | Minimum punnet number | `Integer` | If not set, the number of generated punnets will be exactly the number set at 'Number of punnets to generate' | 
  | Maximum number of metadata values | `Integer` | Included | `6000 ` | 
  | Minimum number of metadata values | `Integer` | Included | `0 ` | 
- | Maximum content number | `Integer` | Excluded | 
  | Maximum metadata number | `Integer` | Excluded | `10 ` | 
  | Minimum document number | `Integer` | Included | `1 ` | 
 

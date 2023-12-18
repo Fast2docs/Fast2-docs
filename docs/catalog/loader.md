@@ -49,14 +49,14 @@ This task can be used to inject documents into Alfresco, using the CMIS protocol
  | SQL update query | `String` | CMIS SQL update query to select the document to update. | 
  | Overwrite 'can create' | `Boolean` | Ask Fast2 to create destination folder(s) if they do not already exist | `true ` | 
  | Hash index column name | `String` | Hash index column name to version a document only when the content is different (but same index) | 
- | Prevent duplicate | `Boolean` | Fast2 will throw an error if the document has already been injected | 
  | Force update | `Boolean` | Throw an error if the document did not exist prior to the loading call | 
+ | Prevent duplicate | `Boolean` | Fast2 will throw an error if the document has already been injected | 
 
 
 
 ## AlfrescoRestInjector <small> - Alfresco injector using Alfresco REST protocol </small> {#AlfrescoRestInjector data-toc-label="AlfrescoRestInjector"}
 
-This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco REST client) to load documents and metadata into a given Alfresco instance. 
+This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco REST client) to load documents and metadata into a given Alfresco instance. <br /><br />To force the type of resource to create in the destination system, use the `nodeType` data into the document dataset. Default value is `cm:content`.
 
 <b>Mandatory settings</b>
 
@@ -70,9 +70,11 @@ This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco RE
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Root folder name to inject in a specific repository | `String` | '-my-', '-shared-', '-root-' are equivalent | `-my- ` | 
- | Alfresco destination path | `String` | The path of the folder where the documents will be saved in Alfresco. This field supports patterns (based on punnet, document and campaign metadata). | 
+ | Alfresco destination path | `String` | The path of the folder where the documents will be saved in Alfresco. This field supports patterns (based on punnet, document and campaign metadata). <br />If this path starts with Alfresco nodeRef prefix 'workspace://SpacesStore/', the document will be injected into the corresponding folder. However, such folder needs to be created beforehand. | 
  | Regex pattern filter for document properties | `String` |  | `(cm:.*) ` | 
+ | Safe update | `Boolean` | If the document does not already exist, the first version will create the document. Later versions will be incremented on top of the existing version based on the data 'cm:versionLabel' property. | 
  | Auto rename feature | `Boolean` | Triggers the Alfresco auto-rename feature, to prevent Alfresco to throw a 'duplicate document' error. | `false ` | 
+ | Pivot metadata for multiversion | Pattern | If all documents of the punnet have the same value for this metadata, they will be considered as being the different versions of a same document in Alfresco. | 
  | Overwrite documents when they already exist | `Boolean` | Triggers the Alfresco overwrite feature, where the incoming document will replace an existing document having the same key. | `false ` | 
  | Alfresco ID for update | `String` | Specify here the Alfresco UUID of the document to update. The value will be resolved by Fast2, syntax `${...}` is supported. This value can start with 'workspace://SpacesStore/' <br/> <p> Ex/  ${property('alfcmis:nodeRef')}</p> | 
 
@@ -94,8 +96,8 @@ Fast2 proposes this task to load your documents, metadata and more within design
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Destination folder | `String` | The parent folder of the documents to inject. This field supports pattern (using punnet, document or campaign metadata). Leave empty for storing at the root of the bucket. | 
  | Encryption key | `String` | Key used for server-side encryption. <br/> <p> Ex/  01234567-abcd-efgh-ijkl-0123456789ab</p> | 
+ | Destination folder | `String` | The parent folder of the documents to inject. This field supports pattern (using punnet, document or campaign metadata). Leave empty for storing at the root of the bucket. | 
  | Dry run | `Boolean` | Simulates an injection, performs document integrity controls, but does not load the document into AWS S3 | `false ` | 
  | Destination file name | `String` | Metadata for the file name once injected into the S3 bucket. Pattern syntax is supported. | `${name} ` | 
  | Encryption context | `String` | Context used for server-side encryption. This context is a JSON map. <br/> <p> Ex/  `{\"testKey\":\"testValue\"}`</p> | 
@@ -121,6 +123,7 @@ Use this task to write punnet and document related data into a CSV. You can spec
 | - | - | - | - |
  | Close output file at each line | `Boolean` | Close CSV file after each punnet processed. This option can come useful to prevent too many files opened errors when each punnet created a dedicated CSV file. | 
  | New column headers | `String list` | The new column names to use for the document metadata. If no set, the column headers will be populated from the names of the document metadata. By default, the data 'punnetId' and 'documentId' will be appended to the existing data. | 
+ | Upload punnet data | `Boolean` | For each document add the punnet data to wich it was attached to | `true ` | 
  | CSV separator | `String` | The separator used between columns in the resulting CSV file. | `, ` | 
  | Write all in the same CSV file | `Boolean` | Merge metadata of all punnets in a single output CSV file. The missing columns headers will be added on the fly, although it is wiser to list them all in the 'New column headers' field. If set to false, any existing CSV file with the same name will be overwritten. | `true ` | 
  | Protect with double quote | `Boolean` | This option will surround every value with double quotes. Such use will be mostly relevant when dealing with multivalued metadata. | `true ` | 
@@ -206,14 +209,15 @@ Use this task to inject documents and data into a FileNet. If all documents have
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Try using 'DocumentTitle' property | `Boolean` | When filing a document into a folder, try to use the FileNet 'DocumentTitle' for the RelationShip name | 
  | Property Helper | [PropertyHelper](../tool/#PropertyHelper) |  | 
+ | Try using 'DocumentTitle' property | `Boolean` | When filing a document into a folder, try to use the FileNet 'DocumentTitle' for the RelationShip name | 
  | Process multi-pages content as multi-content | `Boolean` | Treat the content of multi-pages document as multi-content document in FileNet | 
  | Keep original VersionSeries ID | `Boolean` | If true, Fast2 will create the multiversion documents with the VersionSeries ID specified in the 'VersionSeries metadata' configuration field. | 
  | Dry run | `Boolean` | Do not perform anything, just prepare UpdatingBatch and drop when finished. It implies to activate 'Use UpdatingBatch on documents'. | 
  | Restrain search results to documents | `Boolean` | Force Document search to limit to the class name provided on the document | 
  | Metadata carrying parent folder UUID | `String` | Name of the metadata where Fast2 will store the UUID of the parent folder of the document injected into FileNet P8. Leave empty to disable updating | 
  | Only process 1st content | `Boolean` | When a document has multiple contents, its forces to process the first one only. The others are then skipped | 
+ | Inject FileNet security | `Boolean` | Document dataset must have data 'security'. Syntax must be an array of concatenated Strings as so : `gType=<String>/gName=<String>/mask=<Integer>/depth=<Integer>/aType=<String>` where `<Integer>` and `<String>` values are replaced by the corresponding business values. | 
  | Accept unset properties | `Boolean` | Allow registration of blank metadata in FileNet | 
  | Skip content injection | `Boolean` | Skip document content injection, only load the metadata and/or annotations of the processed document | 
  | Name of ID property | `String` | Name of the document property, found in the document dataset, which will be used to force Id at document creation. Leave blank to disable this feature | 
@@ -222,11 +226,11 @@ Use this task to inject documents and data into a FileNet. If all documents have
  | Auto-classiify at checking | `Boolean` | Enable the FileNet Auto-Classify feature when the document is at checking stage | 
  | Clear in-place annotations | `Boolean` | If source document contains annotations, clean up existing ones in P8 | 
  | Synchronous folder creation | `Boolean` | Enforce synchronous folder creation, to make them more thread-safe | `true ` | 
- | Metadata carrying document UUID | `String` | Name of the metadata where Fast2 will store the UUID of the document injected into FileNet P8. Leave empty to disable updating | `fileNetDocumentId ` | 
  | Safe update of document | `Boolean` | Try updating a document. If no older version of the document can be found, create it | 
+ | Metadata carrying document UUID | `String` | Name of the metadata where Fast2 will store the UUID of the document injected into FileNet P8. Leave empty to disable updating | `fileNetDocumentId ` | 
+ | Use UpdatingBatch of folders | `Boolean` | Use FileNet UpdatingBatch also for folders creation, which may not be thread-safe | 
  | Variable name of annotation ID | `String` | Variable name of annotation id used to replace it by generated FileNet annotation id | `${annotationId} ` | 
  | Force deletion | `Boolean` | Force document delete action. If no matching document can be found, an error is thrown | 
- | Use UpdatingBatch of folders | `Boolean` | Use FileNet UpdatingBatch also for folders creation, which may not be thread-safe | 
  | Associate annotation FileNet ID to its content | `Boolean` | Update annotation content with its generated FileNet id according to annotation id variable | 
  | Delete in-place version | `Boolean` | Delete the last document version after checkin a new one | 
  | Update system properties | `Boolean` | It can only be used for either document creation or update (when a new version is created) | 
@@ -234,12 +238,36 @@ Use this task to inject documents and data into a FileNet. If all documents have
  | Default MimeType | `String` | The mime-type to set when no MimeType has been provided neither in document nor its content | 
  | Limit CE connection life-time | `Long` | At end of TTL, the connection will be replaced by a brand new one | `Long.MAX_VALUE ` | 
  | Fields to update | `String` | Default query to select fields to update | `* ` | 
- | Post-commit delta | `Integer` | Time to wait after a commit instruction, may be useful to let FileNet perform asynchronous handling of document injection | `0 ` | 
  | VersionSeries metadata | `String` | Name of the VersionSeries property common to all documents in punnet. If all documents have the same value, they will be considered as one same multiversioned document in FileNet. | `VersionSeries ` | 
+ | Post-commit delta | `Integer` | Time to wait after a commit instruction, may be useful to let FileNet perform asynchronous handling of document injection | `0 ` | 
  | Force folder creation | `Boolean` | Overwrite folder canCreate property : create folders when they do not exist | 
  | Prevent document overwriting | `Boolean` | Check if the document already exists before creating it using `WHERE` clause. You can throw an exception in case an older document can be found (see _Throw exception if document already exists_). If false, create all documents without control | 
  | Force to perform update | `Boolean` | Force document Update action. In case the document did not exist, an error is thrown | 
  | WHERE clause for update | `String` | The criteria which the documents to update will have to match <br/> <p> Ex/  [Id]=${myFileNetDocumentId}</p> | 
+
+
+
+## FlowerInjector <small> - Fast2 injector module for FlowerDocs </small> {#FlowerInjector data-toc-label="FlowerInjector"}
+
+Allows to load a component (document, task, folder or virtual folder) into Flower. Can load facts, document content and annotations
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+ | FlowerDocs connection provider | [FlowerDocsConnectionProvider](../credentials/#FlowerDocsConnectionProvider) |  | 
+ | Component category | `String` | FlowerDocs component category can be DOCUMENT, TASK, FOLDER or VIRTUAL_FOLDER | 
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ |  | Component |  | 
+ | Load document annotations | `Boolean` |  | `false ` | 
+ | Load document file content | `Boolean` |  | `false ` | 
+ | Load component facts | `Boolean` |  | `false ` | 
+ | Mode update | `Boolean` | Does not update content | `false ` | 
 
 
 
@@ -340,7 +368,7 @@ This task load documents and metadata into a given Nuxeo instance using the Nuxe
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Attribute file path | `String` | OpenText categorie must be associated with their ids within the file. Fast2 will automatically translate the data name to the correct id specified by the file <br/> <p> Ex/  ../config/attributes.properties</p> | 
+ | Attribute file path | `String` | OpenText category must be associated with their ids within the file. Fast2 will automatically translate the data name to the correct id specified by the file <br/> <p> Ex/  ../config/attributes.properties</p> | 
  | OpenText credentials | [OpenTextCredentials](../credentials/#OpenTextCredentials) |  | 
  | Expected folder architecture | `String list` |  | 
  | OpenText client | OpenTextRestClient |  | 
@@ -353,7 +381,7 @@ This task load documents and metadata into a given Nuxeo instance using the Nuxe
  | List of properties not to inject | `String list` | These properties will be excluded | 
  | NodeId of the webReport parameter to use | `String` | Opentext webReports allow users to build search request with specific parameters | 
  | List of properties to inject | `String list` | If empty the whole dataSet will be injected | 
- | Data carrying document version | `String` | Document version must be present to inject in chronological order. Documents with multiple versions must be in the same punnet <br/> <p> Ex/  MajorVersionNumber</p> | 
+ | Version document if data exists | `String` | Fast2 will check if the data filled in this field for carrying the version and the 'nodeId' data are available at document level. If so, the document will be injected within OpenText and its version increased by one. A new data 'createdVersion' will be added to the document | 
  | Ticket period | `Integer` | Time in seconds between two ticket creation | `60 ` | 
 
 
@@ -395,8 +423,8 @@ With this task, you will be able to perform any SQL instruction (such as inserti
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Inject annotation | `Boolean` | Fast2 will either throw an error if the statement has not properly been executed, or fail silently | 
- | Inject annotations | `Boolean` |  | 
+ | Inject annotations | `Boolean` | Fast2 will either throw an error if the statement has not properly been executed, or fail silently | 
+ | Skip exceptions | `Boolean` |  | 
 
 
 

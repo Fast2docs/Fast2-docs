@@ -16,8 +16,8 @@
  | ARN key for getAwsPrefixKMS encryption | `String` |  | 
  | Bucket name | `String` | Name of the S3 bucket where the content is stored. | `${bucket} ` | 
  | Content path (S3 object key) | `String` | Path leading to S3 object corresponding to the content you intend to extract from the bucket. To use this options, you must enable the content extraction option. <br/> <p> Ex/  ${contentPath}</p> | 
+ | Extract contents | `Boolean` | All existing contents of documents will be replaced by the newly found contents, retrieved from the S3 bucket. If the S3 objects are parsed as punnets, then the contents will be attached based on the 'Content path' input field. | 
  | Process s3 objects as punnets | `Boolean` |  | 
- | Extract punnet contents from S3 Objects | `Boolean` | All existing contents of documents will be replaced by the newly found contents, retrieved from the S3 bucket. | 
 
 
 
@@ -58,6 +58,7 @@ This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco RE
 | - | - | - | - |
  | Extract annotations | `Boolean` |  | 
  | Date format | `String` |  | `E MMM dd HH:mm:ss Z YYYY ` | 
+ | CMIS query | `String` | CMIS SQL query, pattern resolvable, to fetch document based on alternative data. Using this feature will create new docs in the punnet with corresponding ID of documents. Consider following this task with a secondary AlfrescoRestContentExtractor task to extract data and contents. | 
  | Extract content | `Boolean` |  | 
 
 
@@ -78,8 +79,8 @@ This class is dedicated to the extraction of content for the Content Manager sol
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Extact history logs | `Boolean` |  | `true ` | 
- | Extract advanced system properties from DKDDO object | `Boolean` |  | `true ` | 
  | Extract standard system properties | `Boolean` |  | `true ` | 
+ | Extract advanced system properties from DKDDO object | `Boolean` |  | `true ` | 
  | Extract document annotation | `Boolean` |  | `false ` | 
  | Extract note logs | `Boolean` |  | `false ` | 
  | Extract custom properties | `Boolean` |  | `true ` | 
@@ -118,8 +119,9 @@ This Documentum connector is designed for extraction of document versions, metad
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Extract folders | `Boolean` |  | `true ` | 
  | Connexion information to Documentum Repository | [DctmConnectionProvider](../credentials/#DctmConnectionProvider) |  | 
+ | Extract folders | `Boolean` |  | `true ` | 
+ | Map empty or unset properties | `Boolean` | Attach Documentum metadata onto document dataset even if the value is missing or unset. | 
  | Extract renditions | `Boolean` | Check this option to extract renditions of each document. They will be attached as side-contents in the document, with properties populated from original renditions properties. | 
  | Whitelist for metadata to extract | `String` | All values need to be separated by comma `,`. | 
  | Extract metadata | `Boolean` |  | `true ` | 
@@ -166,17 +168,39 @@ This task is not a real source task. The documents to be extracted are identifie
  | Property Helper to use | [PropertyHelper](../tool/#PropertyHelper) |  | 
  | Extract object type properties | `Boolean` | The FileNet P8 metadata of the document which are Object type will be saved at the punnet level | `false ` | 
  | Compound parent data for children references | `String` | Name of the parent document property under which the children properties will be stored. | 
- | Compound children data to record | `String` | Name of the child property to store in the parent. Consider setting parent data name as well. | 
  | Object store name | `String` | Name of the repository to extract from | 
+ | Compound children data to record | `String` | Name of the child property to store in the parent. Consider setting parent data name as well. | 
  | Extract FileNet system properties | `Boolean` | Save the FileNet system properties as document metadata | `false ` | 
- | Skip annotation exceptions | `Boolean` | Extract documents even if related annotations are in exception like null content | `false ` | 
  | Default mimetype | `String` | Default mimetype to set if the one from FileNet is empty | 
+ | Skip annotation exceptions | `Boolean` | Extract documents even if related annotations are in exception like null content | `false ` | 
  | Extract FileNet security | `Boolean` | The security of the document will be saved at the punnet level | `false ` | 
- | Extract folders absolute path | `Boolean` | The absolute path of the folder inside the FileNet instance will be extracted during the process | `false ` | 
  | SQL fetch query | `String` | Use this SQL to fetch documents based on your criteria. <br/> <p> Ex/  SELECT [Id],[DocumentTitle] FROM Document WHERE [Property] = '${myCriterion}'</p> | 
+ | Extract folders absolute path | `Boolean` | The absolute path of the folder inside the FileNet instance will be extracted during the process | `false ` | 
  | Extract content | `Boolean` | The document content will be extracted during the process | `true ` | 
  | Extract all versions | `Boolean` | Extract the superseded versions of the documents matching the query | 
  | Extract annotations | `Boolean` | All annotations owned by the document will be extracted | `true ` | 
+
+
+
+## FlowerContentExtractor <small> -  </small> {#FlowerContentExtractor data-toc-label="FlowerContentExtractor"}
+
+
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+ | Flower component category (DOCUMENT, TASK, FOLDER or VIRTUAL_FOLDER) | `String` |  | 
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Extract document annotations | `Boolean` |  | `false ` | 
+ | Extract component facts | `Boolean` |  | `false ` | 
+ |  | [FlowerDocsConnectionProvider](../credentials/#FlowerDocsConnectionProvider) |  | 
+ | Extract document file content | `Boolean` |  | `false ` | 
 
 
 
@@ -223,7 +247,7 @@ It consists of the following columns, separated by a comma:
 - Length: length of the metadata. If the value is greater than this length, then it will be truncated. If the value is lower, it will be completed by spaces on the right \n
 - Offset: position in MDO file \n
 - Mandatory: Y / N \n
-- Occurs: number of occurrences allowed for the field. The successive values ??of the field will then be added to the values ??of the metadata (respecting the Length parameter for each one) \n
+- Occurs: number of occurrences allowed for the field. The successive values ​​of the field will then be added to the values ​​of the metadata (respecting the Length parameter for each one) \n
 - Type: Type of metadata to add to the punnet document \n
 
 
@@ -272,6 +296,30 @@ Like the MDOParserExternalContent task, the MDOParserExternalContent source allo
  | Dataline property name | `String` | Name of the metadata that will contain the MDO line read. If not specified, the line read will not be saved in the punnet | 
  | Last punnet property name | `String` | Data name indicating which punnet is the last of document in punnet. If null, data isn't added in punnet. For multipunnet case only | 
  | Original text content property name | `String` | Data name containing original text content. If null, data isn't added in the punnet | 
+
+
+
+## OpenTextContentSource <small> - OpenText content extractor using OpenText REST protocol </small> {#OpenTextContentSource data-toc-label="OpenTextContentSource"}
+
+
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+ | OpenText credentials | [OpenTextCredentials](../credentials/#OpenTextCredentials) |  | 
+ | OpenText client | OpenTextRestClient |  | 
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Extract all versions | `Boolean` | Extract the superseded versions of the documents matching the query | 
+ | Extract document metadata | `Boolean` | Save metadata as document metadata | `false ` | 
+ | Extract document categories | `Boolean` | Save categories as document metadata | `false ` | 
+ | Extract content | `Boolean` | The document content will be extracted during the process | `true ` | 
+ | Ticket period | `Integer` | Time in seconds between two ticket creation | `60 ` | 
 
 
 
