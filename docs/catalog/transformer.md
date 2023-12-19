@@ -14,9 +14,9 @@ Use this task to remove existing content of a processed document, add content to
 |Key      | Type    | Description | 
 | - | - | - |
  | Check if file exists | `Boolean` | Check if the content referenced by the path is existing and accessible. If not, an exception is thrown. <br />If a wildcard is used as content path, the new content path will be skipped if this option is disabled. | 
- | Delete in-place content | `Boolean` | Override existing content with the new one, or remove the content attached to the document | 
- | Add content as annotation | `Boolean` | Check this option to add the content as annotation for document. If disabled, the content will be added as regular content to the document. | 
  | Files to exclude | `String list` | List here all patterns for files you wish to exclude. One line per match. <br/> <p> Ex/  <br />`**/*.xml`<br />`**/folder/to/exclude/`<br />`*.json` to ignore all JSON files</p> | 
+ | Add content as annotation | `Boolean` | Check this option to add the content as annotation for document. If disabled, the content will be added as regular content to the document. | 
+ | Delete in-place content | `Boolean` | Override existing content with the new one, or remove the content attached to the document | 
 
 
 
@@ -111,9 +111,9 @@ Parse a CSV content and put parsed values as document data
 
 
 
-## CSVQueryTask <small> - SQL updater for CSV </small> {#CSVQueryTask data-toc-label="CSVQueryTask"}
+## CSVQueryTask <small> - CSV Mapping: fetch data from a CSV file </small> {#CSVQueryTask data-toc-label="CSVQueryTask"}
 
-Simple task to update SQL database with document data.
+Fetch data from CSV using a key and and extra data from the CSV columns.
 
 
 
@@ -178,6 +178,7 @@ This task is used to perform the IS annotation conversion and its save into a ta
  | Status for some annotations in exception | `String` | Value when some annotation are in exception | `8 ` | 
  | Property name result | `String` | Keep the conversion result | `AnnotationConversionStatut ` | 
  | Skip conversion error | `Boolean` | Either Fast2 will throw an exception if an error occured during the conversion, or it will skip to the next annotation | `false ` | 
+ | Convert annotation to XFDF | `Boolean` | Either Fast2 converts during annotation process, or leave the annotation to its original format | `true ` | 
  | Annotation accessor | AnnotationAccessor | Choose annotation accessor to save annotations | 
  | Document layout DPI | `Float` | Set here the layout DPI for the document | `72.0 ` | 
  | Status for no-conversion annotation | `String` | Value when no annotation has been converted | `9 ` | 
@@ -194,8 +195,8 @@ Delete the content of your document within your file system. It will retrieve th
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | File path to delete | `String` | Used as prefix to select files to delete. This field can be see as a whitelist of the contents to delete. If empty, all accessible contents will be deleted from the machine. | 
  | Delay between two deletion attempt | `Integer` | Delay in milliseconds | `1000 ` | 
+ | File path to delete | `String` | Used as prefix to select files to delete. This field can be see as a whitelist of the contents to delete. If empty, all accessible contents will be deleted from the machine. | 
  | Exception when deletion failed | `Boolean` | Thrown an exception if the file has been found but the delete operation failed. | `true ` | 
  | Maximum number of tries for deletion | `Integer` | Thrown an exception if the file has not been deleted after this number of tries | `10 ` | 
  | Delete content entry | `Boolean` | Erase the URL entry from the document, in the punnet. | `true ` | 
@@ -250,8 +251,8 @@ This class allow you to connect to your mail box and select mails to delete. You
  | Mail connection provider | [MailBoxProvider](../credentials/#MailBoxProvider) |  | 
  | Maximum connection ttl | `Long` | Time in milliseconds | `60 ` | 
  | Search term type | `String` |  | `Message-Id ` | 
- | Exception when mail not found | `Boolean` | Throw an exception when the mail is not found. Otherwise, silent fail | `true ` | 
  | Pattern to evaluate property | `String` |  | `${Message-Id} ` | 
+ | Exception when mail not found | `Boolean` | Throw an exception when the mail is not found. Otherwise, silent fail | `true ` | 
  | Save message changes | `Boolean` |  | `true ` | 
 
 

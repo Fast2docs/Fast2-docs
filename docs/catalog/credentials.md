@@ -6,8 +6,8 @@ With an access key id and the secret access key, you have the option to connect 
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Secret access key | `String` | This field is mandatory unless 'Use Instance Profile' is set | 
  | Access key Id | `String` | This field is mandatory unless 'Use Instance Profile' is set | 
+ | Secret access key | `String` | This field is mandatory unless 'Use Instance Profile' is set | 
  | AWS Region | `String` |  | 
 
 
@@ -18,6 +18,8 @@ With an access key id and the secret access key, you have the option to connect 
  | AWS URL endpoint | `String` | Service endpoint & signing region | 
  | Use settings for Snowball | `Boolean` | Snowball S3 endpoint requires specific S3Client settings | `false ` | 
  | Use Instance Profile instead of Access Key & Secret | `Boolean` | From your local variable, Fast2 will retrieve your connection information | `false ` | 
+ | Role ARN name | `String` |  | 
+ | sessionName | `String` |  | 
  | AWS extra Client Configuration | ClientConfiguration | Use this AWS class to fine-tune connection details to S3, such as timeouts, connection pool size, ... | 
 
 
@@ -66,11 +68,11 @@ The CM connection provider will help you to manage a pool of connections. For pe
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Connection pool size | `Integer` | Maximum number of connections to be created | `64 ` | 
  | Data source type | `String` |  | `ICM ` | 
+ | Connection pool size | `Integer` | Maximum number of connections to be created | `64 ` | 
  | Server name | `String` | Name of the server involved in the migration | `ICMNLSDB ` | 
- | Internal connection | `Integer` | Maximum number of connections for internal side | `64 ` | 
  | Connection free pool size | `Integer` | Maximum number of connections that may be held in the free pool | `5 ` | 
+ | Internal connection | `Integer` | Maximum number of connections for internal side | `64 ` | 
  | Connection duration | `Long` | Length of time to kill a free connection in milliseconds | `100000 ` | 
 
 
@@ -128,8 +130,8 @@ This task is used to provide connection information to connect specifically to t
 |Key      | Type    | Description | 
 | - | - | - |
  | WCM Config resource | `String` |  | 
- | URL settings | [WcmApiConfigSettings](../helper/#WcmApiConfigSettings) | Class used for setting multiple URLs (download, upload...) | 
  | Object store name | `String` | Name of the docbase involved in the migration | 
+ | URL settings | [WcmApiConfigSettings](../helper/#WcmApiConfigSettings) | Class used for setting multiple URLs (download, upload...) | 
 
 
 
@@ -153,6 +155,28 @@ Using this class allows you to provide connection information to specifically co
  | JAAS coonfiguration stanza property name | `String` | Property containing JAAS coonfiguration. If null, the default JAAS stanza name is set to FileNetP8 | 
  | Singleton connection | `Boolean` | Reuse the same connection to optimize calls | `false ` | 
  | Initial naming factory | `String` |  | 
+
+
+
+## FlowerDocsConnectionProvider <small> - Connection module for FlowerDocs ECM </small> {#FlowerDocsConnectionProvider data-toc-label="FlowerDocsConnectionProvider"}
+
+Module responsible for authentication of Fast2 for FlowerDocs
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+ | URL endpoint | `String` | Web services target URL | 
+ | Password | `String` | Password of the service account used for authentication | 
+ | Scope | `String` | Scope of the service account used for authentication | 
+ | Username | `String` | Username of the service account used for authentication | 
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Overrides authenticated user | `Boolean` | Allows connections to multiple endpoints | `false ` | 
 
 
 
@@ -270,8 +294,8 @@ This modules is responsible of establishing the connection between Fast2 and the
  | Password | `String` | Password used by connectionString and fully encrypted for security reasons | 
  | Driver class | `String` | Optional driver class to load before connection. Leave empty to load none | 
  | Throw error if no result | `Boolean` | Throw exception when SQLQueryColumnCaller finds no result. | 
- | User | `String` | Username used by connectionString | 
  | Skip exceptions | `Boolean` | Fast2 will either throw an error if the statement has not properly been executed, or fail silently | 
+ | User | `String` | Username used by connectionString | 
 
 
 

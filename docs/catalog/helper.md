@@ -28,8 +28,8 @@ This class allows to configure several elements associated with a URL.
 |Key      | Type    | Description | 
 | - | - | - |
  | Download URL | `String` |  | 
- | Credentials portection for user token | `String` |  | 
  | Upload URL | `String` |  | 
+ | Credentials portection for user token | `String` |  | 
  | Remote URL | `String` |  | 
  | Credentials protection | `String` |  | 
 

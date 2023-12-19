@@ -16,7 +16,7 @@ Zip punnets into a zip file. A zip cannot contains a few punnets but documents c
 
 
 
-## ConvertCMToP8 <small> - Convert CM annotations to FileNet P8 annotations. Input annotation format is INI. </small> {#ConvertCMToP8 data-toc-label="ConvertCMToP8"}
+## ConvertCMToP8 <small> - Convert CM annotations to FileNet P8 annotations. Input annotation format is INI from a JSON file. Only supports one document per punnet. Supported contents are PDF, TIFF and PNG files </small> {#ConvertCMToP8 data-toc-label="ConvertCMToP8"}
 
 Supported types : <ul><li>CMBAnnotationConstants.ANN_TEXT</li><li>CMBAnnotationConstants.ANN_ARROW</li><li>CMBAnnotationConstants.ANN_HIGHLIGHT</li><li>CMBAnnotationConstants.ANN_NOTE</li><li>CMBAnnotationConstants.ANN_RECT</li><li>CMBAnnotationConstants.ANN_LINE</li><li>CMBAnnotationConstants.ANN_STAMP</li><li>CMBAnnotationConstants.ANN_NOTE</li><li>CMBAnnotationConstants.ANN_MASK</li><li>Polygon</li><li>Freehand</li><ul>
 
@@ -27,8 +27,9 @@ Supported types : <ul><li>CMBAnnotationConstants.ANN_TEXT</li><li>CMBAnnotationC
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | ViewOne annotation parser | ViewOneAnnotationConverter |  | 
- | Transform rectangle into highlight | `Boolean` | Rectangles does not support transparency. Turn them into highlight to keep tranparency | `false ` | 
+ | Force rectangle transparency | `Boolean` | Force rectangles to be transparent even if dedicated property equals 0 | 
  | Apply ratio | `Boolean` | Transform annotation positions using document DPI | `true ` | 
+ | Transform rectangle into highlight | `Boolean` | Rectangles does not support transparency. Turn them into highlight to keep tranparency | `false ` | 
  | Watermarks on all pages | `Boolean` | Apply watermark annotations on each pages of the document | `false ` | 
 
 
@@ -63,10 +64,7 @@ Convert your documents using the ConvertDoc library.
 ## ConvertINIToXFDF <small> - Annotation converter from INI to XFDF </small> {#ConvertINIToXFDF data-toc-label="ConvertINIToXFDF"}
 
 Convert ViewOne annotations to XML Form Data Format (XFDF). These operations are supported only for PDF and Tiff files. Content dimensions will be fetched to convert these annotations 
-To improve the performances add these 3 parameters to the startup-worker.bat script before the -jar : 
-'-Dorg.ini4j.spi.IniBuilder=org.ini4j.spi.IniBuilder'
-'-Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl'
-'-Dorg.ini4j.spi.IniParser=org.ini4j.spi.IniParser'
+To improve the performances add these 3 parameters to the startup-worker.bat script before the -jar : <br />'-Dorg.ini4j.spi.IniBuilder=org.ini4j.spi.IniBuilder'<br />'-Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl'<br />'-Dorg.ini4j.spi.IniParser=org.ini4j.spi.IniParser'<br /><br />Supported types : <br />- [TEXT]<br />- [RECTANGLE]<br />- [FREEHAND]
 
 
 
@@ -74,8 +72,8 @@ To improve the performances add these 3 parameters to the startup-worker.bat scr
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Overload text and postit page to the first one if related exception is thrown | `Boolean` |  | 
  | Postit annotation position | PageRelativePosition | Default position when an exception is thrown | 
+ | Overload text and postit page to the first one if related exception is thrown | `Boolean` |  | 
  | Skip conversion error | `Boolean` | Do not throw an exception for conversion errors | `false ` | 
  | All note font are black | `Boolean` |  | 
  | Keep converted annotations | `Boolean` | Do not interrupt punnets if at least one annotation has been converted. Punnets carrying annotations that haven't been converted will be flagged with a data named 'ToReplay' | `false ` | 
@@ -157,13 +155,13 @@ Convert your old IS annotations to XML Form Data Format (XFDF). XFDF file are us
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Default page height | `Float` | Default page height used for text and mail document | 
  | Skip conversion error | `Boolean` | Do not throw an exception for conversion errors | `false ` | 
+ | Default page height | `Float` | Default page height used for text and mail document | 
  | Remove annotations border | `Boolean` | Most of the time, annotations have by default a border set to 1. Set to true will remove the border | 
  | Keep background transparency | `Boolean` | Make background transparent when it is white | `false ` | 
  | Default page width | `Float` | Default page width used for text and mail document | 
- | FileNet XFDF annotation converter | FileNetAnnotationConverter |  | 
  | Font size ratio | `Integer` | Multiply the font size value by this ratio | 
+ | FileNet XFDF annotation converter | FileNetAnnotationConverter |  | 
  | Default post it location | PageRelativePosition | Overwrite coordinates for each post it annotation | 
  | Create one annotation container per annotation | `Boolean` |  | 
  | Overwrite border width | `Integer` | Value of border width for proprietary and arrow annotations | 
@@ -248,6 +246,7 @@ Convert your talk files to PDF using iText Library.
 | - | - | - | - |
  | Charset used for text | `String` |  | `windows-1252 ` | 
  | Tiff embed annotations | `Boolean` |  | 
+ | Page number property name | `String` | Property of the content used to put the annotation on the correct page content. If null, the annotation will be on first page. | 
  | Fail if no annotation was parsed | `Boolean` |  | 
  | Skip annotation parse exceptions | `Boolean` |  | 
  |  | `Integer` |  | 
@@ -290,8 +289,9 @@ Supported types : <ul><li>CMBAnnotationConstants.ANN_TEXT</li><li>CMBAnnotationC
  |  | PageRelativePosition |  | 
  |  | `Float` |  | 
  |  | `Float` |  | 
- |  | `Integer` |  | 
  |  | `String` |  | 
+ |  | `Integer` |  | 
+ |  | `Boolean` |  | 
  |  | `Float` |  | 
  |  | `String` |  | 
  |  | `Float` |  | 
@@ -308,14 +308,17 @@ This class allow you to unzip the content of archive files. Multiple mime types 
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
  | Charset | `String` | Charset used for file names in zip archives | `CP437 ` | 
- | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | Process annotation contents | `Boolean` | If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata | `false ` | 
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 
- | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
+ | Only extract files that do not match this pattern | `String` |  | 
+ | Delete source archive file | `Boolean` |  | `false ` | 
  | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
  | Recursive | `Boolean` |  | `false ` | 
+ | Only extract files that match this pattern | `String` |  | 
+ | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
+ | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
+ | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
 
 
 
@@ -369,14 +372,14 @@ This class allow you to convert an Excel file to a PDF format.
 
 ## GenericConvertDoc <small> - Convert from URL to PDF from its URL </small> {#GenericConvertDoc data-toc-label="GenericConvertDoc"}
 
-This task will convert the content of any document into PDF format. All Fast2 needs is you to specify the URL/path of the initial document
+This task will convert the content of any document into PDF format. All Fast2 needs is you to specify the URL/path of the initial document. The input file will be automatically resolved by the documents carried by the punnet. The ouput file path got his own field that can be used with a patternThe location of options are managed through an int value specifying the index within the cmd line starting to 0.
 
 <b>Mandatory settings</b>
 
 |Key      | Type    | Description | 
 | - | - | - |
  | Destination folder | `String` | Target file path for the locally-created files | 
- | Converter path | `String` | Set here the path of the converter which will be used for the conversion | 
+ | Converter path | `String` | Set here the path of the converter | 
 
 
 <b>Optional settings</b>
@@ -388,9 +391,10 @@ This task will convert the content of any document into PDF format. All Fast2 ne
  | Ignore command return value | `Boolean` | Do not perform anything after conversion, whatever the command feedback | `false ` | 
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 
  | Destination folder for original files | `String` | Dump input file in a specific folder path. Set to null to disable dumps | 
+ | Options location | `Integer` | Set here the index of options in the cmd line : O means at the beginning. | `1 ` | 
  | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
- | Timeout before stopping | `Integer` | Time to wait before killing the process. Value is in seconds | `3600 ` | 
  | Protect path with double quotes | `Boolean` | Surround file paths with quotes when building command-line | `false ` | 
+ | Timeout before stopping | `Integer` | Time to wait before killing the process. Value is in seconds | `3600 ` | 
  | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
  | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | Conversion option | `String` | See application help for more details | 
@@ -472,10 +476,10 @@ From a tiff content punnet, merges all its subcontent merge together. All conten
  | Corrupted JPEGs handled by ImageMagick | `Boolean` |  | `true ` | 
  | Handle corrupted JPEGs | `Boolean` |  | `true ` | 
  | Sanitize source JPEGs | SanitizeJpeg |  | 
- | Force JPEG Sanitation | `Boolean` |  | `false ` | 
  | Maximum number of source pages | `Integer` |  | `Integer.MAX_VALUE ` | 
- | Minimum number of pages before dispatch errors | `Integer` |  | `1 ` | 
+ | Force JPEG Sanitation | `Boolean` |  | `false ` | 
  | Dispatch multi-pages tiff to a bunch of single-page tiff | `Boolean` | Only the first one will be processed when source contains multiple multi-page tiffs | `false ` | 
+ | Minimum number of pages before dispatch errors | `Integer` |  | `1 ` | 
 
 
 
@@ -513,10 +517,10 @@ This task serializes document metadata in an MDO file format with a fixed length
  | Throw exception on missing mandatory data | `Boolean` | Throw exceptions if mandatories data are missing. Otherwise, silent fail | `false ` | 
  | MDO format specification file path | `String` | CSV configuration file path containing MDO format specification | 
  | End tag of document content | `String` |  | 
- | Skip from specific index | `Integer` | Skip writing documents from this index | `0 ` | 
  | Data name to add dataline into document data | `String` | If null data isn't added in document | 
- | MDO-format with internal content | `Boolean` | Generate MDO-format document with internal content | `false ` | 
+ | Skip from specific index | `Integer` | Skip writing documents from this index | `0 ` | 
  | Fallback on missing data | `Boolean` | When data is missing in the document being written, try to search it in the first document | `true ` | 
+ | MDO-format with internal content | `Boolean` | Generate MDO-format document with internal content | `false ` | 
  | Data name containing original text content | `String` | If null text content isn't added to MDO file, internal content only | 
 
 
@@ -569,8 +573,8 @@ Merge your tiff files into PDF format using the PDFBox library (v1.2.1).
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Convert resursive folders | `Boolean` | Folders referencesd by the document are converted recursively (deprecated) | `false ` | 
  | Remove document direct content | `Boolean` | Not referenced from folders (deprecated) | `false ` | 
+ | Convert resursive folders | `Boolean` | Folders referencesd by the document are converted recursively (deprecated) | `false ` | 
  | Ignore conversion exceptions | `Boolean` | Each exception during the conversion becomes a silent fail indexed in logs | `false ` | 
  | Supported source mime types | `String list` | List of all accepted mime types | 
 
@@ -608,6 +612,20 @@ Complete converter from office file to PDF format using OpenOffice / LibreOffice
  | officeHome | `String` |  | 
  | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
  | Stop cmd for LibreOffice / OpenOffice | `String` | Command to use to force LibreOffice or OpenOffice process to stop | 
+
+
+
+## PdfAConverter <small> - Convert from PDF to PDF/A </small> {#PdfAConverter data-toc-label="PdfAConverter"}
+
+A PDF/A is a PDF file with some constraints to ensure its long time conservation. These constraints are described in ISO 19005. This task takes PDF files as input, and generated a PDF/A-{1A, 1B, 2A, 2B, 3A, 3B}.
+
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Expected pdf conformity level | `String` | If empty default level is PDF/A-1B | `1B ` | 
 
 
 
@@ -653,8 +671,8 @@ Serialize a punnet to any file (CSV, JSON, XML, custom format) using an XSL styl
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | New document properties | `String/String map` | Specify here at least the `documentId` data. You can use punnet properties to resolve pattern <br/> <p> Ex/  Setting an entry with 'myKey' and 'myValue' will trigger Fast2 to look up for the metadata entitled 'myValue' in the punnet and its document(s). If this data is not found, the value will be set to 'myValue'.</p> | 
- | Replace | `Boolean` | Replace punnet documents by the new produced document (requires Append to be set) | `false ` | 
  | Append | `Boolean` | Attach output stream of you XSL script as a new document in the punnet. | `false ` | 
+ | Replace | `Boolean` | Replace punnet documents by the new produced document (requires Append to be set) | `false ` | 
  | Encoding | `String` | Enter here your script file encoding. | `UTF-8 ` | 
 
 
@@ -700,31 +718,34 @@ Converts your tiff files to jpeg format.
 
 
 
-## TesseractInvoker <small> - Transform your PDFs to make them searchable using OCR engine </small> {#TesseractInvoker data-toc-label="TesseractInvoker"}
+## TesseractInvoker <small> - Transform your PDFs and images with text to make them searchable using OCR engine </small> {#TesseractInvoker data-toc-label="TesseractInvoker"}
 
-Based on Tesseract solution, this task will parse each page of your images or PDF to extract text and create a new searchable PDF
-Be careful if you are doing multi doc or multi content : if names are identicals it will overwrite contents 
+Based on Tesseract solution, this task will parse each page of your images (TIFF, JPG and PNG) or PDF to extract text and create a new searchable PDF
+CCITT T.6 image compression is supported but not LZW compression\nBe careful if you are doing multi-document or multi-content : if names are identicals it will overwrite contents 
 (ex\ sample.tiff & sample.gif will both creates sample.pdf. The first doc will overwrote the 2nd one
 
 <b>Mandatory settings</b>
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Tesseract path | `String` | Complete path of your local Tesseract instance <br/> <p> Ex/  /usr/share/tesseract-ocr/4.00/tessdata</p> | 
  | Destination folder | `String` | Target file path for the locally-created files | 
+ | Tesseract path | `String` | Complete path of your local Tesseract instance <br/> <p> Ex/  /usr/share/tesseract-ocr/4.00/tessdata</p> | 
 
 
 <b>Optional settings</b>
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
- | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
+ | Throw rotations exceptions | `Boolean` | If Fast2 performs document orientation detection, it can either fail silently or pop an error when the action has not been properly completed. Throw conversion exceptions should be set to true for this option to work | `false ` | 
  | Process annotation contents | `Boolean` | If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata | `false ` | 
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 
+ | Allow rotation if needed | `Boolean` | If document is converted but not readable, rotation is will correct the page orientation from landscape to portrait if needed | `true ` | 
+ | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
+ | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
+ | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | Process all contents | `Boolean` | Fast2 will either only focus on the first encountered content, or process them all | `true ` | 
  | Add file sizes | `Boolean` | If true, add input and output file sizes in the data set | 
- | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
+ | Allow enhanced orientation detection | `Boolean` | Only used if allow rotation is set to true. Enable the use of an enhanced rotation detection, thus giving more accurate results but with the downside of being slower. Activate it for low-quality images for example. | `false ` | 
 
 
 
@@ -806,7 +827,7 @@ This task will be used to convert HTML content into a PDF document. Fast2 embeds
 |Key      | Type    | Description | 
 | - | - | - |
  | Destination folder | `String` | Target file path for the locally-created files | 
- | Converter path | `String` | Set here the path of the converter which will be used for the conversion | 
+ | Converter path | `String` | Set here the path of the converter | 
 
 
 <b>Optional settings</b>
@@ -818,9 +839,10 @@ This task will be used to convert HTML content into a PDF document. Fast2 embeds
  | Ignore command return value | `Boolean` | Do not perform anything after conversion, whatever the command feedback | `false ` | 
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 
  | Destination folder for original files | `String` | Dump input file in a specific folder path. Set to null to disable dumps | 
+ | Options location | `Integer` | Set here the index of options in the cmd line : O means at the beginning. | `1 ` | 
  | Supported mime-types | `String list` | Specify the list of all mime-types of documents which Fast2 will convert | 
- | Timeout before stopping | `Integer` | Time to wait before killing the process. Value is in seconds | `3600 ` | 
  | Protect path with double quotes | `Boolean` | Surround file paths with quotes when building command-line | `false ` | 
+ | Timeout before stopping | `Integer` | Time to wait before killing the process. Value is in seconds | `3600 ` | 
  | Throw conversion exceptions | `Boolean` | If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed | `true ` | 
  | Mime-type : Check document before content | `Boolean` | You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level | `false ` | 
  | Conversion option | `String` | See application help for more details | 
