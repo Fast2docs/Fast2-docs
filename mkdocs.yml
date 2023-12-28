@@ -159,12 +159,12 @@ nav:
     - catalog/index.md
     - Sources: catalog/source.md
     - Content sources: catalog/contentsource.md
-    - "Conversion tasks" : catalog/converter.md
     - Credentials: catalog/credentials.md
-    - Helpers: catalog/helper.md
-    - Injectors: catalog/loader.md
-    - Tools: catalog/tool.md
+    - "Conversion tasks" : catalog/converter.md
     - "Transformation tasks" : catalog/transformer.md
+    - Helpers: catalog/helper.md
+    - Tools: catalog/tool.md
+    - Injectors: catalog/loader.md
   - Advanced:
     - advanced/index.md
     - Drools: advanced/drools.md
