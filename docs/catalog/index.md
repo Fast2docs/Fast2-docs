@@ -12,28 +12,29 @@ Here are the 8 categories we cover:
 
     Extract content, metadata, folder references, and all versions from the source environment.
 
+1. **Credentials**
+
+    Establish connections with remote systems to enable communication with our migration tool.
+
 1. **Conversion Tasks**
 
     Convert contents, including documents and annotations, as part of the migration process.
 
-1. **Credentials**
+1. **Transformation Tasks**
 
-    Establish connections with remote systems to enable communication with our migration tool.
+    Focus on metadata-oriented operations, such as transforming, enriching, validating, or changing metadata formats.
+
 
 1. **Helpers**
 
     Perform handy tasks for side operations to support and enhance your migration process.
 
-1. **Injectors**
-
-    Upload or inject migration data and documents into the destination system.
-
 1. **Tools**
 
     Perform intermediate tasks for basic operations, independent of the source or destination environments.
 
-1. **Transformation Tasks**
+1. **Injectors**
 
-    Focus on metadata-oriented operations, such as transforming, enriching, validating, or changing metadata formats.
+    Upload or inject migration data and documents into the destination system.
 
 In each category, you'll find detailed information about the specific configuration fields for each workflow task, providing comprehensive guidance for your migration needs.
