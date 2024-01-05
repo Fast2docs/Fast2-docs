@@ -88,6 +88,7 @@ However targetting object is not always intuitive, so here are the different key
 
 | Keyword                | Description                                                                                                                             | Examples                                    |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `${CurrentDocument}`   | Access the focused document, to call its metadata. <br/><br/>This can be quite useful when dealing with multi-document punnets.       | `${CurrentDocument.getDataSet().getData('multivalued data').getValues().get(0).split('\.')[0]}`              |
 | `${CurrentContainer}`  | Access the focused content, to call its properties. <br/><br/>This can be quite useful when dealing with multi-contented documents.     | `${CurrentContainer.mimetype}`              |
 | `${CurrentAnnotation}` | Access the annotation of the document.                                                                                                  | `${CurrentAnnotation.annotationId}`         |
 | `${punnet}`            | Access the punnet as an object. From there, all datasets and subobjects can be accessed. The accessor is generally used for conditions. | `${punnetId.toString().startsWith('My')}`   |
