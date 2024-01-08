@@ -187,7 +187,7 @@ Caused by: org.elasticsearch.ElasticsearchStatusException: Elasticsearch excepti
 
 As mentioned in the [Elasticsearch technicalities](#index-names), Fast2 records data under indices prefixed with `f2_`. Thus it implies to begin each index to delete with this prefix.
 
-Although a drastic cleanu-up induced by a `curl -X DELETE -i "http://<elasticsearch-server>:<elasticsearch-port>/f2_*` would resolve our issue, you might be interested in keeping some campaigns or indices. As any _curl_ query allows, exceptions can be added to the deletion operation to prevent them from being removed of the backup database. The syntax goes as follows:
+Although a drastic cleanup induced by a `curl -X DELETE -i "http://<elasticsearch-server>:<elasticsearch-port>/f2_*` would resolve our issue, you might be interested in keeping some campaigns or indices. As any _curl_ query allows, exceptions can be added to the deletion operation to prevent them from being removed of the backup database. The syntax goes as follows:
 
 ```shell
 curl -X DELETE -i "http://<Fast2-server>:<database-port>/f2_*,-f2_campaigns,-f2_campaigns_sources[,-f2_<campaign-name>]"
