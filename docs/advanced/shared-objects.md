@@ -1,3 +1,8 @@
+!!! warning
+
+    This page has been moved to the Knowledge-Base at 🔗[Understand the Shared Objects in Fast2](https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4188307457)
+
+<!--
 ## What are they all about ?
 
 During the design stage of a migration workflow, you may need to reuse a configuration already set for a task or Fast2 module (e.g. the connection IDs, which must be repeated for each injector or extractor or even the URL of the system to target). To avoid this repetition, Fast2 offers "Shared Objects". As their name suggests, the goal here is to create a object only once, and reuse it later on from different tasks.
@@ -51,3 +56,4 @@ Step #2, browse the task catalog to add an AlfrescoInjector in your map. In the 
 ![Shared object utilisation](../assets/img/advanced/sharedObjectSet.png){ width="50%" }
 
 And you're all set. Each time you want to connect to your Alfresco, you will no longer have to create a brand new object !
+ -->
