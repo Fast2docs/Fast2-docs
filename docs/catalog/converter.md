@@ -617,7 +617,7 @@ Complete converter from office file to PDF format using OpenOffice / LibreOffice
 
 ## PdfAConverter <small> - Convert from PDF to PDF/A </small> {#PdfAConverter data-toc-label="PdfAConverter"}
 
-A PDF/A is a PDF file with some constraints to ensure its long time conservation. These constraints are described in ISO 19005. This task takes PDF files as input, and generated a PDF/A-{1A, 1B, 2A, 2B, 3A, 3B}.
+A PDF/A is a PDF file with some constraints to ensure its long time conservation. These constraints are described in ISO 19005. This task takes PDF files as input, and generates a PDF/A-{1A, 1B, 2A, 2B, 3A, 3B}.
 
 
 
