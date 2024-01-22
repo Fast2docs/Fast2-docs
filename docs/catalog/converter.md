@@ -574,7 +574,7 @@ Merge your tiff files into PDF format using the PDFBox library (v1.2.1).
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Remove document direct content | `Boolean` | Not referenced from folders (deprecated) | `false ` | 
- | Convert resursive folders | `Boolean` | Folders referencesd by the document are converted recursively (deprecated) | `false ` | 
+ | Convert resursive folders | `Boolean` | Folders referenced by the document are converted recursively (deprecated) | `false ` | 
  | Ignore conversion exceptions | `Boolean` | Each exception during the conversion becomes a silent fail indexed in logs | `false ` | 
  | Supported source mime types | `String list` | List of all accepted mime types | 
 
