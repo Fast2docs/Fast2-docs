@@ -1,6 +1,6 @@
 ## ArchiveBuilder <small> - Punnet zipper </small> {#ArchiveBuilder data-toc-label="ArchiveBuilder"}
 
-Zip punnets into a zip file. A zip cannot contains a few punnets but documents carried by the punnet can be splitted into multiple zip files.
+Zip punnets into a zip file. A zip cannot contain a few punnets but documents carried by the punnet can be splitted into multiple zip files.
 
 
 
