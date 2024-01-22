@@ -834,7 +834,7 @@ This task will be used to convert HTML content into a PDF document. Fast2 embeds
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Ingore output file | `Boolean` | Converter does not takes output file instructions | `false ` | 
+ | Ingore output file | `Boolean` | Converter does not take output file instructions | `false ` | 
  | Process annotation contents | `Boolean` | If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata | `false ` | 
  | Ignore command return value | `Boolean` | Do not perform anything after conversion, whatever the command feedback | `false ` | 
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 
