@@ -374,13 +374,34 @@ This new dimension of data analysis via Kibana opens up way more possibilities, 
 
 <br />
 
+## :octicons-bug-24: Troubleshooting
+
+### :material-connection: Dashboards do not reach the database { #cannot-reach-db data-toc-label="Unable to access database" }
+
+Make sure the database port has been correctly configured in the YAML file of the dashboards. Head to the [port section](/components/database/#port) for more details.
+
+### :material-lan-connect: Could not ping dashboard on port 1791 { #port-not-showing data-toc-label="Unable to access dashboards" }
+
+Make sure declaring your port in the 2 expected places. Head to the [port section](#ports) for more details.
+
+### :material-web-remove: Connection refused when accessing the dashboards port { #connection-refused data-toc-label="Connection refused" }
+
+In case you cannot reach the dashboards UI remotely, you might want to check several things :
+
+- make sure the dashboards are started, from the Fast2 server (Node process running on the port declared in the `./opensearch-dashboards-X.Y.Z/config/opensearch_dashboards.yml`)
+- make sure you have accessing the same port from your remote machine
+- check with your IT team to make sure the network securities are allowing outbound rules for this port (as they might have done for the Fast2UI port)
+- make sure you updated the dashboards `server.host` configuration (check [this section](#remote-access-to-the-dashboards) for more details)
+
+<br />
+
 ## FAQ
 
 ### :octicons-question-24: Run Fast2 without dashboards
 
-It is possible to run Fast2 without the dashboards, as this add-on is just reading data stored in the internal database, to serve them as graphical vizualisation. This
+It is possible to run Fast2 without the dashboards, as this add-on is just reading data stored in the internal database, to serve them as graphical vizualisation.
 
-By no mean this add-on is necessary for the migration.
+By no mean this add-on is **necessary** for the migration.
 
 ### :octicons-question-24: Access dashboard when not migrating
 
