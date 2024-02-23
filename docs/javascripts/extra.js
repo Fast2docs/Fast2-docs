@@ -1,15 +1,17 @@
 // External links opened in new tabs
 
 document$.subscribe(() => {
-  const excludeList = new Set(['docs.fast2.tech', 'localhost']);
+  // Get the hostname of the current page
+  const currentDomain = window.location.hostname;
 
   // Select all links with href starting with http
   document.querySelectorAll("a[href^='http']").forEach(link => {
+
     // Get the hostname of the link
     const hostname = new URL(link.href).hostname; 
 
-    // If the hostname is not in the exclude list
-    if (!excludeList.has(hostname)) { 
+    // If the hostname is different, open the link in a new tab
+    if (currentDomain !== hostname) { 
       link.setAttribute("target", "_blank");
       link.setAttribute("rel", "noopener");
       link.classList.add("external-link");
