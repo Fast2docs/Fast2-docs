@@ -1,12 +1,22 @@
 // External links opened in new tabs
-document$.subscribe(function () {
-  var links = document.querySelectorAll("a[href^='http']");
-  links.forEach(function (link) {
-    link.setAttribute("target", "_blank");
-    link.setAttribute("rel", "noopener");
-    link.classList.add("external-link");
+
+document$.subscribe(() => {
+  const excludeList = new Set(['docs.fast2.tech', 'localhost']);
+
+  // Select all links with href starting with http
+  document.querySelectorAll("a[href^='http']").forEach(link => {
+    // Get the hostname of the link
+    const hostname = new URL(link.href).hostname; 
+
+    // If the hostname is not in the exclude list
+    if (!excludeList.has(hostname)) { 
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener");
+      link.classList.add("external-link");
+    }
   });
 });
+
 
 // Copy permanent links to keyboard
 document$.subscribe(function () {
