@@ -41,20 +41,20 @@ Each distribution ships the following
 
 ## Root folder anatomy
 
-| Item                                                     | Purpose                                             |
-| -------------------------------------------------------- | --------------------------------------------------- |
-| :material-folder: config                                 | Configuration files, broker endpoint, Java home     |
-| :material-folder: logs                                   | Logging files for both broker and worker(s)         |
-| :material-folder: maps                                   | XML files of all maps accessible from the UI        |
-| :material-folder: database                               | Either Elasticsearch or OpenSearch                  |
-| :material-folder: service                                | All files required to start Fast2 as a service      |
-| :material-folder: worker-libs/\*                         | All libraries and dependencies for tasks executions |
-| :fontawesome-brands-java: fast2-broker-package-X.Y.Z.jar | Broker unit                                         |
-| :fontawesome-brands-java: fast2-worker-package-X.Y.Z.jar | Worker main unit                                    |
-| :material-microsoft-windows: startup-broker.bat          | Binary file for Windows                             |
-| :fontawesome-brands-linux: startup-broker.sh             | Binary file for Linux                               |
-| :material-microsoft-windows: startup-worker.bat          | Binary file for Windows                             |
-| :fontawesome-brands-linux: startup-worker.sh             | Binary file for Linux                               |
+| Item                                                      | Purpose                                             |
+| --------------------------------------------------------- | --------------------------------------------------- |
+| :material-folder: config                                  | Configuration files, broker endpoint, Java home     |
+| :material-folder: logs                                    | Logging files for both broker and worker(s)         |
+| :material-folder: maps                                    | XML files of all maps accessible from the UI        |
+| :material-folder: opensearch-X.Y.Z or elasticsearch-X.Y.Z | Either Elasticsearch or OpenSearch                  |
+| :material-folder: service                                 | All files required to start Fast2 as a service      |
+| :material-folder: worker-libs/\*                          | All libraries and dependencies for tasks executions |
+| :fontawesome-brands-java: fast2-broker-package-X.Y.Z.jar  | Broker unit                                         |
+| :fontawesome-brands-java: fast2-worker-package-X.Y.Z.jar  | Worker main unit                                    |
+| :material-microsoft-windows: startup-broker.bat           | Binary file for Windows                             |
+| :fontawesome-brands-linux: startup-broker.sh              | Binary file for Linux                               |
+| :material-microsoft-windows: startup-worker.bat           | Binary file for Windows                             |
+| :fontawesome-brands-linux: startup-worker.sh              | Binary file for Linux                               |
 
 ## Start-up sequence
 
