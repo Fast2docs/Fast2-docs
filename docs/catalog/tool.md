@@ -226,6 +226,7 @@ This task is responsible for moving content of documents from a given folder int
 ## MovePunnet <small> - Move a punnet from folder to folder </small> {#MovePunnet data-toc-label="MovePunnet"}
 
 This task is responsible for moving a punnet from an embedded path into a new folder.
+The path is created automatically if it does not already exist
 
 <b>Mandatory settings</b>
 
