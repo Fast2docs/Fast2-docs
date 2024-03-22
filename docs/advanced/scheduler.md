@@ -14,17 +14,28 @@ A job is composed as follow :
 - A campaign : specify the name the dedicated input field. You can either write the name of an already existing campaign or a new one.
 - A CRON expression to schedule precisely your runs.
 - An action among `Start as new`, `Rerun`, `Stop` or `Resume`. It's precisely the same actions you can do in the run place.
+- A maximum number of executions, if you want to limit the number of times the job will run.
 - A boolean _activate_ to indicate if you're job must be ran or not (useful feature to have a job stand by, already configured for later operations).
 
 The other columns are purely indicatives. You will find the number of executions for each job, the date of the last and when the next run has been planned.
 
 Jobs are automatically saved when all their fields are correctly filled. If the name or the CRON expression have errors, you have to fix these errors to make the job savable.
 
+### Jobs creation and deletion
+
+- Button **Create**: Located at the end of the first row of the table, this button allows adding the entered values to create a new job. Once clicked, the entered values are used to create a new job, which is then added to the list of already created jobs. Users can then see their new job appear in the list of jobs.
+
+- Button **Delete**: Found at the end of each row representing an existing job, this button allows users to delete a job from the list. By clicking on this button, users can permanently delete a selected job. Before confirming the deletion, a confirmation is requested to prevent any accidental deletions.
+
+
 ### Caution
 
 Despite Fast2 validates the name and the CRON expression, the match between the campaign and the job action is not tested. It is the user's responsibility to have a clear idea about what to do with which campaign.
 
 If the action of a job is to stop a campaign, nothing will happen if the campaign is not running. The behavior is the same as the run place. See our [run section](../../getting-started/create-workflow/#run-a-map) as a reminder in case you need it.
+
+Additionally, it is important to note that when executing a job as 'START AS NEW', the subsequent campaign will only trigger once the previous campaign has concluded. This ensures sequential execution and prevents overlapping campaigns, maintaining the integrity of the workflow. For example, even if the CRON expression indicates a frequency of 10 seconds ( '*/10 * * * * *' ) between each trigger, the next campaign will only start once the previous one is finished.
+
 
 ## Cron expression
 
@@ -71,3 +82,14 @@ Cron expressions can be really useful but might quite hard to use.
 !!! tip "Build it yourself"
 
     To generate your own cron expressions easily, we suggest you to use some web generator (like [freeformatter.com](https://www.freeformatter.com/cron-expression-generator-quartz.html)).
+
+## Maximum number of executions
+The **Max # of executions** input field allows users to specify the maximum number of times a campaign should be executed.
+
+- Blank: If left blank, the campaign will be executed indefinitely.
+
+- Invalid Input: If the user enters a number that is equal to or less than the number of runs already completed, an error message "Must be higher than actual # of executions" will be displayed. The input field will retain its last valid entry.
+
+- Valid Input: A valid input is one where the number entered is greater than the number of executions already performed, or left blank. Upon entering a valid number, the value will be saved. If the "Active" checkbox was disabled and all other fields are valid, it will become enabled.
+
+- Execution Limit Reached: Once the number of runs reaches the value entered in this field, returning to the scheduler will display the message "Number of executions reached."
