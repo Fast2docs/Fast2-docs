@@ -10,6 +10,8 @@ Windows CMD :
 docker run --rm -it -p 8000:8000 -v "%cd%":/docs squidfunk/mkdocs-material
 ```
 
+docker run --rm -it -p 8000:8000 -v "%cd%":/docs squidfunk/mkdocs-material
+
 ## Deploy :
 
 File `./CNAME` is required to deploy on custom domain, do not remove !
