@@ -8,7 +8,7 @@ photograph: Héctor J. Rivas photograph_pseudo: "@@hjrc33"
 ![photo cover](../assets/img/cookbooks/photo-cover.avif)
 
 
-As we have seen before in the [punnet structure](../../getting-started/overall-concepts/#punnet), punnets can be composed with several different documents, each one of them embedding its own data and values.
+As we have seen before in the [punnet structure](../getting-started/overall-concepts.md#punnet), punnets can be composed with several different documents, each one of them embedding its own data and values.
 
 Whether it be for the purpose of processing order of these documents or any other operation requiring these same documents to be sorted in a different order, the catalog provides sufficient tooling to tackle this challenge.
 

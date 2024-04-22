@@ -8,7 +8,7 @@ Since Fast2 stores every single byte of migration information into its internal 
 
     However the configuration of these tools are very close (if not identical).
 
-The dashboard only communicates with the database (as illustrated in the [architecture section](/getting-started/overall-concepts/#architecture)).
+The dashboard only communicates with the database (as illustrated in the [architecture section](../getting-started/overall-concepts.md#architecture)).
 
 All the chart visualizations which can be built up with this add-on and integrated to the most advanced dashboards, solely serve one purpose: data digestion for tracking progress, by making now possible to follow edge-cases of a handful of documents lost in a week-long non-stopping flood, and building reports out of it.
 
@@ -146,7 +146,7 @@ Here is an example of a table gathering :
 
 To get started with this visualisation, or to add it to your existing dashboard, click down below :
 
-[:material-file-download: Download this resource](/documents/dashboards_exception-data-table.ndjson){ .md-button }
+[:material-file-download: Download this resource](../documents/dashboards_exception-data-table.ndjson){ .md-button }
 
 This resources can be imported as [explained previously](#imports-objects-into-the-dashboards-feature).
 <br/>
@@ -165,7 +165,7 @@ For a graph visualization of the success ratio per map/campaign, the following r
 
 To get started with this visualisation, or to add it to your existing dashboard, click down below :
 
-[:material-file-download: Download this visualization](/documents/dashboards_Campaign-success-ratio-per-day.ndjson){ .md-button }
+[:material-file-download: Download this visualization](../documents/dashboards_Campaign-success-ratio-per-day.ndjson){ .md-button }
 
 This resources can be imported as [explained previously](#imports-objects-into-the-dashboards-feature).
 <br/>
@@ -184,7 +184,7 @@ For a graph visualization of the success ratio per map/campaign, the following r
 
 To get started with this visualisation, or to add it to your existing dashboard, click down below :
 
-[:material-file-download: Download this visualization](/documents/dashboards_processing_speed_per_task.ndjson){ .md-button }
+[:material-file-download: Download this visualization](../documents/dashboards_processing_speed_per_task.ndjson){ .md-button }
 
 This resources can be imported as [explained previously](#imports-objects-into-the-dashboards-feature).
 <br/>
@@ -378,7 +378,7 @@ This new dimension of data analysis via Kibana opens up way more possibilities, 
 
 ### :material-connection: Dashboards do not reach the database { #cannot-reach-db data-toc-label="Unable to access database" }
 
-Make sure the database port has been correctly configured in the YAML file of the dashboards. Head to the [port section](/components/database/#port) for more details.
+Make sure the database port has been correctly configured in the YAML file of the dashboards. Head to the [port section](database.md#port) for more details.
 
 ### :material-lan-connect: Could not ping dashboard on port 1791 { #port-not-showing data-toc-label="Unable to access dashboards" }
 
@@ -416,7 +416,7 @@ Since the dashboards fetch data directly from the database, it is not possible t
 
 ### :octicons-question-24: Dashboards do not reach the database { #cannot-reach-db data-toc-label="Unable to access database" }
 
-Make sure the database port has been correctly configured in the YAML file of the dashboards. Head to the [port section](/components/database/#port) for more details.
+Make sure the database port has been correctly configured in the YAML file of the dashboards. Head to the [port section](database.md#port) for more details.
 
 ### :octicons-question-24: Could not ping dashboard on port 1791 { #port-not-showing data-toc-label="Unable to access dashboards" }
 

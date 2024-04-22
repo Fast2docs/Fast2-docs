@@ -7,17 +7,17 @@ tags:
 
 # Drools: the Java rules engine
 
-Based on Excel document, “drools” is a rule engine used to execute code scripts, Java code in our context. Users can define business and/or functional rules as data transformations, mapping, etc. One of the key benefits is its adaptation to any structure and any level of complexity as long as your code respects the punnet structure ([quick reminder here](../getting-started/overall-concepts#punnet) if need be 😉). It can easily be shared between your team members for complex project to have concerned people seamlessly involved. Another upside: no development skill is required to build your own rules. Fast2 supports such feature with the [ApplyDroolsTask]().
+Based on Excel document, “drools” is a rule engine used to execute code scripts, Java code in our context. Users can define business and/or functional rules as data transformations, mapping, etc. One of the key benefits is its adaptation to any structure and any level of complexity as long as your code respects the punnet structure ([quick reminder here](../getting-started/overall-concepts.md#punnet) if need be 😉). It can easily be shared between your team members for complex project to have concerned people seamlessly involved. Another upside: no development skill is required to build your own rules. Fast2 supports such feature with the [ApplyDroolsTask]().
 
 A sample of Drools spreadsheet can be downloaded to help you getting started.
 
-[:material-file-download: Download drools template](/documents/Drools-template.xlsx){ .md-button }
+[:material-file-download: Download drools template](../documents/Drools-template.xlsx){ .md-button }
 
 ## :octicons-light-bulb-16: Spreadsheet structure
 
 The following picture represents a drool sheet as you could find one in an Excel document:
 
-![Drools preview](../../assets/img/advanced/drools-example.png)
+![Drools preview](../assets/img/advanced/drools-example.png)
 
 It’s composed with :
 
@@ -65,7 +65,7 @@ An empty row is interpreted by the rules engine as the end of the process. Each 
 - All conditions must be validated to apply the action of the same row
 - If no value is present in the condition column, the condition is skipped (considered `true`)
 
-![Condition example in a Drools stylesheet](../../assets/img/advanced/drools-example-condition.png)
+![Condition example in a Drools stylesheet](../assets/img/advanced/drools-example-condition.png)
 
 A condition cell will only hold one statement. If several conditions have to be met, they will be in the next columns.
 
@@ -75,7 +75,7 @@ A condition cell will only hold one statement. If several conditions have to be 
 - Actions are performed from left to right
 - Inside a cell, the actions are separated by a semicolon ;
 
-![Condition example in a Drools stylesheet](../../assets/img/advanced/drools-example-action.png)
+![Condition example in a Drools stylesheet](../assets/img/advanced/drools-example-action.png)
 
 The actions are read just like any code snippet, similarly to a regular script file.
 
@@ -159,4 +159,4 @@ We advise you to create a folder at the root of Fast2 and name it Rules. However
 
 This path will be fill in the the task ApplyDroolsTask.
 
-![ApplyDroolsTask configuration in Fast2 catalog](../../assets/img/advanced/droolsTask.png)
+![ApplyDroolsTask configuration in Fast2 catalog](../assets/img/advanced/droolsTask.png)

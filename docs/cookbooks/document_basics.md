@@ -6,15 +6,15 @@ tags: ["boilerplate", "document", "dataset", "content", "java"]
 
 # Learn how to deal with documents
 
-![Document object structure](../../assets/img/cookbooks/document.png)
+![Document object structure](../assets/img/cookbooks/document.png)
 
 The documents are a main part of any migration, if not the purpose of it. Here are the basics for an appropriate understanding of the Java API of the document object.
 
-For a better understanding of the following, the document structure needs to be clearly visualized. If required, go back to [the definition](../../getting-started/overall-concepts/#document) of such an object in Fast2.
+For a better understanding of the following, the document structure needs to be clearly visualized. If required, go back to [the definition](../getting-started/overall-concepts.md#document) of such an object in Fast2.
 
 ## Creation
 
-As explained in the [basics of punnet](../punnet_basics) a document can be created on the fly:
+As explained in the [basics of punnet](punnet_basics.md) a document can be created on the fly:
 
 ```java
 Document myDoc = myPunnet.addDocument(DocumentId.id());
@@ -51,7 +51,7 @@ DataSet myDataset = myDoc.getDataSet();
 
 A document is built with an empty dataset by default.
 
-For more information concerning the dataset, head out to the [dedicated section](../dataset_basics).
+For more information concerning the dataset, head out to the [dedicated section](dataset_basics.md).
 
 ## Contents
 
@@ -80,7 +80,7 @@ ContentSet myContents = myDoc.getContentSet();
 
 A document is built with an empty contentset by default.
 
-For more information concerning the contentset, head out to the [dedicated section](../content_basics).
+For more information concerning the contentset, head out to the [dedicated section](content_basics.md).
 
 ## Mime-type
 
@@ -96,7 +96,7 @@ This data can also be set from the document level:
 myDoc.setMimeType("myMimetype");
 ```
 
-As said earlier, this method is just a shortcut to add a mime-type data into the document [dataset](/cookbooks/dataset_basics).
+As said earlier, this method is just a shortcut to add a mime-type data into the document [dataset](dataset_basics.md).
 
 ## Folders
 
@@ -110,7 +110,7 @@ FolderSet myFolders = myDoc.getFolders();
 
 A document is built with an empty folderset by default.
 
-For more information concerning the folders, head out to the [dedicated section](../folder_basics).
+For more information concerning the folders, head out to the [dedicated section](folders_basics.md).
 
 ## Annotations
 

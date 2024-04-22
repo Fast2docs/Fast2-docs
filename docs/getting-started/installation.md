@@ -19,7 +19,7 @@ The installation of Fast2 requires a few environment specifications to run prope
 
 <br /><br />
 
-While setting up the production server for Fast2, make sure to scale the Fast2 machine accordingly. You may need to increase the allocated memory for both the broker and the background database. If you planned to deal with campaigns of a few millions of documents, setting **8GB** of memory for the [broker](../../components/broker/#configure-the-broker) and **8GB** for the [database](../../components/database/#configuration) as well is a good starting point.
+While setting up the production server for Fast2, make sure to scale the Fast2 machine accordingly. You may need to increase the allocated memory for both the broker and the background database. If you planned to deal with campaigns of a few millions of documents, setting **8GB** of memory for the [broker](../components/broker.md#configure-the-broker) and **8GB** for the [database](../components/database.md#configuration) as well is a good starting point.
 
 !!! warning
 
@@ -64,7 +64,7 @@ When Fast2 is started, either as a standalone application or a service, its diff
 - The worker is then triggered, and has to register itself to the broker.
 - Finally, the dashboard will be started if asked so, and if the binaries have been detected. First, Fast2 will try to connect to any dashboard instance running on the configured port.
 
-There is no direct connection between the broker and the dashboard. The only exchange area is the Elasticsearch database, as explained in the [architecture section](../overall-concepts/#architecture).
+There is no direct connection between the broker and the dashboard. The only exchange area is the Elasticsearch database, as explained in the [architecture section](overall-concepts.md#architecture).
 
 ## Start Fast2 Broker
 

@@ -10,7 +10,7 @@ No migration project could be overcome if it was not by them!
 
 If their role can seem quite important, they are paradoxically as easy and straight forward to get up and running. Just the right files to gather, as mentioned here, and a new worker just enrolled!
 
-One of the major aspects of a promising migration project is what all project managers will ask you to vouch for: performance metrics. Let’s suppose you need to migrate documents from a source system into a second one, the latter having a much higher input flow tolerance. No need for empirical statistics to know that the old ECM will be the bottleneck. An architecture similar to a hybrid deployment variant (topic we presented [here](../../getting-started/installation/#root-folder-anatomy)) could easily be envisioned. But let’s complicate things a little bit here: in-between the extraction and the injection phase, the metadata have to be updated, with new date formatting and heavy mapping of document related properties. Can still a hybrid-like architecture save you now ?
+One of the major aspects of a promising migration project is what all project managers will ask you to vouch for: performance metrics. Let’s suppose you need to migrate documents from a source system into a second one, the latter having a much higher input flow tolerance. No need for empirical statistics to know that the old ECM will be the bottleneck. An architecture similar to a hybrid deployment variant (topic we presented [here](https://www.fast2.tech/blog/deployment-variants/)) could easily be envisioned. But let’s complicate things a little bit here: in-between the extraction and the injection phase, the metadata have to be updated, with new date formatting and heavy mapping of document related properties. Can still a hybrid-like architecture save you now ?
 
 ## :material-hard-hat: Configure the worker(s)
 
@@ -69,14 +69,14 @@ broker.embedded.worker.autostart=false
 ## :octicons-zap-24: Advanced use
 
 One of the major aspects of a promising migration project is what all project managers will ask you to vouch for: performance metrics.
-Let’s suppose you need to migrate documents from a source system into a second one, the latter having a much higher input flow tolerance. No need for empirical statistics to know that the old ECM will be the bottleneck. An architecture similar to a hybrid deployment variant (topic we presented [here](#)) could easily be envisioned. But let’s complicate things a little bit here: in-between the extraction and the injection phase, the metadata have to be updated, with new date formatting and heavy mapping of document related properties. Can still a hybrid-like architecture save you now ?
+Let’s suppose you need to migrate documents from a source system into a second one, the latter having a much higher input flow tolerance. No need for empirical statistics to know that the old ECM will be the bottleneck. An architecture similar to a hybrid deployment variant (topic we presented [here](https://www.fast2.tech/blog/deployment-variants/)) could easily be envisioned. But let’s complicate things a little bit here: in-between the extraction and the injection phase, the metadata have to be updated, with new date formatting and heavy mapping of document related properties. Can still a hybrid-like architecture save you now ?
 
 ### Several workers
 
 ### Context
 
 One of the major aspects of a promising migration project is what all project managers will ask you to vouch for: performance metrics.
-Let’s suppose you need to migrate documents from a source system into a second one, the latter having a much higher input flow tolerance. No need for empirical statistics to know that the old ECM will be the bottleneck. An architecture similar to a hybrid deployment variant (topic we presented [here](../../../blog/deployment-variants/)) could easily be envisioned.
+Let’s suppose you need to migrate documents from a source system into a second one, the latter having a much higher input flow tolerance. No need for empirical statistics to know that the old ECM will be the bottleneck. An architecture similar to a hybrid deployment variant (topic we presented [here](https://www.fast2.tech/blog/deployment-variants/)) could easily be envisioned.
 But let’s complicate things a little bit here: in-between the extraction and the injection phase, the metadata have to be updated, with new date formatting and heavy mapping of document related properties. Can still a hybrid-like architecture save you now ?
 
 ### How to set up
@@ -84,7 +84,7 @@ But let’s complicate things a little bit here: in-between the extraction and t
 Checkout in the official documentation the required Fast2 files and folders to set up a new worker. Leave a copy of the required files and folders on the machine hosting the source environment. This worker -- let’s label it as worker-S for “source” -- will be assigned to the extraction part.
 As indicated in the installation section, starting Fast2 will launch an embedded worker, assigned by default to all tasks composing the migration workflow. This worker here will be our worker-D (for “Destination”, or “Default”).
 
-Plug the worker-S onto the Fast2 broker (yes, the workers -- as [illustrated here](../../presentation/#architecture) -- manifest themselves to the broker, and not the other way around) : to do so, open the `config/application.properties` of the worker-S :
+Plug the worker-S onto the Fast2 broker (yes, the workers -- as [illustrated here](../getting-started/overall-concepts.md#architecture) -- manifest themselves to the broker, and not the other way around) : to do so, open the `config/application.properties` of the worker-S :
 
 === "v2.4-"
 
@@ -117,8 +117,8 @@ Plug the worker-S onto the Fast2 broker (yes, the workers -- as [illustrated her
 
 Update the name (or IP address) of the machine where Fast2 is running (`broker.host`), and the name of the queue which the worker will be assigned to (ex/ “extraction”).
 
-1. Start now the Fast2 server ([documentation here](../../getting-started/installation/#start-fast2-broker)) to have it up and running alongside the worker-D. This latter will be assigned to both the _mapping_ of the metadata and the injection of the documents in the destination environment.
-2. Then start the worker-S ([documentation here](../../getting-started/installation/##start-fast2-worker)).
+1. Start now the Fast2 server ([documentation here](../getting-started/installation.md#start-fast2-broker)) to have it up and running alongside the worker-D. This latter will be assigned to both the _mapping_ of the metadata and the injection of the documents in the destination environment.
+2. Then start the worker-S ([documentation here](../getting-started/installation.md#start-fast2-worker)).
 
 ![Schema of the architecture for a 2-worker migration](../assets/img/components/workers.png){ width="80%" }
 

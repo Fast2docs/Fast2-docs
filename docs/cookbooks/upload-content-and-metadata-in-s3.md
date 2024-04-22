@@ -18,7 +18,7 @@ Injecting this document directly into a S3 bucket would just create a new binary
 ## 🤔 Where to go ?
 To counteract this loss, we need to get Fast2 to add these metadata as a content too.
 
-This can easily be done with the off-the-shelf tasks of Fast2, namely the [PunnetSerializer](../../catalog/tool/#PunnetSerializer) task and the [AlterDocumentContent](../../catalog/transformer/#AlterDocumentContent) task. Respectively, these tasks will create a new binary file with the metadata as XML inside, according to the Fast2 data model which you can find [here](../../getting-started/overall-concepts/#punnet).
+This can easily be done with the off-the-shelf tasks of Fast2, namely the [PunnetSerializer](../catalog/tool.md#PunnetSerializer) task and the [AlterDocumentContent](../catalog/transformer.md#AlterDocumentContent) task. Respectively, these tasks will create a new binary file with the metadata as XML inside, according to the Fast2 data model which you can find [here](../getting-started/overall-concepts.md#punnet).
 
 In the end, we expect the bucket to have 2 contents for 1 document :
 
@@ -34,7 +34,7 @@ Let's first create an XML file out of the metadata of the punnet, attach this cr
 ### ⚗️ From metadata to XML
 Once our document fully extracted from the source CMS (via the tasks Source and ContentExtractor), we have the content and the metadata in a punnet.
 
-The [PunnetSerializer](../../catalog/tool/#PunnetSerializer) will convert the in-memory dataset record into XML format, in the default storage architecture (namely `$FAST2_HOME/files/<campaign>/<task>/<documentId>`). This path is the one we will have to provide in the next step of the workflow, which is the [AlterDocumentContent](../../catalog/transformer/#AlterDocumentContent) task.
+The [PunnetSerializer](../catalog/tool.md#PunnetSerializer) will convert the in-memory dataset record into XML format, in the default storage architecture (namely `$FAST2_HOME/files/<campaign>/<task>/<documentId>`). This path is the one we will have to provide in the next step of the workflow, which is the [AlterDocumentContent](../catalog/transformer.md#AlterDocumentContent) task.
 
 In our case, the pattern for the content to add is :
 ```txt
@@ -60,7 +60,7 @@ We are just a tweak away of having these 2 contents alongside though, and that w
 ## ✂️ Differentiate the 2 contents
 Here, the tricky part is to identify the type of content we are dealing with.
 
-We know that the original document is a PDF and the [PunnetSerializer](../../catalog/tool/#PunnetSerializer) generates an XML. So let's know Fast2 that information by creating the mimetype metadata on each content (as shown on the map screenshot earlier).
+We know that the original document is a PDF and the [PunnetSerializer](../catalog/tool.md#PunnetSerializer) generates an XML. So let's know Fast2 that information by creating the mimetype metadata on each content (as shown on the map screenshot earlier).
 
 From now on, we can use a pattern to append the extension based on the content type value, accessing the `${CurrentContainer}` object.
 
