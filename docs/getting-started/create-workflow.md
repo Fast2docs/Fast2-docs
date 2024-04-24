@@ -14,7 +14,7 @@ With Fast2 started, go to the UI (default address <http://localhost:1789/index.h
 
 !!! warning
 
-    A map must start with a <b><i>Source</i></b> task, picked up from the list in the [task configuration section](../task-configuration/source).
+    A map must start with a <b><i>Source</i></b> task, picked up from the list in the [task configuration section](../catalog/source.md).
 
 Any change about the map configuration/structure needs to happen in one place only : the design place. Changing the map name, adding or configuring either tasks or links, all these operations will take place in the Design Place.
 

@@ -6,7 +6,7 @@ This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco RE
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Alfresco connection provider | [AlfrescoRESTConnectionProvider](../credentials/#AlfrescoRESTConnectionProvider) |  | 
+ | Alfresco connection provider | [AlfrescoRESTConnectionProvider](credentials.md#AlfrescoRESTConnectionProvider) |  | 
 
 
 <b>Optional settings</b>
@@ -26,7 +26,7 @@ Reorganize your files inside your AWS S3 environment.
 
 |Key      | Type    | Description | 
 | - | - | - |
- | AWS access credentials | [AWSConnectionProvider](../credentials/#AWSConnectionProvider) | Must have granted AmazonS3FullAccess permission | 
+ | AWS access credentials | [AWSConnectionProvider](credentials.md#AWSConnectionProvider) | Must have granted AmazonS3FullAccess permission | 
  | Target key | `String` | The destination path inside your bucket where the document must be placed. Use as standard Pattern (includes S3 Folders) | 
 
 
@@ -165,7 +165,7 @@ This task will be useful when your needs will be to move a given email conversat
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Email provider | [MailBoxProvider](../credentials/#MailBoxProvider) | The Fast2 module establishing the connection to the email server, from the account of a given user. For more about the configuration of the object, please refer to the appropriate section | 
+ | Email provider | [MailBoxProvider](credentials.md#MailBoxProvider) | The Fast2 module establishing the connection to the email server, from the account of a given user. For more about the configuration of the object, please refer to the appropriate section | 
  | Destination folder | `String` | The folder where the email will eventually be moved to. This value will be resolved by Fast2 prior to the task execution | 
 
 
@@ -269,7 +269,7 @@ This task is responsible for moving content of documents from a given folder int
 
 ## MovePunnet <small> - Move a punnet from folder to folder </small> {#MovePunnet data-toc-label="MovePunnet"}
 
-This task is responsible for moving a punnet from an embedded path into a new folder. The path is created automatically if it does not already exist.
+This task is responsible for moving a punnet from an embedded path into a new folder.
 
 <b>Mandatory settings</b>
 
@@ -358,7 +358,7 @@ This task is responsible to find the mime type of a document accross either its 
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Mime type retriever | [MimeTypeFinder](../tool/#MimeTypeFinder) | Module to find content mime type | 
+ | Mime type retriever | [MimeTypeFinder](tool.md#MimeTypeFinder) | Module to find content mime type | 
 
 
 <b>Optional settings</b>

@@ -2,7 +2,7 @@ This section here is about the raw requirement to get the worker successfully co
 
 !!! note
 
-      Since Documentum architecture involves particular port and access management, a worker should be started on the same server where Documentum is running. Check out the [deployment variants topic](../../../blog/deployment-variants/#option-3--hybrid) for more information
+      Since Documentum architecture involves particular port and access management, a worker should be started on the same server where Documentum is running. Check out the [deployment variants topic](https://www.fast2.tech/blog/deployment-variants/#option-3--hybrid) for more information
 
 ## Dependencies and additional binaries
 

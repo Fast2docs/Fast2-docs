@@ -5,11 +5,11 @@ tags: ["boilerplate", "punnet", "content", "java"]
 
 # Learn how to deal with punnets
 
-![Punnet structure](../../assets/img/cookbooks/punnet.png)
+![Punnet structure](../assets/img/cookbooks/punnet.png)
 
 Since the punnet is the pivot format into Fast2, all documents, folders and metadata can only be manipulated through this object. Here are the basics for an appropriate understanding of the Java API of the punnet object.
 
-For a better understanding of the following, the punnet structure needs to be clearly visualized. If required, go back to [the definition](../../getting-started/overall-concepts/#punnet) of such an object in Fast2.
+For a better understanding of the following, the punnet structure needs to be clearly visualized. If required, go back to [the definition](../getting-started/overall-concepts.md#punnet) of such an object in Fast2.
 
 ## Creating a punnet
 
@@ -85,7 +85,7 @@ List<Document> myDocuments = myPunnet.getDocuments();
 
 As any Java list, documents can be removed as long as the correct index is provided.
 
-For more information concerning the documents, head out to the [dedicated section](../document_basics).
+For more information concerning the documents, head out to the [dedicated section](document_basics.md).
 
 ## DataSet
 
@@ -99,7 +99,7 @@ DataSet myDataset = myPunnet.getDataSet();
 
 A punnet is built with an empty dataset by default.
 
-For more information concerning the dataset, head out to the [dedicated section](../dataset_basics).
+For more information concerning the dataset, head out to the [dedicated section](dataset_basics.md).
 
 <!-- ## Workflows -->
 

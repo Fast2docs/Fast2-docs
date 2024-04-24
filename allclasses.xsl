@@ -250,7 +250,7 @@
 		<xsl:variable name="lowerCase" select="translate($shortClassName, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/>
 		<xsl:variable name="typeLowerCase" select="translate($type, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/>
 
-		<xsl:value-of select="concat('../', $typeLowerCase,'/#',$shortClassName)"/>
+		<xsl:value-of select="concat($typeLowerCase,'.md#',$shortClassName)"/>
 
 	</xsl:template>
 

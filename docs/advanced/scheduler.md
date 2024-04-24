@@ -31,7 +31,7 @@ Jobs are automatically saved when all their fields are correctly filled. If the 
 
 Despite Fast2 validates the name and the CRON expression, the match between the campaign and the job action is not tested. It is the user's responsibility to have a clear idea about what to do with which campaign.
 
-If the action of a job is to stop a campaign, nothing will happen if the campaign is not running. The behavior is the same as the run place. See our [run section](../../getting-started/create-workflow/#run-a-map) as a reminder in case you need it.
+If the action of a job is to stop a campaign, nothing will happen if the campaign is not running. The behavior is the same as the run place. See our [run section](../getting-started/create-workflow.md#run-a-map) as a reminder in case you need it.
 
 Additionally, it is important to note that when executing a job as _START AS NEW_, the next-to-come campaign will be triggered only once the previous campaign ends (status _FINISHED_). This ensures sequential execution and prevents overlapping campaigns, maintaining the integrity of the workflow.
 
