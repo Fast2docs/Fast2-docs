@@ -83,12 +83,12 @@ Data object represents metadata in the ECM sense. It contains a name, a type, an
 
 ```
 ㄴ dataset
-	ㄴ metadata A (ex/ key: value)
+	ㄴ metadata A (ex/ key: {"value":["value"]})
 		ㄴ properties
 			ㄴ property
 			ㄴ property
 			ㄴ ...
-	ㄴ metadata B (ex/ key: [value A, value B])
+	ㄴ metadata B (ex/ key: {"value":["value A", "value B"]})
 	ㄴ ...
 ```
 
