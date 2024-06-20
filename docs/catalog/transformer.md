@@ -248,7 +248,7 @@ This class allow you to connect to your mail box and select mails to delete. You
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Mail connection provider | [MailBoxProvider](../credentials/#MailBoxProvider) |  | 
+ | Mail connection provider | [MailBoxProvider](credentials.md#MailBoxProvider) |  | 
  | Maximum connection ttl | `Long` | Time in milliseconds | `60 ` | 
  | Search term type | `String` |  | `Message-Id ` | 
  | Pattern to evaluate property | `String` |  | `${Message-Id} ` | 

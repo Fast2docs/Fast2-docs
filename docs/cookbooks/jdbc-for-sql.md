@@ -87,6 +87,6 @@ SELECT * from table_test_connection;
 
 Congrats, you've made it !
 <br><br>
-Now you can also use the JDBC connection for other tasks such as [SQLMultiQueryTask](../../catalog/tool/#SQLMultiQueryTask) or [SQLSource](../../catalog/source/#SQLSource).
+Now you can also use the JDBC connection for other tasks such as [SQLMultiQueryTask](../catalog/tool.md#SQLMultiQueryTask) or [SQLSource](../catalog/source.md#SQLSource).
 <br>
 In addition to inserting or updating your database, you can also use these tasks to remove the contents of your tables !

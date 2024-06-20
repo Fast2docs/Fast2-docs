@@ -6,7 +6,7 @@
 
 |Key      | Type    | Description | 
 | - | - | - |
- | AWS access credentials | [AWSConnectionProvider](../credentials/#AWSConnectionProvider) | Credentials of the user (must have been granted AmazonS3FullAccess permission). | 
+ | AWS access credentials | [AWSConnectionProvider](credentials.md#AWSConnectionProvider) | Credentials of the user (must have been granted AmazonS3FullAccess permission). | 
 
 
 <b>Optional settings</b>
@@ -29,7 +29,7 @@ This alfresco extractor will use the CMIS technology to fetch your document cont
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Alfresco connection provider | [AlfrescoCMISConnectionProvider](../credentials/#AlfrescoCMISConnectionProvider) | CMIS version must be 1.1 | 
+ | Alfresco connection provider | [AlfrescoCMISConnectionProvider](credentials.md#AlfrescoCMISConnectionProvider) | CMIS version must be 1.1 | 
 
 
 <b>Optional settings</b>
@@ -49,7 +49,7 @@ This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco RE
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Alfresco connection provider | [AlfrescoRESTConnectionProvider](../credentials/#AlfrescoRESTConnectionProvider) |  | 
+ | Alfresco connection provider | [AlfrescoRESTConnectionProvider](credentials.md#AlfrescoRESTConnectionProvider) |  | 
 
 
 <b>Optional settings</b>
@@ -71,7 +71,7 @@ This class is dedicated to the extraction of content for the Content Manager sol
 
 |Key      | Type    | Description | 
 | - | - | - |
- | CM connection provider | [CMConnectionProvider](../credentials/#CMConnectionProvider) |  | 
+ | CM connection provider | [CMConnectionProvider](credentials.md#CMConnectionProvider) |  | 
 
 
 <b>Optional settings</b>
@@ -97,7 +97,7 @@ This class is dedicated to the extraction of content for the Content Manager sol
 
 |Key      | Type    | Description | 
 | - | - | - |
- | CMOD Connection Settings | [CMODConnectionProvider](../credentials/#CMODConnectionProvider) |  | 
+ | CMOD Connection Settings | [CMODConnectionProvider](credentials.md#CMODConnectionProvider) |  | 
 
 
 <b>Optional settings</b>
@@ -119,7 +119,7 @@ This Documentum connector is designed for extraction of document versions, metad
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Connexion information to Documentum Repository | [DctmConnectionProvider](../credentials/#DctmConnectionProvider) |  | 
+ | Connexion information to Documentum Repository | [DctmConnectionProvider](credentials.md#DctmConnectionProvider) |  | 
  | Extract folders | `Boolean` |  | `true ` | 
  | Map empty or unset properties | `Boolean` | Attach Documentum metadata onto document dataset even if the value is missing or unset. | 
  | Extract renditions | `Boolean` | Check this option to extract renditions of each document. They will be attached as side-contents in the document, with properties populated from original renditions properties. | 
@@ -139,7 +139,7 @@ Use this task to retrieve content of documents to extract from a given FileNet i
 
 |Key      | Type    | Description | 
 | - | - | - |
- | FileNet 3.5 connection provider | [FileNet35ConnectionProvider](../credentials/#FileNet35ConnectionProvider) | Connection parameters to the FileNet instance | 
+ | FileNet 3.5 connection provider | [FileNet35ConnectionProvider](credentials.md#FileNet35ConnectionProvider) | Connection parameters to the FileNet instance | 
 
 
 <b>Optional settings</b>
@@ -158,14 +158,14 @@ This task is not a real source task. The documents to be extracted are identifie
 
 |Key      | Type    | Description | 
 | - | - | - |
- | FileNet connection provider | [FileNetConnectionProvider](../credentials/#FileNetConnectionProvider) | Connection parameters to the FileNet instance | 
+ | FileNet connection provider | [FileNetConnectionProvider](credentials.md#FileNetConnectionProvider) | Connection parameters to the FileNet instance | 
 
 
 <b>Optional settings</b>
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Property Helper to use | [PropertyHelper](../tool/#PropertyHelper) |  | 
+ | Property Helper to use | [PropertyHelper](tool.md#PropertyHelper) |  | 
  | Extract object type properties | `Boolean` | The FileNet P8 metadata of the document which are Object type will be saved at the punnet level | `false ` | 
  | Compound parent data for children references | `String` | Name of the parent document property under which the children properties will be stored. | 
  | Object store name | `String` | Name of the repository to extract from | 
@@ -199,7 +199,7 @@ This task is not a real source task. The documents to be extracted are identifie
 | - | - | - | - |
  | Extract document annotations | `Boolean` |  | `false ` | 
  | Extract component facts | `Boolean` |  | `false ` | 
- |  | [FlowerDocsConnectionProvider](../credentials/#FlowerDocsConnectionProvider) |  | 
+ |  | [FlowerDocsConnectionProvider](credentials.md#FlowerDocsConnectionProvider) |  | 
  | Extract document file content | `Boolean` |  | `false ` | 
 
 
@@ -307,7 +307,7 @@ Like the MDOParserExternalContent task, the MDOParserExternalContent source allo
 
 |Key      | Type    | Description | 
 | - | - | - |
- | OpenText credentials | [OpenTextCredentials](../credentials/#OpenTextCredentials) |  | 
+ | OpenText credentials | [OpenTextCredentials](credentials.md#OpenTextCredentials) |  | 
  | OpenText client | OpenTextRestClient |  | 
 
 
@@ -331,7 +331,7 @@ Extract clob and blob object-types. Classic types like varchar are extraced as w
 
 |Key      | Type    | Description | 
 | - | - | - |
- | SQL connection provider | [SQLQueryGenericCaller](../credentials/#SQLQueryGenericCaller) |  | 
+ | SQL connection provider | [SQLQueryGenericCaller](credentials.md#SQLQueryGenericCaller) |  | 
  | SQL query | Pattern | Select precisely documents you want to extract through a classic SQL query | 
 
 

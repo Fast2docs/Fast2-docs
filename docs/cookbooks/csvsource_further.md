@@ -76,7 +76,7 @@ the created document will only have a dataset looking like:
 
 Fast2 will keep no trace of the old header names, generating a document with a dataset populated from the CSV file alongside new data names.
 
-Of course this data name mapping could have been handled by an additional task, such as [Drools](../../catalog/transformer/#ApplyDroolsTask) or [JSTransform](../../catalog/transformer/#JSTransform) (just to name a few).
+Of course this data name mapping could have been handled by an additional task, such as [Drools](../catalog/transformer.md#ApplyDroolsTask) or [JSTransform](../catalog/transformer.md#JSTransform) (just to name a few).
 
 But this CSV task here combines these 2 steps (of parsing and mapping) into a single one, lowering room for error and freeing the document of unnecessary information you'd not even have used.
 

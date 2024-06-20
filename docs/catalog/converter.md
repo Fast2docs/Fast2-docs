@@ -1,6 +1,6 @@
 ## ArchiveBuilder <small> - Punnet zipper </small> {#ArchiveBuilder data-toc-label="ArchiveBuilder"}
 
-Zip punnets into a zip file. A zip cannot contain a few punnets but documents carried by the punnet can be splitted into multiple zip files.
+Zip punnets into a zip file. A zip cannot contains a few punnets but documents carried by the punnet can be splitted into multiple zip files.
 
 
 
@@ -574,7 +574,7 @@ Merge your tiff files into PDF format using the PDFBox library (v1.2.1).
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Remove document direct content | `Boolean` | Not referenced from folders (deprecated) | `false ` | 
- | Convert resursive folders | `Boolean` | Folders referenced by the document are converted recursively (deprecated) | `false ` | 
+ | Convert resursive folders | `Boolean` | Folders referencesd by the document are converted recursively (deprecated) | `false ` | 
  | Ignore conversion exceptions | `Boolean` | Each exception during the conversion becomes a silent fail indexed in logs | `false ` | 
  | Supported source mime types | `String list` | List of all accepted mime types | 
 
@@ -617,7 +617,7 @@ Complete converter from office file to PDF format using OpenOffice / LibreOffice
 
 ## PdfAConverter <small> - Convert from PDF to PDF/A </small> {#PdfAConverter data-toc-label="PdfAConverter"}
 
-A PDF/A is a PDF file with some constraints to ensure its long time conservation. These constraints are described in ISO 19005. This task takes PDF files as input, and generates a PDF/A-{1A, 1B, 2A, 2B, 3A, 3B}.
+A PDF/A is a PDF file with some constraints to ensure its long time conservation. These constraints are described in ISO 19005. This task takes PDF files as input, and generated a PDF/A-{1A, 1B, 2A, 2B, 3A, 3B}.
 
 
 
@@ -834,7 +834,7 @@ This task will be used to convert HTML content into a PDF document. Fast2 embeds
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Ignore output file | `Boolean` | Converter does not take output file instructions | `false ` | 
+ | Ingore output file | `Boolean` | Converter does not takes output file instructions | `false ` | 
  | Process annotation contents | `Boolean` | If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata | `false ` | 
  | Ignore command return value | `Boolean` | Do not perform anything after conversion, whatever the command feedback | `false ` | 
  | Scan recursive content | `Boolean` | Only convert terminal contents and not container ones | `false ` | 

@@ -5,7 +5,7 @@ tags: ["boilerplate", "content", "java"]
 
 # Learn how to deal with contents
 
-![Content structure](../../assets/img/cookbooks/content.png)
+![Content structure](../assets/img/cookbooks/content.png)
 
 In Fast2, contents are objects embedding the "file" (= binary format) of the document. They can be found within either documents themselves or annotations, and can be accessed through different ways. Contents usually hold a mime-type property, alongside any other property closely related to the content itself.
 
@@ -15,7 +15,7 @@ Contents are often referred as **ContentContainers**.
 
 This section relates of how to add a content from the code.
 
-If you wish to add a content (or delete it), head out to the [AlterDocumentContent](../../catalog/transformer/#AlterDocumentContent) task.
+If you wish to add a content (or delete it), head out to the [AlterDocumentContent](../catalog/transformer.md#AlterDocumentContent) task.
 
 ```java
 
@@ -76,13 +76,13 @@ RandomAccessInterface myRAI = task.getManager()
 
 ## Mime-type
 
-The content mime-type is a property usually added by the [MimeTypeFinder](../../catalog/tool/#MimeTypeFinder) task. However you could be willing to force it, which can be done like so:
+The content mime-type is a property usually added by the [MimeTypeFinder](../catalog/tool.md#MimeTypeFinder) task. However you could be willing to force it, which can be done like so:
 
 ```java
 myContent.setMimeType("the right mime-type");
 ```
 
-This is basically what the [MimeTypeFinder](../../catalog/tool/#MimeTypeFinder) will do once the mime-type resolved from the content format.
+This is basically what the [MimeTypeFinder](../catalog/tool.md#MimeTypeFinder) will do once the mime-type resolved from the content format.
 
 To access this value, a regular java getter will do:
 

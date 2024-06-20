@@ -20,7 +20,7 @@ Our migration tool relies on a specific syntax used to dynamically retrieve info
 
 In Fast2, several data can be retrieved and accessed dynamically from a dedicated syntax which Fast2 supports for your convenience. This `${...}` syntax can be used in most of the configuration fields of the tasks composing your migration workflow.
 
-![Example of pattern implementation](../../assets/img/advanced/pattern_example1.png){ width="60%" loading=lazy class="float-left"}
+![Example of pattern implementation](../assets/img/advanced/pattern_example1.png){ width="60%" loading=lazy class="float-left"}
 
 Using such syntax will comes in handy when you will have to rely on a value whose you only know the name. In other words, retrieving a metadata whose key is `doc_mimeType` and value is unique for every document, will just be `${doc_mimeType}`.
 
@@ -36,7 +36,7 @@ Although links are designed to offer basic statements for conditional routing, t
 
 Based on SpEL ([Spring Expression Language](https://docs.spring.io/spring-framework/docs/4.3.10.RELEASE/spring-framework-reference/html/expressions.html)), the syntax of these conditions will sound familiar to anyone who's already coded one day:
 
-![Example of pattern implementation as link condition](../../assets/img/advanced/pattern_condition.png){ width="60%" loading=lazy class="float-right" }
+![Example of pattern implementation as link condition](../assets/img/advanced/pattern_condition.png){ width="60%" loading=lazy class="float-right" }
 
 In the same way, you'll now be able to sort documents based on their mime-types, on their structure (does my document has a content ? Is its creation date matching the time range which this campaign is focusing on? ).
 
@@ -82,9 +82,9 @@ From now on, if the 'missingData' is not fount either at the punnet or document 
 
 ### Access data of Fast2 objects
 
-Whether you need [subtypes](../../getting-started/overall-concepts/#fast2-objects) properties for conditional routing or metadata elaboration, Fast2 gives you access to any data stored in the punnet.
+Whether you need [subtypes](../getting-started/overall-concepts.md#fast2-objects) properties for conditional routing or metadata elaboration, Fast2 gives you access to any data stored in the punnet.
 
-However targetting object is not always intuitive, so here are the different keywords required to access the [Fast2 objects](../../getting-started/overall-concepts/#fast2-objects) :
+However targetting object is not always intuitive, so here are the different keywords required to access the [Fast2 objects](../getting-started/overall-concepts.md#fast2-objects) :
 
 | Keyword                | Description                                                                                                                             | Examples                                    |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
@@ -119,7 +119,7 @@ An other example could be to add today's date as a new data. Such a pattern migh
 ${T(java.time.LocalDate).now().toString()}
 ```
 
-Bringing it further, we might also want the time when the document got through the migration (namely this [AlterDocumentProperties](../../catalog/transformer/#AlterDocumentProperties) task), with
+Bringing it further, we might also want the time when the document got through the migration (namely this [AlterDocumentProperties](../catalog/transformer.md#AlterDocumentProperties) task), with
 
 ```java
 ${T(java.time.LocalDateTime).now().toString()}
