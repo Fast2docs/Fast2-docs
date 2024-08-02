@@ -158,14 +158,32 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
     ```
     [Unit]
     Description=Fast2 Broker
-
+    
     [Service]
+    Environment="OPENSEARCH_JAVA_HOME=/home/JDK/java"
     ExecStart=/home/userName/fast2-complete-package-2.0.0/startup-broker.sh
+    User=fast2-user
+    Group=fast2-user
 
     [Install]
     WantedBy=default.target
     ```
-
+    The <b><i>[Unit]</i></b> section provides metadata and dependencies for the service.
+    <br />
+    <b><i>Description</i></b>: Provides a human-readable description of the service. In this case, the service is named "Fast2 Broker".
+    <br />
+    The <b><i>[Service]</i></b> section defines how the service behaves when it is started, stopped, or restarted.
+    <b><i>Environment</i></b>: Sets environment variables that the service will use during execution. This line sets the `OPENSEARCH_JAVA_HOME` environment variable, which is required for the Fast2 Broker service to run. The value is set to `/home/JDK/java`, which should be the path to the Java installation used by the service.
+    <br />
+    <b><i>ExecStart</i></b>: Specifies the command that will be executed to start the service. This line specifies the startup command for the Fast2 Broker service. It points to the `startup-broker.sh` script located in the `fast2-complete-package-2.0.0` directory. When the service starts, this script is executed.
+    <b><i>User</i></b>: Specifies the user account under which the service will run. This line indicates that the service should be run under the `fast2-user` user account. Running services as a non-root user is a security best practice.
+    <br />
+    <b><i>Group</i></b>: Specifies the group under which the service will run. This line sets the group ownership for the service process to `fast2-user`. This ensures that the service process has the correct permissions as defined by the user and group.
+    <br />
+    The <b><i>[Install]</i></b> section defines how the service should be installed or integrated with systemd.
+    <br />
+    <b><i>WantedBy</i></b>: Specifies the target in which this service should be started. This line indicates that the service should be started as part of the `default.target`, which is the default system runlevel (usually equivalent to multi-user mode or graphical mode, depending on the system configuration).
+    
     <br />
 
     ##### :material-numeric-3-circle: Symbolic link
