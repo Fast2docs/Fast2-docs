@@ -138,7 +138,6 @@ extra_css:
 
 extra_javascript:
   - javascripts/extra.js?v1
-  - javascripts/analytics.js
 
 
 # -----------------------------------------------------   # Page tree
