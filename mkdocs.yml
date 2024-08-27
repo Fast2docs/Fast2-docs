@@ -110,7 +110,7 @@ extra:
   
   analytics: 
     provider: google
-    property : !ENV GOOGLE_ANALYTICS_KEY
+    property : G-9TV2XFVQ5G
     feedback:
       title: Was this page helpful?
       ratings:
