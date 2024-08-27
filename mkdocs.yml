@@ -110,7 +110,7 @@ extra:
   
   analytics: 
     provider: google
-    property : G-9TV2XFVQ5G
+    property : G-XRY08F7QZE
     feedback:
       title: Was this page helpful?
       ratings:
