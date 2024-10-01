@@ -155,6 +155,10 @@ body[data-md-color-scheme="default"] .popup-container {
     cursor: pointer;
 }
 
+td {
+    white-space: nowrap!important;
+}
+
 @media (max-width: 960px) {
     .popup-container {
         transform: translateX(-50%);

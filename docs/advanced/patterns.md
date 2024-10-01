@@ -14,7 +14,7 @@ Our migration tool relies on a specific syntax used to dynamically retrieve info
     For a successful pattern recognition, only use the data known by Fast2, such as :
 
     - Data stored in the punnet and/or documents datasets
-	- Migration specific details, listed [down below](#access-data-of-fast2-objects).
+    - Migration specific details, listed [down below](#access-data-of-fast2-objects).
 
 ## Patterns, what are they anyway ? {#context-and-definition data-toc-label="Context and definition" }
 
@@ -86,16 +86,16 @@ Whether you need [subtypes](../getting-started/overall-concepts.md#fast2-objects
 
 However targetting object is not always intuitive, so here are the different keywords required to access the [Fast2 objects](../getting-started/overall-concepts.md#fast2-objects) :
 
-| Keyword                | Description                                                                                                                             | Examples                                    |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| `${CurrentDocument}`   | Access the focused document, to call its metadata. <br/><br/>This can be quite useful when dealing with multi-document punnets.       | `${CurrentDocument.getDataSet().getData('multivalued data').getValues().get(0).split('\.')[0]}`              |
-| `${CurrentContainer}`  | Access the focused content, to call its properties. <br/><br/>This can be quite useful when dealing with multi-contented documents.     | `${CurrentContainer.mimetype}`              |
-| `${CurrentAnnotation}` | Access the annotation of the document.                                                                                                  | `${CurrentAnnotation.annotationId}`         |
-| `${punnet}`            | Access the punnet as an object. From there, all datasets and subobjects can be accessed. The accessor is generally used for conditions. | `${punnetId.toString().startsWith('My')}`   |
-| `${documents}`         | The list of the documents stored in the punnet.                                                                                         | `${documents.size()}` `${documents.get(0)}` |
-| `${step}`              | The name of the step where the pattern is called.                                                                                       |
-| `${map}`               | The name of the map which is run during this campaign. Often used for output directory names                                            | `${map}/my_output_file.csv`                 |
-| `${campaign}`          | The name of the campaign. Often used for output directory names                                                                         | `${map}/${campaign}/my_output_file.csv`     |
+| Keyword                | Description                                                                                                                                      | Examples                                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| `${CurrentDocument}`   | Access the focused document, to call its metadata. <br/><br/>This can be quite useful when dealing with multi-document punnets.                  | `${CurrentDocument.getDataSet().getData('multivalued data').getValues().get(0).split('\.')[0]}` |
+| `${CurrentContainer}`  | Access the focused content, to call its properties. <br/><br/>This can be quite useful when dealing with multi-contented documents.              | `${CurrentContainer.mimetype}`                                                                  |
+| `${CurrentAnnotation}` | Access the annotation of the document.                                                                                                           | `${CurrentAnnotation.annotationId}`                                                             |
+| `${punnet}`            | Access the punnet as an object. <br/>From there, all datasets and subobjects can be accessed.<br/>The accessor is generally used for conditions. | `${punnetId.toString().startsWith('My')}`                                                       |
+| `${documents}`         | The list of the documents stored in the punnet.                                                                                                  | `${documents.size()}` `${documents.get(0)}`                                                     |
+| `${step}`              | The name of the step where the pattern is called.                                                                                                |
+| `${map}`               | The name of the map which is run during this campaign. <br/>Often used for output directory names                                                | `${map}/my_output_file.csv`                                                                     |
+| `${campaign}`          | The name of the campaign. Often used for output directory names                                                                                  | `${map}/${campaign}/my_output_file.csv`                                                         |
 
 ### Using Java classes
 
