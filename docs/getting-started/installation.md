@@ -9,12 +9,12 @@ title: Installation
 
 The installation of Fast2 requires a few environment specifications to run properly :
 
-| What      |                        | Description                                                                                                                                                                                                                                                                                                                                                                                             |
-| --------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RAM       | 8GB+                   | We highly recommend having at least 8GB. <br /><br />When switching to production environments, 16GB or 32GB will be required since more documents will be handled at once, and heavy tasks (_e.g._ conversion, extraction) might get short on resources.                                                                                                                                               |
-| Processor | 8 CPUs                 | Processor capabilities need to be aligned with migration requirements, such as data mapping, content conversion and heavy I/O.                                                                                                                                                                                                                                                                          |
-| Storage   | 128GB+                 | Although the contents dealt by Fast2 will be temporarily stored (and deleted afterwards if asked), the server needs enough storage for the files/contents alongside the database tracking all the migration information.                                                                                                                                                                                |
-| Java      | JDK-8, JDK-11          | Any provider will fit (Oracle, [OpenJDK](https://developers.redhat.com/products/openjdk/download), etc). If you have multiple JDK/JRE already installed, specify the correct one in the `./config/env.properties` file.                                                                                                                                                                                 |
+| What      |                        | Description                                                                                                                                                                                                                                                                                                                                                                                            |
+| --------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| RAM       | 8GB+                   | We highly recommend having at least 8GB. <br /><br />When switching to production environments, 16GB or 32GB will be required since more documents will be handled at once, and heavy tasks (_e.g._ conversion, extraction) might get short on resources.                                                                                                                                              |
+| Processor | 8 CPUs                 | Processor capabilities need to be aligned with migration requirements, such as data mapping, content conversion and heavy I/O.                                                                                                                                                                                                                                                                         |
+| Storage   | 128GB+                 | Although the contents dealt by Fast2 will be temporarily stored (and deleted afterwards if asked), the server needs enough storage for the files/contents alongside the database tracking all the migration information.                                                                                                                                                                               |
+| Java      | JDK-8, JDK-11          | Any provider will fit (Oracle, [OpenJDK](https://developers.redhat.com/products/openjdk/download), etc). If you have multiple JDK/JRE already installed, specify the correct one in the `./config/env.properties` file.                                                                                                                                                                                |
 | OS        | Windows&nbsp;7+, Linux | All versions of Windows 7+ are supported. <br/><br/>All common distros of Linux are supported (Ubuntu, RedHat, CentOS, etc)<br /><br />Power architecture are supported as well (except the ones running in AIX), but only Java parts will work seamlessly whereas third-party software (_e.g._ imagemagick, libreoffice, etc) might not, as they have not all have been developed for such platforms. |
 
 <br /><br />
@@ -160,11 +160,38 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
     Description=Fast2 Broker
 
     [Service]
+    Environment="OPENSEARCH_JAVA_HOME=/home/JDK/java"
     ExecStart=/home/userName/fast2-complete-package-2.0.0/startup-broker.sh
+    User=fast2-user
+    Group=fast2-user
 
     [Install]
     WantedBy=default.target
     ```
+
+    - The `[Unit]` section provides metadata and dependencies for the service.
+        - `Description`: Provides a human-readable description of the service. In this case, the service is named "Fast2 Broker".
+    - The `[Service]` section defines how the service behaves when it is started, stopped, or restarted.
+
+        - `Environment`: Sets environment variables that the service will use during execution.
+
+            This line sets the `OPENSEARCH_JAVA_HOME` environment variable, which is required for the Fast2 Broker service to run. The value is set to `/home/JDK/java`, which should be the path to the Java installation used by the service.
+            However, the link to Java must be the final link (and not Ubuntu internal link to the Java installation).
+            ```sh
+            ubuntu@ip-...:~/2.11.0$ which java
+            /usr/bin/java ❌
+
+            ubuntu@ip-...:~/2.11.0$ readlink -f $(which java)
+            /usr/lib/jvm/java-11-openjdk-amd64/bin/java ✅
+            ```
+
+            The value to set the `OPENSEARCH_JAVA_HOME` environment variable will be, in this case, `Environment="OPENSEARCH_JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"`.
+
+        - `ExecStart`: Specifies the command that will be executed to start the service. This line specifies the startup command for the Fast2 Broker service. It points to the `startup-broker.sh` script located in the `fast2-complete-package-2.0.0` directory. When the service starts, this script is executed.
+        - `User`: Specifies the user account under which the service will run. This line indicates that the service should be run under the `fast2-user` user account. Running services as a non-root user is a security best practice.
+        - `Group`: Specifies the group under which the service will run. This line sets the group ownership for the service process to `fast2-user`. This ensures that the service process has the correct permissions as defined by the user and group.
+    - The `[Install]` section defines how the service should be installed or integrated with systemd.
+        - `WantedBy`: Specifies the target in which this service should be started. This line indicates that the service should be started as part of the `default.target`, which is the default system runlevel (usually equivalent to multi-user mode or graphical mode, depending on the system configuration).
 
     <br />
 
@@ -177,6 +204,21 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
 
     $ sudo ln -s service/linux/fast2-broker.service /etc/systemd/system
     ```
+
+    <br/>
+
+    !!! tip
+
+        This is the moment where you might want to *rename* the Fast2 service file in case you have multiple instances of Fast2 installed on the same machine.
+        For this,
+
+        - rename the file <span style="color:red">FAST2_HOME/services/linux/fast2-broker.service</span> to <span style="color:green">FAST2_HOME/services/linux/fast2-broker<b>-2.11.0</b>.service</span> for example
+        - run the `sudo ln -s ...` command with the new name, something like
+            ```sh
+            sudo ln -s service/linux/fast2-broker-2.11.0.service /etc/systemd/system
+            ```
+
+    <br/>
 
     If the links are broken once they're created, you probably need to put an absolute path for the target as follow ;
 

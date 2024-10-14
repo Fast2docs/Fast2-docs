@@ -107,8 +107,10 @@ Data myData = myDataset.addData(name, "boolean", true);  // boolean
 
 Data myData = myDataset.addData(name, type, 10);         // long, int
 
-Data myData = myDataset.addData(name, type);             // list or arrays of String
-myData.addAll(Arrays.asList("a", "b", "c"));
+Data myData = myDataset.addData(name, "String");             // list or arrays of String
+myData.getValues().addAll(Arrays.asList("a", "b", "c"));
+
+document.getDataSet().addData("multivalued", "String").getValues().addAll(Arrays.asList("value #1", "value #2"));
 ```
 
 Adding a new data with the same name as an already stored one, will result in overwriting the existing value with the new one.
@@ -164,7 +166,7 @@ List<String> value = myDataSet.getDataValues(dataName);
 If the data has been found and could successfully be removed, the following method will return `TRUE`:
 
 ```java
-boolean removeSuccessful = myDataset.removeData(name);
+boolean removedSuccessfully = myDataset.removeData(name);
 ```
 
 ## Check if data exists
