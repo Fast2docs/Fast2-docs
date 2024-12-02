@@ -113,19 +113,19 @@ At the latest stage of your workflow, the document dataset is filled with the pr
 		{
 			"documentId": "document-123-ABC.pdf",
 			"data": {
-				"absolutePath": "C:\\samples\\document-123-ABC.pdf",
-				"fileName": "document-123-ABC.pdf",
-				"absoluteParentPath": "C:\\samples",
+				"absolutePath": {"value":["C:\\samples\\document-123-ABC.pdf"]},
+				"fileName": {"value":["document-123-ABC.pdf"]},
+				"absoluteParentPath": {"value":["C:\\samples"]},
 				"length": {
-					"value": "18700"
+					"value": ["18700"]
 				},
 				"lastModified": {
-					"value": "Mon Dec 27 14:10:47 CET 2021",
+					"value": ["Mon Dec 27 14:10:47 CET 2021"],
 					"type": "Date"
 				},
-				"document-type": "document",
-				"data1": "123",
-				"data2": "ABC"
+				"document-type": {"value":["document"]},
+				"data1": {"value":["123"]},
+				"data2": {"value":["ABC"]}
 			},
 			"contents": {
 				"url": "C:\\samples\\document-123-ABC.pdf"
