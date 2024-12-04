@@ -24,6 +24,15 @@ The required files for the worker to run properly are the following:
 | :material-microsoft-windows: startup-worker.bat          | Binary file for Windows                             |
 | :fontawesome-brands-linux: startup-worker.sh             | Binary file for Linux                               |
 
+### Change jdk
+
+If you want to use a different jdk version than the one referenced in JAVA_HOME environment variable, you can update the `JAVA_HOME` value in `./config/env.properties`:
+
+```ini title="./config/env.properties"
+...
+# Override JAVA_HOME environment variable
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
 ### Memory allocation
 
 Depending on the amount of documents and the number of tasks you are dealing with, you may want to control max memory usage allowed (`Xmx`) for worker.
