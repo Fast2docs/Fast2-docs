@@ -24,7 +24,7 @@ The required files for the worker to run properly are the following:
 | :material-microsoft-windows: startup-worker.bat          | Binary file for Windows                             |
 | :fontawesome-brands-linux: startup-worker.sh             | Binary file for Linux                               |
 
-### Change jdk
+### Change JDK
 
 If you want to use a different jdk version than the one referenced in JAVA_HOME environment variable, you can update the `JAVA_HOME` value in `./config/env.properties`:
 
