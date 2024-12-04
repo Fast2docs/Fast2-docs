@@ -32,6 +32,7 @@ If you want to use a different jdk version than the one referenced in JAVA_HOME 
 ...
 # Override JAVA_HOME environment variable
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+```
 
 ### Memory allocation
 
