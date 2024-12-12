@@ -181,3 +181,7 @@ Fast2 will run your campaign but renaming it in _prodCampaign_Try1_. By hitting 
 Now, imagine that you want to rename your campaign with the name _newCampaignName_. Click on the campaign textBox, put your new name. You're gonna be redirected to a run place with your freshly created campaign. Hitting the `Run as new` and you will find you're campaign _newCampaignName_Try1_ running.
 
 At this moment you have two series of campaigns related to your map _Production_.
+
+## Map versioning
+
+Fast2 allows you to create multiple versions of the same map.
