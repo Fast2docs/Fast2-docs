@@ -184,4 +184,16 @@ At this moment you have two series of campaigns related to your map _Production_
 
 ## Map versioning
 
-Fast2 allows you to create multiple versions of the same map.
+Fast2 allows you to create multiple versions of the same map. This feature provides several significant benefits:
+
+1. **Change Management and Tracking**
+   **Historical Record**: Versioning allows you to maintain a record of all changes made to a workflow. This is critical for understanding how workflows have evolved over time.
+   **Auditability**: Regulatory or internal compliance often requires a clear audit trail. Versioned workflows make it easy to demonstrate changes and decisions.
+
+2. **Flexibility for Iteration**
+   **Testing New Versions**: You can test new workflow configurations while maintaining the stability of the current version in production. This reduces risk and allows for experimentation.
+   **Rollback Capabilities**: If a new version introduces issues, you can quickly revert to a previous version.
+
+3. **Support for Continuous Improvement**
+   **Incremental Optimization**: Workflows can be improved incrementally while keeping a reliable baseline version in production.
+   **Data-Driven Updates**: Analyze performance data from different versions to identify which version works best.
