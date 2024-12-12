@@ -234,7 +234,9 @@ When multiple tasks are linked together it represents a processing chain or a wo
 
 ## Map <small>― workflow</small> { #map data-toc-label="Map" }
 
-// todo
+Map is the Fast2 word for the workflow. It is a collection of tasks.
+
+![Fast2 map](../assets/img/map.png){ width="60%" }
 
 ## Campaign <small>― workflow instance</small> { #campaign data-toc-label="Campaign" }
 
