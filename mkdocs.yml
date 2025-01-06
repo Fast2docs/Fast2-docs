@@ -66,6 +66,15 @@ plugins:
       tags_file: tags.md
   - search
   # - glightbox # zoom image on click
+  - mike:
+      # These fields are all optional; the defaults are as below...
+      alias_type: symlink
+      redirect_template: null
+      deploy_prefix: ''
+      canonical_version: null
+      version_selector: true
+      css_dir: css
+      javascript_dir: js
 
 markdown_extensions:
   - meta
@@ -125,6 +134,9 @@ extra:
           note: >- 
             Thanks for your feedback! Help us improve this page by
             using our <a href="..." target=_blank>feedback form</a>.
+
+  version:
+    provider: mike
   
   # alternate:
   #   - name: Français
