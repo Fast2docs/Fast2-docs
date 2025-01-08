@@ -22,6 +22,7 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material 
+      - run: pip install mike
       - run: mkdocs gh-deploy --force
   markdown-link-check:
     runs-on: ubuntu-latest
