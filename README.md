@@ -41,3 +41,15 @@ dos2unix allclasses2md.sh
 ```
 
 and then run again the `./allclasses2md.sh` command.
+
+
+
+# Troubeshooting
+
+## Config value 'plugins': The "mike" plugin is not installed
+
+As explained on the [official documentation](https://pypi.org/project/mike/) of Mike, install the plugin with : 
+```sh
+pip install mike
+```
+  

@@ -156,7 +156,7 @@ body[data-md-color-scheme="default"] .popup-container {
 }
 
 td {
-    white-space: nowrap!important;
+    /* white-space: nowrap!important; */
 }
 
 @media (max-width: 960px) {
