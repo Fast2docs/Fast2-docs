@@ -186,10 +186,6 @@ At this moment you have two series of campaigns related to your map _Production_
 
 Fast2 allows you to create multiple versions of the same map. This feature provides several significant benefits:
 
-## Map versioning
-
-Fast2 allows you to create multiple versions of the same map. This feature provides several significant benefits:
-
 1. **Change Management and Tracking**
 : **Historical Record**: Versioning allows you to maintain a record of all changes made to a map. This is critical for understanding how workflows have evolved over time.
 : **Auditability**: Regulatory or internal compliance often requires a clear audit trail. Versioned maps make it easy to demonstrate changes and decisions.
