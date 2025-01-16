@@ -1,0 +1,4967 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Uxopian">
+      
+      
+        <link rel="canonical" href="https://docs.fast2.tech/catalog/converter/">
+      
+      
+        <link rel="prev" href="../credentials/">
+      
+      
+        <link rel="next" href="../transformer/">
+      
+      
+      <link rel="icon" href="../../assets/Fast2_favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Conversion tasks - Fast2 documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-XRY08F7QZE"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-XRY08F7QZE",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-XRY08F7QZE",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ArchiveBuilder" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Fast2 documentation" class="md-header__button md-logo" aria-label="Fast2 documentation" data-md-component="logo">
+      
+  <img src="../../assets/Fast2_favicon_white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fast2 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Conversion tasks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/" class="md-tabs__link">
+          
+  
+    
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../components/" class="md-tabs__link">
+          
+  
+    
+  
+  Components
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Catalog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advanced/" class="md-tabs__link">
+          
+  
+    
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cookbooks/" class="md-tabs__link">
+          
+  
+    
+  
+  Cookbooks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals" class="md-tabs__link">
+        
+  
+    
+  
+  Get Support
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals?q=" class="md-tabs__link">
+        
+  
+    
+  
+  Search the Knowledge-Base
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Fast2 documentation" class="md-nav__button md-logo" aria-label="Fast2 documentation" data-md-component="logo">
+      
+  <img src="../../assets/Fast2_favicon_white.png" alt="logo">
+
+    </a>
+    Fast2 documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../getting-started/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/overall-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overall concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/create-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../components/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/broker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Broker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/worker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Worker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/dashboards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dashboards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Catalog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Catalog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contentsource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content sources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../credentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Conversion tasks
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Conversion tasks
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ArchiveBuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      ArchiveBuilder
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertCMToP8" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertCMToP8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertDoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertDoc
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertINIToXFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertINIToXFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertISToFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertISToFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertISToXFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertISToXFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertLighterPdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertLighterPdf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertP8ToXFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertP8ToXFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertRipole" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertRipole
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertTalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertTalk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertText" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertText
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertWangToXFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertWangToXFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertXFDFToP8" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertXFDFToP8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConverterCMToXFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConverterCMToXFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#DispatchingArchive" class="md-nav__link">
+    <span class="md-ellipsis">
+      DispatchingArchive
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Eml2Pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eml2Pdf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ExcelConvert" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExcelConvert
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#GenericConvertDoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      GenericConvertDoc
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#HtmlCleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      HtmlCleanup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#IdentifyImageFormat" class="md-nav__link">
+    <span class="md-ellipsis">
+      IdentifyImageFormat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#JaTiffMerger" class="md-nav__link">
+    <span class="md-ellipsis">
+      JaTiffMerger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#JaTiffSplitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      JaTiffSplitter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#JaTiffWang" class="md-nav__link">
+    <span class="md-ellipsis">
+      JaTiffWang
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#MDOWriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      MDOWriter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#MergeAllContents" class="md-nav__link">
+    <span class="md-ellipsis">
+      MergeAllContents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#MergeAllMails" class="md-nav__link">
+    <span class="md-ellipsis">
+      MergeAllMails
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#MergePdfBox" class="md-nav__link">
+    <span class="md-ellipsis">
+      MergePdfBox
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#OOConvert" class="md-nav__link">
+    <span class="md-ellipsis">
+      OOConvert
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#PdfAConverter" class="md-nav__link">
+    <span class="md-ellipsis">
+      PdfAConverter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#PdfAnnotationRenderer" class="md-nav__link">
+    <span class="md-ellipsis">
+      PdfAnnotationRenderer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#PunnetXSLSerializer" class="md-nav__link">
+    <span class="md-ellipsis">
+      PunnetXSLSerializer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#SanitizeTiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      SanitizeTiff
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#SplitPdfItext" class="md-nav__link">
+    <span class="md-ellipsis">
+      SplitPdfItext
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#TesseractInvoker" class="md-nav__link">
+    <span class="md-ellipsis">
+      TesseractInvoker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Text2PDFConverter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text2PDFConverter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Tiff2PDFIText" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tiff2PDFIText
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Tiff2PdfBox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tiff2PdfBox
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#WkHtmlToPdfConverter" class="md-nav__link">
+    <span class="md-ellipsis">
+      WkHtmlToPdfConverter
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformation tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helpers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Injectors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../advanced/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/drools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/shared-objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cookbooks/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Cookbooks
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cookbooks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/punnet_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Punnets management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/document_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documents management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/content_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/dataset_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dataset management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/from-zip-to-punnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From ZIP to punnet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/upload-content-and-metadata-in-s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upload content and metadata in a S3 bucket
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/content-metadata-from-s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Retrieve content and metadata from an S3 bucket
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/csvsource_further/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV source : a step further
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4009459769" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sort documents in a punnet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4008771588" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interact with a SQL database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/data_from_filename/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data from file name
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals?q=" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Search the Knowledge-Base
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ArchiveBuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      ArchiveBuilder
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertCMToP8" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertCMToP8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertDoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertDoc
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertINIToXFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertINIToXFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertISToFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertISToFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertISToXFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertISToXFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertLighterPdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertLighterPdf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertP8ToXFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertP8ToXFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertRipole" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertRipole
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertTalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertTalk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertText" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertText
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertWangToXFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertWangToXFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConvertXFDFToP8" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvertXFDFToP8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ConverterCMToXFDF" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConverterCMToXFDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#DispatchingArchive" class="md-nav__link">
+    <span class="md-ellipsis">
+      DispatchingArchive
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Eml2Pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eml2Pdf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ExcelConvert" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExcelConvert
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#GenericConvertDoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      GenericConvertDoc
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#HtmlCleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      HtmlCleanup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#IdentifyImageFormat" class="md-nav__link">
+    <span class="md-ellipsis">
+      IdentifyImageFormat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#JaTiffMerger" class="md-nav__link">
+    <span class="md-ellipsis">
+      JaTiffMerger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#JaTiffSplitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      JaTiffSplitter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#JaTiffWang" class="md-nav__link">
+    <span class="md-ellipsis">
+      JaTiffWang
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#MDOWriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      MDOWriter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#MergeAllContents" class="md-nav__link">
+    <span class="md-ellipsis">
+      MergeAllContents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#MergeAllMails" class="md-nav__link">
+    <span class="md-ellipsis">
+      MergeAllMails
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#MergePdfBox" class="md-nav__link">
+    <span class="md-ellipsis">
+      MergePdfBox
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#OOConvert" class="md-nav__link">
+    <span class="md-ellipsis">
+      OOConvert
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#PdfAConverter" class="md-nav__link">
+    <span class="md-ellipsis">
+      PdfAConverter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#PdfAnnotationRenderer" class="md-nav__link">
+    <span class="md-ellipsis">
+      PdfAnnotationRenderer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#PunnetXSLSerializer" class="md-nav__link">
+    <span class="md-ellipsis">
+      PunnetXSLSerializer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#SanitizeTiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      SanitizeTiff
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#SplitPdfItext" class="md-nav__link">
+    <span class="md-ellipsis">
+      SplitPdfItext
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#TesseractInvoker" class="md-nav__link">
+    <span class="md-ellipsis">
+      TesseractInvoker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Text2PDFConverter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text2PDFConverter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Tiff2PDFIText" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tiff2PDFIText
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Tiff2PdfBox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tiff2PdfBox
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#WkHtmlToPdfConverter" class="md-nav__link">
+    <span class="md-ellipsis">
+      WkHtmlToPdfConverter
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Conversion tasks</h1>
+
+<h2 id="ArchiveBuilder">ArchiveBuilder <small> - Punnet zipper </small><a class="headerlink" href="#ArchiveBuilder" title="Permanent link">&para;</a></h2>
+<p>Zip punnets into a zip file. A zip cannot contains a few punnets but documents carried by the punnet can be splitted into multiple zip files.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zip all documents in a single zip file</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Zip size limit</td>
+<td><code>Integer</code></td>
+<td>In megabytes</td>
+<td></td>
+</tr>
+<tr>
+<td>Maximum number of documents per zip</td>
+<td><code>Integer</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>The compression level between 0 and 9 (included)</td>
+<td><code>Integer</code></td>
+<td>Use large number for stronger compression</td>
+<td></td>
+</tr>
+<tr>
+<td>Also include annotation contents</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertCMToP8">ConvertCMToP8 <small> - Convert CM annotations to FileNet P8 annotations. Input annotation format is INI from a JSON file. Only supports one document per punnet. Supported contents are PDF, TIFF and PNG files </small><a class="headerlink" href="#ConvertCMToP8" title="Permanent link">&para;</a></h2>
+<p>Supported types : <ul><li>CMBAnnotationConstants.ANN_TEXT</li><li>CMBAnnotationConstants.ANN_ARROW</li><li>CMBAnnotationConstants.ANN_HIGHLIGHT</li><li>CMBAnnotationConstants.ANN_NOTE</li><li>CMBAnnotationConstants.ANN_RECT</li><li>CMBAnnotationConstants.ANN_LINE</li><li>CMBAnnotationConstants.ANN_STAMP</li><li>CMBAnnotationConstants.ANN_NOTE</li><li>CMBAnnotationConstants.ANN_MASK</li><li>Polygon</li><li>Freehand</li><ul></p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ViewOne annotation parser</td>
+<td>ViewOneAnnotationConverter</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Force rectangle transparency</td>
+<td><code>Boolean</code></td>
+<td>Force rectangles to be transparent even if dedicated property equals 0</td>
+<td></td>
+</tr>
+<tr>
+<td>Apply ratio</td>
+<td><code>Boolean</code></td>
+<td>Transform annotation positions using document DPI</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Transform rectangle into highlight</td>
+<td><code>Boolean</code></td>
+<td>Rectangles does not support transparency. Turn them into highlight to keep tranparency</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Watermarks on all pages</td>
+<td><code>Boolean</code></td>
+<td>Apply watermark annotations on each pages of the document</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertDoc">ConvertDoc <small> - Document conversion </small><a class="headerlink" href="#ConvertDoc" title="Permanent link">&para;</a></h2>
+<p>Convert your documents using the ConvertDoc library.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maximum number of document per call</td>
+<td><code>Integer</code></td>
+<td></td>
+<td><code>200</code></td>
+</tr>
+<tr>
+<td>Temp folder to generate PDF to</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Excel hack</td>
+<td><code>Boolean</code></td>
+<td>Use Microsoft Excel hack</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Conversion exception is fatal</td>
+<td><code>Boolean</code></td>
+<td>Conversion exception triggers an exception. Othersie, it's a silent fail</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>ConvertDoc path</td>
+<td><code>String</code></td>
+<td>Path toward ConvertDoc executable</td>
+<td><code>ConvertDoc.exe</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Temp folder to copy source files to</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Convert to PDFA</td>
+<td><code>Boolean</code></td>
+<td>Convert your document to PDFA format</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertINIToXFDF">ConvertINIToXFDF <small> - Annotation converter from INI to XFDF </small><a class="headerlink" href="#ConvertINIToXFDF" title="Permanent link">&para;</a></h2>
+<p>Convert ViewOne annotations to XML Form Data Format (XFDF). These operations are supported only for PDF and Tiff files. Content dimensions will be fetched to convert these annotations 
+To improve the performances add these 3 parameters to the startup-worker.bat script before the -jar : <br />'-Dorg.ini4j.spi.IniBuilder=org.ini4j.spi.IniBuilder'<br />'-Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl'<br />'-Dorg.ini4j.spi.IniParser=org.ini4j.spi.IniParser'<br /><br />Supported types : <br />- [TEXT]<br />- [RECTANGLE]<br />- [FREEHAND]</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Postit annotation position</td>
+<td>PageRelativePosition</td>
+<td>Default position when an exception is thrown</td>
+<td></td>
+</tr>
+<tr>
+<td>Overload text and postit page to the first one if related exception is thrown</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Skip conversion error</td>
+<td><code>Boolean</code></td>
+<td>Do not throw an exception for conversion errors</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>All note font are black</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Keep converted annotations</td>
+<td><code>Boolean</code></td>
+<td>Do not interrupt punnets if at least one annotation has been converted. Punnets carrying annotations that haven't been converted will be flagged with a data named 'ToReplay'</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Text annotation position</td>
+<td>PageRelativePosition</td>
+<td>Default position when an exception is thrown</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertISToFDF">ConvertISToFDF <small> - Annotation converter from IS to FDF </small><a class="headerlink" href="#ConvertISToFDF" title="Permanent link">&para;</a></h2>
+<p>Convert your old IS annoations to Form Data Format (FDF). FDF file are used to represents form data and annotations in a PDF file with key/value format. They usually contain more information than XFDFs</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Skip conversion error</td>
+<td><code>Boolean</code></td>
+<td>Do not throw an exception when a conversion is triggered</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>FileNet XFDF annotation converter</td>
+<td>FileNetXFDFAnnotationConverter</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsAnnotation parser</td>
+<td>ParseISAnnotation</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FDF annotation adder</td>
+<td>FdfAnnotationAdder</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertISToXFDF">ConvertISToXFDF <small> - Annotation converter from IS to XFDF </small><a class="headerlink" href="#ConvertISToXFDF" title="Permanent link">&para;</a></h2>
+<p>Convert your old IS annoations to XML Form Data Format (XFDF). XFDF file are used to represents form data and annotations in a PDF file through an XML. They usually contain more information than XFDFs</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Popup width</td>
+<td><code>Float</code></td>
+<td>Sticky note default popup width</td>
+<td><code>120</code></td>
+</tr>
+<tr>
+<td>Skip conversion error</td>
+<td><code>Boolean</code></td>
+<td>Do not throw an exception when a conversion is triggered</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>FileNet XFDF annotation converter</td>
+<td>FileNetXFDFAnnotationConverter</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsAnnotation parser</td>
+<td>ParseISAnnotation</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Popup height</td>
+<td><code>Float</code></td>
+<td>Sticky note default popup height</td>
+<td><code>30</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertLighterPdf">ConvertLighterPdf <small> - PDF converter </small><a class="headerlink" href="#ConvertLighterPdf" title="Permanent link">&para;</a></h2>
+<p>This class allows you to compress your PDF files in order to be lighter than original ones.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Standard DPI</td>
+<td><code>Integer</code></td>
+<td>DPI of a standard PDF document</td>
+<td><code>72</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Target image format</td>
+<td><code>String</code></td>
+<td></td>
+<td><code>jpg</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Skip invalid image conversion</td>
+<td><code>Boolean</code></td>
+<td>Skip image conversion if image is invalid / not supported. Keep the original file</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Maximum converted image ratio</td>
+<td><code>Float</code></td>
+<td>After conversion, compute the size ratio before and after. Do not replace source image when converted image size is larger to this ratio</td>
+<td><code>1.0</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Larger threshold to convert</td>
+<td><code>Integer</code></td>
+<td>Only convert images which are larger than this minimum byte size</td>
+<td><code>2000</code></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Map</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Maximum ratio to apply</td>
+<td><code>Float</code></td>
+<td>Images will not beconverted if the ratio computation is larger to this value</td>
+<td><code>1.0</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Target compression quality</td>
+<td><code>Float</code></td>
+<td></td>
+<td><code>0.7</code></td>
+</tr>
+<tr>
+<td>Target DPI</td>
+<td><code>Integer</code></td>
+<td>Required target Image dpi</td>
+<td><code>300</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertP8ToXFDF">ConvertP8ToXFDF <small> - Annotation converter from IS to XFDF </small><a class="headerlink" href="#ConvertP8ToXFDF" title="Permanent link">&para;</a></h2>
+<p>Convert your old IS annotations to XML Form Data Format (XFDF). XFDF file are used to represents form data and annotations in a PDF file through an XML. They usually contain more information than XFDFs</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Skip conversion error</td>
+<td><code>Boolean</code></td>
+<td>Do not throw an exception for conversion errors</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Default page height</td>
+<td><code>Float</code></td>
+<td>Default page height used for text and mail document</td>
+<td></td>
+</tr>
+<tr>
+<td>Remove annotations border</td>
+<td><code>Boolean</code></td>
+<td>Most of the time, annotations have by default a border set to 1. Set to true will remove the border</td>
+<td></td>
+</tr>
+<tr>
+<td>Keep background transparency</td>
+<td><code>Boolean</code></td>
+<td>Make background transparent when it is white</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Default page width</td>
+<td><code>Float</code></td>
+<td>Default page width used for text and mail document</td>
+<td></td>
+</tr>
+<tr>
+<td>Font size ratio</td>
+<td><code>Integer</code></td>
+<td>Multiply the font size value by this ratio</td>
+<td></td>
+</tr>
+<tr>
+<td>FileNet XFDF annotation converter</td>
+<td>FileNetAnnotationConverter</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Default post it location</td>
+<td>PageRelativePosition</td>
+<td>Overwrite coordinates for each post it annotation</td>
+<td></td>
+</tr>
+<tr>
+<td>Create one annotation container per annotation</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Overwrite border width</td>
+<td><code>Integer</code></td>
+<td>Value of border width for proprietary and arrow annotations</td>
+<td></td>
+</tr>
+<tr>
+<td>Date format</td>
+<td><code>String</code></td>
+<td>Date format of your properties stored by annotations <br/> <p> Ex/  2021-10-01T12:04:56.0000765+0200</p></td>
+<td><code>yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ</code></td>
+</tr>
+<tr>
+<td>Highlight opacity</td>
+<td><code>Integer</code></td>
+<td>Overwrite the opacity in percent of highlights annotations <br/> <p> Ex/  30</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertRipole">ConvertRipole <small> - Convert ripole files </small><a class="headerlink" href="#ConvertRipole" title="Permanent link">&para;</a></h2>
+<p>Convert ripoles files to PDF format.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temp executable path</td>
+<td><code>String</code></td>
+<td></td>
+<td><code>/tmp/temp_</code></td>
+</tr>
+<tr>
+<td>Ripole executable path</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertTalk">ConvertTalk <small> - Talk converter </small><a class="headerlink" href="#ConvertTalk" title="Permanent link">&para;</a></h2>
+<p>Convert your talk files to PDF using iText Library.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Maximum input text size</td>
+<td><code>Long</code></td>
+<td>Limit in bytes</td>
+<td><code>1024 * 1024</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Skip PDF creation</td>
+<td><code>Boolean</code></td>
+<td>Only perform text parsing</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Auto-detect encoding</td>
+<td><code>Boolean</code></td>
+<td>Automatically detect the source text encoding used</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Keep talk header</td>
+<td><code>Boolean</code></td>
+<td>Do not parse the talk header and keep the original one</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Source text encoding</td>
+<td><code>String</code></td>
+<td>Encoding used for the source files <br/> <p> Ex/  CP850</p></td>
+<td></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Font description</td>
+<td><code>String</code></td>
+<td>Format as {font family} {size} {style} where font family is one of {COURIER, HELVETICA, TIMES_ROMAN, SYMBOL, ZAPFDINGBATS} and style is 0:normal 1:bold 2:italic 4:underline 8:strikethru</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertText">ConvertText <small> - Text converter </small><a class="headerlink" href="#ConvertText" title="Permanent link">&para;</a></h2>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Maximum input text size</td>
+<td><code>Long</code></td>
+<td>Limit in bytes</td>
+<td><code>1024 * 1024</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Skip PDF creation</td>
+<td><code>Boolean</code></td>
+<td>Only perform text parsing</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Auto-detect encoding</td>
+<td><code>Boolean</code></td>
+<td>Automatically detect the source text encoding used</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Source text encoding</td>
+<td><code>String</code></td>
+<td>Encoding used for the source files <br/> <p> Ex/  CP850</p></td>
+<td></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Font description</td>
+<td><code>String</code></td>
+<td>Format as {font family} {size} {style} where font family is one of {COURIER, HELVETICA, TIMES_ROMAN, SYMBOL, ZAPFDINGBATS} and style is 0:normal 1:bold 2:italic 4:underline 8:strikethru</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertWangToXFDF">ConvertWangToXFDF <small> - Convert Wang annotations to XFDF </small><a class="headerlink" href="#ConvertWangToXFDF" title="Permanent link">&para;</a></h2>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Charset used for text</td>
+<td><code>String</code></td>
+<td></td>
+<td><code>windows-1252</code></td>
+</tr>
+<tr>
+<td>Tiff embed annotations</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Page number property name</td>
+<td><code>String</code></td>
+<td>Property of the content used to put the annotation on the correct page content. If null, the annotation will be on first page.</td>
+<td></td>
+</tr>
+<tr>
+<td>Fail if no annotation was parsed</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Skip annotation parse exceptions</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Integer</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConvertXFDFToP8">ConvertXFDFToP8 <small> - Annotation converter from XFDF to IS </small><a class="headerlink" href="#ConvertXFDFToP8" title="Permanent link">&para;</a></h2>
+<p>Convert your XFDF annotations P8 format. This is mostly used to rollback from P8 to XFDF during complex migration.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Skip conversion error</td>
+<td><code>Boolean</code></td>
+<td>Do not throw an exception when a conversion is triggered</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ConverterCMToXFDF">ConverterCMToXFDF <small> - Convert CM annotations to XFDF annotations </small><a class="headerlink" href="#ConverterCMToXFDF" title="Permanent link">&para;</a></h2>
+<p>Supported types : <ul><li>CMBAnnotationConstants.ANN_TEXT</li><li>CMBAnnotationConstants.ANN_ARROW</li><li>CMBAnnotationConstants.ANN_HIGHLIGHT</li><li>CMBAnnotationConstants.ANN_STAMP</li><li>CMBAnnotationConstants.ANN_RECT</li><ul></p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fontConversionList</td>
+<td><code>String</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>PageRelativePosition</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Float</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Integer</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>PageRelativePosition</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>[I</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>PageRelativePosition</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Float</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Float</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Integer</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Float</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Float</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="DispatchingArchive">DispatchingArchive <small> - Unzip files </small><a class="headerlink" href="#DispatchingArchive" title="Permanent link">&para;</a></h2>
+<p>This class allow you to unzip the content of archive files. Multiple mime types are supported : application/zip, application/x-zip, application/x-zip-compressed, application/x-rar-compressed, application/x-rar and application/java-archive. Tar or gz folders are not supported yet.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Charset</td>
+<td><code>String</code></td>
+<td>Charset used for file names in zip archives</td>
+<td><code>CP437</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Only extract files that do not match this pattern</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Delete source archive file</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Recursive</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Only extract files that match this pattern</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Eml2Pdf">Eml2Pdf <small> - Convert email to PDF </small><a class="headerlink" href="#Eml2Pdf" title="Permanent link">&para;</a></h2>
+<p>This class allow you to convert emails to a PDF format. Formats supported are application/msword, rfc822 and outlook.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rtf tags list</td>
+<td><code>String list</code></td>
+<td>For mapimessageparser, if provided, can allow to override the list of rtf tags to filter out</td>
+<td></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Custom mail header</td>
+<td><code>String</code></td>
+<td>Mail header to prefix the subject of the mail as pdf title in ARender</td>
+<td><code>Mail</code></td>
+</tr>
+<tr>
+<td>includeInlineBodyWithHeaders</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Convert Configuration</td>
+<td>Eml2PdfConfiguration</td>
+<td>Mail to pdf convert options. Can be null</td>
+<td></td>
+</tr>
+<tr>
+<td>Mail subject in title</td>
+<td><code>Boolean</code></td>
+<td>Display mail subject in title</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Attachment in separate folder</td>
+<td><code>Boolean</code></td>
+<td>All attachments are included in a separated folder</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Separator</td>
+<td><code>String</code></td>
+<td>Separator between prefix and mail subject</td>
+<td><code>:</code></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Attachment in included folder</td>
+<td><code>Boolean</code></td>
+<td>Each attachment is included in a separated folder</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Custom body header</td>
+<td><code>String</code></td>
+<td>Body header to swap the default -Content- header set to the body</td>
+<td><code>Email body</code></td>
+</tr>
+<tr>
+<td>Supported inline body mime-types</td>
+<td><code>String list</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ExcelConvert">ExcelConvert <small> - Convert Excel to PDF </small><a class="headerlink" href="#ExcelConvert" title="Permanent link">&para;</a></h2>
+<p>This class allow you to convert an Excel file to a PDF format.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="GenericConvertDoc">GenericConvertDoc <small> - Convert from URL to PDF from its URL </small><a class="headerlink" href="#GenericConvertDoc" title="Permanent link">&para;</a></h2>
+<p>This task will convert the content of any document into PDF format. All Fast2 needs is you to specify the URL/path of the initial document. The input file will be automatically resolved by the documents carried by the punnet. The ouput file path got his own field that can be used with a patternThe location of options are managed through an int value specifying the index within the cmd line starting to 0.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Destination folder</td>
+<td><code>String</code></td>
+<td>Target file path for the locally-created files</td>
+</tr>
+<tr>
+<td>Converter path</td>
+<td><code>String</code></td>
+<td>Set here the path of the converter</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ingore output file</td>
+<td><code>Boolean</code></td>
+<td>Converter does not takes output file instructions</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Ignore command return value</td>
+<td><code>Boolean</code></td>
+<td>Do not perform anything after conversion, whatever the command feedback</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Destination folder for original files</td>
+<td><code>String</code></td>
+<td>Dump input file in a specific folder path. Set to null to disable dumps</td>
+<td></td>
+</tr>
+<tr>
+<td>Options location</td>
+<td><code>Integer</code></td>
+<td>Set here the index of options in the cmd line : O means at the beginning.</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Protect path with double quotes</td>
+<td><code>Boolean</code></td>
+<td>Surround file paths with quotes when building command-line</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Timeout before stopping</td>
+<td><code>Integer</code></td>
+<td>Time to wait before killing the process. Value is in seconds</td>
+<td><code>3600</code></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Conversion option</td>
+<td><code>String</code></td>
+<td>See application help for more details</td>
+<td></td>
+</tr>
+<tr>
+<td>List of error exit codes to skip</td>
+<td><code>String list</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Extension to append</td>
+<td><code>String</code></td>
+<td>The extension to add to the original file name before any conversion. This value should not start with a dot (ex : html)</td>
+<td></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="HtmlCleanup">HtmlCleanup <small> - HTML cleaner </small><a class="headerlink" href="#HtmlCleanup" title="Permanent link">&para;</a></h2>
+<p>Utility Class to cleanup inconsistent HTML</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="IdentifyImageFormat">IdentifyImageFormat <small> - Detect image format using ImageMagick </small><a class="headerlink" href="#IdentifyImageFormat" title="Permanent link">&para;</a></h2>
+<p>Find automatically the image format with ImageMagick in command line. Several properties can be added and the assiociated command line filled int the property pattern field</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Property map</td>
+<td><code>String/Pattern map</code></td>
+<td>List of the porperties to use during the process <br/> <p> Ex/  targetProperty = documentStringGetter</p></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>identify.exe path</td>
+<td><code>String</code></td>
+<td>ImageMagick identify.exe path to use</td>
+</tr>
+</tbody>
+</table>
+<h2 id="JaTiffMerger">JaTiffMerger <small> - Merge tiff files </small><a class="headerlink" href="#JaTiffMerger" title="Permanent link">&para;</a></h2>
+<p>From a tiff content punnet, merges all its subcontent merge together. All content must be in tiff format. If the subcontents are already lower than 2 images, the merge is cancelled.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="JaTiffSplitter">JaTiffSplitter <small> - Tiff document splitter </small><a class="headerlink" href="#JaTiffSplitter" title="Permanent link">&para;</a></h2>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dump tiff information</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Minimum pages for dispatching</td>
+<td><code>Integer</code></td>
+<td></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Corrupted JPEGs handled by ImageMagick</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Handle corrupted JPEGs</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Sanitize source JPEGs</td>
+<td>SanitizeJpeg</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Maximum number of source pages</td>
+<td><code>Integer</code></td>
+<td></td>
+<td><code>Integer.MAX_VALUE</code></td>
+</tr>
+<tr>
+<td>Force JPEG Sanitation</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Dispatch multi-pages tiff to a bunch of single-page tiff</td>
+<td><code>Boolean</code></td>
+<td>Only the first one will be processed when source contains multiple multi-page tiffs</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Minimum number of pages before dispatch errors</td>
+<td><code>Integer</code></td>
+<td></td>
+<td><code>1</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="JaTiffWang">JaTiffWang <small> - Extract wang annotations from Tiff document </small><a class="headerlink" href="#JaTiffWang" title="Permanent link">&para;</a></h2>
+<p>Creates one annotation file perf tiff page where annotations are found. A property is set to the annotation content to get back the page</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generate wang hexa in logs</td>
+<td><code>Boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Fail if no annotation was found</td>
+<td><code>Boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Skip exceptions</td>
+<td><code>Boolean</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="MDOWriter">MDOWriter <small> - Write punnet description to a MDO-format </small><a class="headerlink" href="#MDOWriter" title="Permanent link">&para;</a></h2>
+<p>This task serializes document metadata in an MDO file format with a fixed length.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target file path for (local) files, can be pattern based</td>
+<td><code>String</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throw exception on missing mandatory data</td>
+<td><code>Boolean</code></td>
+<td>Throw exceptions if mandatories data are missing. Otherwise, silent fail</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>MDO format specification file path</td>
+<td><code>String</code></td>
+<td>CSV configuration file path containing MDO format specification</td>
+<td></td>
+</tr>
+<tr>
+<td>End tag of document content</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Data name to add dataline into document data</td>
+<td><code>String</code></td>
+<td>If null data isn't added in document</td>
+<td></td>
+</tr>
+<tr>
+<td>Skip from specific index</td>
+<td><code>Integer</code></td>
+<td>Skip writing documents from this index</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>Fallback on missing data</td>
+<td><code>Boolean</code></td>
+<td>When data is missing in the document being written, try to search it in the first document</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>MDO-format with internal content</td>
+<td><code>Boolean</code></td>
+<td>Generate MDO-format document with internal content</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Data name containing original text content</td>
+<td><code>String</code></td>
+<td>If null text content isn't added to MDO file, internal content only</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="MergeAllContents">MergeAllContents <small> - Merge multiple content </small><a class="headerlink" href="#MergeAllContents" title="Permanent link">&para;</a></h2>
+<p>Merge all contents of document from the first depth level. Can be used after Eml2Pdf task to merge header and body.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="MergeAllMails">MergeAllMails <small> - Merge multiple mails </small><a class="headerlink" href="#MergeAllMails" title="Permanent link">&para;</a></h2>
+<p>Merge mail header and body after a mail conversion</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="MergePdfBox">MergePdfBox <small> - PDF merger </small><a class="headerlink" href="#MergePdfBox" title="Permanent link">&para;</a></h2>
+<p>Merge your tiff files into PDF format using the PDFBox library (v1.2.1).</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Remove document direct content</td>
+<td><code>Boolean</code></td>
+<td>Not referenced from folders (deprecated)</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Convert resursive folders</td>
+<td><code>Boolean</code></td>
+<td>Folders referencesd by the document are converted recursively (deprecated)</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Ignore conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>Each exception during the conversion becomes a silent fail indexed in logs</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Supported source mime types</td>
+<td><code>String list</code></td>
+<td>List of all accepted mime types</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="OOConvert">OOConvert <small> - Convert office file to PDF </small><a class="headerlink" href="#OOConvert" title="Permanent link">&para;</a></h2>
+<p>Complete converter from office file to PDF format using OpenOffice / LibreOffice.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target path of generated file</td>
+<td><code>String</code></td>
+<td>Path to use for generated files during the conversion</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temp folder path</td>
+<td><code>String</code></td>
+<td>Path to the temp folder</td>
+<td></td>
+</tr>
+<tr>
+<td>Output mime type</td>
+<td><code>String</code></td>
+<td>Mime type to set at the end of the conversion</td>
+<td><code>application/pdf</code></td>
+</tr>
+<tr>
+<td>Delay to despair after an Office operation</td>
+<td><code>Long</code></td>
+<td>Delay in milliseconds</td>
+<td><code>15 * 1000</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td></td>
+<td>DefaultOfficeManagerConfiguration</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Shutdown Office Manager at finishTask)</td>
+<td><code>Boolean</code></td>
+<td>At the end of the task force Office Manager to shutdown</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Localhost port number</td>
+<td><code>Integer</code></td>
+<td></td>
+<td><code>8100</code></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Delay to startup Office Manager</td>
+<td><code>Integer</code></td>
+<td>Delay in seconds</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>Shutdown Office Manager when exiting</td>
+<td><code>Boolean</code></td>
+<td>Force Office Manager to shutdown at the end of the workflow</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Office Manager as singleton</td>
+<td><code>Boolean</code></td>
+<td>Use static singleton OfficeManager to reuse process between two campaigns</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>officeHome</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Stop cmd for LibreOffice / OpenOffice</td>
+<td><code>String</code></td>
+<td>Command to use to force LibreOffice or OpenOffice process to stop</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="PdfAConverter">PdfAConverter <small> - Convert from PDF to PDF/A </small><a class="headerlink" href="#PdfAConverter" title="Permanent link">&para;</a></h2>
+<p>A PDF/A is a PDF file with some constraints to ensure its long time conservation. These constraints are described in ISO 19005. This task takes PDF files as input, and generated a PDF/A-{1A, 1B, 2A, 2B, 3A, 3B}.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expected pdf conformity level</td>
+<td><code>String</code></td>
+<td>If empty default level is PDF/A-1B</td>
+<td><code>1B</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="PdfAnnotationRenderer">PdfAnnotationRenderer <small> - Renders annotations into a new PDF document </small><a class="headerlink" href="#PdfAnnotationRenderer" title="Permanent link">&para;</a></h2>
+<p>Requires itext-5.5.13, xmlworker-5.5.13 and jsoup-1.12.2 libs</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>Boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Float</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Float</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Float</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Float</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Float</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+</tr>
+<tr>
+<td>extraFont</td>
+<td><code>String/String map</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="PunnetXSLSerializer">PunnetXSLSerializer <small> - Export punnet metadata using XSL script </small><a class="headerlink" href="#PunnetXSLSerializer" title="Permanent link">&para;</a></h2>
+<p>Serialize a punnet to any file (CSV, JSON, XML, custom format) using an XSL stylesheet.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XSL stylesheet path</td>
+<td><code>String</code></td>
+<td>Or you can enter your xsl:stylesheet in the content section</td>
+</tr>
+<tr>
+<td>XSL Stylesheet content</td>
+<td><code>String</code></td>
+<td>Enter here your xsl:stylesheet content</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New document properties</td>
+<td><code>String/String map</code></td>
+<td>Specify here at least the <code>documentId</code> data. You can use punnet properties to resolve pattern <br/> <p> Ex/  Setting an entry with 'myKey' and 'myValue' will trigger Fast2 to look up for the metadata entitled 'myValue' in the punnet and its document(s). If this data is not found, the value will be set to 'myValue'.</p></td>
+<td></td>
+</tr>
+<tr>
+<td>Append</td>
+<td><code>Boolean</code></td>
+<td>Attach output stream of you XSL script as a new document in the punnet.</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Replace</td>
+<td><code>Boolean</code></td>
+<td>Replace punnet documents by the new produced document (requires Append to be set)</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td><code>String</code></td>
+<td>Enter here your script file encoding.</td>
+<td><code>UTF-8</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="SanitizeTiff">SanitizeTiff <small> - Tiff cleaner </small><a class="headerlink" href="#SanitizeTiff" title="Permanent link">&para;</a></h2>
+<p>Converts your tiff files to jpeg format.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Out mime type</td>
+<td><code>String</code></td>
+<td>The target mime type for your documents</td>
+<td><code>image/tiff</code></td>
+</tr>
+<tr>
+<td>Out extension</td>
+<td><code>String</code></td>
+<td>The extensions to set to your documents</td>
+<td><code>tiff</code></td>
+</tr>
+<tr>
+<td>Convert path</td>
+<td><code>String</code></td>
+<td></td>
+<td><code>convert -quiet</code></td>
+</tr>
+<tr>
+<td>Supported source mime types</td>
+<td><code>String list</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="SplitPdfItext">SplitPdfItext <small> - PDF splitter  </small><a class="headerlink" href="#SplitPdfItext" title="Permanent link">&para;</a></h2>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Split definition data name</td>
+<td><code>String</code></td>
+<td>Name of the document data for split definition</td>
+<td><code>splitDefinitions</code></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="TesseractInvoker">TesseractInvoker <small> - Transform your PDFs and images with text to make them searchable using OCR engine </small><a class="headerlink" href="#TesseractInvoker" title="Permanent link">&para;</a></h2>
+<p>Based on Tesseract solution, this task will parse each page of your images (TIFF, JPG and PNG) or PDF to extract text and create a new searchable PDF
+CCITT T.6 image compression is supported but not LZW compression\nBe careful if you are doing multi-document or multi-content : if names are identicals it will overwrite contents 
+(ex\ sample.tiff &amp; sample.gif will both creates sample.pdf. The first doc will overwrote the 2nd one</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Destination folder</td>
+<td><code>String</code></td>
+<td>Target file path for the locally-created files</td>
+</tr>
+<tr>
+<td>Tesseract path</td>
+<td><code>String</code></td>
+<td>Complete path of your local Tesseract instance <br/> <p> Ex/  /usr/share/tesseract-ocr/4.00/tessdata</p></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throw rotations exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document orientation detection, it can either fail silently or pop an error when the action has not been properly completed. Throw conversion exceptions should be set to true for this option to work</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Allow rotation if needed</td>
+<td><code>Boolean</code></td>
+<td>If document is converted but not readable, rotation is will correct the page orientation from landscape to portrait if needed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Add file sizes</td>
+<td><code>Boolean</code></td>
+<td>If true, add input and output file sizes in the data set</td>
+<td></td>
+</tr>
+<tr>
+<td>Allow enhanced orientation detection</td>
+<td><code>Boolean</code></td>
+<td>Only used if allow rotation is set to true. Enable the use of an enhanced rotation detection, thus giving more accurate results but with the downside of being slower. Activate it for low-quality images for example.</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Text2PDFConverter">Text2PDFConverter <small> - Convert Text file to PDF </small><a class="headerlink" href="#Text2PDFConverter" title="Permanent link">&para;</a></h2>
+<p>Convert your text files into PDF format.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Image path</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Formatted page text provider</td>
+<td>FormattedPageTextProvider</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Formatted page text converter</td>
+<td>FormattedPageTextConverter</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Tiff2PDFIText">Tiff2PDFIText <small> - Converter from Tiff to PDF </small><a class="headerlink" href="#Tiff2PDFIText" title="Permanent link">&para;</a></h2>
+<p>This task uses the IText library to convert content of TIFF documents into PDF format</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keep image aspect</td>
+<td><code>Boolean</code></td>
+<td>Zoom image to fit in an A4 paper, but conserve aspect ratio</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Adapt PDF size to source image</td>
+<td><code>Boolean</code></td>
+<td>Generate a PDF document with a size related to the original image size</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Ignore conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either throw an error if the image has not properly been converted, or fail silently</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Verbose logs</td>
+<td><code>Boolean</code></td>
+<td>Check this item to have more logs for fine-tuning stage</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>imageSourceHeightProperty</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Temp file cleaner</td>
+<td>TempFileCleaner</td>
+<td>Select here the module you want to clean the temporary files</td>
+<td></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>DPI correction</td>
+<td><code>Boolean</code></td>
+<td>Check this to correct the DPI related to the image dimensions</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Rotate landscapes</td>
+<td><code>Boolean</code></td>
+<td>If imge aspect is &gt; 1.4, it will be rotated to fit in a A4 format</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Clean temporary files</td>
+<td><code>Boolean</code></td>
+<td>Remove the temporary input files. To use this option, a temp file cleaner must be set</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>imageSourceWidthProperty</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Tiff2PdfBox">Tiff2PdfBox <small> - Convert TIFF to PDF </small><a class="headerlink" href="#Tiff2PdfBox" title="Permanent link">&para;</a></h2>
+<p>This task converts TIFF images into PDF documents using the Apache PDFBox lib</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add pdf dimensions to dataSet</td>
+<td><code>Boolean</code></td>
+<td>Store dimensions in document dataSet named contentHeight and contentWidth only for the first page</td>
+<td></td>
+</tr>
+<tr>
+<td>Ignore conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either throw an error if the image has not properly been converted, or fail silently</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Force to re-encode tiffs</td>
+<td><code>Boolean</code></td>
+<td>Force to decompress and recompress tiffs before encapsulating in PDF, slower but could handle some exceptions</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Unsupported producers</td>
+<td><code>String list</code></td>
+<td>List of unsupported tiff software producers</td>
+<td></td>
+</tr>
+<tr>
+<td>Default DPI used for PDF transformation</td>
+<td><code>Integer</code></td>
+<td></td>
+<td><code>200</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="WkHtmlToPdfConverter">WkHtmlToPdfConverter <small> - Converter from Html To PDF </small><a class="headerlink" href="#WkHtmlToPdfConverter" title="Permanent link">&para;</a></h2>
+<p>This task will be used to convert HTML content into a PDF document. Fast2 embeds the wkhtmltopdf command-line utility in order to carry out this conversion.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Destination folder</td>
+<td><code>String</code></td>
+<td>Target file path for the locally-created files</td>
+</tr>
+<tr>
+<td>Converter path</td>
+<td><code>String</code></td>
+<td>Set here the path of the converter</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ingore output file</td>
+<td><code>Boolean</code></td>
+<td>Converter does not takes output file instructions</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Process annotation contents</td>
+<td><code>Boolean</code></td>
+<td>If annotations are asked to be migrated, you can filter here to process their content(s) or only their metadata</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Ignore command return value</td>
+<td><code>Boolean</code></td>
+<td>Do not perform anything after conversion, whatever the command feedback</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Scan recursive content</td>
+<td><code>Boolean</code></td>
+<td>Only convert terminal contents and not container ones</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Destination folder for original files</td>
+<td><code>String</code></td>
+<td>Dump input file in a specific folder path. Set to null to disable dumps</td>
+<td></td>
+</tr>
+<tr>
+<td>Options location</td>
+<td><code>Integer</code></td>
+<td>Set here the index of options in the cmd line : O means at the beginning.</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Supported mime-types</td>
+<td><code>String list</code></td>
+<td>Specify the list of all mime-types of documents which Fast2 will convert</td>
+<td></td>
+</tr>
+<tr>
+<td>Protect path with double quotes</td>
+<td><code>Boolean</code></td>
+<td>Surround file paths with quotes when building command-line</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Timeout before stopping</td>
+<td><code>Integer</code></td>
+<td>Time to wait before killing the process. Value is in seconds</td>
+<td><code>3600</code></td>
+</tr>
+<tr>
+<td>Throw conversion exceptions</td>
+<td><code>Boolean</code></td>
+<td>If Fast2 performs document conversion, it can either fail silently or pop an error when the action has not been properly completed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Mime-type : Check document before content</td>
+<td><code>Boolean</code></td>
+<td>You can assume the file extension is accurate, or ask Fast2 to check the content encoding to identify more precisely the document mime-type. By default, Fast2 will check at content level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Conversion option</td>
+<td><code>String</code></td>
+<td>See application help for more details</td>
+<td></td>
+</tr>
+<tr>
+<td>List of error exit codes to skip</td>
+<td><code>String list</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Extension to append</td>
+<td><code>String</code></td>
+<td>The extension to add to the original file name before any conversion. This value should not start with a dot (ex : html)</td>
+<td></td>
+</tr>
+<tr>
+<td>Process all contents</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will either only focus on the first encountered content, or process them all</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Cleanup HTML first</td>
+<td><code>Boolean</code></td>
+<td>Ask Fast2 to clean the HTML content regarding syntax and encoding</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target=_blank>feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - 2025 Fast2 — All rights reserved
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/Fast2_tech" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/fast2tech" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UCO1XgEKGKKV8T5vvTp-R9Jw" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.path", "navigation.tabs", "navigation.indexes", "navigation.expand", "navigation.top", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js?v1"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2183 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Uxopian">
+      
+      
+        <link rel="canonical" href="https://docs.fast2.tech/components/database/">
+      
+      
+        <link rel="prev" href="../worker/">
+      
+      
+        <link rel="next" href="../dashboards/">
+      
+      
+      <link rel="icon" href="../../assets/Fast2_favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Database - Fast2 documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-XRY08F7QZE"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-XRY08F7QZE",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-XRY08F7QZE",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#internal-database" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Fast2 documentation" class="md-header__button md-logo" aria-label="Fast2 documentation" data-md-component="logo">
+      
+  <img src="../../assets/Fast2_favicon_white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fast2 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Database
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/" class="md-tabs__link">
+          
+  
+    
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Components
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../catalog/" class="md-tabs__link">
+          
+  
+    
+  
+  Catalog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advanced/" class="md-tabs__link">
+          
+  
+    
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cookbooks/" class="md-tabs__link">
+          
+  
+    
+  
+  Cookbooks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals" class="md-tabs__link">
+        
+  
+    
+  
+  Get Support
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals?q=" class="md-tabs__link">
+        
+  
+    
+  
+  Search the Knowledge-Base
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Fast2 documentation" class="md-nav__button md-logo" aria-label="Fast2 documentation" data-md-component="logo">
+      
+  <img src="../../assets/Fast2_favicon_white.png" alt="logo">
+
+    </a>
+    Fast2 documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../getting-started/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/overall-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overall concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/create-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../broker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Broker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../worker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Worker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indexes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-or-without" class="md-nav__link">
+    <span class="md-ellipsis">
+      With or without
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-access-to-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote access to the database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-error-500-when-starting-a-campaign" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server error 500 when starting a campaign
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impossible-to-get-results-from-explorer-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impossible to get results from Explorer place
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-quickly-wrap-up-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      Let's quickly wrap up, here
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dashboards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dashboards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../catalog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Catalog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Catalog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog/source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog/contentsource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content sources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog/credentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog/converter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conversion tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog/transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformation tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog/helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helpers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog/tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog/loader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Injectors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../advanced/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/drools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/shared-objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cookbooks/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Cookbooks
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cookbooks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/punnet_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Punnets management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/document_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documents management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/content_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/dataset_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dataset management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/from-zip-to-punnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From ZIP to punnet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/upload-content-and-metadata-in-s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upload content and metadata in a S3 bucket
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/content-metadata-from-s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Retrieve content and metadata from an S3 bucket
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/csvsource_further/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV source : a step further
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4009459769" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sort documents in a punnet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4008771588" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interact with a SQL database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/data_from_filename/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data from file name
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals?q=" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Search the Knowledge-Base
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indexes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-or-without" class="md-nav__link">
+    <span class="md-ellipsis">
+      With or without
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-access-to-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote access to the database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-error-500-when-starting-a-campaign" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server error 500 when starting a campaign
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impossible-to-get-results-from-explorer-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impossible to get results from Explorer place
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-quickly-wrap-up-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      Let's quickly wrap up, here
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="internal-database">Internal database<a class="headerlink" href="#internal-database" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Prior to the v2.5, Fast2 was relying on an Elasticsearch database. This component has been dropped in favor of OpenSearch.</p>
+<p>However the configuration of these two databases are very close (if not identical).</p>
+</div>
+<p>Every object passing through Fast2 is stored into an internal database. Whether carried by the document or the punnet, all metadata are recorded in the warehouse. The major benefit of such architecture is the opportunity to check whether everything is going well by making counters about documents/data processed during your migrations.</p>
+<p>In addition, we can easily rollback or resume operations in case of server crash. Nothing will be lost as Fast2 will precisely know where it all stopped.</p>
+<p>There is the logic behind real-time backups in ES.</p>
+<h2 id="indexes"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.75 5.5h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5m0 6h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5m0 6h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5M5 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0M4 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2m0 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg></span> Indexes<a class="headerlink" href="#indexes" title="Permanent link">&para;</a></h2>
+<p>Each Elasticsearch index referenced by Fast2 will be registered with a <code>f2_</code> prefix. An index is always written in lower case even if the campaign name in Fast2 contains characters in upper cases.</p>
+<p>For example, the campaign <code>MyCampaign_Try10</code> will be stored in the index f2_mycampaign_try15.</p>
+<p>During the step of broker intantiation at Fast2 startup, some indices are automatically created:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Index key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">f2_campaigns</td>
+<td>List of existing campaigns with processing dates and status</td>
+</tr>
+<tr>
+<td style="text-align: right;">f2_campaigns_sources</td>
+<td>Links between campaigns and workers having performed this campaign</td>
+</tr>
+<tr>
+<td style="text-align: right;">f2_queue_settings</td>
+<td>Reference information about source and task threads</td>
+</tr>
+<tr>
+<td style="text-align: right;">f2_jobs_settings</td>
+<td>Gather the configuration of save jobs</td>
+</tr>
+<tr>
+<td style="text-align: right;">f2_jobs_info</td>
+<td>Information about jobs past execution details</td>
+</tr>
+</tbody>
+</table>
+<p>For each new campaign of Fast2, an index will be created: if you decided to run a new campaign named <code>EcmInjection</code>, the new index will be <code>f2_ecminjection_try1</code>.</p>
+<h2 id="configuration"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4-3.58 4-8 4-8-1.79-8-4m8.08 11H12c-4.42 0-8-1.79-8-4v3c0 2.21 3.58 4 8 4h.29a7.4 7.4 0 0 1-.29-2c0-.34.03-.67.08-1M20 12.08V9c0 2.21-3.58 4-8 4s-8-1.79-8-4v3c0 2.21 3.58 4 8 4h.69c1.13-2.37 3.53-4 6.31-4 .34 0 .67.03 1 .08m3.8 8.32c.1 0 .1.1 0 .2l-1 1.7c-.1.1-.2.1-.3.1l-1.2-.4c-.3.2-.5.3-.8.5l-.2 1.3c0 .1-.1.2-.2.2h-2c-.1 0-.2-.1-.3-.2l-.2-1.3c-.3-.1-.6-.3-.8-.5l-1.2.5c-.1 0-.2 0-.3-.1l-1-1.7c-.1-.1 0-.2.1-.3l1.1-.8v-1l-1.1-.8c-.1-.1-.1-.2-.1-.3l1-1.7c.1-.1.2-.1.3-.1l1.2.5c.3-.2.5-.3.8-.5l.2-1.3c0-.1.1-.2.3-.2h2c.1 0 .2.1.2.2l.2 1.3c.3.1.6.3.9.5l1.2-.5c.1 0 .3 0 .3.1l1 1.7c.1.1 0 .2-.1.3l-1.1.8v1zM20.5 19c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5 1.5-.7 1.5-1.5"/></svg></span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h3 id="with-or-without">With or without<a class="headerlink" href="#with-or-without" title="Permanent link">&para;</a></h3>
+<p>For an optimal migration setup, this third-party software can be easily configured at different levels to match you needs at most !
+If required, it can even be disabled at will.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">v2.4-</label><label for="__tabbed_1_2">v2.5+</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-ini highlight"><span class="filename">./config/applications.properties</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">broker.elasticsearch.embedded.enabled</span><span class="o">=</span><span class="s">true</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-ini highlight"><span class="filename">./config/applications.properties</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">broker.opensearch.embedded.enabled</span><span class="o">=</span><span class="s">true</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="port">Port<a class="headerlink" href="#port" title="Permanent link">&para;</a></h3>
+<p>By default, Fast2 sends it data via the Elasticsearch API made available on port <code>1790</code>.</p>
+<p>However, in the case where this port is already used by either another Fast2 instance or any other process, the port number can be changed from the configuration files.</p>
+<p>Since Elasticsearch has to be reach from both Fast2 broker and Kibana module — if the latter is enabled. If any Elasticsearch port had to be reconfigured to match specific needs, there is exactly 3 places where to mention this change:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">v2.4-</label><label for="__tabbed_2_2">v2.5+</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>./config/application.properties</td>
+<td><code>opensearch.port=1790</code></td>
+</tr>
+<tr>
+<td>./elasticsearch-X.Y.Z/config/elasticsearch.yml</td>
+<td><code>http.port: &lt;es-port&gt;</code></td>
+</tr>
+<tr>
+<td>./kibana-X.Y.Z/config/kibana.yml</td>
+<td><code>elasticsearch.hosts: ["http://localhost:&lt;es-port&gt;"]</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>./config/application.properties</td>
+<td><code>opensearch.port=1790</code></td>
+</tr>
+<tr>
+<td>./opensearch-X.Y.Z/config/opensearch.yml</td>
+<td><code>http.port: &lt;es-port&gt;</code></td>
+</tr>
+<tr>
+<td>./opensearch-dashboards-X.Y.Z/config/opensearch_dashboards.yml</td>
+<td><code>opensearch.hosts: ["http://localhost:&lt;es-port&gt;"]</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>If the dashboard component is installed, the database port also needs to be updated on this front as the dashboard needs to access the DB in order to read the data :</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">v2.4-</label><label for="__tabbed_3_2">v2.6+</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-ini highlight"><span class="filename">./kibana-X.Y.Z/config/kibana.yml</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">elasticsearch.hosts</span><span class="o">:</span><span class="w"> </span><span class="s">[&quot;http://&lt;DB-server:DB-port&gt;&quot;]</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-ini highlight"><span class="filename">./opensearch-dashboards-X.Y.Z/config/opensearch_dashboards.yml</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">opensearch.hosts</span><span class="o">:</span><span class="w"> </span><span class="s">[&quot;http://&lt;DB-server:DB-port&gt;&quot;]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><br /></p>
+<h3 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h3>
+<p>The more documents, the more data. The more data, the more Elasticsearch will need resources to digest, store, process data and respond to the broker.</p>
+<p>Head out to the <code>./opensearch-X.Y.Z/config/jvm.options</code> file.</p>
+<p>The configuration required are the following:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Configuration</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><code>-Xms8g</code></td>
+<td style="text-align: left;">This setting will allocate 8GB of RAM to the Elasticsearch JVM heap, directly on startup.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>-Xmx8g</code></td>
+<td style="text-align: left;">Here, you specify the maximum memory which can be used, if available, by the database.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As specified in the <code>./opensearch-X.Y.Z/config/jvm.options</code> file, you should always set the min and max JVM heap size to <strong>the same value</strong>. <br /><br />See the <a href="https://opensearch.org/docs/opensearch/install/important-settings/">Official OpenSearch documentation</a> for more information.</p>
+</div>
+<p>For further comprehension of these parameters, check out the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/important-settings.html#heap-size-settings">Elasticsearch official documentation</a> on the topic or <a href="https://opensearch.org/docs/1.1/opensearch/install/important-settings/">OpenSearch official documenation</a>.
+Upgrading the metrics will prevent <code>java.lang.OutOfMemoryError</code> to pop up during heavy migration executions.</p>
+<p><br /></p>
+<!-- Still uptodate ??
+## Database without dashboards
+
+To visualize data stored in the database without using the dashboard addon proposed, we recommend to use web navigator plugins. These GUIs are focused on visualisation of your documents as tables, more easily than with Kibana. You can browse your data as classic SQL tables. The downside is ElasticVue does not offer any metrics, graphs or anaytics options.
+
+Two different plugins exist, depending on your web navigator:
+* [ElasticVue](https://elasticvue.com/) under Mozilla Firefox, MS Edge and Google Chrome;
+* [ElasticSearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) only for Google Chrome.
+
+-->
+
+<h2 id="remote-access-to-the-database">Remote access to the database<a class="headerlink" href="#remote-access-to-the-database" title="Permanent link">&para;</a></h2>
+<p>The next operations need to happen when the database is shut down. To make sure of that, the <code>jcmd</code> command might be of great help.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="language-text highlight"><pre><span></span><code>The database port needs to be opened from the Fast2 server, and accessible by your remote machine.
+</code></pre></div>
+</div>
+<ol>
+<li>
+<p>To check the database port is accessible from your machine, run the following command (from your work station):</p>
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>&lt;fast2.server&gt;:&lt;database-port&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Head out to the database configuration YAML file <code>opensearch.yml</code> and add the following lines:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>network.host: 0.0.0.0
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>node.name: node-1
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>cluster.initial_master_nodes: node-1
+</code></pre></div>
+</li>
+<li>
+<p>If Fast2 is installed on a Linux server, you may also need to increase the memory usage for your cluster (on the server where the database is running), as stipulated in the <a href="https://opensearch.org/docs/1.0/opensearch/install/important-settings/">Official OpenSearch documentation</a>.</p>
+<div class="language-ini highlight"><span class="filename">/etc/sysctl.conf</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># for remote access to Fast2 embedded database</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">vm.max_map_count</span><span class="o">=</span><span class="s">262144</span>
+</code></pre></div>
+</li>
+<li>
+<p>Save the file, and run the following command to <em>refresh</em> your server configuration :</p>
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>-p
+</code></pre></div>
+</li>
+<li>
+<p>Restart the broker (which will induce the bootup of the database), and go check from your machine the access to the Fast2 database.</p>
+<p>The webpage (at the same URL we <code>curl</code>-ed in the 1st step) should display something like so :</p>
+<p><img alt="Webpage of remote access to the database" src="../../assets/img/components/db_remote_access_webpage.png" width="60%" /></p>
+</li>
+</ol>
+<p><br/></p>
+<p><br /></p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<p>In reason of the tight commmunication between the broker and the database, chances are you will soon be reported 500 server error generated by unsuccessful exchanges of the two entities.</p>
+<h3 id="server-error-500-when-starting-a-campaign">Server error 500 when starting a campaign<a class="headerlink" href="#server-error-500-when-starting-a-campaign" title="Permanent link">&para;</a></h3>
+<p>After running quite a bunch of campaigns, you might end up not being able to start anymore of them due to the limit of shards of the Elasticsearch database (for more in-depth details about the shards, checkout the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/scalability.html">Official Elasticsearch documentation</a>).</p>
+<p>The symptom of this limitations comes as a regular 500 server error toast in the UI, but is is by checking the logs/broker.log file that its raw nature is exposed:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>17:24:45.017 [http-nio-1789-exec-17] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:175 - Exception while dispatching incoming RPC call com.google.gwt.user.server.rpc.UnexpectedException: Service method &#39;public abstract com.fast2.model.taskflow.Campaign com.fast2.hmi.gwt.client.service.GWTCampaignManager.startProcessing(
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    com.fast2.model.taskflow.Campaign,com.fast2.model.taskflow.design.TaskFlowMapRef,boolean)&#39; threw an unexpected exception:
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    java.lang.RuntimeException: Caught exception Elasticsearch exception [type=validation_exception, reason=Validation Failed: 1: this action would add [2] total shards, but this cluster currently has [1000]/[1000] maximum shards open;]
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    ...
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Caused by: org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=validation_exception, reason=Validation Failed: 1: this action would add [2] total shards, but this cluster currently has [1000]/[1000] maximum shards open;]
+</code></pre></div>
+<p>As mentioned in the <a href="#index-names">Elasticsearch technicalities</a>, Fast2 records data under indices prefixed with <code>f2_</code>. Thus it implies to begin each index to delete with this prefix.</p>
+<p>Although a drastic cleanup induced by a <code>curl -X DELETE -i "http://&lt;elasticsearch-server&gt;:&lt;elasticsearch-port&gt;/f2_*</code> would resolve our issue, you might be interested in keeping some campaigns or indices. As any <em>curl</em> query allows, exceptions can be added to the deletion operation to prevent them from being removed of the backup database. The syntax goes as follows:</p>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;http://&lt;Fast2-server&gt;:&lt;database-port&gt;/f2_*,-f2_campaigns,-f2_campaigns_sources[,-f2_&lt;campaign-name&gt;]&quot;</span>
+</code></pre></div>
+<p><br/>
+<br/>
+Let us now study this query:
+<br/>
+<br/></p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>http://server:port/f2_*</td>
+<td>Here we ask to aim at all indices starting with the <code>f2_</code> prefix. This will prevent the deletion of additional indices which could be related to parallel work on the same Elasticsearch instance, such as Kibana reports, charts or data analysis.</td>
+</tr>
+<tr>
+<td><code>-f2_campaigns,-f2_campaigns_sources</code></td>
+<td>These 2 indices are needed if you decide to keep any other campaign. The <code>-</code> sign declares them as exception from the delete action.</td>
+</tr>
+<tr>
+<td><code>[,-f2_&lt;campaign-name&gt;]</code></td>
+<td>Then you can list all the campaigns you are willing to preserve, <ul><li>without space,</li><li>separated by commas (<code>,</code>)</li><li>mentioning the <code>-</code> exclusion character</li></ul>Do not forget to begin each name with the indice prefix.</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p>Wildcards are supported, therefore an exception written <code>-f2_mycampaign*</code> will protect all the campaign with this <em>myCampaign</em> radical (ex/ myCampaign_Try1, myCampaign_Try2...).</p>
+<h3 id="impossible-to-get-results-from-explorer-place">Impossible to get results from Explorer place<a class="headerlink" href="#impossible-to-get-results-from-explorer-place" title="Permanent link">&para;</a></h3>
+<p>Documents concerned by a migration can quickly add up, especially on cumulative campaigns. When heading to the Explorer to check punnets results, you may end up with too much information to retrieve from the database. An "error 500" message will then pop up, and if yu head out to the broker.log, the following stack will be found:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Suppressed: org.elasticsearch.client.ResponseException: method [POST], host [http://localhost:1790], URI [/f2_campaign_try1/_search?pre_filter_shard_size=...], status line [HTTP/1.1 503 Service Unavailable]
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>{&quot;error&quot;:{&quot;root_cause&quot;:[{&quot;type&quot;:&quot;too_many_buckets_exception&quot;,&quot;reason&quot;:&quot;Trying to create too many buckets. Must be less than or equal to: [10000] but was [10001]. This limit can be set by changing the [search.max_buckets] cluster level setting.&quot;,&quot;max_buckets&quot;:10000}],&quot;type&quot;:&quot;search_phase_execution_exception&quot;,&quot;reason&quot;:&quot;all shards failed&quot;,&quot;phase&quot;:&quot;query&quot;,&quot;grouped&quot;:true,&quot;failed_shards&quot;:[{&quot;shard&quot;:0,&quot;index&quot;:&quot;f2_stg-100k_try1&quot;,&quot;node&quot;:&quot;4XM6VD2wTfeOSpr2brIs7g&quot;,&quot;reason&quot;:{&quot;type&quot;:&quot;too_many_buckets_exception&quot;,&quot;reason&quot;:&quot;Trying to create too many buckets. Must be less than or equal to: [10000] but was [10001]. This limit can be set by changing the [search.max_buckets] cluster level setting.&quot;,&quot;max_buckets&quot;:10000}}]},&quot;status&quot;:503}
+</code></pre></div>
+<p>To fix this, you need to stop Fast2 (and the database), and add the following line:</p>
+<div class="language-text highlight"><span class="filename">./elasticsearch-X.Y.Z/config/elasticsearch.yml</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>search.max_buckets: 1000000
+</code></pre></div>
+<h2 id="lets-quickly-wrap-up-here">Let's quickly wrap up, here<a class="headerlink" href="#lets-quickly-wrap-up-here" title="Permanent link">&para;</a></h2>
+<p>This integrated database guarantees data persistence to Fast2. If required, an Elasticsearch database can be shared among several Fast2 servers.</p>
+<p><br/>
+Allocated resources should be increased in order to resist charge of production environments.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target=_blank>feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - 2025 Fast2 — All rights reserved
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/Fast2_tech" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/fast2tech" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UCO1XgEKGKKV8T5vvTp-R9Jw" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.path", "navigation.tabs", "navigation.indexes", "navigation.expand", "navigation.top", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js?v1"></script>
+      
+    
+  </body>
+</html>
