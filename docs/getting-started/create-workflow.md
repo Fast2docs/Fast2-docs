@@ -218,7 +218,7 @@ The auto save is triggered under the following conditions:
 
 1. **Configuration Changes:**
 : Any changes made to configuration fields are saved as soon as the focus is lost from the edited field.
-![Autosave field edition](../assets/img/create_workflow/autosave field edition.gif){ width="100%" }
+![Autosave field edition](../assets/img/create_workflow/Autosave field edition.gif){ width="100%" }
 
 2. **Map Modifications:**
 : Any modification to the map triggers a save, regardless of the type of change.
