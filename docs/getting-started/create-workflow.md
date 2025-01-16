@@ -186,14 +186,62 @@ At this moment you have two series of campaigns related to your map _Production_
 
 Fast2 allows you to create multiple versions of the same map. This feature provides several significant benefits:
 
+## Map versioning
+
+Fast2 allows you to create multiple versions of the same map. This feature provides several significant benefits:
+
 1. **Change Management and Tracking**
-   **Historical Record**: Versioning allows you to maintain a record of all changes made to a workflow. This is critical for understanding how workflows have evolved over time.
-   **Auditability**: Regulatory or internal compliance often requires a clear audit trail. Versioned workflows make it easy to demonstrate changes and decisions.
+: **Historical Record**: Versioning allows you to maintain a record of all changes made to a map. This is critical for understanding how workflows have evolved over time.
+: **Auditability**: Regulatory or internal compliance often requires a clear audit trail. Versioned maps make it easy to demonstrate changes and decisions.
 
 2. **Flexibility for Iteration**
-   **Testing New Versions**: You can test new workflow configurations while maintaining the stability of the current version in production. This reduces risk and allows for experimentation.
-   **Rollback Capabilities**: If a new version introduces issues, you can quickly revert to a previous version.
+: **Testing New Versions**: You can test new map configurations while maintaining the stability of the current version in production. This reduces risk and allows for experimentation.
+: **Rollback Capabilities**: If a new version introduces issues, you can quickly revert to a previous version.
 
 3. **Support for Continuous Improvement**
-   **Incremental Optimization**: Workflows can be improved incrementally while keeping a reliable baseline version in production.
-   **Data-Driven Updates**: Analyze performance data from different versions to identify which version works best.
+: **Incremental Optimization**: Maps can be improved incrementally while keeping a reliable baseline version in production.
+: **Data-Driven Updates**: Analyze performance data from different versions to identify which version works best.
+
+Seamless version creation for the user: they have nothing to do and cannot create a version themselves (there is no manual version creation). The version number is incremented automatically. Current version you are working on is always available in the top right corner.
+![Map version position](../assets/img/create_workflow/current map version.png){ width="80%" }
+
+## Automatic Save Feature
+
+The automatic save functionality ensures that changes made to the workflow and its configurations are saved seamlessly, enhancing reliability and reducing the risk of data loss. Below are the differents statuses of the save button:
+
+- **Not saved**: The map has not been saved yet (Opensearch database is not reachable).
+![Unsaved status](../assets/img/create_workflow/unsaved.png){ width="10%" }
+- **Saved**: The map has been saved successfully.
+![Saved status](../assets/img/create_workflow/saved.png){ width="10%" }
+- **Saving...**: The map is currently being saved.
+![Saving status](../assets/img/create_workflow/saving.png){ width="10%" }
+
+### When Does Auto Save Trigger?
+
+The auto save is triggered under the following conditions:
+
+1. **Configuration Changes:**
+: Any changes made to configuration fields are saved as soon as the focus is lost from the edited field.
+![Autosave field edition](../assets/img/create_workflow/autosave field edition.gif){ width="100%" }
+
+2. **Map Modifications:**
+: Any modification to the map triggers a save, regardless of the type of change.
+
+3. **Task Movements:**
+: Moving tasks within the map also triggers an automatic save.
+
+### What Gets Saved?
+
+The following elements are included in the automatic save process:
+
+- The tasks within the map, including their **configuration settings** and **positions**.
+- The **map name**.
+- The **shared objects** within the map.
+
+### Specific Case: Map Shared Objects
+
+Modifications to a shared object within the Shared Objects place also trigger an automatic save, not limited to edits made in the main Edit place.
+![Shared objects place](../assets/img/create_workflow/shared objects place.png){ width="80%" }
+
+This ensures that all updates, regardless of where or how they are performed, are reliably captured.
+
