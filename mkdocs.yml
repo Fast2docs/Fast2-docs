@@ -1,7 +1,7 @@
 # Project information
 site_name: Fast2 documentation
 site_url: https://docs.fast2.tech
-site_author: Joe TESSIER
+site_author: Uxopian
 theme:
   name: material
   logo: assets/Fast2_favicon_white.png
@@ -160,6 +160,7 @@ nav:
     - getting-started/index.md
     - Overall concepts: getting-started/overall-concepts.md
     - Installation: getting-started/installation.md
+    - Authentication: getting-started/authentication.md
     - Create a workflow: getting-started/create-workflow.md
   - Components:
     - components/index.md
