@@ -1,31 +1,57 @@
-name: ci 
+name: CI/CD for MkDocs with Mike
+
 on:
   push:
     branches:
-      - master 
-      - main
+      - master # Déclencher le workflow sur les pushs vers la branche master
+
 permissions:
   contents: write
+
 jobs:
   deploy:
+    name: Build and Deploy Documentation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      # Étape 1 : Récupération du code
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Étape 2 : Configuration de Python
+      - name: Setup Python Environment
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      - uses: actions/cache@v3
+
+      # Étape 3 : Configuration du cache pour accélérer les builds
+      - name: Configure Cache
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - name: Restore Cache
+        uses: actions/cache@v3
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material 
-      - run: pip install mike
-      - run: mkdocs gh-deploy --force
+
+      # Étape 4 : Installation des dépendances
+      - name: Install Dependencies
+        run: |
+          pip install mkdocs-material
+          pip install mike
+
+      # Étape 5 : Déploiement de la documentation
+      - name: Deploy Documentation with Mike
+        run: mike deploy --push --update-aliases 2025.x.x latest
+
   markdown-link-check:
+    name: Markdown Link Check
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: gaurav-nelson/github-action-markdown-link-check@v1
+      # Étape 1 : Récupération du code
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Étape 2 : Vérification des liens Markdown
+      - name: Check Markdown Links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
