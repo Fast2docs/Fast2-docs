@@ -1,0 +1,226 @@
+# Project information
+site_name: Fast2 documentation
+site_url: https://docs.fast2.tech
+site_author: Uxopian
+theme:
+  name: material
+  logo: assets/Fast2_favicon_white.png
+  favicon: assets/Fast2_favicon.ico
+  language: en
+  # favicon: assets/Fast2_logo.png
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.path
+    
+    - navigation.tabs # main parts in top banner
+    - navigation.indexes # toggle */index.md in left lateral nav
+
+    # - navigation.sections
+    - navigation.expand
+    - navigation.top # 'Back to top' when scrolling up
+    - content.tabs.link # for Linux/windows tab
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.annotate
+    - content.code.copy
+  
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Necessary for search to work properly
+  # include_search_page: false
+  # search_index_only: true
+    
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      # primary: deep orange
+      scheme: default 
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+
+    # Palette toggle for light mode
+    # - media: "(prefers-color-scheme: light)"
+      # primary: deep orange
+      # toggle:
+      #   icon: material/brightness-7
+      #   name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      # primary: deep orange
+      scheme: slate
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+
+  font: 
+    text: Nunito
+
+plugins:
+  - tags: 
+      tags_file: tags.md
+  - search
+  # - glightbox # zoom image on click
+  - mike:
+      # These fields are all optional; the defaults are as below...
+      alias_type: symlink
+      redirect_template: null
+      deploy_prefix: ''
+      canonical_version: null
+      version_selector: true
+      css_dir: css
+      javascript_dir: js
+
+markdown_extensions:
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true
+      pygments_lang_class: true
+      # linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences: 
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - def_list
+  - admonition
+  - pymdownx.details
+  # for images, caption and lazy-loading
+  - md_in_html
+
+
+
+# ---------------------------------------------------------   Footer 
+copyright: Copyright &copy; 2019 - 2025 Fast2 — All rights reserved
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter 
+      link: https://twitter.com/Fast2_tech
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/fast2tech
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCO1XgEKGKKV8T5vvTp-R9Jw
+  
+  analytics: 
+    provider: google
+    property : G-XRY08F7QZE
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target=_blank>feedback form</a>.
+
+  version:
+    provider: mike
+  
+  # alternate:
+  #   - name: Français
+  #     link: /fr/
+  #     lang: fr
+
+
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js?v1
+
+
+# -----------------------------------------------------   # Page tree
+nav:
+  # - Home: 
+  #     -home/index.md
+  - Getting started:
+    - getting-started/index.md
+    - Overall concepts: getting-started/overall-concepts.md
+    - Installation: getting-started/installation.md
+    - Authentication: getting-started/authentication.md
+    - Create a workflow: getting-started/create-workflow.md
+  - Components:
+    - components/index.md
+    - Broker: components/broker.md
+    - Worker: components/worker.md
+    - Database: components/database.md
+    - Dashboards: components/dashboards.md
+  - Catalog:
+    - catalog/index.md
+    - Sources: catalog/source.md
+    - Content sources: catalog/contentsource.md
+    - Credentials: catalog/credentials.md
+    - "Conversion tasks" : catalog/converter.md
+    - "Transformation tasks" : catalog/transformer.md
+    - Helpers: catalog/helper.md
+    - Tools: catalog/tool.md
+    - Injectors: catalog/loader.md
+  - Advanced:
+    - advanced/index.md
+    - Drools: advanced/drools.md
+    - Patterns: advanced/patterns.md
+    - Scheduler: advanced/scheduler.md
+    - Shared objects: advanced/shared-objects.md
+    # - Custom module: advanced/custom-module.md
+    - JavaScript: advanced/javascript.md
+    # - HTTPS: advanced/ui-as-https.md
+    # - Optimization: advanced/optimization.md
+    # - Get ready for production: advanced/get-ready-for-production.md
+    # - Environments specifities:
+    #   - setup-environments/index.md
+    #   - Setup for Documentum: setup-environments/documentum.md
+    #   - Setup for IBM CMOD: setup-environments/ibm-cmod.md
+  # - Resources:
+  #- 🟠 FAQ:
+  #  - "FAQ & Troubleshooting" : faq-troubleshooting/index.md
+  - Cookbooks:
+    - cookbooks/index.md
+    - Punnets management: cookbooks/punnet_basics.md
+    - Documents management: cookbooks/document_basics.md
+    - Contents management: cookbooks/content_basics.md
+    - Dataset management: cookbooks/dataset_basics.md
+    - From ZIP to punnet: cookbooks/from-zip-to-punnet.md
+    - Upload content and metadata in a S3 bucket : cookbooks/upload-content-and-metadata-in-s3.md
+    - Retrieve content and metadata from an S3 bucket: cookbooks/content-metadata-from-s3.md
+    - "CSV source : a step further" : cookbooks/csvsource_further.md
+    # now in Knowledge-Base:
+    # - Sort documents in a punnet: cookbooks/js-sort-documents.md 
+    - Sort documents in a punnet: https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4009459769 
+    # - Interact with a SQL database: cookbooks/jdbc-for-sql.md
+    - Interact with a SQL database: https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4008771588
+    - Data from file name: cookbooks/data_from_filename.md
+  - "Get Support" : https://arondor.atlassian.net/servicedesk/customer/portals
+  - "Search the Knowledge-Base" : "https://arondor.atlassian.net/servicedesk/customer/portals?q="
+  # - 🟠 Release notes:
+  #   - release-notes/index.md
+  #   - v2.5.0: release-notes/2.5.0.md
+  #   - v2.4.7: release-notes/2.4.7.md
+  # - 🟠 Blog:
+  #   - blog/index.md
+  #   - Da title of ma blog : blog/first-blog.md
+  #   - blog/2021/the-past-present-and-future.md
+  #   - blog/2021/excluding-content-from-search.md
+  #   - blog/2021/search-better-faster-smaller.md
