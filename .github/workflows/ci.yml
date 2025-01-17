@@ -53,7 +53,15 @@ jobs:
           git checkout gh-pages
           git pull origin gh-pages
 
-      # Étape 7 : Déploiement de la documentation
+      # Étape 7 : Copier mkdocs.yml depuis la branche master vers gh-pages
+      - name: Copy mkdocs.yml from master to gh-pages
+        run: |
+          git checkout master -- mkdocs.yml
+          git add mkdocs.yml
+          git commit -m "Add mkdocs.yml from master"
+          git push origin gh-pages
+
+      # Étape 8 : Déploiement de la documentation
       - name: Deploy Documentation with Mike
         run: mike deploy --push --update-aliases 2025.x.x latest
 
