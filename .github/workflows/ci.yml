@@ -66,13 +66,18 @@ jobs:
             git push origin gh-pages
           fi
 
-      # Step 8: Copy the docs directory from master to gh-pages
+      # Step 8: Copy the docs directory from master to gh-pages (only if modified)
       - name: Copy docs from master to gh-pages
         run: |
           git checkout master -- docs
-          git add docs
-          git commit -m "Add docs from master"
-          git push origin gh-pages
+          # Check if the docs directory has been modified before committing
+          if git diff --exit-code docs; then
+            echo "No changes to docs directory, skipping commit."
+          else
+            git add docs
+            git commit -m "Add docs from master"
+            git push origin gh-pages
+          fi
 
       # Step 9: Deploy documentation with Mike
       - name: Deploy Documentation with Mike
