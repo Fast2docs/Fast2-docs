@@ -46,7 +46,14 @@ jobs:
           git config --global user.name "Fast2docs"
           git config --global user.email "Fast2-docs@noreply.github.com"
 
-      # Étape 6 : Déploiement de la documentation
+      # Étape 6 : Récupérer les dernières modifications de la branche gh-pages
+      - name: Pull Latest Changes from gh-pages
+        run: |
+          git fetch origin gh-pages
+          git checkout gh-pages
+          git pull origin gh-pages
+
+      # Étape 7 : Déploiement de la documentation
       - name: Deploy Documentation with Mike
         run: mike deploy --push --update-aliases 2025.x.x latest
 
