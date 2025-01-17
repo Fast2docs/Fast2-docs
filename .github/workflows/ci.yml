@@ -3,7 +3,7 @@ name: CI/CD for MkDocs with Mike
 on:
   push:
     branches:
-      - master # Déclencher le workflow sur les pushs vers la branche master
+      - master # Trigger the workflow on pushes to the master branch
 
 permissions:
   contents: write
@@ -13,17 +13,17 @@ jobs:
     name: Build and Deploy Documentation
     runs-on: ubuntu-latest
     steps:
-      # Étape 1 : Récupération du code
+      # Step 1: Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Étape 2 : Configuration de Python
+      # Step 2: Setup Python environment
       - name: Setup Python Environment
         uses: actions/setup-python@v4
         with:
           python-version: 3.x
 
-      # Étape 3 : Configuration du cache pour accélérer les builds
+      # Step 3: Configure cache to speed up builds
       - name: Configure Cache
         run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - name: Restore Cache
@@ -34,30 +34,30 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
-      # Étape 4 : Installation des dépendances
+      # Step 4: Install dependencies
       - name: Install Dependencies
         run: |
           pip install mkdocs-material
           pip install mike
 
-      # Étape 5 : Configuration de Git
+      # Step 5: Configure Git user
       - name: Configure Git User
         run: |
           git config --global user.name "Fast2docs"
           git config --global user.email "Fast2-docs@noreply.github.com"
 
-      # Étape 6 : Récupérer les dernières modifications de la branche gh-pages
+      # Step 6: Fetch the latest changes from the gh-pages branch
       - name: Pull Latest Changes from gh-pages
         run: |
           git fetch origin gh-pages
           git checkout gh-pages
           git pull origin gh-pages
 
-      # Étape 7 : Copier mkdocs.yml depuis la branche master vers gh-pages (uniquement si modifié)
+      # Step 7: Copy mkdocs.yml from master to gh-pages (only if modified)
       - name: Copy mkdocs.yml from master to gh-pages
         run: |
           git checkout master -- mkdocs.yml
-          # Vérifier si mkdocs.yml a été modifié avant de commettre
+          # Check if mkdocs.yml was modified before committing
           if git diff --exit-code mkdocs.yml; then
             echo "No changes to mkdocs.yml, skipping commit."
           else
@@ -66,7 +66,7 @@ jobs:
             git push origin gh-pages
           fi
 
-      # Étape 8 : Copier le répertoire docs depuis master vers gh-pages
+      # Step 8: Copy the docs directory from master to gh-pages
       - name: Copy docs from master to gh-pages
         run: |
           git checkout master -- docs
@@ -74,7 +74,7 @@ jobs:
           git commit -m "Add docs from master"
           git push origin gh-pages
 
-      # Étape 9 : Déploiement de la documentation
+      # Step 9: Deploy documentation with Mike
       - name: Deploy Documentation with Mike
         run: mike deploy --push --update-aliases 2025.x.x latest
 
@@ -82,10 +82,10 @@ jobs:
     name: Markdown Link Check
     runs-on: ubuntu-latest
     steps:
-      # Étape 1 : Récupération du code
+      # Step 1: Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Étape 2 : Vérification des liens Markdown
+      # Step 2: Check Markdown links
       - name: Check Markdown Links
         uses: gaurav-nelson/github-action-markdown-link-check@v1
