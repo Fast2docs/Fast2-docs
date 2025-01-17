@@ -1,0 +1,3217 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Uxopian">
+      
+      
+        <link rel="canonical" href="https://docs.fast2.tech/2025.x.x/catalog/source/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../contentsource/">
+      
+      
+      <link rel="icon" href="../../assets/Fast2_favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Sources - Fast2 documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-XRY08F7QZE"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-XRY08F7QZE",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-XRY08F7QZE",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#AWSSource" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Fast2 documentation" class="md-header__button md-logo" aria-label="Fast2 documentation" data-md-component="logo">
+      
+  <img src="../../assets/Fast2_favicon_white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fast2 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sources
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/" class="md-tabs__link">
+          
+  
+    
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../components/" class="md-tabs__link">
+          
+  
+    
+  
+  Components
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Catalog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advanced/" class="md-tabs__link">
+          
+  
+    
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cookbooks/" class="md-tabs__link">
+          
+  
+    
+  
+  Cookbooks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals" class="md-tabs__link">
+        
+  
+    
+  
+  Get Support
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals?q=" class="md-tabs__link">
+        
+  
+    
+  
+  Search the Knowledge-Base
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Fast2 documentation" class="md-nav__button md-logo" aria-label="Fast2 documentation" data-md-component="logo">
+      
+  <img src="../../assets/Fast2_favicon_white.png" alt="logo">
+
+    </a>
+    Fast2 documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../getting-started/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/overall-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overall concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/create-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../components/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/broker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Broker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/worker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Worker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/dashboards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dashboards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Catalog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Catalog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sources
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Sources
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#AWSSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWSSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#AlfrescoRestSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      AlfrescoRestSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#AlfrescoSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      AlfrescoSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#BlankSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      BlankSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#CMODSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMODSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#CMSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#CSVSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSVSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#DctmSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      DctmSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#FileNet35Source" class="md-nav__link">
+    <span class="md-ellipsis">
+      FileNet35Source
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#FileNetSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      FileNetSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#FlowerSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      FlowerSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#LocalSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      LocalSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#MailSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      MailSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#OpenTextSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenTextSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#RandomSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      RandomSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#SQLSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQLSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ZipSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      ZipSource
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contentsource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content sources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../credentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../converter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conversion tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformation tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helpers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Injectors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../advanced/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/drools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/shared-objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/javascript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cookbooks/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Cookbooks
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cookbooks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/punnet_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Punnets management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/document_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documents management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/content_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/dataset_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dataset management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/from-zip-to-punnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From ZIP to punnet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/upload-content-and-metadata-in-s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upload content and metadata in a S3 bucket
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/content-metadata-from-s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Retrieve content and metadata from an S3 bucket
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/csvsource_further/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV source : a step further
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4009459769" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sort documents in a punnet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portal/82/article/4008771588" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interact with a SQL database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbooks/data_from_filename/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data from file name
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arondor.atlassian.net/servicedesk/customer/portals?q=" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Search the Knowledge-Base
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#AWSSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWSSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#AlfrescoRestSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      AlfrescoRestSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#AlfrescoSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      AlfrescoSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#BlankSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      BlankSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#CMODSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMODSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#CMSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#CSVSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSVSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#DctmSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      DctmSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#FileNet35Source" class="md-nav__link">
+    <span class="md-ellipsis">
+      FileNet35Source
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#FileNetSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      FileNetSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#FlowerSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      FlowerSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#LocalSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      LocalSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#MailSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      MailSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#OpenTextSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenTextSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#RandomSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      RandomSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#SQLSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQLSource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ZipSource" class="md-nav__link">
+    <span class="md-ellipsis">
+      ZipSource
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Sources</h1>
+
+<h2 id="AWSSource">AWSSource <small> - Complete extractor module from AWS S3 </small><a class="headerlink" href="#AWSSource" title="Permanent link">&para;</a></h2>
+<p>This AWS extractor performs from a list of sources the extraction of your document content. Many options (suffix, prefix...) exist to optimally specify the documents you want to take into account</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWS connection provider</td>
+<td><a href="../credentials/#AWSConnectionProvider">AWSConnectionProvider</a></td>
+<td>Must have AmazonS3FullAccess permission</td>
+</tr>
+<tr>
+<td>Source buckets</td>
+<td><code>String list</code></td>
+<td>Buckets where folders are stored</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept quotes in values</td>
+<td><code>Boolean</code></td>
+<td>If enabled, this option will accept quotes in values</td>
+<td></td>
+</tr>
+<tr>
+<td>AWS start-after key</td>
+<td><code>String</code></td>
+<td>Absolute path of S3 object to start after</td>
+<td></td>
+</tr>
+<tr>
+<td>ARN key for KMS encryption</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>New column names to set</td>
+<td><code>String list</code></td>
+<td>If empty, populated from first line</td>
+<td></td>
+</tr>
+<tr>
+<td>Replace empty titles</td>
+<td><code>Boolean</code></td>
+<td>If enabled, any empty title in the CSV file will be replaced by the default value. If several titles miss, the default title will be suffixed with an incremental index.</td>
+<td></td>
+</tr>
+<tr>
+<td>AWS suffix</td>
+<td><code>String</code></td>
+<td>S3-object will be extracted if its key has such suffix</td>
+<td></td>
+</tr>
+<tr>
+<td>Number of lines to skip</td>
+<td><code>Integer</code></td>
+<td>This option helps to skip lines, meaning their data will not be processed. By default, only the 1st line is skipped considering it surely consists in the headers row <br/> <p> Ex/  In a file of 10 lines, putting '3' in the input field will skip the 1st, 2nd and 3rd lines</p></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Default column title</td>
+<td><code>String</code></td>
+<td>Default value used for untitled columns. Will be incremented with a number if many. Will only be used if the replace empty titles option is enabled.</td>
+<td><code>Untitled</code></td>
+</tr>
+<tr>
+<td>Continue processing CSV on fail</td>
+<td><code>Boolean</code></td>
+<td>If enabled, the following errors will not trigger an exception: <br />- CSV file does not exist <br />- CSV file is empty (no line) <br />- CSV file has only headers and no line for documents.<br /><br />Note that if you give 5 CSV paths and the number 3rd is in error, only the Fast2 logs will provide information regarding the failing CSV file.</td>
+<td></td>
+</tr>
+<tr>
+<td>Source folders</td>
+<td><code>String list</code></td>
+<td>Folders in the S3 bucket(s) containing the files to migrate</td>
+<td></td>
+</tr>
+<tr>
+<td>AWS prefix</td>
+<td><code>String</code></td>
+<td>S3-object will be extracted if its key has such prefix</td>
+<td></td>
+</tr>
+<tr>
+<td>Stop at first error in CSV</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will automatically be stopped at the first error encountered in the CSV</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Column headers in first CSV file only</td>
+<td><code>Boolean</code></td>
+<td>Only read column definitions from the first parsed CSV file</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Documents per punnet from CSV</td>
+<td><code>Integer</code></td>
+<td>Number of documents each punnet will carry when processing a CSV file <br/> <p> Ex/  By setting this value to 2, each punnet created will contain 2 documents</p></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>CSV separator</td>
+<td><code>String</code></td>
+<td>Separator between each value. This option will be ignored if 'Process files as list of punnets' is disabled.</td>
+<td><code>,</code></td>
+</tr>
+<tr>
+<td>Process files as list of punnets</td>
+<td><code>Boolean</code></td>
+<td>The expected format is a CSV file (1 row for headers, next rows for 1 punnet each), but the <code>.csv</code> extension is not mandatory. Only single-documents punnets will be created (ex/ not working for multiversions documents). Multivalue data will be concatenated to one whole String value. The first line of the file will be considered as CSV header line.</td>
+<td></td>
+</tr>
+<tr>
+<td>extraColumns</td>
+<td><code>String list</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AlfrescoRestSource">AlfrescoRestSource <small> - Alfresco extractor using Alfresco REST protocol </small><a class="headerlink" href="#AlfrescoRestSource" title="Permanent link">&para;</a></h2>
+<p>This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco REST client) to retrieve documents and metadata into a given Alfresco instance</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMIS query or AFTS query</td>
+<td><code>String</code></td>
+<td>Query used to retrieve the objects from Alfresco <br/> <p> Ex/  SELECT * FROM cmis:document WHERE cmis:name LIKE 'test%' or cm:title:'test%'</p></td>
+</tr>
+<tr>
+<td>Alfresco connection provider</td>
+<td><a href="../credentials/#AlfrescoRESTConnectionProvider">AlfrescoRESTConnectionProvider</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max item to return per call</td>
+<td><code>Integer</code></td>
+<td>Set the paging max items threshold to specify the number of Alfresco objects to retrieve per call.</td>
+<td><code>100</code></td>
+</tr>
+<tr>
+<td>Fields to extract</td>
+<td><code>String</code></td>
+<td>The less the better ! Only the 'id' is necessary to start the migration workflow. Separate the different values with a comma, no space. Use properties from <a href="https://github.com/Alfresco/alfresco-client-sdk/blob/master/client-java/alfresco-java-client/src/main/java/com/alfresco/client/api/common/constant/PublicAPIConstant.java#L27">com.alfresco.client.api.common.constant.PublicAPIConstant</a> library. <br/> <p> Ex/  id,name</p></td>
+<td><code>id</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AlfrescoSource">AlfrescoSource <small> - Alfresco extractor using CMIS technology </small><a class="headerlink" href="#AlfrescoSource" title="Permanent link">&para;</a></h2>
+<p>Through an SQL query, this alfresco extractor will use the CMIS technology to fetch the content, the metadata and the annotations of your documents from a given Alfresco repository</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL query to extract documents</td>
+<td><code>String</code></td>
+<td>Fast2 will retrieve all documents, folder, references, items and metadata matching this query. If the query is exhaustively specifying data to extract, uncheck the 'Extract document properties'. The data <code>cmis:objectId</code> will be mandatory. <br/> <p> Ex/  SELECT * FROM cmis:document</p></td>
+</tr>
+<tr>
+<td>Alfresco connection provider</td>
+<td><a href="../credentials/#AlfrescoCMISConnectionProvider">AlfrescoCMISConnectionProvider</a></td>
+<td>CMIS version must be 1.1</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Property Helper</td>
+<td>PropertyHelper</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Number of items per result page</td>
+<td><code>Integer</code></td>
+<td>Maximum number of results provided</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Number of documents per punnet</td>
+<td><code>Integer</code></td>
+<td></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Extract document properties</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Keep folder structure within document</td>
+<td><code>Boolean</code></td>
+<td>requires extractProperties to be true</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Extract document content</td>
+<td><code>Boolean</code></td>
+<td>Does not work asynchronously</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="BlankSource">BlankSource <small> - Empty punnet generator </small><a class="headerlink" href="#BlankSource" title="Permanent link">&para;</a></h2>
+<p>This source builds a punnet list containing one or more empty documents. Each document will only contain its identifier : documentId. This punnet can then be enriched by other steps in the processing chain.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document IDs</td>
+<td>DocumentIdList</td>
+<td>Source list of documents to extract from their IDs</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document per punnet</td>
+<td><code>Integer</code></td>
+<td>Number of documents each punnet punnet must carry on <br/> <p> Ex/  The input file includes 10 lines meaning 10 document identifiers to extract. By setting this value to 2, Fast2 will create 5 punnets, each containing 2 documents</p></td>
+<td><code>1</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="CMODSource">CMODSource <small> - Complete extraction module from a CMOD environment </small><a class="headerlink" href="#CMODSource" title="Permanent link">&para;</a></h2>
+<p>This task is used to extract documents in the Content-Manager On Demand ECM. One CMOD document is equivalent of 1 punnet of 1 document. Indexes, optional content and annotations will also be extracted. A WAL request is made to find the corresponding documentId in ImageServices. The metadata extraction is then carried out. Relative data are stored in each document of the punnet being processed.Note: All Image Services properties are exported systematically. This task is not a real source task. The documents to be extracted are identified by an BlankSource task generating a set of empty Punnets, i.e. containing only documents each bearing a document number (documentId) to extract.This task relies on the 'libCMOD.dll' library. This library must be in a directory of the Windows PATH. In the wrapper.conf or hmi-wrapper.conf file, activate the use of this library: wrapper.java.library.path. <increment> = ../libCMOD/dll32For the moment, only 32-bit libraries are configured</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMOD connection provider</td>
+<td><a href="../credentials/#CMODConnectionProvider">CMODConnectionProvider</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Folders to extract</td>
+<td><code>String list</code></td>
+<td>List of CMOD folders which will be scanned. Additional level(s) of filter can be used with the SQL query down below.</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL query to extract documents</td>
+<td><code>String</code></td>
+<td>Enter here the <code>WHERE</code> clause used to filter documents. Since this request is made on the indexes of CMOD documents, the property used to filter out the documents need to be indexed in CMOD prior to any extraction. <br/> <p> Ex/  WHERE Date = '2012-11-14'</p></td>
+<td></td>
+</tr>
+<tr>
+<td>Extract document annotations</td>
+<td><code>Boolean</code></td>
+<td>The document annotation will be extracted during the process</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Number of documents per punnet</td>
+<td><code>Integer</code></td>
+<td></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Extract document content</td>
+<td><code>Boolean</code></td>
+<td>The document content will be extracted during the process</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Maximum results count</td>
+<td><code>Integer</code></td>
+<td></td>
+<td><code>2000</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="CMSource">CMSource <small> - Complete extractor from Content Manager solution </small><a class="headerlink" href="#CMSource" title="Permanent link">&para;</a></h2>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CM connection provider</td>
+<td><a href="../credentials/#CMConnectionProvider">CMConnectionProvider</a></td>
+<td></td>
+</tr>
+<tr>
+<td>SQL query</td>
+<td><code>String</code></td>
+<td>Select precisely documents you want to extract through a classic SQL query</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Extract standard system properties</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Extract advanced system properties from DKDDO object</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Maximum results returned by the query</td>
+<td><code>Integer</code></td>
+<td>Set to 0 to disable limiting number of results</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>Number of documents per Punnet</td>
+<td><code>Integer</code></td>
+<td>Set the number of documents each punnet will hold</td>
+<td><code>1)</code></td>
+</tr>
+<tr>
+<td>Extract custom properties</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Query type</td>
+<td><code>Integer</code></td>
+<td>See com.ibm.mm.beans.CMBBaseConstant for further details. Default value is XPath (7)</td>
+<td><code>7</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSVSource">CSVSource <small> - CSV file parser </small><a class="headerlink" href="#CSVSource" title="Permanent link">&para;</a></h2>
+<p>This task can be used to start a migration from a CSV file. By default, the first line of your file is considered as the column headers. Whether the column values are surrounded with double-quotes (<code>\_</code>) or not, the CSVSource task will process either way. If you need to force the document ID for the whole process, use the metadata <code>documentId</code>.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSV paths</td>
+<td><code>String list</code></td>
+<td>List of paths to CSV files to be parsed. Check out the following examples for allowed formats <br/> <p> Ex/  <br /><code>C:/samples/myDocument.csv</code><br /><code>C:\\samples\\myDocument.csv</code><br /><code>C:\\\\samples\\\\myDocument.csv</code><br /><code>\"C:\\samples\\myDocument.csv\"</code><br /><code>C:/samples/${map}.csv</code></p></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept quotes in values</td>
+<td><code>Boolean</code></td>
+<td>If enabled, this option will accept quotes in values</td>
+<td></td>
+</tr>
+<tr>
+<td>CSV file path metadata</td>
+<td><code>String</code></td>
+<td>Punnet property name containing the CSV file path. Set to empty or null to disable</td>
+<td></td>
+</tr>
+<tr>
+<td>File name for error CSV file</td>
+<td><code>String</code></td>
+<td>This option might be useful when you need to have a specific file name where to register the lines in error of your CSV file. The name can both be linked to some workflow properties surrounded with <code>${...}</code> (ex/ campaign, punnetId, etc) or hard-written. Warning: This value can be overwritten by the <em>Associate CSV-error file with original CSV filename</em> option</td>
+<td><code>lines_in_error.csv</code></td>
+</tr>
+<tr>
+<td>New column names to set</td>
+<td><code>String list</code></td>
+<td>If empty, populated from first line</td>
+<td></td>
+</tr>
+<tr>
+<td>Replace empty titles</td>
+<td><code>Boolean</code></td>
+<td>If enabled, any empty title in the CSV file will be replaced by the default value. If several titles miss, the default title will be suffixed with an incremental index.</td>
+<td></td>
+</tr>
+<tr>
+<td>Folder path for error CSV file</td>
+<td><code>String</code></td>
+<td>The error file will be stored in your system. You can choose where by configuring this very field. Here as well you can set the path either with workflow properties (<code>${...}</code>) or hard-write it</td>
+<td><code>./csv_errors/</code></td>
+</tr>
+<tr>
+<td>Number of lines to skip</td>
+<td><code>Integer</code></td>
+<td>This option helps to skip lines, meaning their data will not be processed. By default, only the 1st line is skipped considering it surely consists in the headers row <br/> <p> Ex/  In a file of 10 lines, putting '3' in the input field will skip the 1st, 2nd and 3rd lines</p></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Default column title</td>
+<td><code>String</code></td>
+<td>Default value used for untitled columns. Will be incremented with a number if many. Will only be used if the replace empty titles option is enabled.</td>
+<td><code>Untitled</code></td>
+</tr>
+<tr>
+<td>Generate hash of CSV content</td>
+<td><code>Boolean</code></td>
+<td>The hash of the content will be generated and stored in the punnet among a property named hashData</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Continue processing CSV on fail</td>
+<td><code>Boolean</code></td>
+<td>If enabled, the following errors will not trigger an exception: <br />- CSV file does not exist <br />- CSV file is empty (no line) <br />- CSV file has only headers and no line for documents.<br /><br />Note that if you give 5 CSV paths and the number 3rd is in error, only the Fast2 logs will provide information regarding the failing CSV file.</td>
+<td></td>
+</tr>
+<tr>
+<td>File encoding</td>
+<td><code>String</code></td>
+<td>CSV encoding character set</td>
+<td><code>UTF-8</code></td>
+</tr>
+<tr>
+<td>Associate CSV-errors file with original CSV filename</td>
+<td><code>Boolean</code></td>
+<td>This checkbox allows you to match your error file with your original CSV file, just suffixing the original name with '_KO'. That way, if you use multiple files, all the lines in error will be grouped by file name. Using this option overwrite the <em>File name for error CSV file</em>, but still can be used in addition of the <em>Folder path for error CSV file</em></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Stop at first error in CSV</td>
+<td><code>Boolean</code></td>
+<td>Fast2 will automatically be stopped at the first error encountered in the CSV</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>File scanner (Deprecated)</td>
+<td>FileScanner</td>
+<td><em>THIS OPTIONS IS DEPRECATED</em>, consider using the 'CSV paths' instead.</td>
+<td></td>
+</tr>
+<tr>
+<td>Column of document ID</td>
+<td><code>String</code></td>
+<td>Column header of the metadata to set as the document ID</td>
+<td><code>documentId</code></td>
+</tr>
+<tr>
+<td>Document property name containing CSV file path</td>
+<td><code>String</code></td>
+<td>Set to empty or null to disable</td>
+<td></td>
+</tr>
+<tr>
+<td>Move to path when finished</td>
+<td><code>String</code></td>
+<td>Consider using ${variable} syntax</td>
+<td></td>
+</tr>
+<tr>
+<td>Column headers in first CSV file only</td>
+<td><code>Boolean</code></td>
+<td>Only read column definitions from the first parsed CSV file</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Documents per punnet from CSV</td>
+<td><code>Integer</code></td>
+<td>Number of documents each punnet will carry when processing a CSV file <br/> <p> Ex/  By setting this value to 2, each punnet created will contain 2 documents</p></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>CSV separator</td>
+<td><code>String</code></td>
+<td>Separator between each value. This option will be ignored if 'Process files as list of punnets' is disabled.</td>
+<td><code>,</code></td>
+</tr>
+<tr>
+<td>Extra columns</td>
+<td><code>String list</code></td>
+<td>List of the form target=function:arg1:arg2:...</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="DctmSource">DctmSource <small> - Complete extractor from Documentum </small><a class="headerlink" href="#DctmSource" title="Permanent link">&para;</a></h2>
+<p>This connector will extract basic information from the source Documentum repository. Since Documentum architecture involves particular port and access management, a worker should be started on the same server where Documentum is running.<br/><br/>Make sure to check the basic requirements at <a href=_https://www.fast2.tech/documentation/setup-with-environment/documentum/_>the setup for Documentum</a> on the official Fast2 documentation.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connexion information to Documentum Repository</td>
+<td><a href="../credentials/#DctmConnectionProvider">DctmConnectionProvider</a></td>
+<td></td>
+</tr>
+<tr>
+<td>The DQL Query to run to fetch documents</td>
+<td><code>String</code></td>
+<td>The less attributes you fetch, the faster the query will be executed on the Documentum side. <br/> <p> Ex/  <code>SELECT r_object_id FROM dm_document WHERE ...</code></p></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Batch size</td>
+<td><code>Integer</code></td>
+<td>If size is &lt;1, the size will be defined from the Documentum server-side.</td>
+<td><code>50</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="FileNet35Source">FileNet35Source <small> - Complete extractor from FileNet 3.5 </small><a class="headerlink" href="#FileNet35Source" title="Permanent link">&para;</a></h2>
+<p>The FileNet35Source retrieves existing documents from the FileNet P8 3.5 ECM through a query. This punnet will contain the metadata of the recovered document, its content and annotations</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FileNet 3.5 connection provider</td>
+<td><a href="../credentials/#FileNet35ConnectionProvider">FileNet35ConnectionProvider</a></td>
+<td>Connection parameters to the FileNet instance</td>
+</tr>
+<tr>
+<td>SQL query</td>
+<td><code>String</code></td>
+<td>SQL query corresponding to the list of documents to extract</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attribute used for Document IDs</td>
+<td><code>String</code></td>
+<td>Name of the FileNet P8 3.5 attribute corresponding to the values ​​retrieved in the Document IDs list</td>
+<td><code>Id</code></td>
+</tr>
+<tr>
+<td>Empty punnet when no result</td>
+<td><code>Boolean</code></td>
+<td>An empty punnet will be created even if the result of the query is null</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Documents per punnet</td>
+<td><code>Integer</code></td>
+<td>Number of documents each punnet punnet must carry on <br/> <p> Ex/  By setting this value to 2, each punnet created will contained 2 documents</p></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Document IDs</td>
+<td>DocumentIdList</td>
+<td>Source list of documents to extract from their IDs</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="FileNetSource">FileNetSource <small> - Complete extractor from FileNet P8 </small><a class="headerlink" href="#FileNetSource" title="Permanent link">&para;</a></h2>
+<p>The FileNetSource source retrieves existing documents from the FileNet P8 5.x ECM through an SQL query. This punnet will contain the metadata of the recovered document, security information and parent folders.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Object store name</td>
+<td><code>String list</code></td>
+<td>Name of the repository to extract from</td>
+</tr>
+<tr>
+<td>SQL query</td>
+<td><code>String</code></td>
+<td>SQL query corresponding to the list of documents to extract</td>
+</tr>
+<tr>
+<td>FileNet connection provider</td>
+<td><a href="../credentials/#FileNetConnectionProvider">FileNetConnectionProvider</a></td>
+<td>Connection parameters to the FileNet instance</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of entries per result page</td>
+<td><code>Integer</code></td>
+<td>Number of results returned per page by the FileNet P8 query</td>
+<td><code>1000</code></td>
+</tr>
+<tr>
+<td>Documents per punnet</td>
+<td><code>Integer</code></td>
+<td>Number of documents each punnet punnet must carry on <br/> <p> Ex/  By setting this value to 2, each punnet created will contained 2 documents</p></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Extract object type properties</td>
+<td><code>Boolean</code></td>
+<td>The FileNet P8 metadata of the document which are Object type will be saved at the punnet level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Extract FileNet system properties</td>
+<td><code>Boolean</code></td>
+<td>System metadata during extraction is saved at the punnet level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Properties to extract</td>
+<td><code>String list</code></td>
+<td>Exhaustive list of FileNet metadata to extract. If empty, all properties will be extracted.</td>
+<td></td>
+</tr>
+<tr>
+<td>Extract FileNet security</td>
+<td><code>Boolean</code></td>
+<td>The security of the document will be saved at the punnet level</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Extract documents instance informations</td>
+<td><code>Boolean</code></td>
+<td>The fetchInstance method makes a round trip to the server to retrieve the property values of the ObjectStore object</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Extract folders absolute path</td>
+<td><code>Boolean</code></td>
+<td>The absolute path of the folder inside the FileNet instance will be extracted during the process</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Throw error if no result</td>
+<td><code>Boolean</code></td>
+<td>Throw exception when SQL Query finds no result.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="FlowerSource">FlowerSource <small> - Flower extractor </small><a class="headerlink" href="#FlowerSource" title="Permanent link">&para;</a></h2>
+<p>Allows components extraction from Flower using JSON formatted Flower request.
+Components can be documents, folders, virtual folders or tasks.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FlowerDocs connection provider</td>
+<td><a href="../credentials/#FlowerDocsConnectionProvider">FlowerDocsConnectionProvider</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Flower component category</td>
+<td><code>String</code></td>
+<td>Choose among DOCUMENT, TASK, FOLDER or VIRTUAL_FOLDER</td>
+</tr>
+<tr>
+<td>JSON Flower Search Request</td>
+<td><code>String</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="LocalSource">LocalSource <small> - A generic broker for wildcarded punnet lists </small><a class="headerlink" href="#LocalSource" title="Permanent link">&para;</a></h2>
+<p>This class will search for local files to analyze them from a defined path</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Files paths</td>
+<td><code>String list</code></td>
+<td>List of paths to files to be parsed. Patterns <code>${...}</code> are not supported. The threshold can be maxed-out, exclusions are not supported. <br/> <p> Ex/  <br /><code>C:/samples/myDocument.txt</code> -&gt; retrieve only one document<br /><code>C:\\samples\\myDocument.txt</code><br /><code>C:\\\\samples\\\\myDocument.txt</code><br /><code>\"C:\\samples\\myDocument.txt\"</code><br /><code>C:/samples/*.*</code> -&gt; retrieve all files directly at the root of the <code>samples/</code> folder, no matter their extension<br /><code>C:/samples/**</code> -&gt; retrieve all files directly at the root of the <code>samples/</code> folder, as well as file inside subfolders<br /><code>C:/samples/**/*.yes</code> -&gt; retrieve all files directly at the root of the <code>samples/</code> folder, as well as file inside subfolders, whose extension is <code>.yes</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File scanner (Deprecated)</td>
+<td>FileScanner</td>
+<td><em>THIS OPTIONS IS DEPRECATED</em>, consider using the 'Files paths' instead.</td>
+<td></td>
+</tr>
+<tr>
+<td>Fallback XML/Json parsing</td>
+<td><code>Boolean</code></td>
+<td>If true, the file will be added as document content in the punnet when XML parsing fails. Consider adding this file as a regular file (not an XML)</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Skip parse exceptions</td>
+<td><code>Boolean</code></td>
+<td>The task does not throw an error when XML parsing fails. Do not stop parsing and resume to next candidate</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>XSL Stylesheet path</td>
+<td><code>String</code></td>
+<td>The XSL stylesheet file to use when parsing XML files</td>
+<td></td>
+</tr>
+<tr>
+<td>Number of files per punnet</td>
+<td><code>Integer</code></td>
+<td>If the files are not in XML format, the punnet will contain as many documents as defined in this option</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Allow any kind of file</td>
+<td><code>Boolean</code></td>
+<td>All types of files can be added. Otherwise, only XML-based Punnet descriptions are allowed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>Skip XML parsing</td>
+<td><code>Boolean</code></td>
+<td>The XML file will not be parsed before being added to the punnet. Not recommended in most cases</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Maximum number of files scanned</td>
+<td><code>Integer</code></td>
+<td>If this field is completed, the number of files scanned will not exceed the value filled in. Leave empty to retrieve all files matching input pattern filter</td>
+<td><code></code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="MailSource">MailSource <small> - Complete extractor from mail box </small><a class="headerlink" href="#MailSource" title="Permanent link">&para;</a></h2>
+<p>The MailSource task extracts messages from an e-mail box. Each extracted message will correspond to a punnet, one document per punnet</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MailBox connection provider</td>
+<td><a href="../credentials/#MailBoxProvider">MailBoxProvider</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search in Headers</td>
+<td><code>String</code></td>
+<td>Enter a pair of header and pattern to search separated by a colon <code>:</code>. <br/> <p> Ex/  cc:copy</p></td>
+<td></td>
+</tr>
+<tr>
+<td>Header names</td>
+<td><code>String list</code></td>
+<td>List of header names (case-sensitive) to retrieve from the mail. Message-Id, Subject, From, To, Cc and Date are added by default</td>
+<td></td>
+</tr>
+<tr>
+<td>Start Id</td>
+<td><code>Integer</code></td>
+<td>Index from which the first message should be extracted</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Update document with mail root folder name</td>
+<td><code>String</code></td>
+<td>Name of the metadata to add to the document. If filled, the full name of the source folder is indexed in this metadata. Set to null or empty to disable updating</td>
+<td></td>
+</tr>
+<tr>
+<td>Folders to scan</td>
+<td><code>String list</code></td>
+<td>List of files to scan in the mailbox. If filled, override root folder name from MailBox connection provider configuration</td>
+<td></td>
+</tr>
+<tr>
+<td>AND condition for search</td>
+<td><code>Boolean</code></td>
+<td>Checking this options will only retrieve messages matching all search conditions possible (unread messages, text in header, body or subject). If unchecked, the 'OR' operand will be applied.</td>
+<td></td>
+</tr>
+<tr>
+<td>Forbidden characters</td>
+<td><code>String</code></td>
+<td>List of characters to remove from Message-Id when building the DocumentId</td>
+<td><code>&lt;&gt;:\"/\\|?*</code></td>
+</tr>
+<tr>
+<td>Search in Subject</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Search in Body</td>
+<td><code>String</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Only unread messages</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="OpenTextSource">OpenTextSource <small> - OpenText extractor using OpenText REST protocol </small><a class="headerlink" href="#OpenTextSource" title="Permanent link">&para;</a></h2>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenText credentials</td>
+<td><a href="../credentials/#OpenTextCredentials">OpenTextCredentials</a></td>
+<td></td>
+</tr>
+<tr>
+<td>OpenText client</td>
+<td>OpenTextRestClient</td>
+<td></td>
+</tr>
+<tr>
+<td>Node Id</td>
+<td><code>Integer</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order by named column</td>
+<td><code>String</code></td>
+<td>Format can be 'name' or 'asc_name' or 'desc_name'. If the prefix of asc or desc is not used then asc will be assumed <br/> <p> Ex/  asc_name</p></td>
+<td></td>
+</tr>
+<tr>
+<td>Ticket period</td>
+<td><code>Integer</code></td>
+<td>Time in seconds between two ticket creation</td>
+<td><code>60</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="RandomSource">RandomSource <small> - Random punnet generator </small><a class="headerlink" href="#RandomSource" title="Permanent link">&para;</a></h2>
+<p>Randomly produces punnets containing documents, metadata, content...</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of punnet to generate</td>
+<td><code>Integer</code></td>
+<td>If 'minimum punnet number' is set, this value here will be considered as the higher threshold</td>
+<td><code>1000</code></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maximum document number</td>
+<td><code>Integer</code></td>
+<td>Excluded</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Minimum metadata number</td>
+<td><code>Integer</code></td>
+<td>Included</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>Minimum punnet number</td>
+<td><code>Integer</code></td>
+<td>If not set, the number of generated punnets will be exactly the number set at 'Number of punnets to generate'</td>
+<td></td>
+</tr>
+<tr>
+<td>Maximum number of metadata values</td>
+<td><code>Integer</code></td>
+<td>Included</td>
+<td><code>6000</code></td>
+</tr>
+<tr>
+<td>Minimum number of metadata values</td>
+<td><code>Integer</code></td>
+<td>Included</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>Maximum metadata number</td>
+<td><code>Integer</code></td>
+<td>Excluded</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td>Minimum document number</td>
+<td><code>Integer</code></td>
+<td>Included</td>
+<td><code>1</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="SQLSource">SQLSource <small> - Complete extractor from SQL database </small><a class="headerlink" href="#SQLSource" title="Permanent link">&para;</a></h2>
+<p>Extract and map to punnet or document layout specified properties</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL connection provider</td>
+<td><a href="../credentials/#SQLQueryGenericCaller">SQLQueryGenericCaller</a></td>
+<td></td>
+</tr>
+<tr>
+<td>SQL query</td>
+<td><code>String</code></td>
+<td>Select precisely documents you want to extract through a classic SQL query</td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Property name to group by document</td>
+<td><code>String</code></td>
+<td>Column used to group lines by document. If used set an 'ORDER BY' in your sql query</td>
+<td></td>
+</tr>
+<tr>
+<td>SQL mapping for punnet</td>
+<td><code>String/String map</code></td>
+<td>Mapping of SQL properties to punnet metadata. Use 'punnetId' for Punnet Id</td>
+<td></td>
+</tr>
+<tr>
+<td>Allow duplicates data</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Property name to group by punnet</td>
+<td><code>String</code></td>
+<td>Column used to group lines by punnet. If used set an 'ORDER BY' in your sql query</td>
+<td></td>
+</tr>
+<tr>
+<td>SQL mapping for document</td>
+<td><code>String/String map</code></td>
+<td>Mapping of SQL properties to document metadata. Use 'documentId' for Document Id, otherwise the first column will be used as documentId</td>
+<td></td>
+</tr>
+<tr>
+<td>Push remaining, non-mapped columns as document properties</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ZipSource">ZipSource <small> -  </small><a class="headerlink" href="#ZipSource" title="Permanent link">&para;</a></h2>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target=_blank>feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - 2025 Fast2 — All rights reserved
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/Fast2_tech" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/fast2tech" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UCO1XgEKGKKV8T5vvTp-R9Jw" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.path", "navigation.tabs", "navigation.indexes", "navigation.expand", "navigation.top", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js?v1"></script>
+      
+    
+  </body>
+</html>
