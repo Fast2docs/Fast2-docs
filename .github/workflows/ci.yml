@@ -61,7 +61,15 @@ jobs:
           git commit -m "Add mkdocs.yml from master"
           git push origin gh-pages
 
-      # Étape 8 : Déploiement de la documentation
+      # Étape 8 : Copier le répertoire docs depuis master vers gh-pages
+      - name: Copy docs from master to gh-pages
+        run: |
+          git checkout master -- docs
+          git add docs
+          git commit -m "Add docs from master"
+          git push origin gh-pages
+
+      # Étape 9 : Déploiement de la documentation
       - name: Deploy Documentation with Mike
         run: mike deploy --push --update-aliases 2025.x.x latest
 
