@@ -40,7 +40,13 @@ jobs:
           pip install mkdocs-material
           pip install mike
 
-      # Étape 5 : Déploiement de la documentation
+      # Étape 5 : Configuration de Git
+      - name: Configure Git User
+        run: |
+          git config --global user.name "Fast2docs"
+          git config --global user.email "Fast2-docs@noreply.github.com"
+
+      # Étape 6 : Déploiement de la documentation
       - name: Deploy Documentation with Mike
         run: mike deploy --push --update-aliases 2025.x.x latest
 
