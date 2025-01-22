@@ -47,11 +47,11 @@ jobs:
           git config --global user.email "Fast2-docs@noreply.github.com"
 
       # Step 6: Fetch the latest changes from the gh-pages branch
-      - name: Pull Latest Changes from gh-pages
-        run: |
-          git fetch origin gh-pages
-          git checkout gh-pages
-          git pull origin gh-pages
+      #- name: Pull Latest Changes from gh-pages
+      #run: |
+      #git fetch origin gh-pages
+      #git checkout gh-pages
+      #git pull origin gh-pages
 
       # Step 7: Copy mkdocs.yml from master to gh-pages (only if modified)
       - name: Copy mkdocs.yml from master to gh-pages
