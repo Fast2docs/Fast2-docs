@@ -349,7 +349,7 @@ Broker ->> Worker: Good job, campaign finished
 Worker ->> Broker: I'm still available if you need
 ```
 
-#### File storage architecture
+##### File storage architecture
 
 By default, documents processed by the worker will be stored under the folder **files/**.
 Then documents will follow a strict hierarchy as mentioned in the property **worker.files.pattern**
