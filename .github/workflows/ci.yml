@@ -47,41 +47,41 @@ jobs:
           git config --global user.email "Fast2-docs@noreply.github.com"
 
       # Step 6: Fetch the latest changes from the gh-pages branch
-      #- name: Pull Latest Changes from gh-pages
-      #run: |
-      #git fetch origin gh-pages
-      #git checkout gh-pages
-      #git pull origin gh-pages
+      - name: Pull Latest Changes from gh-pages
+        run: |
+          git fetch origin gh-pages
+          git checkout gh-pages
+          git pull origin gh-pages
 
       # Step 7: Copy mkdocs.yml from master to gh-pages (only if modified)
-      #- name: Copy mkdocs.yml from master to gh-pages
-      #  run: |
-      #    git checkout master -- mkdocs.yml
-      #   Check if mkdocs.yml was modified before committing
-      #   if git diff --exit-code mkdocs.yml; then
-      #   echo "No changes to mkdocs.yml, skipping commit."
-      #  else
-      #    git add mkdocs.yml
-      #   git commit -m "Add mkdocs.yml from master"
-      #   git push origin gh-pages
-      # fi
+      - name: Copy mkdocs.yml from master to gh-pages
+        run: |
+          git checkout master -- mkdocs.yml
+          # Check if mkdocs.yml was modified before committing
+          if git diff --exit-code mkdocs.yml; then
+            echo "No changes to mkdocs.yml, skipping commit."
+          else
+            git add mkdocs.yml
+            git commit -m "Add mkdocs.yml from master"
+            git push origin gh-pages
+          fi
 
       # Step 8: Copy the docs directory from master to gh-pages (only if modified)
-      #- name: Copy docs from master to gh-pages
-      # run: |
-      # git checkout master -- docs
-      # Check if the docs directory has been modified before committing
-      #  if git diff --exit-code docs; then
-      #   echo "No changes to docs directory, skipping commit."
-      # else
-      #  git add docs
-      # git commit -m "Add docs from master"
-      #  git push origin gh-pages
-      #fi
+      - name: Copy docs from master to gh-pages
+        run: |
+          git checkout master -- docs
+          # Check if the docs directory has been modified before committing
+          if git diff --exit-code docs; then
+            echo "No changes to docs directory, skipping commit."
+          else
+            git add docs
+            git commit -m "Add docs from master"
+            git push origin gh-pages
+          fi
 
       # Step 9: Deploy documentation with Mike
       - name: Deploy Documentation with Mike
-        run: mike deploy 2.x
+        run: mike deploy --push --update-aliases 2025.x.x latest
 
   markdown-link-check:
     name: Markdown Link Check
