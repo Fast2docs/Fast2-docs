@@ -232,7 +232,7 @@ worker.content.factory=<remote|local>
 - Firewall Configuration: The firewall on both systems (worker and broker) should allow incoming and outgoing traffic on the required ports.
 - Dynamic DNS (Optional): If the public IP address of the broker is dynamic, you may want to use Dynamic DNS (DDNS) to avoid manually changing the address every time it changes.
 
-### Configure Worker and Broker on same network
+#### Configure Worker and Broker on same network
 
 **Step 1: Ensure Network Connectivity**
 On the worker machine, ensure that you can ping the public IP address of the broker. You may need to test it by pinging broker_public_ip_address.
@@ -281,7 +281,7 @@ telnet <broker_local_ip_address> <port>
 If the connection is successful, the worker and broker can communicate.
 
 
-### Configure Worker and Broker on different networks
+#### Configure Worker and Broker on different networks
 
 **Step 1: Configure Port Forwarding on the Broker’s Router**
 On the router connected to the broker, you need to configure port forwarding to forward incoming traffic on a specific port to the broker's local IP address and port.
@@ -302,10 +302,10 @@ sudo ufw allow <port>/tcp
 
 **Step 3: Repeat steps explained for same network**
 
-# Remote worker configuration
+#### Remote worker configuration
 You have multiple options through the application.properties file to configure your remote worker.
 
-#### File storage : broker or worker ?
+##### File storage : broker or worker ?
 
 You can either store the files processed from the broker or at the worker side.
 To choose one or the other you simply have to modify this property :
@@ -361,17 +361,17 @@ worker.files.pattern=@{campaign?:'shared'}/@{step?:'shared'}/@{documentId?:punne
 Values shown above are used by default. Feel free to change it to match your requirements in term of folder organization.
 
 
-### Troubleshooting
-#### Common Issues
+#### Troubleshooting
+##### Common Issues
 
-##### Ping does not work
+###### Ping does not work
 Ensure that the devices can actually communicate over the network. Double-check the network cables, Wi-Fi connection, and make sure there are no misconfigured network settings or firewalls blocking ICMP packets.
 
-##### Connection times out
+###### Connection times out
 If using public IP addresses, check the router’s port forwarding configuration and verify that the firewall on both the broker and worker machines allows traffic on the relevant port.
 
-##### Port is closed
+###### Port is closed
 Verify that the broker application is actually listening on the specified port, and ensure the port is not blocked by a firewall.
 
-##### Public IP changes
+###### Public IP changes
 If the public IP of the broker changes frequently, consider using a Dynamic DNS (DDNS) service to map a domain name to the changing IP address, so the worker can use the domain name instead of an IP address.
