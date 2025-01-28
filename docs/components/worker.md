@@ -199,15 +199,14 @@ However there would be absolutely no point in starting another worker assigned t
 
 ### Remote worker: Configuration Guide
 
-This guide explains how to configure a remote worker to your broker. The document covers both scenarios: when both applications are on the same network and when they are on different networks.
+This guide explains how to configure a remote worker to your broker. It covers both scenarios: when both applications are on the same network and when they are on different networks.
 
 
-### Prerequisites
+#### Prerequisites
 
 - Java Development Environment: Both the worker and broker applications should have at least a jdk8+ available on their environment. We highly recommend a jdk11.
 - Network Connectivity: Both systems should be able to connect to each other through the network (whether local or remote).
 
-### TL;DR
 
 #### Remote worker config
 
@@ -238,12 +237,12 @@ worker.content.factory=<remote|local>
 **Step 1: Ensure Network Connectivity**
 On the worker machine, ensure that you can ping the public IP address of the broker. You may need to test it by pinging broker_public_ip_address.
 ```bash
-ping <broker_local_ip_address>
+ping <broker_public_ip_address>
 ```
 If the ping works, proceed to the next step. If the ping does not work, there may be an issue with the router, firewall, or routing configuration.
 
 **Step 2: Update the broker.url in the Worker Configuration**
-On the worker machine, update the **server.host** property in your *application.properties* file to the local IP address of the broker.
+On the worker machine, update the **server.host** property in your *config/application.properties* file to the local IP address of the broker.
 
 If needed, you can change the protocol and port information as well. The **broker.url** variable is automatically updated. Do not change it.
 
