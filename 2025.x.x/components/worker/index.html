@@ -823,7 +823,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Remote worker: Configuration Guide">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
@@ -833,16 +834,6 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      TL;DR
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="TL;DR">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#remote-worker-config" class="md-nav__link">
@@ -1940,7 +1931,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Remote worker: Configuration Guide">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
@@ -1950,16 +1942,6 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      TL;DR
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="TL;DR">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#remote-worker-config" class="md-nav__link">
@@ -2206,13 +2188,12 @@ with a running database in the background — the embedded Elasticsearch instanc
 <p>In case of seeking for more physical resources for your Fast2 server which, let’s say, is not a scalable machine, you could envision to “plug” a second server to the first one: start another worker on the second machine, and have it aim to the initial Fast2 server where the broker is running. This separate worker will be able to process any task of your workflow, any queue as well, just like the embedded one.</p>
 <p>However there would be absolutely no point in starting another worker assigned to the same queues as the embedded one on the Fast2 server. That won’t positively affect you performance rates. If that was you goal before scrolling this page, the secret relies in adding more threads to your queues (as mentioned earlier)!</p>
 <h3 id="remote-worker-configuration-guide">Remote worker: Configuration Guide<a class="headerlink" href="#remote-worker-configuration-guide" title="Permanent link">&para;</a></h3>
-<p>This guide explains how to configure a remote worker to your broker. The document covers both scenarios: when both applications are on the same network and when they are on different networks.</p>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<p>This guide explains how to configure a remote worker to your broker. It covers both scenarios: when both applications are on the same network and when they are on different networks.</p>
+<h4 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Java Development Environment: Both the worker and broker applications should have at least a jdk8+ available on their environment. We highly recommend a jdk11.</li>
 <li>Network Connectivity: Both systems should be able to connect to each other through the network (whether local or remote).</li>
 </ul>
-<h3 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h3>
 <h4 id="remote-worker-config">Remote worker config<a class="headerlink" href="#remote-worker-config" title="Permanent link">&para;</a></h4>
 <div class="language-properties highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="na">server.host</span><span class="o">=</span><span class="s">&lt;broker_ip_address&gt;</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
@@ -2236,11 +2217,11 @@ with a running database in the background — the embedded Elasticsearch instanc
 <h3 id="configure-worker-and-broker-on-same-network">Configure Worker and Broker on same network<a class="headerlink" href="#configure-worker-and-broker-on-same-network" title="Permanent link">&para;</a></h3>
 <p><strong>Step 1: Ensure Network Connectivity</strong>
 On the worker machine, ensure that you can ping the public IP address of the broker. You may need to test it by pinging broker_public_ip_address.
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ping<span class="w"> </span>&lt;broker_local_ip_address&gt;
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ping<span class="w"> </span>&lt;broker_public_ip_address&gt;
 </code></pre></div>
 If the ping works, proceed to the next step. If the ping does not work, there may be an issue with the router, firewall, or routing configuration.</p>
 <p><strong>Step 2: Update the broker.url in the Worker Configuration</strong>
-On the worker machine, update the <strong>server.host</strong> property in your <em>application.properties</em> file to the local IP address of the broker.</p>
+On the worker machine, update the <strong>server.host</strong> property in your <em>config/application.properties</em> file to the local IP address of the broker.</p>
 <p>If needed, you can change the protocol and port information as well. The <strong>broker.url</strong> variable is automatically updated. Do not change it.</p>
 <p><div class="language-properties highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="na">server.protocol</span><span class="o">=</span><span class="s">http</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="na">server.host</span><span class="o">=</span><span class="s">&lt;broker_local_ip_address&gt;</span>
