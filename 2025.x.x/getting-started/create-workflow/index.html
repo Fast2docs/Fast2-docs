@@ -2239,15 +2239,16 @@ One task can have multiple input and output links.</p>
 <li>
 <dl>
 <dt><strong>Configuration Changes:</strong></dt>
-<dd>Any changes made to configuration fields are saved as soon as the focus is lost from the edited field.
+<dd>Any changes made to tasks or links configuration fields are saved as soon as the focus is lost from the edited field.
 <img alt="Autosave field edition" src="../../assets/img/create_workflow/Autosave%20field%20edition.gif" width="100%" /></dd>
 </dl>
 </li>
 <li>
-<dl>
-<dt><strong>Map Modifications:</strong></dt>
-<dd>Any modification to the map triggers a save, regardless of the type of change.</dd>
-</dl>
+<p><strong>Tasks and Links:</strong></p>
+</li>
+<li>Adding or deleting a task triggers an automatic save.</li>
+<li>
+<p>Adding or deleting a link between tasks also triggers an automatic save.</p>
 </li>
 <li>
 <dl>
@@ -2259,9 +2260,10 @@ One task can have multiple input and output links.</p>
 <h3 id="what-gets-saved">What Gets Saved?<a class="headerlink" href="#what-gets-saved" title="Permanent link">&para;</a></h3>
 <p>The following elements are included in the automatic save process:</p>
 <ul>
-<li>The tasks within the map, including their <strong>configuration settings</strong> and <strong>positions</strong>.</li>
+<li>The <strong>tasks</strong> within the map, including their <strong>configuration settings</strong> and <strong>positions</strong>.</li>
 <li>The <strong>map name</strong>.</li>
 <li>The <strong>shared objects</strong> within the map.</li>
+<li>The <strong>links</strong> between tasks.</li>
 </ul>
 <h3 id="specific-case-map-shared-objects">Specific Case: Map Shared Objects<a class="headerlink" href="#specific-case-map-shared-objects" title="Permanent link">&para;</a></h3>
 <p>Modifications to a shared object within the Shared Objects place also trigger an automatic save, not limited to edits made in the main Edit place.
