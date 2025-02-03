@@ -221,10 +221,9 @@ The auto save is triggered under the following conditions:
 ![Autosave field edition](../assets/img/create_workflow/Autosave field edition.gif){ width="100%" }
 
 2. **Tasks and Links:**
-- Adding or deleting a task triggers an automatic save.
-- Adding or deleting a link between tasks also triggers an automatic save.
+: Adding or deleting a task triggers an automatic save. Adding or deleting a link between tasks also triggers an automatic save.
 
-3. **Task Movements:**
+1. **Task Movements:**
 : Moving tasks within the map also triggers an automatic save.
 
 ### What Gets Saved?
