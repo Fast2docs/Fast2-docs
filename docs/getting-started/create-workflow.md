@@ -217,11 +217,12 @@ The automatic save functionality ensures that changes made to the workflow and i
 The auto save is triggered under the following conditions:
 
 1. **Configuration Changes:**
-: Any changes made to configuration fields are saved as soon as the focus is lost from the edited field.
+: Any changes made to tasks or links configuration fields are saved as soon as the focus is lost from the edited field.
 ![Autosave field edition](../assets/img/create_workflow/Autosave field edition.gif){ width="100%" }
 
-2. **Map Modifications:**
-: Any modification to the map triggers a save, regardless of the type of change.
+2. **Tasks and Links:**
+- Adding or deleting a task triggers an automatic save.
+- Adding or deleting a link between tasks also triggers an automatic save.
 
 3. **Task Movements:**
 : Moving tasks within the map also triggers an automatic save.
@@ -230,9 +231,10 @@ The auto save is triggered under the following conditions:
 
 The following elements are included in the automatic save process:
 
-- The tasks within the map, including their **configuration settings** and **positions**.
+- The **tasks** within the map, including their **configuration settings** and **positions**.
 - The **map name**.
 - The **shared objects** within the map.
+- The **links** between tasks.
 
 ### Specific Case: Map Shared Objects
 
