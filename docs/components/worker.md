@@ -196,3 +196,182 @@ Sessions conflicts can be prevented as well but such choices of architecture. At
 In case of seeking for more physical resources for your Fast2 server which, let’s say, is not a scalable machine, you could envision to “plug” a second server to the first one: start another worker on the second machine, and have it aim to the initial Fast2 server where the broker is running. This separate worker will be able to process any task of your workflow, any queue as well, just like the embedded one.
 
 However there would be absolutely no point in starting another worker assigned to the same queues as the embedded one on the Fast2 server. That won’t positively affect you performance rates. If that was you goal before scrolling this page, the secret relies in adding more threads to your queues (as mentioned earlier)!
+
+### Remote worker: Configuration Guide
+
+This guide explains how to configure a remote worker to your broker. It covers both scenarios: when both applications are on the same network and when they are on different networks.
+
+
+#### Prerequisites
+
+- Java Development Environment: Both the worker and broker applications should have at least a jdk8+ available on their environment. We highly recommend a jdk11.
+- Network Connectivity: Both systems should be able to connect to each other through the network (whether local or remote).
+
+
+#### Remote worker config
+
+```properties 
+server.host=<broker_ip_address>
+
+# Remote = docs ends broker side
+# Local = docs ends worker side
+worker.content.factory=<remote|local>
+```
+
+#### Network
+
+##### Same Network Scenario
+
+- Local IP Address: The worker and broker should be able to communicate over their local network using their local IP addresses.
+- Network Configuration: The local network should not have strict firewall rules that block communication on the required ports.
+
+##### Different Networks Scenario
+
+- Public IP Address of Broker: The broker should have a public IP address, or at least a static public IP from the router.
+- Port Forwarding on Router: The router connected to the broker must have port forwarding configured to forward incoming traffic on specific ports to the broker’s local IP address.
+- Firewall Configuration: The firewall on both systems (worker and broker) should allow incoming and outgoing traffic on the required ports.
+- Dynamic DNS (Optional): If the public IP address of the broker is dynamic, you may want to use Dynamic DNS (DDNS) to avoid manually changing the address every time it changes.
+
+#### Configure Worker and Broker on same network
+
+**Step 1: Ensure Network Connectivity**
+On the worker machine, ensure that you can ping the public IP address of the broker. You may need to test it by pinging broker_public_ip_address.
+```bash
+ping <broker_public_ip_address>
+```
+If the ping works, proceed to the next step. If the ping does not work, there may be an issue with the router, firewall, or routing configuration.
+
+**Step 2: Update the broker.url in the Worker Configuration**
+On the worker machine, update the **server.host** property in your *config/application.properties* file to the local IP address of the broker.
+
+If needed, you can change the protocol and port information as well. The **broker.url** variable is automatically updated. Do not change it.
+
+```properties
+server.protocol=http
+server.host=<broker_local_ip_address>
+server.port=1789
+
+broker.url=${server.protocol}://${server.host}:${server.port}/broker
+```
+Make sure the port is open and the broker is listening on the specified port.
+
+**Step 3: Verify broker is listening on specified port**
+On the broker machine, verify that the broker application is listening on the port you specified by using the following command:
+```bash
+# Linux
+sudo netstat -tuln | grep <port>
+
+# Windows
+`netstat -ano | findstr <port>`
+```
+The output should show something like:
+```ruby
+tcp6       0      0 :::<port>                 :::*                    LISTEN
+```
+
+**Step 4: Test the connection**
+On the worker machine, test the connection to the broker using nc (netcat) to check if the port is open and accessible:
+```bash
+# Linux
+nc -zv <broker_local_ip_address> <port>
+
+# Windows
+telnet <broker_local_ip_address> <port>
+```
+If the connection is successful, the worker and broker can communicate.
+
+
+#### Configure Worker and Broker on different networks
+
+**Step 1: Configure Port Forwarding on the Broker’s Router**
+On the router connected to the broker, you need to configure port forwarding to forward incoming traffic on a specific port to the broker's local IP address and port.
+
+1. Log into the router's web interface (usually at 192.168.1.1 or 192.168.0.1).
+2. Navigate to the Port Forwarding or NAT settings section.
+3. Add a rule to forward traffic coming on port to the internal IP address of the broker (broker_local_ip_address).
+4. Save the settings.
+
+**Step 2: Verify Firewall Configuration**
+Ensure that both the broker’s firewall and the worker’s firewall allow communication on the specified port. If necessary, open the required port in the firewall:
+
+On Ubuntu, to open a port in the firewall (if using ufw):
+
+```bash
+sudo ufw allow <port>/tcp
+```
+
+**Step 3: Repeat steps explained for same network**
+
+#### Remote worker configuration
+You have multiple options through the application.properties file to configure your remote worker.
+
+##### File storage : broker or worker ?
+
+You can either store the files processed from the broker or at the worker side.
+To choose one or the other you simply have to modify this property :
+
+```properties
+worker.content.factory=<remote|local>
+```
+
+- Select **remote** to send back documents to the broker.
+- Select **local** (default value) to keep documents processed by the worker from its side
+
+##### Example
+This is an example to understand what happens for both scenarios. Imagine that we are extracting some documents from a Documentum environment and we need to convert tiff files to a pdf format.
+
+###### Local
+```mermaid 
+sequenceDiagram
+Worker ->> Broker: Hi broker, I'm available
+Broker ->> Worker: Hello worker, I have some work for you
+Worker ->> Dctm: Ask for documents
+Dctm ->> Worker: Provide documents
+Worker ->> Worker: Convert tiff to pdf
+Note right of Worker: Tiff and output <br> pdf files will be stored <br> from worker side
+Broker ->> Worker: Good job, campaign finished
+Worker ->> Broker: I'm still available if you need
+```
+
+###### Remote
+```mermaid 
+sequenceDiagram
+Worker ->> Broker: Hi broker, I'm available
+Broker ->> Worker: Hello worker, I have some work for you
+Worker ->> Dctm: Ask for documents
+Dctm ->> Worker: Provide documents
+Worker ->> Worker: Convert tiff to pdf
+Worker ->> Broker: Upload documents on broker side
+Note left of Broker: As we specified remote, <br> worker will upload files <br> to the broker side
+Worker ->> Worker: Clean up space
+Note right of Worker: To avoid duplicates, <br/> worker will clean files <br/> from its environment
+Broker ->> Worker: Good job, campaign finished
+Worker ->> Broker: I'm still available if you need
+```
+
+##### File storage architecture
+
+By default, documents processed by the worker will be stored under the folder **files/**.
+Then documents will follow a strict hierarchy as mentioned in the property **worker.files.pattern**
+
+```properties
+worker.files.dir=files/
+worker.files.pattern=@{campaign?:'shared'}/@{step?:'shared'}/@{documentId?:punnetId}
+```
+Values shown above are used by default. Feel free to change it to match your requirements in term of folder organization.
+
+
+#### Troubleshooting
+##### Common Issues
+
+###### Ping does not work
+Ensure that the devices can actually communicate over the network. Double-check the network cables, Wi-Fi connection, and make sure there are no misconfigured network settings or firewalls blocking ICMP packets.
+
+###### Connection times out
+If using public IP addresses, check the router’s port forwarding configuration and verify that the firewall on both the broker and worker machines allows traffic on the relevant port.
+
+###### Port is closed
+Verify that the broker application is actually listening on the specified port, and ensure the port is not blocked by a firewall.
+
+###### Public IP changes
+If the public IP of the broker changes frequently, consider using a Dynamic DNS (DDNS) service to map a domain name to the changing IP address, so the worker can use the domain name instead of an IP address.
