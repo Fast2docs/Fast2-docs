@@ -16,15 +16,15 @@
       
       
       <link rel="icon" href="../../assets/Fast2_favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
-        <title>Ui as https - Fast2 documentation</title>
+        <title>HTTPS Configuration Guide - Fast2 documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#generate-a-self-signed-ssl-certificate" class="md-skip">
+        <a href="#https-configuration-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ui as https
+              HTTPS Configuration Guide
             
           </span>
         </div>
@@ -403,6 +403,8 @@
       
         
       
+        
+      
     
     
       
@@ -481,6 +483,28 @@
   
   <span class="md-ellipsis">
     Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
     
   </span>
   
@@ -1507,6 +1531,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1515,28 +1541,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate-a-self-signed-ssl-certificate" class="md-nav__link">
+  <a href="#tldr" class="md-nav__link">
     <span class="md-ellipsis">
-      Generate a self-signed SSL certificate
+      TL;DR
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Generate a self-signed SSL certificate">
+    <nav class="md-nav" aria-label="TL;DR">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-right-tools" class="md-nav__link">
+  <a href="#1-generate-a-self-signed-ssl-certificate" class="md-nav__link">
     <span class="md-ellipsis">
-      The right tools
+      1. Generate a Self-Signed SSL Certificate
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ssl-certificate-generation" class="md-nav__link">
+  <a href="#2-export-the-public-certificate" class="md-nav__link">
     <span class="md-ellipsis">
-      SSL Certificate generation
+      2. Export the Public Certificate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-import-the-certificate-into-the-java-keystore" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Import the Certificate into the Java Keystore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-configure-the-server-for-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Configure the Server for HTTPS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configure the Server for HTTPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-update-applicationproperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. Update application.properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-use-a-valid-ssl-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. Use a Valid SSL Certificate
     </span>
   </a>
   
@@ -1546,22 +1609,27 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#tell-fast2-to-use-the-certificate" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#5-verify-and-test-the-https-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Tell Fast2 to use the certificate
+      5. Verify and Test the HTTPS Setup
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#bring-it-further" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#6-troubleshooting-ssl-errors" class="md-nav__link">
     <span class="md-ellipsis">
-      Bring it further
+      6. Troubleshooting SSL Errors
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1581,117 +1649,98 @@
 
 
 
-<p>The browser-based handling of all user-related operations with Fast2 offers remote access to the Fast2 server for both designing and monitoring. Which means that, for security or privacy reasons, getting the UI of HTTPS instead of the default HTTP might be relevant in some cases.</p>
-<p>And that is precisely what we are going to explore and implement here.</p>
-<p>To achieve serving the Fast2 UI via the HTTPS protocol, we will use the following :</p>
-<ul>
-<li>JDK-11 (but JDK-8 works too)</li>
-<li>SpringBoot 2.6</li>
-<li>keytool</li>
-<li>Windows</li>
-</ul>
-<!-- - Google Chrome -->
-
-<p>Keytool is a certificate management utility provided together with the JDK, so if you have the JDK installed, you should already have keytool available. To check it, try running the command <code>keytool --help</code> from your Terminal prompt. Note that if you are on Windows, you might need to launch it from the <code>/bin/</code> folder. For more information about this utility, you can read the <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html">official documentation</a>.</p>
-<h2 id="generate-a-self-signed-ssl-certificate">Generate a self-signed SSL certificate<a class="headerlink" href="#generate-a-self-signed-ssl-certificate" title="Permanent link">&para;</a></h2>
-<p>First of all, we need to generate a pair of cryptographic keys, use them to produce an SSL certificate and store it in a keystore. The <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html#keytool_option_genkeypair">keytool documentation</a> defines a keystore as a database of "cryptographic keys, X.509 certificate chains, and trusted certificates".</p>
-<h3 id="the-right-tools">The right tools<a class="headerlink" href="#the-right-tools" title="Permanent link">&para;</a></h3>
-<p>To achieve serving the Fast2 UI via the HTTPS protocol, we will use the following :</p>
-<ul>
-<li>JDK-11 (but JDK-8 works too)</li>
-<li>SpringBoot 2.6</li>
-<li>keytool</li>
-<li>Windows</li>
-</ul>
-<!-- - Google Chrome -->
-
-<p>To enable HTTPS, we'll provide our migration tool with this keystore containing the SSL certificate.</p>
-<p>The two most common formats used for keystores are JKS, a proprietary format specific for Java, and PKCS12, an industry-standard format. JKS used to be the default choice, but since Java 9 it's PKCS12 the recommended format. Here, we are going to only dig in with the PKCS12 format.</p>
-<h3 id="ssl-certificate-generation">SSL Certificate generation<a class="headerlink" href="#ssl-certificate-generation" title="Permanent link">&para;</a></h3>
-<p>Since PKCS12 is an industry standard, let's open our Terminal prompt and write the following command to create a PKCS12 keystore, and we should, the command is the following:</p>
-<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>keytool<span class="w"> </span>-genkeypair<span class="w"> </span>-alias<span class="w"> </span>fast2_ui<span class="w"> </span>-keyalg<span class="w"> </span>RSA<span class="w"> </span>-keysize<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-storetype<span class="w"> </span>PKCS12<span class="w"> </span>-keystore<span class="w"> </span>fast2_ui.p12<span class="w"> </span>-validity<span class="w"> </span><span class="m">3650</span><span class="w"> </span>-storepass<span class="w"> </span>password
+<h1 id="https-configuration-guide">HTTPS Configuration Guide<a class="headerlink" href="#https-configuration-guide" title="Permanent link">&para;</a></h1>
+<p>This guide outlines the steps to enable HTTPS for your application, including generating a self-signed SSL certificate, importing it into the Java keystore, and configuring your server to use HTTPS. </p>
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<p><strong>Generate a self-signed certificate</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="sb">`</span>keytool<span class="w"> </span>-genkeypair<span class="w"> </span>-v<span class="w"> </span>-keystore<span class="w"> </span>fast2_ui.jks<span class="w"> </span>-keyalg<span class="w"> </span>RSA<span class="w"> </span>-keysize<span class="w"> </span><span class="m">2048</span><span class="w"> </span>-storepass<span class="w"> </span>changeit<span class="w"> </span>-validity<span class="w"> </span><span class="m">365</span><span class="w"> </span>-alias<span class="w"> </span>fast2_ui<span class="sb">`</span><span class="w"> </span>
 </code></pre></div>
-<p>Let's have a closer look at the command we just run:</p>
-<ul>
-<li><code>genkeypair</code>: generates a key pair;</li>
-<li><code>alias</code>: the alias name for the item we are generating;</li>
-<li><code>keyalg</code>: the cryptographic algorithm to generate the key pair;</li>
-<li><code>keysize</code>: the size of the key;</li>
-<li><code>storetype</code>: the type of keystore;</li>
-<li><code>keystore</code>: the name of the keystore;</li>
-<li><code>validity</code>: validity number of days;</li>
-<li><code>storepass</code>: a password for the keystore.</li>
-</ul>
-<p>When running the previous command, we will be asked to input some information, but we are free to skip all of it (just press Return to skip an option). When asked if the information is correct, we should type yes. Finally, we hit return to use the keystore password as key password as well.</p>
-<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>What<span class="w"> </span>is<span class="w"> </span>your<span class="w"> </span>first<span class="w"> </span>and<span class="w"> </span>last<span class="w"> </span>name?
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">[</span>Unknown<span class="o">]</span>:
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>What<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>name<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>organizational<span class="w"> </span>unit?
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="o">[</span>Unknown<span class="o">]</span>:
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>What<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>name<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>organization?
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="o">[</span>Unknown<span class="o">]</span>:
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>What<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>name<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>City<span class="w"> </span>or<span class="w"> </span>Locality?
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="o">[</span>Unknown<span class="o">]</span>:
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>What<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>name<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>State<span class="w"> </span>or<span class="w"> </span>Province?
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="o">[</span>Unknown<span class="o">]</span>:
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>What<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>two-letter<span class="w"> </span>country<span class="w"> </span>code<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>unit?
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="o">[</span>Unknown<span class="o">]</span>:
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>Is<span class="w"> </span><span class="nv">CN</span><span class="o">=</span>localhost,<span class="w"> </span><span class="nv">OU</span><span class="o">=</span>Unknown,<span class="w"> </span><span class="nv">O</span><span class="o">=</span>Unknown,<span class="w"> </span><span class="nv">L</span><span class="o">=</span>Unknown,<span class="w"> </span><span class="nv">ST</span><span class="o">=</span>Unknown,<span class="w"> </span><span class="nv">C</span><span class="o">=</span>Unknown<span class="w"> </span>correct?
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="o">[</span>no<span class="o">]</span>:<span class="w"> </span>yes
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>Enter<span class="w"> </span>key<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>&lt;springboot&gt;
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="o">(</span>RETURN<span class="w"> </span><span class="k">if</span><span class="w"> </span>same<span class="w"> </span>as<span class="w"> </span>keystore<span class="w"> </span>password<span class="o">)</span>:
+<p><strong>Export the public certificate</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="sb">`</span>keytool<span class="w"> </span>-export<span class="w"> </span>-keystore<span class="w"> </span>fast2_ui.jks<span class="w"> </span>-alias<span class="w"> </span>fast2_ui<span class="w"> </span>-file<span class="w"> </span>fast2_ui.crt<span class="w"> </span>-storepass<span class="w"> </span>changeit<span class="sb">`</span><span class="w"> </span>
 </code></pre></div>
-<p>At the end of this operation, we'll get a keystore containing a brand new SSL certificate (a true binary file) which we can check by running the following command :</p>
-<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>keytool<span class="w"> </span>-list<span class="w"> </span>-v<span class="w"> </span>-keystore<span class="w"> </span>fast2_ui.p12
+<p><strong>Import the certificate into the Java keystore</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="sb">`</span>keytool<span class="w"> </span>-importcert<span class="w"> </span>-file<span class="w"> </span>/path/to/fast2_ui.crt<span class="w"> </span>-keystore<span class="w"> </span>/path/to/your/jdk/lib/security/cacerts<span class="w"> </span>-alias<span class="w"> </span>fast2_ui<span class="sb">`</span><span class="w"> </span>
 </code></pre></div>
-<h2 id="tell-fast2-to-use-the-certificate">Tell Fast2 to use the certificate<a class="headerlink" href="#tell-fast2-to-use-the-certificate" title="Permanent link">&para;</a></h2>
-<p>Now, we are just 3 steps away from having the UI relying on the certificate :</p>
-<ol>
-<li>add the certificate file to Fast2</li>
-<li>add the certificate details to the configuration of our application</li>
-<li>change the broker endpoint</li>
-</ol>
-<p>Add the output file <code>fast2_ui.p12</code> in the configuration folder <code>./config/</code> of Fast2, and then head out to the <code>./config/application.properties</code> file, to add the following lines :</p>
-<div class="language-ini highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># the port on which the server is listening.</span>
+<p><strong>Configure the server in <code>application.properties</code></strong>
+<div class="language-properties highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">server.protocol</span><span class="o">=</span><span class="s">https</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">server.ssl.key-store</span><span class="o">:</span><span class="w"> </span><span class="s">config/fast2_ui.p12</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># the password used to access the key store.</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">server.ssl.key-store-password</span><span class="o">:</span><span class="w"> </span><span class="s">password</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># the type of the key store (JKS or PKCS12).</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="na">server.ssl.key-store-type</span><span class="o">:</span><span class="w"> </span><span class="s">pkcs12</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># the alias that identifies the key in the key store.</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="na">server.ssl.key-alias</span><span class="o">:</span><span class="w"> </span><span class="s">fast2_ui</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># the password used to access the key in the key store.</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="na">server.ssl.key-password</span><span class="o">:</span><span class="w"> </span><span class="s">password</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">server.ssl.key-store-password</span><span class="o">:</span><span class="w"> </span><span class="s">password</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">server.ssl.key-store-type</span><span class="o">:</span><span class="w"> </span><span class="s">pkcs12</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="na">server.ssl.key-alias</span><span class="o">:</span><span class="w"> </span><span class="s">fast2_ui</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="na">server.ssl.key-password</span><span class="o">:</span><span class="w"> </span><span class="s">password</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="na">server.ssl.trust-store</span><span class="o">=</span><span class="s">config/truststore.jks</span>
+</code></pre></div></p>
+<hr />
+<h4 id="1-generate-a-self-signed-ssl-certificate">1. <strong>Generate a Self-Signed SSL Certificate</strong><a class="headerlink" href="#1-generate-a-self-signed-ssl-certificate" title="Permanent link">&para;</a></h4>
+<p>To configure HTTPS, the first step is to generate an SSL certificate. For testing purposes, we will use a self-signed certificate. Run the following command to create a new keystore and generate the certificate:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="sb">`</span>keytool<span class="w"> </span>-genkeypair<span class="w"> </span>-v<span class="w"> </span>-keystore<span class="w"> </span>fast2_ui.jks<span class="w"> </span>-keyalg<span class="w"> </span>RSA<span class="w"> </span>-keysize<span class="w"> </span><span class="m">2048</span><span class="w"> </span>-storepass<span class="w"> </span>changeit<span class="w"> </span>-validity<span class="w"> </span><span class="m">365</span><span class="w"> </span>-alias<span class="w"> </span>fast2_ui<span class="sb">`</span>
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The above step is not necessary if you managed to imported the certificate into the Java keystore of the JDK used by Fast2.</p>
-</div>
-<p>Since we intend to serve the broker and the UI via HTTPS, we need to update the <code>broker.url</code> property :</p>
-<div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Remote broker url to use by the worker
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gd">- broker.url=http://localhost:1789/broker</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="gi">+ broker.url=https://localhost:1789/broker</span>
+<p><strong>Explanation of the command:</strong>
+-   <code>-genkeypair</code>: This generates a key pair (private key and public key).
+-   <code>-v</code>: This option enables verbose output, so you can see detailed information during the key generation process.
+-   <code>-keystore fast2_ui.jks</code>: The name of the keystore file that will store the private key and certificate.
+-   <code>-keyalg RSA</code>: The algorithm used to generate the key (RSA).
+-   <code>-keysize 2048</code>: The size of the key in bits (2048 bits is a good size for security).
+-   <code>-storepass changeit</code>: The password for the keystore (you can choose any password you like).
+-   <code>-validity 365</code>: The validity of the certificate, which in this case is set to 365 days.
+-   <code>-alias fast2_ui</code>: The alias used to identify the key in the keystore.</p>
+<p>This command will generate a keystore file (<code>fast2_ui.jks</code>) containing a private key and a self-signed certificate.</p>
+<hr />
+<h4 id="2-export-the-public-certificate">2. <strong>Export the Public Certificate</strong><a class="headerlink" href="#2-export-the-public-certificate" title="Permanent link">&para;</a></h4>
+<p>Next, you need to extract the public certificate from the keystore to import it into the Java system keystore. Use the following command to export the certificate:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="sb">`</span>keytool<span class="w"> </span>-export<span class="w"> </span>-keystore<span class="w"> </span>fast2_ui.jks<span class="w"> </span>-alias<span class="w"> </span>fast2_ui<span class="w"> </span>-file<span class="w"> </span>fast2_ui.crt<span class="w"> </span>-storepass<span class="w"> </span>changeit<span class="sb">`</span>
 </code></pre></div>
-<p>Start Fast2 like you usually would, and head out to your web browser. Although the connection is recognized as <em>unsecure</em>, you now have access the the UI via an HTTPS connection :</p>
-<p><img alt="Fast2 UI via HTTPS" src="../../assets/img/advanced/ui_https_chrome_unsecure.png" width="50%" /></p>
-<p><br />
-<br /></p>
-<h1 id="bring-it-further">Bring it further<a class="headerlink" href="#bring-it-further" title="Permanent link">&para;</a></h1>
-<p>When using a self-signed SSL certificate, our browser won't trust our application and will warn the user that it's not secure. And that'll be the same with any other client.</p>
-<p>It's possible to make a client (the browser, in our case) trust our application by providing it with our certificate. However, this topic will not be addressed here.</p>
-<!-- Let's extract the certificate from the keystore with keygen:
+This command extracts the public certificate (<code>fast2_ui.crt</code>) from the keystore. This certificate will later be imported into the Java system keystore to be trusted by Java applications.</p>
+<hr />
+<h4 id="3-import-the-certificate-into-the-java-keystore">3. <strong>Import the Certificate into the Java Keystore</strong><a class="headerlink" href="#3-import-the-certificate-into-the-java-keystore" title="Permanent link">&para;</a></h4>
+<p>Now that you have the public certificate, you need to import it into the Java system keystore (<code>cacerts</code>) so that the Java environment can trust it. Use the following command to import the certificate:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sb">`</span>keytool<span class="w"> </span>-importcert<span class="w"> </span>-file<span class="w"> </span>/path/to/fast2_ui.crt<span class="w"> </span>-keystore<span class="w"> </span>/usr/lib/jvm/java-11-openjdk-amd64/lib/security/cacerts<span class="w"> </span>-alias<span class="w"> </span>fast2_ui<span class="sb">`</span><span class="w"> </span>
+</code></pre></div>
+<ul>
+<li>Replace <code>/path/to/fast2_ui.crt</code> with the actual path to the <code>fast2_ui.crt</code> file you exported earlier.</li>
+<li>The <code>-keystore</code> option points to the Java system keystore (<code>cacerts</code>), which stores trusted certificates.</li>
+<li>The <code>-alias</code> is used to identify the certificate in the keystore.</li>
+</ul>
+<p>When prompted, enter the password for the Java keystore (the default is <code>changeit</code>).</p>
+<p>If the alias already exists in the keystore, you will see a warning. You can confirm that the certificate should be imported anyway.</p>
+<hr />
+<h4 id="4-configure-the-server-for-https">4. <strong>Configure the Server for HTTPS</strong><a class="headerlink" href="#4-configure-the-server-for-https" title="Permanent link">&para;</a></h4>
+<p>With the certificate installed, the next step is to configure your server to use HTTPS. Below are the typical configuration steps for a Spring Boot application:</p>
+<h5 id="a-update-applicationproperties">a. <strong>Update <code>application.properties</code></strong><a class="headerlink" href="#a-update-applicationproperties" title="Permanent link">&para;</a></h5>
+<p>For Spring Boot, you need to configure the application to use HTTPS. In the <code>application.properties</code> file, add the following settings:</p>
+<div class="language-properties highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">server.protocol</span><span class="o">=</span><span class="s">https</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">server.ssl.key-store</span><span class="o">:</span><span class="w"> </span><span class="s">config/fast2_ui.p12</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">server.ssl.key-store-password</span><span class="o">:</span><span class="w"> </span><span class="s">password</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">server.ssl.key-store-type</span><span class="o">:</span><span class="w"> </span><span class="s">pkcs12</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="na">server.ssl.key-alias</span><span class="o">:</span><span class="w"> </span><span class="s">fast2_ui</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="na">server.ssl.key-password</span><span class="o">:</span><span class="w"> </span><span class="s">password</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="na">server.ssl.trust-store</span><span class="o">=</span><span class="s">config/truststore.jks</span>
+</code></pre></div>
+<p><strong>Explanation of the properties:</strong>
+- <code>server.protocol=https</code>: The new secured protocol 
+- <code>server.ssl.key-store=&lt;path_to_fast2_ui.jks&gt;</code>: Specifies the location of the keystore containing the certificate and private key. You can place this file in your classpath.
+-   <code>server.ssl.key-store-password=changeit</code>: The password for the keystore.
+-   <code>server.ssl.key-store-type:pkcs12</code>: The type of the key store (JKS or PKCS12).
+- <code>server.ssl.key-alias: fast2_ui</code>: The alias that identifies the key in the key store.
+- <code>server.ssl.key-password: password</code>: The password used to access the key in the key store.
+- <code>server.ssl.trust-store=config/truststore.jks</code>: The trust store path in case of self signed certificate</p>
+<h5 id="b-use-a-valid-ssl-certificate">b. Use a Valid SSL Certificate<a class="headerlink" href="#b-use-a-valid-ssl-certificate" title="Permanent link">&para;</a></h5>
+<p>For production, it's recommended to use an SSL certificate signed by a trusted certificate authority (CA) rather than a self-signed certificate. However, if you're using a self-signed certificate for testing, you need to ensure that clients trust this certificate.</p>
+<hr />
+<h4 id="5-verify-and-test-the-https-setup">5. <strong>Verify and Test the HTTPS Setup</strong><a class="headerlink" href="#5-verify-and-test-the-https-setup" title="Permanent link">&para;</a></h4>
+<p>Once the keystore is set up and the server configuration is updated, restart your application and verify that it is correctly serving traffic over HTTPS.</p>
+<p>To test, open your browser and visit <code>https://localhost:1789</code> (or the appropriate URL/port for your application). You should see that the connection is secured, and the SSL certificate is correctly applied.</p>
+<p>If everything is configured correctly, you will no longer see SSL errors, and the connection should be encrypted using HTTPS.</p>
+<hr />
+<h4 id="6-troubleshooting-ssl-errors">6. <strong>Troubleshooting SSL Errors</strong><a class="headerlink" href="#6-troubleshooting-ssl-errors" title="Permanent link">&para;</a></h4>
+<p>If you encounter SSL errors such as "PKIX path building failed" or "SSLHandshakeException", it is usually because the Java environment does not trust the certificate. You can resolve this by ensuring that the certificate is correctly imported into the Java keystore (<code>cacerts</code>), as described in step 3.</p>
+<p>If using a self-signed certificate, you may need to manually add it to the list of trusted certificates in all client environments.</p>
 
-keytool -export -keystore fast2_ui.p12 -alias fast2_ui -file fast2_ui.crt
--->
 
 
 
 
 
-
-
-  
-  
 
 
 
@@ -1826,7 +1875,7 @@ keytool -export -keystore fast2_ui.p12 -alias fast2_ui -file fast2_ui.crt
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.path", "navigation.tabs", "navigation.indexes", "navigation.expand", "navigation.top", "content.tabs.link", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../javascripts/extra.js?v1"></script>
       
