@@ -1,135 +1,129 @@
----
-icon: material/code-json
----
+# HTTPS Configuration Guide
 
-The browser-based handling of all user-related operations with Fast2 offers remote access to the Fast2 server for both designing and monitoring. Which means that, for security or privacy reasons, getting the UI of HTTPS instead of the default HTTP might be relevant in some cases.
+This guide outlines the steps to enable HTTPS for your application, including generating a self-signed SSL certificate, importing it into the Java keystore, and configuring your server to use HTTPS.
 
-And that is precisely what we are going to explore and implement here.
+## TL;DR
 
-To achieve serving the Fast2 UI via the HTTPS protocol, we will use the following :
+**Generate a self-signed certificate**
 
-- JDK-11 (but JDK-8 works too)
-- SpringBoot 2.6
-- keytool
-- Windows
-<!-- - Google Chrome -->
-
-Keytool is a certificate management utility provided together with the JDK, so if you have the JDK installed, you should already have keytool available. To check it, try running the command `keytool --help` from your Terminal prompt. Note that if you are on Windows, you might need to launch it from the `/bin/` folder. For more information about this utility, you can read the [official documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html).
-
-## Generate a self-signed SSL certificate
-
-First of all, we need to generate a pair of cryptographic keys, use them to produce an SSL certificate and store it in a keystore. The [keytool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html#keytool_option_genkeypair) defines a keystore as a database of "cryptographic keys, X.509 certificate chains, and trusted certificates".
-
-### The right tools
-
-To achieve serving the Fast2 UI via the HTTPS protocol, we will use the following :
-
-- JDK-11 (but JDK-8 works too)
-- SpringBoot 2.6
-- keytool
-- Windows
-<!-- - Google Chrome -->
-
-To enable HTTPS, we'll provide our migration tool with this keystore containing the SSL certificate.
-
-The two most common formats used for keystores are JKS, a proprietary format specific for Java, and PKCS12, an industry-standard format. JKS used to be the default choice, but since Java 9 it's PKCS12 the recommended format. Here, we are going to only dig in with the PKCS12 format.
-
-### SSL Certificate generation
-
-Since PKCS12 is an industry standard, let's open our Terminal prompt and write the following command to create a PKCS12 keystore, and we should, the command is the following:
-
-```sh
-keytool -genkeypair -alias fast2_ui -keyalg RSA -keysize 4096 -storetype PKCS12 -keystore fast2_ui.p12 -validity 3650 -storepass password
+```bash
+`keytool -genkeypair -v -keystore fast2_ui.jks -keyalg RSA -keysize 2048 -storepass changeit -validity 365 -alias fast2_ui` 
 ```
 
-Let's have a closer look at the command we just run:
+**Export the public certificate**
 
-- `genkeypair`: generates a key pair;
-- `alias`: the alias name for the item we are generating;
-- `keyalg`: the cryptographic algorithm to generate the key pair;
-- `keysize`: the size of the key;
-- `storetype`: the type of keystore;
-- `keystore`: the name of the keystore;
-- `validity`: validity number of days;
-- `storepass`: a password for the keystore.
-
-When running the previous command, we will be asked to input some information, but we are free to skip all of it (just press Return to skip an option). When asked if the information is correct, we should type yes. Finally, we hit return to use the keystore password as key password as well.
-
-```sh
-What is your first and last name?
-[Unknown]:
-What is the name of your organizational unit?
-[Unknown]:
-What is the name of your organization?
-[Unknown]:
-What is the name of your City or Locality?
-[Unknown]:
-What is the name of your State or Province?
-[Unknown]:
-What is the two-letter country code for this unit?
-[Unknown]:
-Is CN=localhost, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown correct?
-[no]: yes
-
-Enter key password for <springboot>
-(RETURN if same as keystore password):
+```bash
+`keytool -export -keystore fast2_ui.jks -alias fast2_ui -file fast2_ui.crt -storepass changeit` 
 ```
 
-At the end of this operation, we'll get a keystore containing a brand new SSL certificate (a true binary file) which we can check by running the following command :
+**Import the certificate into the Java keystore**
 
-```sh
-keytool -list -v -keystore fast2_ui.p12
+```bash
+`keytool -importcert -file /path/to/fast2_ui.crt -keystore /path/to/your/jdk/lib/security/cacerts -alias fast2_ui` 
 ```
 
-## Tell Fast2 to use the certificate
-
-Now, we are just 3 steps away from having the UI relying on the certificate :
-
-1. add the certificate file to Fast2
-2. add the certificate details to the configuration of our application
-3. change the broker endpoint
-
-Add the output file `fast2_ui.p12` in the configuration folder `./config/` of Fast2, and then head out to the `./config/application.properties` file, to add the following lines :
-
-```ini
-# the port on which the server is listening.
+**Configure the server in `application.properties`**
+```properties
+server.protocol=https
 server.ssl.key-store: config/fast2_ui.p12
-# the password used to access the key store.
 server.ssl.key-store-password: password
-# the type of the key store (JKS or PKCS12).
 server.ssl.key-store-type: pkcs12
-# the alias that identifies the key in the key store.
 server.ssl.key-alias: fast2_ui
-# the password used to access the key in the key store.
 server.ssl.key-password: password
+server.ssl.trust-store=config/truststore.jks
+```
+----------
+
+#### 1. **Generate a Self-Signed SSL Certificate**
+To configure HTTPS, the first step is to generate an SSL certificate. For testing purposes, we will use a self-signed certificate. Run the following command to create a new keystore and generate the certificate:
+
+```bash
+`keytool -genkeypair -v -keystore fast2_ui.jks -keyalg RSA -keysize 2048 -storepass changeit -validity 365 -alias fast2_ui`
 ```
 
-!!! note
+**Explanation of the command:**
+-   `-genkeypair`: This generates a key pair (private key and public key).
+-   `-v`: This option enables verbose output, so you can see detailed information during the key generation process.
+-   `-keystore fast2_ui.jks`: The name of the keystore file that will store the private key and certificate.
+-   `-keyalg RSA`: The algorithm used to generate the key (RSA).
+-   `-keysize 2048`: The size of the key in bits (2048 bits is a good size for security).
+-   `-storepass changeit`: The password for the keystore (you can choose any password you like).
+-   `-validity 365`: The validity of the certificate, which in this case is set to 365 days.
+-   `-alias fast2_ui`: The alias used to identify the key in the keystore.
 
-    The above step is not necessary if you managed to imported the certificate into the Java keystore of the JDK used by Fast2.
+This command will generate a keystore file (`fast2_ui.jks`) containing a private key and a self-signed certificate.
 
-Since we intend to serve the broker and the UI via HTTPS, we need to update the `broker.url` property :
+----------
 
-```diff
-# Remote broker url to use by the worker
-- broker.url=http://localhost:1789/broker
-+ broker.url=https://localhost:1789/broker
+#### 2. **Export the Public Certificate**
+Next, you need to extract the public certificate from the keystore to import it into the Java system keystore. Use the following command to export the certificate:
+
+```bash
+`keytool -export -keystore fast2_ui.jks -alias fast2_ui -file fast2_ui.crt -storepass changeit`
+```
+This command extracts the public certificate (`fast2_ui.crt`) from the keystore. This certificate will later be imported into the Java system keystore to be trusted by Java applications.
+
+----------
+
+#### 3. **Import the Certificate into the Java Keystore**
+Now that you have the public certificate, you need to import it into the Java system keystore (`cacerts`) so that the Java environment can trust it. Use the following command to import the certificate:
+
+```bash
+`keytool -importcert -file /path/to/fast2_ui.crt -keystore /usr/lib/jvm/java-11-openjdk-amd64/lib/security/cacerts -alias fast2_ui` 
 ```
 
-Start Fast2 like you usually would, and head out to your web browser. Although the connection is recognized as _unsecure_, you now have access the the UI via an HTTPS connection :
+-   Replace `/path/to/fast2_ui.crt` with the actual path to the `fast2_ui.crt` file you exported earlier.
+-   The `-keystore` option points to the Java system keystore (`cacerts`), which stores trusted certificates.
+-   The `-alias` is used to identify the certificate in the keystore.
 
-![Fast2 UI via HTTPS](../assets/img/advanced/ui_https_chrome_unsecure.png){ width="50%" }
+When prompted, enter the password for the Java keystore (the default is `changeit`).
 
-<br />
-<br />
+If the alias already exists in the keystore, you will see a warning. You can confirm that the certificate should be imported anyway.
 
-# Bring it further
+----------
 
-When using a self-signed SSL certificate, our browser won't trust our application and will warn the user that it's not secure. And that'll be the same with any other client.
+#### 4. **Configure the Server for HTTPS**
+With the certificate installed, the next step is to configure your server to use HTTPS. Below are the typical configuration steps for a Spring Boot application:
 
-It's possible to make a client (the browser, in our case) trust our application by providing it with our certificate. However, this topic will not be addressed here.
+##### a. **Update `application.properties`**
+For Spring Boot, you need to configure the application to use HTTPS. In the `application.properties` file, add the following settings:
 
-<!-- Let's extract the certificate from the keystore with keygen:
+```properties
+server.protocol=https
+server.ssl.key-store: config/fast2_ui.p12
+server.ssl.key-store-password: password
+server.ssl.key-store-type: pkcs12
+server.ssl.key-alias: fast2_ui
+server.ssl.key-password: password
+server.ssl.trust-store=config/truststore.jks
+```
 
-keytool -export -keystore fast2_ui.p12 -alias fast2_ui -file fast2_ui.crt
--->
+**Explanation of the properties:**
+- `server.protocol=https`: The new secured protocol 
+- `server.ssl.key-store=<path_to_fast2_ui.jks>`: Specifies the location of the keystore containing the certificate and private key. You can place this file in your classpath.
+-   `server.ssl.key-store-password=changeit`: The password for the keystore.
+-   `server.ssl.key-store-type:pkcs12`: The type of the key store (JKS or PKCS12).
+- `server.ssl.key-alias: fast2_ui`: The alias that identifies the key in the key store.
+- `server.ssl.key-password: password`: The password used to access the key in the key store.
+- `server.ssl.trust-store=config/truststore.jks`: The trust store path in case of self signed certificate
+
+
+##### b. Use a Valid SSL Certificate
+For production, it's recommended to use an SSL certificate signed by a trusted certificate authority (CA) rather than a self-signed certificate. However, if you're using a self-signed certificate for testing, you need to ensure that clients trust this certificate.
+
+----------
+
+#### 5. **Verify and Test the HTTPS Setup**
+Once the keystore is set up and the server configuration is updated, restart your application and verify that it is correctly serving traffic over HTTPS.
+
+To test, open your browser and visit `https://localhost:1789` (or the appropriate URL/port for your application). You should see that the connection is secured, and the SSL certificate is correctly applied.
+
+If everything is configured correctly, you will no longer see SSL errors, and the connection should be encrypted using HTTPS.
+
+----------
+
+#### 6. **Troubleshooting SSL Errors**
+
+If you encounter SSL errors such as "PKIX path building failed" or "SSLHandshakeException", it is usually because the Java environment does not trust the certificate. You can resolve this by ensuring that the certificate is correctly imported into the Java keystore (`cacerts`), as described in step 3.
+
+If using a self-signed certificate, you may need to manually add it to the list of trusted certificates in all client environments.
