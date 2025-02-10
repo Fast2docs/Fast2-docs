@@ -1,6 +1,6 @@
 # HTTPS Configuration Guide
 
-This guide outlines the steps to enable HTTPS for your application, including generating a self-signed SSL certificate, importing it into the Java keystore, and configuring your server to use HTTPS.
+This guide outlines the steps to enable HTTPS for your application, including generating a self-signed SSL certificate, importing it into the Java keystore, and configuring your server to use HTTPS. 
 
 ## TL;DR
 
