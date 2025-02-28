@@ -184,6 +184,8 @@ At this moment you have two series of campaigns related to your map _Production_
 
 ## Map versioning
 
+### Benefits of versioning
+
 Fast2 allows you to create multiple versions of the same map. This feature provides several significant benefits:
 
 1. **Change Management and Tracking**
@@ -200,6 +202,16 @@ Fast2 allows you to create multiple versions of the same map. This feature provi
 
 Seamless version creation for the user: they have nothing to do and cannot create a version themselves (there is no manual version creation). The version number is incremented automatically. Current version you are working on is always available in the top right corner.
 ![Map version position](../assets/img/create_workflow/current map version.png){ width="80%" }
+
+### Map versions history
+
+You can access the map versions history by clicking on the `Maps Overview` button in the left navigation menu. If a map has several versions, you can expand and see all the versions by clicking on the last version. Note that current version and previous versions are highlighted differently (green and orange).
+![Map versions history](../assets/img/create_workflow/Maps overview.gif){ width="80%" }
+Orange color for previous versions means that they cannot be edited. If you decide to view a previous version, it will be opened in read-only mode.
+![Read-only mode](../assets/img/create_workflow/read only mode.png){ width="80%" }
+For any reason, if you need to work and make changes to a previous version, you can duplicate it and create a new map from it.
+![Duplicate map](../assets/img/create_workflow/duplicate map.gif){ width="80%" }
+
 
 ## Automatic Save Feature
 

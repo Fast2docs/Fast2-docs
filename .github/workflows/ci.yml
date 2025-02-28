@@ -82,7 +82,7 @@ jobs:
       # Step 9: Deploy documentation with Mike
       - name: Deploy Documentation with Mike
         # For v2 doc : mike deploy --push --update-aliases 2.x v2
-        run: mike deploy --push --update-aliases 2.x v2
+        run: mike deploy --push --update-aliases 2025.x.x latest
 
   markdown-link-check:
     name: Markdown Link Check
