@@ -207,8 +207,10 @@ Seamless version creation for the user: they have nothing to do and cannot creat
 
 You can access the map versions history by clicking on the `Maps Overview` button in the left navigation menu. If a map has several versions, you can expand and see all the versions by clicking on the last version. Note that current version and previous versions are highlighted differently (green and orange).
 ![Map versions history](../assets/img/create_workflow/Maps overview.gif){ width="100%" }
+
 Orange color for previous versions means that they cannot be edited. If you decide to view a previous version, it will be opened in read-only mode.
 ![Read-only mode](../assets/img/create_workflow/read only mode.png){ width="100%" }
+
 For any reason, if you need to work and make changes to a previous version, you can duplicate it and create a new map from it.
 ![Duplicate map](../assets/img/create_workflow/duplicate map.gif){ width="100%" }
 
