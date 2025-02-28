@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/Fast2_favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1650,7 +1650,7 @@
 
 
 <h1 id="https-configuration-guide">HTTPS Configuration Guide<a class="headerlink" href="#https-configuration-guide" title="Permanent link">&para;</a></h1>
-<p>This guide outlines the steps to enable HTTPS for your application, including generating a self-signed SSL certificate, importing it into the Java keystore, and configuring your server to use HTTPS.</p>
+<p>This guide outlines the steps to enable HTTPS for your application, including generating a self-signed SSL certificate, importing it into the Java keystore, and configuring your server to use HTTPS. </p>
 <h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
 <p><strong>Generate a self-signed certificate</strong></p>
 <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="sb">`</span>keytool<span class="w"> </span>-genkeypair<span class="w"> </span>-v<span class="w"> </span>-keystore<span class="w"> </span>fast2_ui.jks<span class="w"> </span>-keyalg<span class="w"> </span>RSA<span class="w"> </span>-keysize<span class="w"> </span><span class="m">2048</span><span class="w"> </span>-storepass<span class="w"> </span>changeit<span class="w"> </span>-validity<span class="w"> </span><span class="m">365</span><span class="w"> </span>-alias<span class="w"> </span>fast2_ui<span class="sb">`</span><span class="w"> </span>
