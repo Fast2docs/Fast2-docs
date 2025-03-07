@@ -415,10 +415,9 @@ This task will be useful to perform a given subtask only once in a map execution
 
 
 
-## SleepTask <small> - Wait some time once punnet is processed </small> {#SleepTask data-toc-label="SleepTask"}
+## SleepTask <small> - Blocks punnet on thread for a given period of time </small> {#SleepTask data-toc-label="SleepTask"}
 
-Task forcing Fast2 to wait some time before processing the punnet, without updating its state or metadata.
-
+Task blocking a thread per punnet to wait some time before processing the punnet, without updating its state or metadata. As the thread is asleep for a defined time, all tasks are slowed down.
 
 
 <b>Optional settings</b>
