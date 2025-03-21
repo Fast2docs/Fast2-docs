@@ -2481,13 +2481,13 @@ As indicated in the installation section, starting Fast2 will launch an embedded
 </blockquote>
 <p>The extraction task will be linked to the same queue we mentioned in the <code>config/application.properties</code> of the lone worker (ex/ source-queue).</p>
 <p>No need to set a queue for the last task, as it will be handled by default by the last worker started with the Fast2 server.</p>
-<p><img alt="Task config with queue for worker S" src="../../assets/img/components/workers-task-queue-src.png" /></p>
+<p><img alt="Task config with queue for worker S" src="../../assets/img/components/workers-task-queue-src2025.png" /></p>
 <p>For this worker, the <code>config/application.properties</code> will have the queue details set as follows:</p>
 <div class="language-ini highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">...</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># Worker queue regex filter</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">worker.queue.regex</span><span class="o">=</span><span class="s">source-queue</span>
 </code></pre></div>
-<p><img alt="Task config with queue for worker D" src="../../assets/img/components/workers-task-queue-other.png" /></p>
+<p><img alt="Task config with queue for worker D" src="../../assets/img/components/workers-task-queue-other2025.png" /></p>
 <p>For this worker, the <code>config/application.properties</code> will have the queue details set as follows:</p>
 <div class="language-ini highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="na">...</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># Worker queue regex filter</span>
