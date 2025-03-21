@@ -81,13 +81,13 @@ Then select a task by clicking on its name. It now appears in the design area. Y
 
 To configure a task, hover it in the design area. When it gets dark grey, hit the gear icon : the task is now highlighted and the right panel displays the configuration fields for you to fill.
 
-![Set task](../assets/img/create_workflow/setTask.gif)
+![Set task](../assets/img/create_workflow/setTask2025.gif)
 
 ### Delete task
 
 The deletion of a task is a 2-step long procedure. To delete a task, hover it in the design area. When it gets dark grey, click on the trash icon. On the confirmation pop-up, make sure you perform the operation on the task you really intended to delete.
 
-{{< image "documentation/create_workflow/deleteTask.gif" "Delete task GIF" "80%">}}
+![Delete task GIF](../assets/img/create_workflow/deleteTask.gif)
 
 ## Links
 
