@@ -140,7 +140,7 @@ The extraction task will be linked to the same queue we mentioned in the `config
 
 No need to set a queue for the last task, as it will be handled by default by the last worker started with the Fast2 server.
 
-![Task config with queue for worker S](../assets/img/components/workers-task-queue-src.png)
+![Task config with queue for worker S](../assets/img/components/workers-task-queue-src2025.png)
 
 For this worker, the `config/application.properties` will have the queue details set as follows:
 
@@ -150,7 +150,7 @@ For this worker, the `config/application.properties` will have the queue details
 worker.queue.regex=source-queue
 ```
 
-![Task config with queue for worker D](../assets/img/components/workers-task-queue-other.png)
+![Task config with queue for worker D](../assets/img/components/workers-task-queue-other2025.png)
 
 For this worker, the `config/application.properties` will have the queue details set as follows:
 
