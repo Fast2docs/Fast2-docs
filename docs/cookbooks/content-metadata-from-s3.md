@@ -55,7 +55,7 @@ To only select punnet-formated XML correponding to the punnets, you will need to
 
 Optionally, you can also provide the concerned folder(s) in the Source folders if relevant.
 
-![AWSContentSource task configuration](../assets/img/cookbooks/Image_AWS_Source.png)
+![AWSContentSource task configuration](../assets/img/cookbooks/Image_AWS_Source2025.png)
 
 In the [AWSContentSource](../catalog/contentsource.md#AWSContentSource) task configuration, fields to fill are :
 
@@ -70,7 +70,7 @@ By filling the S3 objecy key, the connector will on-the-fly build up the correct
 
 Fast2 extracts all metadata files present in our S3 bucket, following the key of the XML, as a punnet, and names them correctly.
 
-![AWSSource task configuration](../assets/img/cookbooks/Image_AWSContentSource.png)
+![AWSSource task configuration](../assets/img/cookbooks/Image_AWSContentSource2025.png)
 
 ## 👏 Let's wrap up
 

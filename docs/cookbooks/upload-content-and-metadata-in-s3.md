@@ -40,11 +40,11 @@ In our case, the pattern for the content to add is :
 ```txt
 ./files/myCampaign/PunnetSerializer/${documentId}
 ```
-![Task configuration to add the XML](../assets/img/cookbooks/alter-doc-content.png){ width="50%" }
+![Task configuration to add the XML](../assets/img/cookbooks/alter-doc-content2025.png){ width="50%" }
 
 Eventually, the migration workflow will end up looking like this :
 
-![Migration workflow screenshot](../assets/img/cookbooks/map.png)
+![Migration workflow screenshot](../assets/img/cookbooks/map2025.png)
 
 
 
@@ -69,7 +69,7 @@ The final pattern to use as "Destination file name" from the injector configurat
 ${documentId}.${CurrentContainer.mimeType.substring(CurrentContainer.mimeType.indexOf("/")+1)}
 ```
 In the task configuration, the field to update is the "Destination file name" :
-![AWS injector configuration](../assets/img/cookbooks/aws-injector-configuration.png){ width="50%" }
+![AWS injector configuration](../assets/img/cookbooks/aws-injector-configuration2025.png){ width="50%" }
 
 
 
@@ -88,4 +88,4 @@ So now we have both contents and metadata with same name but different extension
 <li>Process S3 objects as punnets (ie. metadata as XML and associated content)</li>
 <li>Extract punnet contents (if required)</li>
 
-![Bucket S3 : 1 document, 2 contents](../assets/img/cookbooks/s3-extractor-for-punnet.png){ width="500" }
+![Bucket S3 : 1 document, 2 contents](../assets/img/cookbooks/s3-extractor-for-punnet2025.png){ width="500" }

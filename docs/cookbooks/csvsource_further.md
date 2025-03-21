@@ -32,7 +32,7 @@ As for the first option (overwriting data names), the configuration needs to foc
 
 Enter each new header on a new line, making sure your input covers all the columns found in the CSV file.
 
-![CSV source task configuration for new data names](../assets/img/cookbooks/csv-source-new-col-headers.png){ width="70%" }
+![CSV source task configuration for new data names](../assets/img/cookbooks/csv-source-new-col-headers2025.png){ width="70%" }
 
 With such a setting, Fast2 will map the data retrieved from the CSV directly under those new data names.
 
@@ -60,7 +60,7 @@ With the default settings, the document in Fast2 would have such dataset:
 If the CSVSource task is configured as shown below,
 
 
-![Parameterized CSV source task configuration for new data names](../assets/img/cookbooks/csv-source-new-col-headers-filled.png){ width="70%",align=center }
+![Parameterized CSV source task configuration for new data names](../assets/img/cookbooks/csv-source-new-col-headers-filled2025.png){ width="70%",align=center }
 
 
 the created document will only have a dataset looking like:

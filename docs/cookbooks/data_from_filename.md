@@ -65,7 +65,7 @@ That way, we end up with 4 tasks :
 
 </br>
 
-![Map to build for data extraction](../assets/img/cookbooks/dataFromFilename_map.png)
+![Map to build for data extraction](../assets/img/cookbooks/dataFromFilename_map2025.png)
 
 </br>
 </br>
