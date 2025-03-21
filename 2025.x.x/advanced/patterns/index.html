@@ -1798,7 +1798,7 @@
 </div>
 <h2 id="context-and-definition">Patterns, what are they anyway ?<a class="headerlink" href="#context-and-definition" title="Permanent link">&para;</a></h2>
 <p>In Fast2, several data can be retrieved and accessed dynamically from a dedicated syntax which Fast2 supports for your convenience. This <code>${...}</code> syntax can be used in most of the configuration fields of the tasks composing your migration workflow.</p>
-<p><img alt="Example of pattern implementation" class="float-left" loading="lazy" src="../../assets/img/advanced/pattern_example1.png" width="60%" /></p>
+<p><img alt="Example of pattern implementation" class="float-left" loading="lazy" src="../../assets/img/advanced/pattern_example2025.png" width="60%" /></p>
 <p>Using such syntax will comes in handy when you will have to rely on a value whose you only know the name. In other words, retrieving a metadata whose key is <code>doc_mimeType</code> and value is unique for every document, will just be <code>${doc_mimeType}</code>.</p>
 <p>No need to list all your possible values, Fast2 will resolve this expression by looking first at the document dataset level, then at the punnet level, an later at map/campaign level. Some applications of the latter could be to store the name of the map, or even accessing <a href="">map- or global-scoped shared ojects</a> for cross-campaign communications.</p>
 <h2 id="patterns-in-links">Patterns in links<a class="headerlink" href="#patterns-in-links" title="Permanent link">&para;</a></h2>
@@ -1808,7 +1808,7 @@
 <p>Pattern-related syntax <code>${...}</code> is not required, fill the field with your expression directly !</p>
 </div>
 <p>Based on SpEL (<a href="https://docs.spring.io/spring-framework/docs/4.3.10.RELEASE/spring-framework-reference/html/expressions.html">Spring Expression Language</a>), the syntax of these conditions will sound familiar to anyone who's already coded one day:</p>
-<p><img alt="Example of pattern implementation as link condition" class="float-right" loading="lazy" src="../../assets/img/advanced/pattern_condition.png" width="60%" /></p>
+<p><img alt="Example of pattern implementation as link condition" class="float-right" loading="lazy" src="../../assets/img/advanced/pattern_condition2025.png" width="60%" /></p>
 <p>In the same way, you'll now be able to sort documents based on their mime-types, on their structure (does my document has a content ? Is its creation date matching the time range which this campaign is focusing on? ).</p>
 <p>As mentioned earlier, the list of data which you can evaluate in a condition is the same list as in a task configuration (document properties, punnet properties, map and campaign names).</p>
 <h3 id="as-long-as-it-returns-true-of-false">As long as it returns <code>true</code> of <code>false</code>...<a class="headerlink" href="#as-long-as-it-returns-true-of-false" title="Permanent link">&para;</a></h3>
