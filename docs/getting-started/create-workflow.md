@@ -75,7 +75,7 @@ However, a backup copy is still saved in the database in case you want to restor
 To add any task to the map, toggle the right panel and search for the task. The dynamic search bar filter all task matching based either on their name or description.
 Then select a task by clicking on its name. It now appears in the design area. You will be able to configure it straight afterwards, since the right panel now displays the configuration fields of the task you just added.
 
-![Add a task](../assets/img/create_workflow/addTask.gif)
+![Add a task](../assets/img/create_workflow/addTask2025.gif)
 
 ### Configure task
 
