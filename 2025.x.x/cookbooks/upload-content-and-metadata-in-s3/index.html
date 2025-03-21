@@ -1808,9 +1808,9 @@
 <p>In our case, the pattern for the content to add is :
 <div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./files/myCampaign/PunnetSerializer/${documentId}
 </code></pre></div>
-<img alt="Task configuration to add the XML" src="../../assets/img/cookbooks/alter-doc-content.png" width="50%" /></p>
+<img alt="Task configuration to add the XML" src="../../assets/img/cookbooks/alter-doc-content2025.png" width="50%" /></p>
 <p>Eventually, the migration workflow will end up looking like this :</p>
-<p><img alt="Migration workflow screenshot" src="../../assets/img/cookbooks/map.png" /></p>
+<p><img alt="Migration workflow screenshot" src="../../assets/img/cookbooks/map2025.png" /></p>
 <p>However, if we run it, we see the following result in the destination S3 bucket :</p>
 <p><img alt="Bucket S3 : 1 document, 2 versions" src="../../assets/img/cookbooks/bucket_2_versions.png" /></p>
 <p>This can be explained by the fact that, when injecting, the S3 connector will upload both contents with the same name (which happens to be the documentId of the document). And as you might guess, 2 different documents with the same name induces the oldest one to be overwritten by the second.</p>
@@ -1823,7 +1823,7 @@
 <div class="language-java highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">$</span><span class="p">{</span><span class="n">documentId</span><span class="p">}.</span><span class="na">$</span><span class="p">{</span><span class="n">CurrentContainer</span><span class="p">.</span><span class="na">mimeType</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">CurrentContainer</span><span class="p">.</span><span class="na">mimeType</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)}</span>
 </code></pre></div>
 In the task configuration, the field to update is the "Destination file name" :
-<img alt="AWS injector configuration" src="../../assets/img/cookbooks/aws-injector-configuration.png" width="50%" /></p>
+<img alt="AWS injector configuration" src="../../assets/img/cookbooks/aws-injector-configuration2025.png" width="50%" /></p>
 <h3 id="result">🏁 Result<a class="headerlink" href="#result" title="Permanent link">&para;</a></h3>
 <p>This little edit will get Fast2 to build the final name on the fly for each content, and this is exactly what we needed to get the final result in our bucket :</p>
 <p><img alt="Bucket S3 : 1 document, 2 contents" src="../../assets/img/cookbooks/bucket_2_contents.png" /></p>
@@ -1832,7 +1832,7 @@ In the task configuration, the field to update is the "Destination file name" :
 <li>Process S3 objects as punnets (ie. metadata as XML and associated content)</li>
 <li>Extract punnet contents (if required)</li>
 
-<p><img alt="Bucket S3 : 1 document, 2 contents" src="../../assets/img/cookbooks/s3-extractor-for-punnet.png" width="500" /></p>
+<p><img alt="Bucket S3 : 1 document, 2 contents" src="../../assets/img/cookbooks/s3-extractor-for-punnet2025.png" width="500" /></p>
 
 
 
