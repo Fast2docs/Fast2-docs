@@ -87,7 +87,7 @@ To configure a task, hover it in the design area. When it gets dark grey, hit th
 
 The deletion of a task is a 2-step long procedure. To delete a task, hover it in the design area. When it gets dark grey, click on the trash icon. On the confirmation pop-up, make sure you perform the operation on the task you really intended to delete.
 
-![Delete task GIF](../assets/img/create_workflow/deleteTask.gif)
+![Delete task GIF](../assets/img/create_workflow/deleteTask2025.gif)
 
 ## Links
 
@@ -102,7 +102,7 @@ One task can have multiple input and output links.
 
 A link can only be added between two tasks. That implies the deletion of any link attached to a specific task once this one is deleted.
 
-![Add link](../assets/img/create_workflow/addLink.gif)
+![Add link](../assets/img/create_workflow/addLink2025.gif)
 
 !!! Warning
 
@@ -125,13 +125,13 @@ A link can only be added between two tasks. That implies the deletion of any lin
 | And                    | Use multiple link conditions and if all of them are ok, the punnet will pass                                                       |
 | Not                    | Use any link condition but with negatively                                                                                         |
 
-![Set link](../assets/img/create_workflow/setLink.gif)
+![Set link](../assets/img/create_workflow/setLink2025.gif)
 
 ### Delete link
 
 Deleting a link is similar to deleting a task, 2-step long procedure. To delete a link, hover it in the design area. When it gets dark grey, click on the trash icon. On the confirmation pop-up, make sure you perform the operation on the link you really intended to delete.
 
-![Delete link](../assets/img/create_workflow/deleteLink.gif)
+![Delete link](../assets/img/create_workflow/deleteLink2025.gif)
 
 ## Run a map
 
@@ -143,7 +143,7 @@ From the toggle button you are able to switch between the Design and the Run pla
 
 Next to this toggle button, you'll find the control buttons. It's with these three buttons that you will be able to interact with the campaign.
 
-![Top panel controls](../assets/img/create_workflow/controlButtons.png){ width="20%" }
+![Top panel controls](../assets/img/create_workflow/controlButtons2025.png){ width="20%" }
 
 From left to right :
 
