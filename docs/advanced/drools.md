@@ -159,4 +159,4 @@ We advise you to create a folder at the root of Fast2 and name it Rules. However
 
 This path will be fill in the the task ApplyDroolsTask.
 
-![ApplyDroolsTask configuration in Fast2 catalog](../assets/img/advanced/droolsTask.png)
+![ApplyDroolsTask configuration in Fast2 catalog](../assets/img/advanced/droolsTask2025.png)
