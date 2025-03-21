@@ -21,7 +21,7 @@ Any change about the map configuration/structure needs to happen in one place on
 To add any task to the map, toggle the right panel and search for the task. The dynamic search bar filters out all matching task based either on their name or description.
 To select a task, click on its name and it will appear in the design area. You will be able to configure it straight afterwards, since the right panel now displays the configuration fields of the task you just added.
 
-![New map GIF](../assets/img/create_workflow/newMap.gif)
+![New map GIF](../assets/img/create_workflow/newMap2025.gif)
 
 <!-- todo -->
 
