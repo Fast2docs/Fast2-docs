@@ -103,7 +103,7 @@ All commands below are to be run under the Fast2 install path (where the Zip has
 
     You can now properly execute the following script:
 
-    ```
+    ```sh
     $ ./startup-broker.sh
     ```
 
@@ -136,34 +136,25 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
 
     ##### :material-numeric-1-circle: Create a user for Fast2
 
-    Since the embedded database cannot be started in sudo mode, an additional user needs to be created in the Linux machine so the broker will successfully initiate the database bootup.
+    Since the embedded database cannot be started in sudo mode, you must use an existing user that meets your requirements or create a new one on the Linux machine. This will allow the broker to successfully initiate the database startup
 
     Let's condider here our user to be *fast2user*.
-
-    Head out to the `./startup-broker.sh` and get the user start the broker by switching users (with `su fast2user -c`) for the Java command.
-
-    The result should be as follows:
-
-    ```diff
-    - "$JAVA" -Xmx$BROKER_MAX_MEMORY -jar fast2-broker-package-X.Y.Z.jar
-    + su fast2user -c "$JAVA -Xmx$BROKER_MAX_MEMORY -jar fast2-broker-package-X.Y.Z.jar"
-    ```
 
     <br/>
 
     ##### :material-numeric-2-circle: Execution path
 
-    Edit the `ExectStart` field from the file `service/linux/fast2-broker.service` by changing the `PATH/TO/FAST2` portion: set it to Fast2 install path.
+    Edit the `ExecStart` field from the file `service/linux/fast2-broker.service` by changing the `PATH/TO/FAST2` portion: set it to Fast2 install path.
 
-    ```
+    ```sh
     [Unit]
     Description=Fast2 Broker
 
     [Service]
-    Environment="OPENSEARCH_JAVA_HOME=/home/JDK/java"
-    ExecStart=/home/userName/fast2-complete-package-2.0.0/startup-broker.sh
-    User=fast2-user
-    Group=fast2-user
+    Environment="JAVA_HOME=/home/JDK/bin/java"
+    ExecStart=/home/userName/fast2-complete-package-X.Y.Z/startup-broker.sh
+    User=fast2user
+    Group=fast2user
 
     [Install]
     WantedBy=default.target
@@ -175,7 +166,7 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
 
         - `Environment`: Sets environment variables that the service will use during execution.
 
-            This line sets the `OPENSEARCH_JAVA_HOME` environment variable, which is required for the Fast2 Broker service to run. The value is set to `/home/JDK/java`, which should be the path to the Java installation used by the service.
+            This line sets the `JAVA_HOME` environment variable, which is required for the Fast2 Broker service to run. The value is set to `/home/JDK/java`, which should be the path to the Java installation used by the service.
             However, the link to Java must be the final link (and not Ubuntu internal link to the Java installation).
             ```sh
             ubuntu@ip-...:~/2.11.0$ which java
@@ -185,7 +176,7 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
             /usr/lib/jvm/java-11-openjdk-amd64/bin/java ✅
             ```
 
-            The value to set the `OPENSEARCH_JAVA_HOME` environment variable will be, in this case, `Environment="OPENSEARCH_JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"`.
+            The value to set the `JAVA_HOME` environment variable will be, in this case, `Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"`.
 
         - `ExecStart`: Specifies the command that will be executed to start the service. This line specifies the startup command for the Fast2 Broker service. It points to the `startup-broker.sh` script located in the `fast2-complete-package-2.0.0` directory. When the service starts, this script is executed.
         - `User`: Specifies the user account under which the service will run. This line indicates that the service should be run under the `fast2-user` user account. Running services as a non-root user is a security best practice.
@@ -199,7 +190,7 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
 
     Now link it to the `/etc/systemd/system` directory through a symbolic link.
 
-    ```
+    ```sh
     $ sudo ln -s SOURCE TARGET
 
     $ sudo ln -s service/linux/fast2-broker.service /etc/systemd/system
@@ -222,20 +213,20 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
 
     If the links are broken once they're created, you probably need to put an absolute path for the target as follow ;
 
-    ```
+    ```sh
     $ sudo ln -s /home/userName/fast2-complete-package-2.0.0/service/linux/fast2-broker.service /etc/systemd/system
     ```
 
     Next, reload systemd services unit and enable them :
 
-    ```
-    $ systemctl daemon-reload
-    $ systemctl enable fast2-broker.service
+    ```sh
+    $ sudo systemctl daemon-reload
+    $ sudo systemctl enable fast2-broker.service
     ```
 
     The terminal should prompt the following message :
 
-    ```
+    ```sh
     Created symlink from /etc/systemd/system/default.target.wants/fast2-broker.service to /etc/systemd/system/fast2-broker.service.
     ```
 
@@ -246,20 +237,20 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
     Test your script by starting it and then checking the status :
 
     ```sh
-    $ service fast2-broker start
+    $ sudo service fast2-broker start
     $ service fast2-broker status
     ```
 
     or
 
     ```sh
-    $ systemctl start fast2-broker.service
+    $ sudo systemctl start fast2-broker.service
     $ systemctl status fast2-broker.service
     ```
 
     You can restart or stop the service at anytime with the commands :
 
-    ```
+    ```sh
     $ service fast2 start | restart | stop | status
     ```
 
