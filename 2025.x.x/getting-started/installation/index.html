@@ -1990,7 +1990,7 @@ Elasticsearch cannot be started from root user, you will need to create a second
 <div class="language-text highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>broker.elasticsearch.embedded.enabled=false
 </code></pre></div>
 <p>You can now properly execute the following script:</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ ./startup-broker.sh
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>./startup-broker.sh
 </code></pre></div>
 </div>
 </div>
@@ -2013,27 +2013,22 @@ Elasticsearch cannot be started from root user, you will need to create a second
 Its major benefit is that it has been the default init system for the majority of linux distributions (Ubuntu, Red Hat, Fedora...).</p>
 <p><br /></p>
 <h5 id="create-a-user-for-fast2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 7v2h2v8h2V7zm2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> Create a user for Fast2<a class="headerlink" href="#create-a-user-for-fast2" title="Permanent link">&para;</a></h5>
-<p>Since the embedded database cannot be started in sudo mode, an additional user needs to be created in the Linux machine so the broker will successfully initiate the database bootup.</p>
+<p>Since the embedded database cannot be started in sudo mode, you must use an existing user that meets your requirements or create a new one on the Linux machine. This will allow the broker to successfully initiate the database startup</p>
 <p>Let's condider here our user to be <em>fast2user</em>.</p>
-<p>Head out to the <code>./startup-broker.sh</code> and get the user start the broker by switching users (with <code>su fast2user -c</code>) for the Java command.</p>
-<p>The result should be as follows:</p>
-<div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gd">- &quot;$JAVA&quot; -Xmx$BROKER_MAX_MEMORY -jar fast2-broker-package-X.Y.Z.jar</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gi">+ su fast2user -c &quot;$JAVA -Xmx$BROKER_MAX_MEMORY -jar fast2-broker-package-X.Y.Z.jar&quot;</span>
-</code></pre></div>
 <p><br/></p>
 <h5 id="execution-path"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4v2h-2a2 2 0 0 0-2 2v4h6v-2h-4v-2h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> Execution path<a class="headerlink" href="#execution-path" title="Permanent link">&para;</a></h5>
-<p>Edit the <code>ExectStart</code> field from the file <code>service/linux/fast2-broker.service</code> by changing the <code>PATH/TO/FAST2</code> portion: set it to Fast2 install path.</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[Unit]
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Description=Fast2 Broker
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>[Service]
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Environment=&quot;OPENSEARCH_JAVA_HOME=/home/JDK/java&quot;
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>ExecStart=/home/userName/fast2-complete-package-2.0.0/startup-broker.sh
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>User=fast2-user
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Group=fast2-user
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>[Install]
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>WantedBy=default.target
+<p>Edit the <code>ExecStart</code> field from the file <code>service/linux/fast2-broker.service</code> by changing the <code>PATH/TO/FAST2</code> portion: set it to Fast2 install path.</p>
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">[</span>Unit<span class="o">]</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">Description</span><span class="o">=</span>Fast2<span class="w"> </span>Broker
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="o">[</span>Service<span class="o">]</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nv">Environment</span><span class="o">=</span><span class="s2">&quot;JAVA_HOME=/home/JDK/bin/java&quot;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nv">ExecStart</span><span class="o">=</span>/home/userName/fast2-complete-package-X.Y.Z/startup-broker.sh
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nv">User</span><span class="o">=</span>fast2user
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nv">Group</span><span class="o">=</span>fast2user
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="o">[</span>Install<span class="o">]</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nv">WantedBy</span><span class="o">=</span>default.target
 </code></pre></div>
 <ul>
 <li>The <code>[Unit]</code> section provides metadata and dependencies for the service.<ul>
@@ -2045,15 +2040,15 @@ Its major benefit is that it has been the default init system for the majority o
 <ul>
 <li>
 <p><code>Environment</code>: Sets environment variables that the service will use during execution.</p>
-<p>This line sets the <code>OPENSEARCH_JAVA_HOME</code> environment variable, which is required for the Fast2 Broker service to run. The value is set to <code>/home/JDK/java</code>, which should be the path to the Java installation used by the service.
+<p>This line sets the <code>JAVA_HOME</code> environment variable, which is required for the Fast2 Broker service to run. The value is set to <code>/home/JDK/java</code>, which should be the path to the Java installation used by the service.
 However, the link to Java must be the final link (and not Ubuntu internal link to the Java installation).
-<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ubuntu@ip-...:~/2.11.0$<span class="w"> </span>which<span class="w"> </span>java
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/usr/bin/java<span class="w"> </span>❌
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>ubuntu@ip-...:~/2.11.0$<span class="w"> </span>readlink<span class="w"> </span>-f<span class="w"> </span><span class="k">$(</span>which<span class="w"> </span>java<span class="k">)</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>/usr/lib/jvm/java-11-openjdk-amd64/bin/java<span class="w"> </span>✅
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ubuntu@ip-...:~/2.11.0$<span class="w"> </span>which<span class="w"> </span>java
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>/usr/bin/java<span class="w"> </span>❌
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>ubuntu@ip-...:~/2.11.0$<span class="w"> </span>readlink<span class="w"> </span>-f<span class="w"> </span><span class="k">$(</span>which<span class="w"> </span>java<span class="k">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>/usr/lib/jvm/java-11-openjdk-amd64/bin/java<span class="w"> </span>✅
 </code></pre></div></p>
-<p>The value to set the <code>OPENSEARCH_JAVA_HOME</code> environment variable will be, in this case, <code>Environment="OPENSEARCH_JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"</code>.</p>
+<p>The value to set the <code>JAVA_HOME</code> environment variable will be, in this case, <code>Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"</code>.</p>
 </li>
 <li>
 <p><code>ExecStart</code>: Specifies the command that will be executed to start the service. This line specifies the startup command for the Fast2 Broker service. It points to the <code>startup-broker.sh</code> script located in the <code>fast2-complete-package-2.0.0</code> directory. When the service starts, this script is executed.</p>
@@ -2072,9 +2067,9 @@ However, the link to Java must be the final link (and not Ubuntu internal link t
 <p><br /></p>
 <h5 id="symbolic-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 15v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2H9v2h4v2h-2v2h2v2H9v2h4a2 2 0 0 0 2-2M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> Symbolic link<a class="headerlink" href="#symbolic-link" title="Permanent link">&para;</a></h5>
 <p>Now link it to the <code>/etc/systemd/system</code> directory through a symbolic link.</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ sudo ln -s SOURCE TARGET
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>$ sudo ln -s service/linux/fast2-broker.service /etc/systemd/system
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>SOURCE<span class="w"> </span>TARGET
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>$<span class="w"> </span>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>service/linux/fast2-broker.service<span class="w"> </span>/etc/systemd/system
 </code></pre></div>
 <p><br/></p>
 <div class="admonition tip">
@@ -2084,33 +2079,33 @@ For this,</p>
 <ul>
 <li>rename the file <span style="color:red">FAST2_HOME/services/linux/fast2-broker.service</span> to <span style="color:green">FAST2_HOME/services/linux/fast2-broker<b>-2.11.0</b>.service</span> for example</li>
 <li>run the <code>sudo ln -s ...</code> command with the new name, something like
-    <div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>service/linux/fast2-broker-2.11.0.service<span class="w"> </span>/etc/systemd/system
+    <div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>service/linux/fast2-broker-2.11.0.service<span class="w"> </span>/etc/systemd/system
 </code></pre></div></li>
 </ul>
 </div>
 <p><br/></p>
 <p>If the links are broken once they're created, you probably need to put an absolute path for the target as follow ;</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$ sudo ln -s /home/userName/fast2-complete-package-2.0.0/service/linux/fast2-broker.service /etc/systemd/system
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/home/userName/fast2-complete-package-2.0.0/service/linux/fast2-broker.service<span class="w"> </span>/etc/systemd/system
 </code></pre></div>
 <p>Next, reload systemd services unit and enable them :</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$ systemctl daemon-reload
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$ systemctl enable fast2-broker.service
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>fast2-broker.service
 </code></pre></div>
 <p>The terminal should prompt the following message :</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Created symlink from /etc/systemd/system/default.target.wants/fast2-broker.service to /etc/systemd/system/fast2-broker.service.
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Created<span class="w"> </span>symlink<span class="w"> </span>from<span class="w"> </span>/etc/systemd/system/default.target.wants/fast2-broker.service<span class="w"> </span>to<span class="w"> </span>/etc/systemd/system/fast2-broker.service.
 </code></pre></div>
 <p><br /></p>
 <h5 id="script-uses"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v6h4v4h2V7h-2v4h-2V7zm3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> Script uses<a class="headerlink" href="#script-uses" title="Permanent link">&para;</a></h5>
 <p>Test your script by starting it and then checking the status :</p>
-<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>service<span class="w"> </span>fast2-broker<span class="w"> </span>start
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>$<span class="w"> </span>service<span class="w"> </span>fast2-broker<span class="w"> </span>status
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>fast2-broker<span class="w"> </span>start
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>$<span class="w"> </span>service<span class="w"> </span>fast2-broker<span class="w"> </span>status
 </code></pre></div>
 <p>or</p>
-<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>fast2-broker.service
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>$<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>fast2-broker.service
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>fast2-broker.service
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>$<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>fast2-broker.service
 </code></pre></div>
 <p>You can restart or stop the service at anytime with the commands :</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$ service fast2 start | restart | stop | status
+<div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>service<span class="w"> </span>fast2<span class="w"> </span>start<span class="w"> </span><span class="p">|</span><span class="w"> </span>restart<span class="w"> </span><span class="p">|</span><span class="w"> </span>stop<span class="w"> </span><span class="p">|</span><span class="w"> </span>status
 </code></pre></div>
 </div>
 </div>
@@ -2121,11 +2116,11 @@ For this,</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>If you wish to start multiple workers, just hit :</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>C:\path-to-fast2\&gt; startup-worker.bat
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>C:\path-to-fast2\&gt; startup-worker.bat
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>./startup-worker.sh
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>./startup-worker.sh
 </code></pre></div>
 </div>
 </div>
