@@ -257,6 +257,25 @@ This class allow you to connect to your mail box and select mails to delete. You
 
 
 
+## RenameDocumentProperties <small> - Rename multiple document properties </small> {#RenameDocumentProperties data-toc-label="RenameDocumentProperties"}
+
+Dive into the punnet to rename one or more properties carried by the document.
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+ | Property map | `String/String map` | List of the properties to rename. One line per property <br/> <p> Ex/  targetProperty = documentStringGetter</p> |
+
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+ | Exception when property rename conflict | `Boolean` | Throws an exception if the target property exists, otherwise fails silently | `true ` |
+
+
+
 ## UpdateSharedObject <small> - Update a shared object value from its name </small> {#UpdateSharedObject data-toc-label="UpdateSharedObject"}
 
 Use this task to change a system-wide configuration setting at runtime. Mainly used for dynamic campaign variables built as a shared object in Fast2. Be careful: only works with shared object set with Global scope
