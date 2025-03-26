@@ -1042,6 +1042,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#RenameDocumentProperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      RenameDocumentProperties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#UpdateSharedObject" class="md-nav__link">
     <span class="md-ellipsis">
       UpdateSharedObject
@@ -1837,6 +1846,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#RenameDocumentProperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      RenameDocumentProperties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#UpdateSharedObject" class="md-nav__link">
     <span class="md-ellipsis">
       UpdateSharedObject
@@ -2510,6 +2528,44 @@
 <td>Save message changes</td>
 <td><code>Boolean</code></td>
 <td></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="RenameDocumentProperties">RenameDocumentProperties <small> - Rename multiple document properties </small><a class="headerlink" href="#RenameDocumentProperties" title="Permanent link">&para;</a></h2>
+<p>Dive into the punnet to rename one or more properties carried by the document.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Property map</td>
+<td><code>String/String map</code></td>
+<td>List of the properties to rename. One line per property <br/> <p> Ex/  targetProperty = documentStringGetter</p></td>
+</tr>
+</tbody>
+</table>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exception when property rename conflict</td>
+<td><code>Boolean</code></td>
+<td>Throws an exception if the target property exists, otherwise fails silently</td>
 <td><code>true</code></td>
 </tr>
 </tbody>
