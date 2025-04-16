@@ -50,7 +50,7 @@ Fast2 also stores maps into the database instance.
 
 > ℹ️ **Note**: When uploading a map locally using the `/maps` folder, only files ending with `.map.xml` will be taken into account. Other files will be ignored.
 
-V1 maps are compatible with the V2, but not the other way around.
+V1 maps are compatible with the V2, but not the other way around. V2 maps are compatible with the V2025.
 
 Click on the browse icon at the top banner and select the map to upload. Fast2 will automatically switch to the freshly uploaded map.
 
