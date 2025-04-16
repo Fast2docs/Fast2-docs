@@ -172,6 +172,8 @@ Convert your old IS annotations to XML Form Data Format (XFDF). XFDF file are us
 
 ## ConvertRipole <small> - Convert ripole files </small> {#ConvertRipole data-toc-label="ConvertRipole"}
 
+> ⚠️ **Deleted**: The `ConvertRipole` task is deleted and no longer available in Fast2 from v2025.0.0.
+
 Convert ripoles files to PDF format.
 
 
@@ -353,6 +355,8 @@ This class allow you to convert emails to a PDF format. Formats supported are ap
 
 ## ExcelConvert <small> - Convert Excel to PDF </small> {#ExcelConvert data-toc-label="ExcelConvert"}
 
+> ⚠️ **Deleted**: The `ExcelConvert` module is deleted and no longer available in Fast2 from v2025.0.0.
+
 This class allow you to convert an Excel file to a PDF format.
 
 
@@ -475,7 +479,7 @@ From a tiff content punnet, merges all its subcontent merge together. All conten
  | Minimum pages for dispatching | `Integer` |  | `1 ` | 
  | Corrupted JPEGs handled by ImageMagick | `Boolean` |  | `true ` | 
  | Handle corrupted JPEGs | `Boolean` |  | `true ` | 
- | Sanitize source JPEGs | SanitizeJpeg |  | 
+ | Sanitize source JPEGs | SanitizeJpeg | > ⚠️ **Deleted**: The `SanitizeJpeg` module is deleted and no longer available in Fast2 from v2025.0.0. | 
  | Maximum number of source pages | `Integer` |  | `Integer.MAX_VALUE ` | 
  | Force JPEG Sanitation | `Boolean` |  | `false ` | 
  | Dispatch multi-pages tiff to a bunch of single-page tiff | `Boolean` | Only the first one will be processed when source contains multiple multi-page tiffs | `false ` | 
@@ -581,6 +585,8 @@ Merge your tiff files into PDF format using the PDFBox library (v1.2.1).
 
 
 ## OOConvert <small> - Convert office file to PDF </small> {#OOConvert data-toc-label="OOConvert"}
+
+> ⚠️ **Deleted**: The `OOConvert` module is deleted and no longer available in Fast2 from v2025.0.0.
 
 Complete converter from office file to PDF format using OpenOffice / LibreOffice.
 

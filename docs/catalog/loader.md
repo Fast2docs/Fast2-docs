@@ -292,8 +292,10 @@ This task will send custom built emails to specific people or mailing list of yo
  | Multi-line content | `String list` | The content of the email. It can be composed with different paragraphs, please note Fast2 is not responsible for the text formatting though. | 
 
 
-> ⚠️ **Deleted**: The `MobiusInjector` task is deleted and no longer available in Fast2 from v2025.0.0.
+
 ## MobiusInjector <small> - Inject documents into your ASG Mobius system </small> {#MobiusInjector data-toc-label="MobiusInjector"}
+
+> ⚠️ **Deleted**: The `MobiusInjector` task is deleted and no longer available in Fast2 from v2025.0.0.
 
 This task will upload documents and metadata onto Mobius, from version 8 up to version 11. Based on the `className` and `section` properties, specify exactly where you'd like your documents to be stored.
 

@@ -198,6 +198,8 @@ This module will grant Fast2 access to send emails on behalf of a given user
 
 ## MobiusConnectionProvider <small> - Mobius connection provider </small> {#MobiusConnectionProvider data-toc-label="MobiusConnectionProvider"}
 
+> ⚠️ **Deleted**: The `MobiusConnectionProvider` module is deleted and no longer available in Fast2 from v2025.0.0.
+
 This Mobius connection module is required for Fast2 to successfully establish the connection with your Mobius instance in order to properly migrate metadata and contents.
 
 <b>Mandatory settings</b>
