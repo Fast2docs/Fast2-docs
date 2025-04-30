@@ -191,7 +191,8 @@ Easily convert date properties from one format to another
 
 <b>Mandatory settings</b>
 
-|Key      | Type    | Description | 
+|Key      | Type    | Description |
+| - | - | - |
 | Properties names | `List<String>` | Names of the properties to convert. One line per property |
 | Input date format | `String` | Original date format of the properties to convert (Ex: yyyy-MM-dd) |
 | Output date format | `String` | Desired date format of the properties after conversion (Ex: dd/MM/yyyy) |
