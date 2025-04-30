@@ -1140,6 +1140,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#NuxeoQuery" class="md-nav__link">
+    <span class="md-ellipsis">
+      NuxeoQuery
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#PropertyHelper" class="md-nav__link">
     <span class="md-ellipsis">
       PropertyHelper
@@ -1969,6 +1978,15 @@
   <a href="#Noop" class="md-nav__link">
     <span class="md-ellipsis">
       Noop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#NuxeoQuery" class="md-nav__link">
+    <span class="md-ellipsis">
+      NuxeoQuery
     </span>
   </a>
   
@@ -2834,6 +2852,30 @@
 </table>
 <h2 id="Noop">Noop <small> - Blank task performing no operation </small><a class="headerlink" href="#Noop" title="Permanent link">&para;</a></h2>
 <p>This task does not perform anything, hence you don't have to configure it. All documents and punnets will go through it without having their state updated.</p>
+<h2 id="NuxeoQuery">NuxeoQuery <small> - Query nuxeo from NXQL </small><a class="headerlink" href="#NuxeoQuery" title="Permanent link">&para;</a></h2>
+<p>This task only works with JDK-11. If any record matches the input query, the UUID of the Nuxeo items will be added to the F2 document as a new dataset.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nuxeo connection details</td>
+<td><code>NuxeoConnectionProvider</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Nuxeo query</td>
+<td><code>String</code></td>
+<td>NXQL query, with double-quotes around values (Ex: SELECT * FROM Document WHERE dc:title = \"${nom}\" AND ecm:isTrashed = 0)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="PropertyHelper">PropertyHelper <small> - FileNet submodule for properties management </small><a class="headerlink" href="#PropertyHelper" title="Permanent link">&para;</a></h2>
 <p><b>Optional settings</b></p>
 <table>
