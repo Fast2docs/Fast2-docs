@@ -226,14 +226,14 @@ This task serves the purpose of modifying a punnet based on instructions embedde
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Script | `String` | Javascript source | 
+ | Script or script file path | `String` | Javascript source or path to JavaScript file with preloaded script. Ex: C:/fast2/script.js OR punnet.getDataSet().addData(\"data\",\"String\", \"value\"); | 
 
 
 <b>Optional settings</b>
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Script file | `String` | Path to JavaScript file with preloaded script. | 
+ |(Deprecated) Script file path | `String` | Path to JavaScript file with preloaded script. Deprecated: use script property instead. | 
  | Script engine | `String` | Script engine to use for the JS execution. Use 'nashorn' for JDK8. Other options are available, such as js, javascript, ecmascript. | `nashorn ` | 
 
 
