@@ -60,6 +60,11 @@ This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco RE
  | Date format | `String` |  | `E MMM dd HH:mm:ss Z YYYY ` | 
  | CMIS query | `String` | CMIS SQL query, pattern resolvable, to fetch document based on alternative data. Using this feature will create new docs in the punnet with corresponding ID of documents. Consider following this task with a secondary AlfrescoRestContentExtractor task to extract data and contents. | 
  | Extract content | `Boolean` |  | 
+ | Extract all versions | `Boolean` | Extract the superseded versions of the documents matching the query |
+ | Extract parent site | `Boolean` | If the document is not stored in an Alfresco site, nothing will happen. Otherwise, the site details will be attached to the punnet dataset. | 
+ | Map permissions | `Boolean` | Map permissions to either the document, folder or site. |
+ | Map parent folder | `Boolean` | Map direct parent folder info onto the related document. |
+ | Extract folders as tree | `Boolean` | Extract folders as tree, with all parent folders. This option must be selected if you wish to map permissions of parent folders. |
 
 
 
