@@ -295,6 +295,18 @@ This task does not perform anything, hence you don't have to configure it. All d
 
 
 
+## NuxeoQuery <small> - Query nuxeo from NXQL </small> {#NuxeoQuery data-toc-label="NuxeoQuery"}
+
+This task only works with JDK-11. If any record matches the input query, the UUID of the Nuxeo items will be added to the F2 document as a new dataset.
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+| Nuxeo connection details | `NuxeoConnectionProvider` |  |
+| Nuxeo query | `String` | NXQL query, with double-quotes around values (Ex: SELECT * FROM Document WHERE dc:title = \"${nom}\" AND ecm:isTrashed = 0) |
+
+
 
 ## PropertyHelper <small> - FileNet submodule for properties management </small> {#PropertyHelper data-toc-label="PropertyHelper"}
 
