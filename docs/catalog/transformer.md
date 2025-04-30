@@ -185,6 +185,21 @@ This task is used to perform the IS annotation conversion and its save into a ta
 
 
 
+## ConvertDateProperties <small> - Convert multiple document/folder date properties </small> {#ConvertDateProperties data-toc-label="ConvertDateProperties"}
+
+Easily convert date properties from one format to another
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| Properties names | `List<String>` | Names of the properties to convert. One line per property |
+| Input date format | `String` | Original date format of the properties to convert (Ex: yyyy-MM-dd) |
+| Output date format | `String` | Desired date format of the properties after conversion (Ex: dd/MM/yyyy) |
+| Input locale | `String` | Locale of the input date format (Ex: en-US, fr-FR, de-DE) |
+| Output locale | `String` | Locale of the output date format (Ex: en-GB, es-ES, pt-BR) |
+
+
+
 ## DeleteContent <small> - Delete local content </small> {#DeleteContent data-toc-label="DeleteContent"}
 
 Delete the content of your document within your file system. It will retrieve the files targeted by the URL of all the document contents in your punnet
