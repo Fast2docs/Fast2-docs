@@ -136,34 +136,37 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
 
     ##### :material-numeric-1-circle: Create a user for Fast2
 
-    Since the embedded database cannot be started in sudo mode, an additional user needs to be created in the Linux machine so the broker will successfully initiate the database bootup.
+    Since the embedded database cannot be started in sudo mode, you must use an existing user that meets your requirements or create a new one on the Linux machine. This will allow the broker to successfully initiate the database startup
 
     Let's condider here our user to be *fast2user*.
 
-    Head out to the `./startup-broker.sh` and get the user start the broker by switching users (with `su fast2user -c`) for the Java command.
+    Open the `./startup-broker.sh` file and update the last line to switch users (with `su fast2user -c`) for the Java command:  
 
-    The result should be as follows:
-
-    ```diff
-    - "$JAVA" -Xmx$BROKER_MAX_MEMORY -jar fast2-broker-package-X.Y.Z.jar
-    + su fast2user -c "$JAVA -Xmx$BROKER_MAX_MEMORY -jar fast2-broker-package-X.Y.Z.jar"
-    ```
-
+    <table>
+    <tr style="color:red;">
+    <td style="text:bold">Original line</td>
+    <td>`"$JAVA" -Xmx$BROKER_MAX_MEMORY ... -jar fast2-broker-package-X.Y.Z.jar`</td>
+    </tr>
+    <tr style="color:green;">
+    <td style="text:bold">Your updated line</td>
+    <td><mark>`su fast2user -c`</mark>`"$JAVA -Xmx$BROKER_MAX_MEMORY ... -jar fast2-broker-package-X.Y.Z.jar"`</td>
+    </tr>
+    </table>
     <br/>
 
     ##### :material-numeric-2-circle: Execution path
 
-    Edit the `ExectStart` field from the file `service/linux/fast2-broker.service` by changing the `PATH/TO/FAST2` portion: set it to Fast2 install path.
+    Edit the `ExecStart` field from the file `service/linux/fast2-broker.service`: it must point out to the Fast2 installation path.
 
-    ```
+    ```sh hl_lines="2 6"
     [Unit]
-    Description=Fast2 Broker
+    Description=Fast2 Broker vX.Y.Z
 
     [Service]
-    Environment="OPENSEARCH_JAVA_HOME=/home/JDK/java"
-    ExecStart=/home/userName/fast2-complete-package-2.0.0/startup-broker.sh
-    User=fast2-user
-    Group=fast2-user
+    Environment="JAVA_HOME=/home/JDK/bin/java"
+    ExecStart=/home/userName/fast2-complete-package-X.Y.Z/startup-broker.sh
+    User=fast2user
+    Group=fast2user
 
     [Install]
     WantedBy=default.target
