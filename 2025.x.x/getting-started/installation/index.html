@@ -2072,16 +2072,27 @@ Its major benefit is that it has been the default init system for the majority o
 <h5 id="create-a-user-for-fast2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 7v2h2v8h2V7zm2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> Create a user for Fast2<a class="headerlink" href="#create-a-user-for-fast2" title="Permanent link">&para;</a></h5>
 <p>Since the embedded database cannot be started in sudo mode, you must use an existing user that meets your requirements or create a new one on the Linux machine. This will allow the broker to successfully initiate the database startup</p>
 <p>Let's condider here our user to be <em>fast2user</em>.</p>
-<p><br/></p>
+<p>Open the <code>./startup-broker.sh</code> file and update the last line to switch users (with <code>su fast2user -c</code>) for the Java command:  </p>
+<p><table>
+<tr style="color:red;">
+<td style="text:bold">Original line</td>
+<td><code>"$JAVA" -Xmx$BROKER_MAX_MEMORY ... -jar fast2-broker-package-X.Y.Z.jar</code></td>
+</tr>
+<tr style="color:green;">
+<td style="text:bold">Your updated line</td>
+<td><mark><code>su fast2user -c</code></mark><code>"$JAVA -Xmx$BROKER_MAX_MEMORY ... -jar fast2-broker-package-X.Y.Z.jar"</code></td>
+</tr>
+</table>
+<br/></p>
 <h5 id="execution-path"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4v2h-2a2 2 0 0 0-2 2v4h6v-2h-4v-2h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> Execution path<a class="headerlink" href="#execution-path" title="Permanent link">&para;</a></h5>
-<p>Edit the <code>ExecStart</code> field from the file <code>service/linux/fast2-broker.service</code> by changing the <code>PATH/TO/FAST2</code> portion: set it to Fast2 install path.</p>
+<p>Edit the <code>ExecStart</code> field from the file <code>service/linux/fast2-broker.service</code>: it must point out to the Fast2 installation path.</p>
 <div class="language-sh highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">[</span>Unit<span class="o">]</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">Description</span><span class="o">=</span>Fast2<span class="w"> </span>Broker
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="hll"><span class="nv">Description</span><span class="o">=</span>Fast2<span class="w"> </span>Broker<span class="w"> </span>vX.Y.Z
+</span><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="o">[</span>Service<span class="o">]</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nv">Environment</span><span class="o">=</span><span class="s2">&quot;JAVA_HOME=/home/JDK/bin/java&quot;</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nv">ExecStart</span><span class="o">=</span>/home/userName/fast2-complete-package-X.Y.Z/startup-broker.sh
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nv">User</span><span class="o">=</span>fast2user
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="hll"><span class="nv">ExecStart</span><span class="o">=</span>/home/userName/fast2-complete-package-X.Y.Z/startup-broker.sh
+</span><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nv">User</span><span class="o">=</span>fast2user
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nv">Group</span><span class="o">=</span>fast2user
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="o">[</span>Install<span class="o">]</span>
