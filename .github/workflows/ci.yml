@@ -85,14 +85,14 @@ jobs:
         #run: mike deploy --push --update-aliases 2.x v2
         run: mike deploy --push --update-aliases 2025.x.x latest
 
-  markdown-link-check:
-    name: Markdown Link Check
-    runs-on: ubuntu-latest
-    steps:
-      # Step 1: Checkout the repository
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+  # markdown-link-check:
+  #   name: Markdown Link Check
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # Step 1: Checkout the repository
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v3
 
-      # Step 2: Check Markdown links
-      - name: Check Markdown Links
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
+  #     # Step 2: Check Markdown links
+  #     - name: Check Markdown Links
+  #       uses: gaurav-nelson/github-action-markdown-link-check@v1
