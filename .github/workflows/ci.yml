@@ -85,6 +85,10 @@ jobs:
         #run: mike deploy --push --update-aliases 2.x v2
         run: mike deploy --push --update-aliases 2025.x.x latest
 
+      # Step 10: Set default version to latest
+      - name: Set default version to latest
+        run: mike set-default latest --push
+
   # markdown-link-check:
   #   name: Markdown Link Check
   #   runs-on: ubuntu-latest
