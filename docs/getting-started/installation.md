@@ -140,15 +140,27 @@ To end the Fast2 process, just hit `Ctrl+C` in the command line the startup file
 
     Let's condider here our user to be *fast2user*.
 
+    Open the `./startup-broker.sh` file and update the last line to switch users (with `su fast2user -c`) for the Java command:  
+
+    <table>
+    <tr style="color:red;">
+    <td style="text:bold">Original line</td>
+    <td>`"$JAVA" -Xmx$BROKER_MAX_MEMORY ... -jar fast2-broker-package-X.Y.Z.jar`</td>
+    </tr>
+    <tr style="color:green;">
+    <td style="text:bold">Your updated line</td>
+    <td><mark>`su fast2user -c`</mark>`"$JAVA -Xmx$BROKER_MAX_MEMORY ... -jar fast2-broker-package-X.Y.Z.jar"`</td>
+    </tr>
+    </table>
     <br/>
 
     ##### :material-numeric-2-circle: Execution path
 
-    Edit the `ExecStart` field from the file `service/linux/fast2-broker.service` by changing the `PATH/TO/FAST2` portion: set it to Fast2 install path.
+    Edit the `ExecStart` field from the file `service/linux/fast2-broker.service`: it must point out to the Fast2 installation path.
 
-    ```sh
+    ```sh hl_lines="2 6"
     [Unit]
-    Description=Fast2 Broker
+    Description=Fast2 Broker vX.Y.Z
 
     [Service]
     Environment="JAVA_HOME=/home/JDK/bin/java"
