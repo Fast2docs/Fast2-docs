@@ -287,4 +287,35 @@ The Broker starts an embedded worker by default.
 If the worker and broker are not booted up on the same machine, you need to setup the Broker host name in the worker configuration file.
 Edit the file `config/application.properties` and modify `broker.host` accordingly.
 
-You can setup Fast2 Worker as a service the same way you did for the Fast2 Broker.
+You can setup Fast2 Worker as a service the same way you did for the Fast2 Broker. For a worker installed on a Windows machine, you need to edit 2 files :
+
+- The `Fast2_broker_service.exe` file in the `service/windows` folder has to be renamed to `Fast2_worker_service.exe`
+- The `Fast2_broker_service.xml` file in the `service/windows` folder has to be renamed to `Fast2_worker_service.xml` and requires some changes :
+    - The `id` tag has to be changed to something different than `Fast2` in case the broker has already been installed as a service on this machine. For instance,`Fast2-worker`.
+    - The `name` tag has to be changed to something different than `Fast2 Broker` to avoid any confusion in case the broker has already been installed as a service on this machine. For instance, `Fast2 Worker`.
+    - The `description` tag has to be changed to something different than `Fast2 Broker vX.Y.Z` to avoid any confusion in case the broker has already been installed as a service on this machine. For instance, `Fast2 Worker vX.Y.Z`.
+    - The `executable` tag has to be changed to point to the `startup-worker.bat` file which is at Fast2 root level.
+
+The `Fast2_worker_service.xml` file will look like this :
+```xml
+<service>
+    <id>Fast2WorkerDCTM</id>
+    <name>Fast2 Worker DCTM</name>
+    <description>Fast2 Worker DCTM v-2.12.1</description>
+    <!-- Fast2_service lives in service\windows, rewind 2 levels to find home -->
+    <env name="FAST2_HOME" value="%BASE%\..\.." />
+    <executable>%BASE%\..\..\startup-worker.bat</executable>
+    <logpath>%BASE%\..\log</logpath>
+    <startmode>Manual</startmode>
+    <log mode="roll-by-size">
+        <sizeThreshold>10240</sizeThreshold>
+        <keepFiles>8</keepFiles>
+    </log>
+</service>
+```
+
+And then, to install the worker as aservice :
+
+    ```cmd
+    C:\path-to-fast2\service\windows> Fast2_worker_service.exe install
+    ``` 
