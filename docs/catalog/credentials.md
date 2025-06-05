@@ -196,6 +196,20 @@ This module will grant Fast2 access to send emails on behalf of a given user
 | ----- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Debug | `Boolean` | Set the debug setting for this Session. Since the debug setting can be turned on only after the Session has been created, to turn on debugging in the Session constructor, set the property `mail.debug` in the Properties object passed in to the constructor to `true` |
 
+
+## MFilesConnectionProvider <small> - Connection settings for MFiles </small> {#MFilesConnectionProvider data-toc-label="MFilesConnectionProvider"}
+
+Credentials to connect to M-Files remote system via its REST API.
+
+<b>Mandatory settings</b>
+
+| Key               | Type     | Description                                                            | Default value |
+| ----------------- | -------- | ---------------------------------------------------------------------- | ------------- |
+| M-Files REST endpoint | `String` | | http://ip.address/REST |
+| Login | `String` | |  |
+| Password | `String` | |  |
+| Vault GUID | `String` | ex : {15c876e7-8462-4a35-83d6-c8c21694eed6} |  |
+
 ## MobiusConnectionProvider <small> - Mobius connection provider </small> {#MobiusConnectionProvider data-toc-label="MobiusConnectionProvider"}
 
 > ⚠️ **Deleted**: The `MobiusConnectionProvider` module is deleted and no longer available in Fast2 from v2025.0.0.

@@ -292,6 +292,16 @@ This task will send custom built emails to specific people or mailing list of yo
  | Multi-line content | `String list` | The content of the email. It can be composed with different paragraphs, please note Fast2 is not responsible for the text formatting though. | 
 
 
+## MFileInjector <small> - Module to inject into M-Files via its public REST API. Java 11 is required for this module. </small> {#MFileInjector data-toc-label="MFileInjector"}
+
+Module to inject into M-Files via its public REST API. Java 11 is required for this module.
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | 
+| - | - | - |
+| M-Files connection provider | `MFilesConnectionProvider` | Credentials to connect to M-Files remote system via its REST API. |
+
 
 ## MobiusInjector <small> - Inject documents into your ASG Mobius system </small> {#MobiusInjector data-toc-label="MobiusInjector"}
 

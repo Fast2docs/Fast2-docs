@@ -37,6 +37,17 @@ Reorganize your files inside your AWS S3 environment.
  | Target bucket | `String` | The target bucket where you want to move your S3 files. If empty use the same as origin | 
 
 
+## CheckCompoundDocumentSettings <small> - Check if an Office document contains embedded files </small> {#CheckCompoundDocumentSettings data-toc-label="CheckCompoundDocumentSettings"}
+
+Only Office documents are supported (docx, xlsx, pptx). All other contents will be skipped.
+
+<b>Optional settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+| Data name for found items | `String` | The name of the new data under which the list of found items will be stored | `EMBEDDED_FILES ` |
+| Extract as side content | `Boolean` | | |
+
 
 ## CountPdfPages <small> - Count the number of pages in PDF file </small> {#CountPdfPages data-toc-label="CountPdfPages"}
 
