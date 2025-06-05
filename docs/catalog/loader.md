@@ -292,7 +292,7 @@ This task will send custom built emails to specific people or mailing list of yo
  | Multi-line content | `String list` | The content of the email. It can be composed with different paragraphs, please note Fast2 is not responsible for the text formatting though. | 
 
 
-## MFileInjector <small> - Module to inject into M-Files via its public REST API. Java 11 is required for this module. </small> {#MFileInjector data-toc-label="MFileInjector"}
+## MFilesInjector <small> - Module to inject into M-Files via its public REST API. Java 11 is required for this module. </small> {#MFilesInjector data-toc-label="MFilesInjector"}
 
 Module to inject into M-Files via its public REST API. Java 11 is required for this module.
 
