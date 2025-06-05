@@ -1023,6 +1023,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#CheckCompoundDocumentSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      CheckCompoundDocumentSettings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#CountPdfPages" class="md-nav__link">
     <span class="md-ellipsis">
       CountPdfPages
@@ -1867,6 +1876,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#CheckCompoundDocumentSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      CheckCompoundDocumentSettings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#CountPdfPages" class="md-nav__link">
     <span class="md-ellipsis">
       CountPdfPages
@@ -2155,6 +2173,33 @@
 <td>Target bucket</td>
 <td><code>String</code></td>
 <td>The target bucket where you want to move your S3 files. If empty use the same as origin</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CheckCompoundDocumentSettings">CheckCompoundDocumentSettings <small> - Check if an Office document contains embedded files </small><a class="headerlink" href="#CheckCompoundDocumentSettings" title="Permanent link">&para;</a></h2>
+<p>Only Office documents are supported (docx, xlsx, pptx). All other contents will be skipped.</p>
+<p><b>Optional settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data name for found items</td>
+<td><code>String</code></td>
+<td>The name of the new data under which the list of found items will be stored</td>
+<td><code>EMBEDDED_FILES</code></td>
+</tr>
+<tr>
+<td>Extract as side content</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
