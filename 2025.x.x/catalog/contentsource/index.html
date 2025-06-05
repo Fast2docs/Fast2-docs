@@ -917,6 +917,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#AlfrescoRestSiteExtractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      AlfrescoRestSiteExtractor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#CMContentExtractor" class="md-nav__link">
     <span class="md-ellipsis">
       CMContentExtractor
@@ -1795,6 +1804,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#AlfrescoRestSiteExtractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      AlfrescoRestSiteExtractor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#CMContentExtractor" class="md-nav__link">
     <span class="md-ellipsis">
       CMContentExtractor
@@ -2047,12 +2065,6 @@
 </thead>
 <tbody>
 <tr>
-<td>Extract annotations</td>
-<td><code>Boolean</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td>Date format</td>
 <td><code>String</code></td>
 <td></td>
@@ -2099,6 +2111,39 @@
 <td><code>Boolean</code></td>
 <td>Extract folders as tree, with all parent folders. This option must be selected if you wish to map permissions of parent folders.</td>
 <td></td>
+</tr>
+<tr>
+<td>Extract users as email addresses</td>
+<td><code>Boolean</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AlfrescoRestSiteExtractor">AlfrescoRestSiteExtractor <small> - Alfresco Site extractor using Alfresco REST protocol </small><a class="headerlink" href="#AlfrescoRestSiteExtractor" title="Permanent link">&para;</a></h2>
+<p>This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco REST client) to retrieve sites into a given Alfresco instance.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alfresco connection provider</td>
+<td><a href="../credentials/#AlfrescoRESTConnectionProvider">AlfrescoRESTConnectionProvider</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AFTS query</td>
+<td><code>String</code></td>
+<td>Query used to retrieve all sites from Alfresco</td>
+<td>TYPE:\"st:site\"</td>
 </tr>
 </tbody>
 </table>
