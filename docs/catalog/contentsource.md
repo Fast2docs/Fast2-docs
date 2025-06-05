@@ -56,7 +56,6 @@ This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco RE
 
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
- | Extract annotations | `Boolean` |  | 
  | Date format | `String` |  | `E MMM dd HH:mm:ss Z YYYY ` | 
  | CMIS query | `String` | CMIS SQL query, pattern resolvable, to fetch document based on alternative data. Using this feature will create new docs in the punnet with corresponding ID of documents. Consider following this task with a secondary AlfrescoRestContentExtractor task to extract data and contents. | 
  | Extract content | `Boolean` |  | 
@@ -65,6 +64,19 @@ This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco RE
  | Map permissions | `Boolean` | Map permissions to either the document, folder or site. |
  | Map parent folder | `Boolean` | Map direct parent folder info onto the related document. |
  | Extract folders as tree | `Boolean` | Extract folders as tree, with all parent folders. This option must be selected if you wish to map permissions of parent folders. |
+ | Extract users as email addresses | `Boolean` | |
+
+
+## AlfrescoRestSiteExtractor <small> - Alfresco Site extractor using Alfresco REST protocol </small> {#AlfrescoRestSiteExtractor data-toc-label="AlfrescoRestSiteExtractor"}
+
+This task relies on the Alfresco public REST API (with v1.0.4 of the Alfresco REST client) to retrieve sites into a given Alfresco instance.
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | Default value |
+| - | - | - | - |
+| Alfresco connection provider | [AlfrescoRESTConnectionProvider](credentials.md#AlfrescoRESTConnectionProvider) | | |
+| AFTS query | `String` | Query used to retrieve all sites from Alfresco | TYPE:\"st:site\" |
 
 
 
