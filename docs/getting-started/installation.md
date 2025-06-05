@@ -314,8 +314,7 @@ The `Fast2_worker_service.xml` file will look like this :
 </service>
 ```
 
-And then, to install the worker as aservice :
-
-    ```cmd
-    C:\path-to-fast2\service\windows> Fast2_worker_service.exe install
-    ``` 
+And then, to install the worker as a service :
+```cmd
+C:\path-to-fast2\service\windows> Fast2_worker_service.exe install
+```
