@@ -266,6 +266,23 @@ graph LR
   F -.->|Restart source iterator| B;
 ```
 
+### Color Bubble Indicators
+
+For each task, the color bubble indicates the status of punnet processing.
+
+![Fast2 bubbles](../assets/img/colored bubbles.png){ width="60%" }
+
+Each colored bubble shows a specific metric:
+🟡 Yellow (Top) – Number of punnets waiting to be processed
+
+🔵 Blue (Left) – Number of punnets currently being processed
+
+🔴 Red (Right) – Number of failures
+
+🟠 Orange (Bottom Center) – Processing speed, in punnets per second
+
+🟢 Green (Right-Center) – Number of successfully processed punnets
+
 ### Operating
 
 <!-- todo -->
