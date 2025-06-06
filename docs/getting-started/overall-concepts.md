@@ -270,9 +270,10 @@ graph LR
 
 For each task, the color bubble indicates the status of punnet processing.
 
-![Fast2 bubbles](../assets/img/colored bubbles.png){ width="60%" }
+![Fast2 bubbles](../assets/img/colored bubbles.png){ width="30%" }
 
 Each colored bubble shows a specific metric:
+
 🟡 Yellow (Top) – Number of punnets waiting to be processed
 
 🔵 Blue (Left) – Number of punnets currently being processed
