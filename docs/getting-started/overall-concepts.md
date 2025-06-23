@@ -266,7 +266,7 @@ graph LR
   F -.->|Restart source iterator| B;
 ```
 
-### Color Bubble Indicators
+### Punnet status
 
 For each task, the color bubble indicates the status of punnet processing.
 

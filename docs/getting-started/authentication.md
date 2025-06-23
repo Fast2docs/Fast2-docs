@@ -26,3 +26,6 @@ To create a new account in Fast2, follow these steps:
 ## Login
 Once you have registered, you can log in to the Fast2 UI using your email and password.
 ![Login](../assets/img/authentication/login page.png){ width="100%" }
+
+## Team management
+Fast2 allows you to manage multiple users. When starting Fast2 for the first time, the created user will be the super admin.
