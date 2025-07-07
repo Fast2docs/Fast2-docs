@@ -35,9 +35,7 @@ Fast2 allows you to manage multiple users. **When starting Fast2 for the first t
 - Resetting member passwords
 
 ### Navigating to Team Place
-To access Team Place:
-1. Click on your account avatar in the bottom left corner of the screen.
-2. Select **Manage Team** from the popup menu.
+To access Team Place: Click on your account avatar in the bottom left corner of the screen and then select **Manage Team** from the popup menu.
 ![Navigate to Team Place](../assets/img/authentication/navigateTeamPlace.gif){ width="100%" }
 
 #### User Access Restrictions

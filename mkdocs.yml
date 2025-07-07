@@ -160,7 +160,7 @@ nav:
     - getting-started/index.md
     - Overall concepts: getting-started/overall-concepts.md
     - Installation: getting-started/installation.md
-    - Authentication: getting-started/authentication.md
+    - Authentication & Team management: getting-started/authentication.md
     - Create a workflow: getting-started/create-workflow.md
   - Components:
     - components/index.md
