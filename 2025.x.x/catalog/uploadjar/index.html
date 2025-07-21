@@ -1101,7 +1101,7 @@
         <li class="md-nav__item">
   <a href="#good-things-to-know" class="md-nav__link">
     <span class="md-ellipsis">
-      Good things to know
+      Good Things to Know
     </span>
   </a>
   
@@ -1768,7 +1768,7 @@
         <li class="md-nav__item">
   <a href="#good-things-to-know" class="md-nav__link">
     <span class="md-ellipsis">
-      Good things to know
+      Good Things to Know
     </span>
   </a>
   
@@ -1792,31 +1792,53 @@
 
 <h1 id="importing-or-replacing-jar-files-from-the-fast2-ui-available-from-v202520">Importing or Replacing JAR Files from the Fast2 UI (available from v2025.2.0)<a class="headerlink" href="#importing-or-replacing-jar-files-from-the-fast2-ui-available-from-v202520" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>This feature allows you to import new JAR libraries or replace existing ones directly from the Fast2 user interface, without manual server intervention. The relevant workers are automatically restarted to apply the changes. <strong>Note:</strong> Due to server isolation, only embedded workers can be updated this way.</p>
+<p>This feature allows you to import new JAR libraries or replace existing ones directly from the Fast2 user interface, without manual server intervention. The relevant workers are automatically restarted to apply the changes.</p>
+<blockquote>
+<p><strong>Note:</strong> Due to server isolation, only embedded workers can be updated this way.</p>
+</blockquote>
+<hr />
 <h2 id="user-scenarios">User Scenarios<a class="headerlink" href="#user-scenarios" title="Permanent link">&para;</a></h2>
 <h3 id="1-uploading-a-valid-jar">1. Uploading a Valid JAR<a class="headerlink" href="#1-uploading-a-valid-jar" title="Permanent link">&para;</a></h3>
-<p><strong>Note:</strong> You must be authenticated as ADMIN or SUPER ADMIN to upload a JAR.
-  - Go to Servers Place → LIBRARIES tab
-<img alt="Upload JAR" src="../../assets/img/catalog/serversPlace.png" width="100%" />
-  - Click on <code>Import jar</code> top right button → Select a JAR that does not exist in <code>/worker-libs</code> → Either Cancel or Import the JAR
-<img alt="Import JAR" src="../../assets/img/catalog/importJar.png" width="100%" />
-  - Workers on the same server as the broker are restarted
-  - The JAR is added to <code>/worker-libs</code>
-  - Restarting worker and successfully added jar messages are displayed</p>
+<blockquote>
+<p>You must be authenticated as <strong>ADMIN</strong> or <strong>SUPER ADMIN</strong> to upload a JAR.</p>
+</blockquote>
+<ol>
+<li>Go to <strong>Servers Place</strong> → <strong>LIBRARIES</strong> tab</li>
+</ol>
+<p><img alt="Upload JAR" src="../../assets/img/catalog/serversPlace.png" /></p>
+<ol>
+<li>Click on <strong>Import jar</strong> (top right button)</li>
+<li>Select a JAR that does not exist in <code>/worker-libs</code></li>
+<li>Either <strong>Cancel</strong> or <strong>Import</strong> the JAR</li>
+</ol>
+<p><img alt="Import JAR" src="../../assets/img/catalog/importJar.png" /></p>
+<ol>
+<li>Workers on the same server as the broker are restarted</li>
+<li>The JAR is added to <code>/worker-libs</code></li>
+<li>Worker restart and success messages are displayed</li>
+</ol>
+<hr />
 <h3 id="2-replacing-an-existing-jar">2. Replacing an Existing JAR<a class="headerlink" href="#2-replacing-an-existing-jar" title="Permanent link">&para;</a></h3>
-<p><strong>Note:</strong> You must be authenticated as ADMIN or SUPER ADMIN to replace an existing JAR.
-  - Navigate to Servers Place as in step 1 above
-  - Select a JAR already present (different version) 
-  - Workers are restarted
-  - The old JAR is moved to <code>/worker-libs/versions</code> and renamed with <code>.old</code>
-  - The new JAR is added <code>/worker-libs</code>
-  - Restarting worker and successfully added jar messages are displayed</p>
-<h2 id="good-things-to-know">Good things to know<a class="headerlink" href="#good-things-to-know" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>You must be authenticated as <strong>ADMIN</strong> or <strong>SUPER ADMIN</strong> to replace an existing JAR.</p>
+</blockquote>
+<ol>
+<li>Go to <strong>Servers Place</strong> as in step 1 above</li>
+<li>Select a JAR already present (different version)</li>
+<li>Workers are restarted</li>
+<li>The old JAR is moved to <code>/worker-libs/versions</code> and renamed with <code>.old</code></li>
+<li>The new JAR is added to <code>/worker-libs</code></li>
+<li>Worker restart and success messages are displayed</li>
+</ol>
+<hr />
+<h2 id="good-things-to-know">Good Things to Know<a class="headerlink" href="#good-things-to-know" title="Permanent link">&para;</a></h2>
 <ul>
 <li>If one or more campaigns are running, they are stopped before upload</li>
-<li>Attempt to upload a non-.jar file will result in an error message</li>
+<li>Attempting to upload a non-.jar file will result in an error message</li>
 </ul>
-<p>Keep in mind that to perform any operation, ensure you are logged in with the appropriate role (ADMIN or SUPER ADMIN) and use valid JAR files. Version management and campaign protection ensure Fast2 remains stable and available during library updates.</p>
+<blockquote>
+<p>To perform any operation, ensure you are logged in with the appropriate role (<strong>ADMIN</strong> or <strong>SUPER ADMIN</strong>) and use valid JAR files. Version management and campaign protection ensure Fast2 remains stable and available during library updates.</p>
+</blockquote>
 
 
 
