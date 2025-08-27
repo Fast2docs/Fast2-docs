@@ -121,6 +121,12 @@ This resource can be imported into your dashboard add-on from the right-side men
 as shown on the screen-capture below :
 
 ![Dashboard : import resource](../assets/img/components/dashboards_import-menu.png){ width="60%" }
+<br/>
+
+![Dashboards : ask to choose on import conflict](../assets/img/components/Dashboards-choose-on-conflict.png){ width="60%" }
+<br/>
+
+![Dashboards : choose already existing Fast2 index](../assets/img/components/Dashboards-select-existing-index.png){ width="60%" }
 
 ### Resource #1 : Exception table { #visualisation-exception-table data-toc-label="Exception table" }
 
