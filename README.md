@@ -10,7 +10,11 @@ Windows CMD :
 docker run --rm -it -p 8000:8000 -v "%cd%":/docs squidfunk/mkdocs-material
 ```
 
-docker run --rm -it -p 8000:8000 -v "%cd%":/docs squidfunk/mkdocs-material
+From a Linux-based workstation, it would be:
+```sh
+docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+```
+
 
 ## Deploy :
 
