@@ -83,7 +83,7 @@ Body format:
 | -----: | ------------ | ------ | ----------- |
 |    200 | _/_          | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/auth/change-password' \
@@ -106,7 +106,7 @@ curl -X POST 'http://localhost:1789/auth/change-password' \
 | -----: | ------------ | ------- | ----------- |
 |    200 | _/_          | boolean | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/auth/is-authenticated' \
@@ -123,7 +123,7 @@ curl -X GET 'http://localhost:1789/auth/is-authenticated' \
 | -----: | ------------ | -------------- | ----------- |
 |    200 | _/_          | integer(int32) | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/auth/lock-time-duration' \
@@ -158,7 +158,7 @@ Body format:
 | -----: | ------------ | ------ | ----------- |
 |    200 | _/_          | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/auth/login' \
@@ -180,7 +180,7 @@ curl -X POST 'http://localhost:1789/auth/login' \
 | -----: | ------------ | -------------- | ----------- |
 |    200 | _/_          | integer(int32) | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/auth/max-failed-attempts' \
@@ -197,7 +197,7 @@ curl -X GET 'http://localhost:1789/auth/max-failed-attempts' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | _/_          | string | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/auth/public-key' \
@@ -214,7 +214,7 @@ curl -X GET 'http://localhost:1789/auth/public-key' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | _/_          | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/auth/refresh-token' \
@@ -237,7 +237,7 @@ curl -X POST 'http://localhost:1789/auth/refresh-token' \
 | -----: | ------------ | -------------- | ----------- |
 |    200 | _/_          | integer(int32) | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/auth/remaining-attempts' \
@@ -260,7 +260,7 @@ curl -X GET 'http://localhost:1789/auth/remaining-attempts' \
 | -----: | ------------ | -------------- | ----------- |
 |    200 | _/_          | integer(int64) | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/auth/remaining-lock-time' \
@@ -297,7 +297,7 @@ Body format:
 | -----: | ------------ | ------ | ----------- |
 |    200 | _/_          | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/auth/reset-password' \
@@ -310,7 +310,13 @@ curl -X POST 'http://localhost:1789/auth/reset-password' \
 }'
 ```
 
-### Download any content set in broker files directory
+---
+
+## Broker API
+
+Endpoint for broker-worker communication
+
+### Delete any content set in broker files directory
 
 `DELETE /broker/contents`
 
@@ -326,7 +332,7 @@ curl -X POST 'http://localhost:1789/auth/reset-password' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/broker/contents' \
@@ -349,7 +355,7 @@ curl -X DELETE 'http://localhost:1789/broker/contents' \
 | -----: | ---------------- | -------------- | ----------- |
 |    200 | application/json | string(binary) | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/broker/contents' \
@@ -366,12 +372,18 @@ curl -X GET 'http://localhost:1789/broker/contents' \
 | -----: | ---------------- | ------------------- | ----------- |
 |    200 | application/json | array[string(byte)] | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/broker/download-broker-logs' \
   -H 'Authorization: Bearer <token>' \
 ```
+
+---
+
+## Campaign API
+
+Endpoint for managing campaigns
 
 ### Delete campaigns by names
 
@@ -394,7 +406,7 @@ Deletes campaigns that match the list of specified campaign names and map versio
 |    200 | application/json | object | Successfully deleted campaigns    |
 |    400 | —                | —      | Invalid request parameters        |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/campaigns/delete-by-names' \
@@ -422,7 +434,7 @@ Deletes campaigns that match the specified name pattern and map version. If no n
 |    200 | application/json | object | Successfully deleted campaigns    |
 |    400 | —                | —      | Invalid request parameters        |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/campaigns/delete-by-pattern' \
@@ -450,7 +462,7 @@ Downloads all exceptions thrown during a specific campaign
 |    500 | —            | —      | Server failed to download exceptions |
 |    400 | —            | —      | Invalid request parameters           |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/campaigns/download-exceptions' \
@@ -480,7 +492,7 @@ Retrieves campaigns that match the list of specified campaign names, map version
 |    200 | application/json | object | Successfully retrieved campaigns |
 |    400 | —                | —      | Invalid request parameters       |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/campaigns/dto/search-by-names' \
@@ -511,7 +523,7 @@ Retrieves a list of campaigns dto that match the specified name pattern, map ver
 |    200 | application/json | object | Successfully retrieved campaigns    |
 |    400 | —                | —      | Invalid request parameters          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/campaigns/dto/search-by-pattern' \
@@ -539,7 +551,7 @@ Retrieves a campaign dto from its name
 |    404 | —                | —      | Campaign not found                 |
 |    500 | —                | —      | Server failed to retrieve campaign |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/campaigns/dto/<campaign>' \
@@ -569,7 +581,7 @@ Retrieves campaigns that match the list of specified campaign names, map version
 |    500 | —                | —      | Server failed to retrieve campaigns |
 |    400 | —                | —      | Invalid request parameters          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/campaigns/search-by-names' \
@@ -599,7 +611,7 @@ Retrieves campaigns that match the specified name pattern, map version and map i
 |    500 | —                | —      | Server failed to retrieve campaigns |
 |    400 | —                | —      | Invalid request parameters          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/campaigns/search-by-pattern' \
@@ -627,7 +639,7 @@ Stops campaigns that match the specified list of campaign names and map version.
 |    200 | application/json | object | Successfully stopped campaign  |
 |    400 | —                | —      | Invalid request parameters     |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/campaigns/stop-by-names' \
@@ -655,7 +667,7 @@ Stops campaigns that match the specified name pattern and map version. If no nam
 |    200 | application/json | object | Successfully stopped campaign  |
 |    400 | —                | —      | Invalid request parameters     |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/campaigns/stop-by-pattern' \
@@ -683,7 +695,7 @@ Deletes a campaign from its name
 |    404 | —            | —      | Campaign not found                   |
 |    500 | —            | —      | Server failed to delete the campaign |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/campaigns/<campaign>' \
@@ -707,7 +719,7 @@ curl -X DELETE 'http://localhost:1789/campaigns/<campaign>' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/campaigns/<campaign>/parameter/<campaignParameter>' \
@@ -730,7 +742,7 @@ curl -X DELETE 'http://localhost:1789/campaigns/<campaign>/parameter/<campaignPa
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/campaigns/<campaign>/parameters' \
@@ -753,7 +765,7 @@ curl -X DELETE 'http://localhost:1789/campaigns/<campaign>/parameters' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/campaigns/<campaign>/parameters' \
@@ -793,7 +805,7 @@ Body format:
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/campaigns/<campaign>/parameters' \
@@ -825,7 +837,7 @@ Resumes a campaign from its name. Only stopped campaigns can be resumed
 |    500 | —                | —      | Server failed to resume campaign |
 |    200 | application/json | object | Successfully resumed campaign    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/campaigns/<campaign>/resume' \
@@ -855,7 +867,7 @@ Retry punnets in any step for a specific campaign. You can filter the punnets to
 |    400 | —            | —      | Invalid request parameters     |
 |    200 | —            | —      | Successfully retried campaign  |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/campaigns/<campaign>/retry-punnets' \
@@ -885,7 +897,7 @@ Starts a campaign from its name and a map id. Can be a new campaign or a rerun
 |    200 | application/json | object | Successfully started campaign   |
 |    500 | —                | —      | Server failed to start campaign |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/campaigns/<campaign>/start' \
@@ -913,7 +925,7 @@ Retrieves stats of specified campaign
 |    400 | —                | —      | Invalid request parameters               |
 |    404 | —                | —      | Campaign or stats not found              |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/campaigns/<campaign>/stats' \
@@ -941,7 +953,7 @@ Retrieves status of specified campaign
 |    400 | —                | —      | Invalid request parameters                |
 |    500 | —                | —      | Server failed to retrieve campaign status |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/campaigns/<campaign>/status' \
@@ -971,7 +983,7 @@ Downloads step result for a specific campaign. You can filter the punnets to dow
 |    500 | —            | —      | Server failed to download step result |
 |    400 | —            | —      | Invalid request parameters            |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/campaigns/<campaign>/step/<stepId>/download-result' \
@@ -1001,7 +1013,7 @@ Pause a step by providing the campaign name, map ID, and step ID. These paramete
 |    404 | —                | —      | Campaign not found         |
 |    500 | —                | —      | Failed to pause step       |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/campaigns/<campaign>/step/<stepId>/pause' \
@@ -1031,7 +1043,7 @@ Resume a step by providing the campaign name, map ID, and step ID. These paramet
 |    404 | —                | —      | Campaign not found         |
 |    204 | application/json | object | Successfully resumed step  |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/campaigns/<campaign>/step/<stepId>/resume' \
@@ -1059,12 +1071,18 @@ Stop a campaign from its name
 |    500 | —                | —      | Failed to resume campaign     |
 |    404 | —                | —      | Campaign not found            |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/campaigns/<campaign>/stop' \
   -H 'Authorization: Bearer <token>' \
 ```
+
+---
+
+## Catalog API
+
+Endpoint to retrieve catalog tasks
 
 ### getCatalog
 
@@ -1084,7 +1102,7 @@ curl -X POST 'http://localhost:1789/campaigns/<campaign>/stop' \
 | -----: | ---------------- | ------------- | ----------- |
 |    200 | application/json | array[object] | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/catalog' \
@@ -1109,12 +1127,18 @@ curl -X GET 'http://localhost:1789/catalog' \
 | -----: | ---------------- | ------------- | ----------- |
 |    200 | application/json | array[object] | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/catalog/dto' \
   -H 'Authorization: Bearer <token>' \
 ```
+
+---
+
+## Email API
+
+Endpoint for managing emails
 
 ### createEmail
 
@@ -1146,7 +1170,7 @@ Body format:
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/emails' \
@@ -1189,7 +1213,7 @@ Body format:
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X PUT 'http://localhost:1789/emails' \
@@ -1202,7 +1226,7 @@ curl -X PUT 'http://localhost:1789/emails' \
 }'
 ```
 
-### deleteEmails_1
+### deleteEmails_byNames
 
 `DELETE /emails/delete-by-names`
 
@@ -1240,7 +1264,7 @@ Body format:
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/emails/delete-by-names' \
@@ -1254,7 +1278,7 @@ curl -X DELETE 'http://localhost:1789/emails/delete-by-names' \
 }'
 ```
 
-### deleteEmails
+### deleteEmails_byPattern
 
 `DELETE /emails/delete-by-pattern`
 
@@ -1292,7 +1316,7 @@ Body format:
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/emails/delete-by-pattern' \
@@ -1323,7 +1347,7 @@ curl -X DELETE 'http://localhost:1789/emails/delete-by-pattern' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/emails/search-by-names' \
@@ -1347,7 +1371,7 @@ curl -X GET 'http://localhost:1789/emails/search-by-names' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/emails/search-by-pattern' \
@@ -1370,7 +1394,7 @@ curl -X GET 'http://localhost:1789/emails/search-by-pattern' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/emails/<email>' \
@@ -1393,12 +1417,18 @@ curl -X DELETE 'http://localhost:1789/emails/<email>' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/emails/<email>' \
   -H 'Authorization: Bearer <token>' \
 ```
+
+---
+
+## Job API
+
+Endpoint for managing jobs
 
 ### Create a job
 
@@ -1450,7 +1480,7 @@ Body format:
 |    409 | —                | —      | Job name already taken      |
 |    500 | —                | —      | Server failed to create job |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/jobs' \
@@ -1524,7 +1554,7 @@ Body format:
 |    409 | —                | —      | Job name already taken      |
 |    200 | application/json | object | Successfully updated job    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X PUT 'http://localhost:1789/jobs' \
@@ -1567,7 +1597,7 @@ Deletes jobs that match the list of specified job names. Returns a multi-status 
 |    400 | —                | —      | Invalid request parameters        |
 |    207 | application/json | object | Server failed to delete campaigns |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/jobs/delete-by-name' \
@@ -1594,7 +1624,7 @@ Deletes jobs that match the specified name pattern. If no name pattern is provid
 |    400 | —                | —      | Invalid request parameters        |
 |    207 | application/json | object | Server failed to delete campaigns |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/jobs/delete-by-pattern' \
@@ -1622,7 +1652,7 @@ Retrieves jobs that match the list of specified job names
 |    500 | —                | —      | Server failed to retrieve jobs |
 |    200 | application/json | object | Successfully retrieved jobs    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/jobs/search-by-names' \
@@ -1650,7 +1680,7 @@ Retrieves jobs that match the specified name pattern. If no name pattern is prov
 |    500 | —                | —      | Server failed to retrieve jobs |
 |    200 | application/json | object | Successfully retrieved jobs    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/jobs/search-by-pattern' \
@@ -1673,7 +1703,7 @@ curl -X GET 'http://localhost:1789/jobs/search-by-pattern' \
 | -----: | ---------------- | ------- | ----------- |
 |    200 | application/json | boolean | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/jobs/validateCron' \
@@ -1701,7 +1731,7 @@ Deletes a job from its name
 |    200 | —            | —      | Successfully deleted job    |
 |    500 | —            | —      | Server failed to delete job |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/jobs/<jobName>' \
@@ -1729,12 +1759,18 @@ Retrieves a job from its name
 |    404 | —                | —      | Job not found                 |
 |    200 | application/json | object | Successfully retrieved job    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/jobs/<jobName>' \
   -H 'Authorization: Bearer <token>' \
 ```
+
+---
+
+## Map API
+
+Endpoint for managing maps
 
 ### Create a map
 
@@ -1755,7 +1791,7 @@ Content-Type: `application/json`
 |    400 | —                | —      | Invalid request parameters  |
 |    200 | application/json | string | Successfully created map    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/maps' \
@@ -1784,7 +1820,7 @@ Content-Type: `application/json`
 |    400 | —                | —      | Invalid request parameters                                                                        |
 |    404 | —                | —      | Map not found from provided mapId or map versions weren't matching between provided and found map |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X PUT 'http://localhost:1789/maps' \
@@ -1813,7 +1849,7 @@ Deletes maps that match the list of specified map Ids
 |    500 | —                | —      | Server failed to delete maps |
 |    400 | —                | —      | Invalid request parameters   |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/maps/delete-by-ids' \
@@ -1840,7 +1876,7 @@ Deletes maps that match the specified name pattern. If no name pattern is provid
 |    500 | —                | —      | Server failed to delete maps |
 |    400 | —                | —      | Invalid request parameters   |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/maps/delete-by-pattern' \
@@ -1889,7 +1925,7 @@ Body format:
 |    500 | —                | —      | Server failed to delete maps |
 |    400 | —                | —      | Invalid request parameters   |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/maps/delete-by-version' \
@@ -1923,7 +1959,7 @@ Downloads map file from provided map id
 |    200 | application/json | object | Successfully downloaded maps   |
 |    400 | —                | —      | Invalid request parameters     |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/maps/download/<mapId>' \
@@ -1950,7 +1986,7 @@ Checks that provided map name is available
 |    500 | —                | —       | Server failed to check map name            |
 |    400 | —                | —       | Invalid request parameters                 |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/maps/name-availability' \
@@ -1978,7 +2014,7 @@ Retrieves maps that match the list of specified map Ids
 |    200 | application/json | string | Successfully retrieved maps    |
 |    500 | —                | —      | Server failed to retrieve maps |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/maps/search-by-ids' \
@@ -2006,7 +2042,7 @@ Retrieves maps that match the specified name pattern. If no name pattern is prov
 |    400 | —                | —      | Invalid request parameters     |
 |    500 | —                | —      | Server failed to retrieve maps |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/maps/search-by-pattern' \
@@ -2035,7 +2071,7 @@ Retrieves maps summary that match the list of specified map Ids
 |    404 | —                | —      | Provided mapVersionSerieId not found |
 |    500 | —                | —      | Server failed to retrieve maps       |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/maps/search-by-version' \
@@ -2063,7 +2099,7 @@ Retrieves maps summaries that match the list of specified map Ids
 |    400 | —                | —      | Invalid request parameters     |
 |    500 | —                | —      | Server failed to retrieve maps |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/maps/summary/search-by-ids' \
@@ -2091,7 +2127,7 @@ Retrieves maps summaries that match the specified name pattern. If no name patte
 |    400 | —                | —      | Invalid request parameters     |
 |    500 | —                | —      | Server failed to retrieve maps |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/maps/summary/search-by-pattern' \
@@ -2135,7 +2171,7 @@ Body format:
 |    200 | application/json | string | Successfully uploaded map    |
 |    500 | —                | —      | Server failed to upload maps |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/maps/upload/<mapName>' \
@@ -2167,7 +2203,7 @@ Deletes one map from provided map Id
 |    404 | —            | —      | Map not found                |
 |    200 | —            | —      | Successfully deleted maps    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/maps/<mapId>' \
@@ -2195,12 +2231,18 @@ Retrieves one map from its map Id
 |    500 | —                | —      | Server failed to retrieve map     |
 |    200 | application/json | string | Successfully retrieved map        |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/maps/<mapId>' \
   -H 'Authorization: Bearer <token>' \
 ```
+
+---
+
+## Punnet API
+
+Endpoint to retrieve punnets
 
 ### Get index mapping campaign
 
@@ -2222,7 +2264,7 @@ Retrieves all field mappings (structure of documents) for the OpenSearch index r
 |    200 | application/json | object | Successfully retrieved fields mapping |
 |    400 | —                | —      | Invalid request parameters            |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/punnets/mapping' \
@@ -2251,7 +2293,7 @@ Retrieves all punnet contexts from a campaign and a stepId. You can filter resul
 |    200 | application/json | object | Successfully retrieve punnet contexts     |
 |    400 | —                | —      | Invalid request parameters                |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/punnets/punnet-contexts' \
@@ -2281,7 +2323,7 @@ Retrieves all values of a given metadata
 |    400 | —                | —      | Invalid request parameters       |
 |    200 | application/json | object | Successfully retrieved values    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/punnets/values' \
@@ -2309,7 +2351,7 @@ Retrieves PunnetContext information from its PunnetContextId
 |    400 | —               | —      | Invalid request parameters               |
 |    500 | —               | —      | Server failed to transform punnet as xml |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/punnets/<punnetContextId>' \
@@ -2337,7 +2379,7 @@ Retrieves exception of any punnet from its PunnetContextId
 |    400 | —                | —      | Invalid request parameters          |
 |    500 | —                | —      | Server failed to retrieve exception |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/exception' \
@@ -2364,7 +2406,7 @@ Retrieves next PunnetContext information from a PunnetContextId. Finding several
 |    200 | application/json | object | Successfully retrieved punnet contexts    |
 |    400 | —                | —      | Invalid request parameters                |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/history/next' \
@@ -2391,7 +2433,7 @@ Retrieves previous PunnetContext information from a PunnetContextId. Unlike the 
 |    400 | —                | —      | Invalid request parameters                   |
 |    500 | —                | —      | Server failed to retrieve the punnet context |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/history/previous' \
@@ -2418,7 +2460,7 @@ Retrieves logs of any punnet from its PunnetContextId
 |    400 | —                | —      | Invalid request parameters     |
 |    200 | application/json | object | Successfully retrieved logs    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/logs' \
@@ -2446,12 +2488,18 @@ Retrieves a punnet from its PunnetContextId and prints it as an XML file
 |    200 | application/xml | object | Successfully retrieve punnet             |
 |    500 | —               | —      | Server failed to transform punnet as xml |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/xml' \
   -H 'Authorization: Bearer <token>' \
 ```
+
+---
+
+## Queue API
+
+Endpoint for managing queues
 
 ### getQueues
 
@@ -2469,7 +2517,7 @@ curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/xml' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/queues' \
@@ -2506,7 +2554,7 @@ Body format:
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/queues' \
@@ -2549,7 +2597,7 @@ Body format:
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X PUT 'http://localhost:1789/queues' \
@@ -2562,7 +2610,7 @@ curl -X PUT 'http://localhost:1789/queues' \
 }'
 ```
 
-### deleteQueues_1
+### deleteQueues_byIds
 
 `DELETE /queues/delete-by-ids`
 
@@ -2578,14 +2626,14 @@ curl -X PUT 'http://localhost:1789/queues' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/queues/delete-by-ids' \
   -H 'Authorization: Bearer <token>' \
 ```
 
-### deleteQueues
+### deleteQueues_byPattern
 
 `DELETE /queues/delete-by-pattern`
 
@@ -2601,7 +2649,7 @@ curl -X DELETE 'http://localhost:1789/queues/delete-by-ids' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/queues/delete-by-pattern' \
@@ -2624,7 +2672,7 @@ curl -X DELETE 'http://localhost:1789/queues/delete-by-pattern' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/queues/<queueId>' \
@@ -2647,12 +2695,18 @@ curl -X DELETE 'http://localhost:1789/queues/<queueId>' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/queues/<queueId>' \
   -H 'Authorization: Bearer <token>' \
 ```
+
+---
+
+## Shared Objects API
+
+Endpoint for managing shared objects
 
 ### Delete shared objects by names
 
@@ -2696,7 +2750,7 @@ Body format:
 |    207 | application/json | object | Server failed to delete shared objects |
 |    200 | application/json | object | Successfully deleted shared objects    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/shared-objects/delete-by-names' \
@@ -2752,7 +2806,7 @@ Body format:
 |    200 | application/json | object | Successfully deleted shared objects    |
 |    400 | —                | —      | Invalid request parameters             |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/shared-objects/delete-by-pattern' \
@@ -2788,7 +2842,7 @@ Retrieves shared objects that match the list of specified shared object names
 |    400 | —                | —      | Invalid request parameters              |
 |    200 | application/json | object | Successfully retrieved shared object    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/shared-objects/search-by-names' \
@@ -2817,7 +2871,7 @@ Retrieves shared objects that match the specified name pattern. If no name patte
 |    500 | —                | —      | Server failed to update shared object |
 |    200 | application/json | object | Successfully retrieved shared object  |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/shared-objects/search-by-pattern' \
@@ -2845,7 +2899,7 @@ Deletes a shared object from its name
 |    200 | —            | —      | Successfully deleted the shared object    |
 |    404 | —            | —      | Shared object not found                   |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/shared-objects/<sharedObjectName>' \
@@ -2873,7 +2927,7 @@ Retrieve one shared object configuration from its name
 |    400 | —                | —      | Invalid request parameters              |
 |    404 | —                | —      | Shared object not found                 |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/shared-objects/<sharedObjectName>' \
@@ -2936,7 +2990,7 @@ Body format:
 |    400 | —                | —      | Invalid request parameters            |
 |    201 | application/json | object | Successfully created shared object    |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/shared-objects/<sharedObjectName>' \
@@ -3015,7 +3069,7 @@ Body format:
 |    400 | —                | —      | Invalid request parameters            |
 |    500 | —                | —      | Server failed to update shared object |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X PUT 'http://localhost:1789/shared-objects/<sharedObjectName>' \
@@ -3037,6 +3091,12 @@ curl -X PUT 'http://localhost:1789/shared-objects/<sharedObjectName>' \
   "fieldConfigurationType": "Primitive"
 }'
 ```
+
+---
+
+## User API
+
+Endpoint for managing users
 
 ### Delete all users
 
@@ -3060,7 +3120,7 @@ Content-Type: `application/json`
 | -----: | ------------ | ------ | ------------------------- |
 |    200 | —            | —      | Successfully created user |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/users' \
@@ -3083,7 +3143,7 @@ Retrieves the number of users for each role
 | -----: | ------------ | ------ | ---------------------------------- |
 |    200 | —            | —      | Successfully found number of users |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/users/count-by-role' \
@@ -3108,7 +3168,7 @@ Checks if a user with the given email exists
 | -----: | ------------ | ------- | ----------- |
 |    200 | _/_          | boolean | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/users/does-user-exist/<userEmail>' \
@@ -3147,7 +3207,7 @@ Body format:
 | -----: | ------------ | ------ | ------------------------- |
 |    200 | —            | —      | Successfully updated user |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X PATCH 'http://localhost:1789/users/me' \
@@ -3199,7 +3259,7 @@ Body format:
 |    500 | —            | —      | Server failed to create user                                      |
 |    409 | —            | —      | An account with this email already exists                         |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/users/register' \
@@ -3253,7 +3313,7 @@ Body format:
 |    500 | —            | —      | Server failed to create user                                      |
 |    409 | —            | —      | An account with this email already exists                         |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/users/register-super-admin' \
@@ -3313,7 +3373,7 @@ Body format:
 |    500 | —            | —      | Server failed to create user                                      |
 |    409 | —            | —      | An account with this email already exists                         |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/users/register-worker' \
@@ -3345,7 +3405,7 @@ curl -X POST 'http://localhost:1789/users/register-worker' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | _/_          | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/users/search-by-pattern' \
@@ -3364,7 +3424,7 @@ Checks if super admin is registered
 | -----: | ------------ | ------ | ------------------------ |
 |    200 | —            | —      | Successfully found admin |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/users/super-admin-exists' \
@@ -3389,7 +3449,7 @@ Deletes a user from its email
 | -----: | ------------ | ------ | ------------------------- |
 |    200 | —            | —      | Successfully deleted user |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/users/<userEmail>' \
@@ -3414,7 +3474,7 @@ Retrieves user information from its email
 | -----: | ------------ | ------ | --------------------------- |
 |    200 | —            | —      | Successfully retrieved user |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/users/<userEmail>' \
@@ -3459,7 +3519,7 @@ Body format:
 | -----: | ------------ | ------ | ------------------------- |
 |    200 | —            | —      | Successfully updated user |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X PATCH 'http://localhost:1789/users/<userEmail>' \
@@ -3471,6 +3531,12 @@ curl -X PATCH 'http://localhost:1789/users/<userEmail>' \
   "role": "USER"
 }'
 ```
+
+---
+
+## Worker API
+
+API for managing workers
 
 ### deleteWorkers
 
@@ -3488,7 +3554,7 @@ curl -X PATCH 'http://localhost:1789/users/<userEmail>' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/workers' \
@@ -3512,7 +3578,7 @@ curl -X DELETE 'http://localhost:1789/workers' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/workers' \
@@ -3529,7 +3595,7 @@ curl -X GET 'http://localhost:1789/workers' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/workers' \
@@ -3552,7 +3618,7 @@ curl -X POST 'http://localhost:1789/workers' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/workers/libraries' \
@@ -3575,7 +3641,7 @@ curl -X GET 'http://localhost:1789/workers/libraries' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/workers/library-versions/<libraryName>' \
@@ -3598,7 +3664,7 @@ curl -X GET 'http://localhost:1789/workers/library-versions/<libraryName>' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/workers/restart' \
@@ -3621,7 +3687,7 @@ curl -X POST 'http://localhost:1789/workers/restart' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/workers/restart/<workerId>' \
@@ -3654,7 +3720,7 @@ Body format:
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X POST 'http://localhost:1789/workers/upload-library' \
@@ -3681,7 +3747,7 @@ curl -X POST 'http://localhost:1789/workers/upload-library' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/workers/<workerId>' \
@@ -3704,7 +3770,7 @@ curl -X DELETE 'http://localhost:1789/workers/<workerId>' \
 | -----: | ---------------- | ------ | ----------- |
 |    200 | application/json | object | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/workers/<workerId>' \
@@ -3728,7 +3794,7 @@ curl -X GET 'http://localhost:1789/workers/<workerId>' \
 | -----: | ---------------- | ------------- | ----------- |
 |    200 | application/json | array[object] | OK          |
 
-**Exemple cURL**
+**cURL example**
 
 ```bash
 curl -X GET 'http://localhost:1789/workers/<workerId>/logs' \
