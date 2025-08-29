@@ -57,11 +57,12 @@ Endpoint for managing authentications
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `currentPassword` | string | no | |
-| `newPassword` | string | no | |
-| `newPasswordConfirmation` | string | no | |
+
+| Field                     | Type   | Required | Description |
+| ------------------------- | ------ | :------: | ----------- |
+| `currentPassword`         | string |    no    |             |
+| `newPassword`             | string |    no    |             |
+| `newPasswordConfirmation` | string |    no    |             |
 
 Body format:
 
@@ -133,10 +134,11 @@ curl -X GET 'http://localhost:1789/auth/lock-time-duration' \
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `email` | string | no | |
-| `password` | string | no | |
+
+| Field      | Type   | Required | Description |
+| ---------- | ------ | :------: | ----------- |
+| `email`    | string |    no    |             |
+| `password` | string |    no    |             |
 
 Body format:
 
@@ -269,11 +271,12 @@ curl -X GET 'http://localhost:1789/auth/remaining-lock-time' \
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `targetUser` | string | no | |
-| `newPassword` | string | no | |
-| `newPasswordConfirmation` | string | no | |
+
+| Field                     | Type   | Required | Description |
+| ------------------------- | ------ | :------: | ----------- |
+| `targetUser`              | string |    no    |             |
+| `newPassword`             | string |    no    |             |
+| `newPasswordConfirmation` | string |    no    |             |
 
 Body format:
 
@@ -768,9 +771,10 @@ curl -X GET 'http://localhost:1789/campaigns/<campaign>/parameters' \
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `empty` | boolean | no | |
+
+| Field   | Type    | Required | Description |
+| ------- | ------- | :------: | ----------- |
+| `empty` | boolean |    no    |             |
 
 Body format:
 
@@ -1116,11 +1120,12 @@ curl -X GET 'http://localhost:1789/catalog/dto' \
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `email` | string | no | |
-| `active` | boolean | no | |
-| `emailId` | object | no | |
+
+| Field     | Type    | Required | Description |
+| --------- | ------- | :------: | ----------- |
+| `email`   | string  |    no    |             |
+| `active`  | boolean |    no    |             |
+| `emailId` | object  |    no    |             |
 
 Body format:
 
@@ -1158,11 +1163,12 @@ curl -X POST 'http://localhost:1789/emails' \
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `email` | string | no | |
-| `active` | boolean | no | |
-| `emailId` | object | no | |
+
+| Field     | Type    | Required | Description |
+| --------- | ------- | :------: | ----------- |
+| `email`   | string  |    no    |             |
+| `active`  | boolean |    no    |             |
+| `emailId` | object  |    no    |             |
 
 Body format:
 
@@ -1206,12 +1212,13 @@ curl -X PUT 'http://localhost:1789/emails' \
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `from` | integer(int32) | no | |
-| `size` | integer(int32) | no | |
-| `orderBy` | string | no | |
-| `ascending` | boolean | no | |
+
+| Field       | Type           | Required | Description |
+| ----------- | -------------- | :------: | ----------- |
+| `from`      | integer(int32) |    no    |             |
+| `size`      | integer(int32) |    no    |             |
+| `orderBy`   | string         |    no    |             |
+| `ascending` | boolean        |    no    |             |
 
 Body format:
 
@@ -1257,12 +1264,13 @@ curl -X DELETE 'http://localhost:1789/emails/delete-by-names' \
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `from` | integer(int32) | no | |
-| `size` | integer(int32) | no | |
-| `orderBy` | string | no | |
-| `ascending` | boolean | no | |
+
+| Field       | Type           | Required | Description |
+| ----------- | -------------- | :------: | ----------- |
+| `from`      | integer(int32) |    no    |             |
+| `size`      | integer(int32) |    no    |             |
+| `orderBy`   | string         |    no    |             |
+| `ascending` | boolean        |    no    |             |
 
 Body format:
 
@@ -1398,16 +1406,17 @@ Creates a new job for a map with its cron expression
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `jobId` | object | no | |
-| `jobName` | string | no | |
-| `campaign` | object | no | |
-| `taskFlowMapRef` | object | no | |
-| `maxNumberExecutions` | integer(int32) | no | |
-| `action` | string | no | |
-| `active` | boolean | no | |
-| `cronExpression` | string | no | |
+
+| Field                 | Type           | Required | Description |
+| --------------------- | -------------- | :------: | ----------- |
+| `jobId`               | object         |    no    |             |
+| `jobName`             | string         |    no    |             |
+| `campaign`            | object         |    no    |             |
+| `taskFlowMapRef`      | object         |    no    |             |
+| `maxNumberExecutions` | integer(int32) |    no    |             |
+| `action`              | string         |    no    |             |
+| `active`              | boolean        |    no    |             |
+| `cronExpression`      | string         |    no    |             |
 
 Body format:
 
@@ -1470,16 +1479,17 @@ Updates a job. The job must have a name and an Id are required
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `jobId` | object | no | |
-| `jobName` | string | no | |
-| `campaign` | object | no | |
-| `taskFlowMapRef` | object | no | |
-| `maxNumberExecutions` | integer(int32) | no | |
-| `action` | string | no | |
-| `active` | boolean | no | |
-| `cronExpression` | string | no | |
+
+| Field                 | Type           | Required | Description |
+| --------------------- | -------------- | :------: | ----------- |
+| `jobId`               | object         |    no    |             |
+| `jobName`             | string         |    no    |             |
+| `campaign`            | object         |    no    |             |
+| `taskFlowMapRef`      | object         |    no    |             |
+| `maxNumberExecutions` | integer(int32) |    no    |             |
+| `action`              | string         |    no    |             |
+| `active`              | boolean        |    no    |             |
+| `cronExpression`      | string         |    no    |             |
 
 Body format:
 
@@ -1849,12 +1859,13 @@ Deletes maps summary that match the specified map version Ids
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `from` | integer(int32) | no | |
-| `size` | integer(int32) | no | |
-| `orderBy` | string | no | |
-| `ascending` | boolean | no | |
+
+| Field       | Type           | Required | Description |
+| ----------- | -------------- | :------: | ----------- |
+| `from`      | integer(int32) |    no    |             |
+| `size`      | integer(int32) |    no    |             |
+| `orderBy`   | string         |    no    |             |
+| `ascending` | boolean        |    no    |             |
 
 Body format:
 
@@ -2099,9 +2110,10 @@ Created a new map from file and associates it with the given map name
 **Request Body**
 
 Content-Type: `multipart/form-data`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `file` | string(binary) | yes | The file to be uploaded |
+
+| Field  | Type           | Required | Description             |
+| ------ | -------------- | :------: | ----------------------- |
+| `file` | string(binary) |   yes    | The file to be uploaded |
 
 Body format:
 
@@ -2468,11 +2480,12 @@ curl -X GET 'http://localhost:1789/queues' \
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `queueId` | object | no | |
-| `numberOfSourceThreads` | integer(int32) | no | |
-| `numberOfTaskThreads` | integer(int32) | no | |
+
+| Field                   | Type           | Required | Description |
+| ----------------------- | -------------- | :------: | ----------- |
+| `queueId`               | object         |    no    |             |
+| `numberOfSourceThreads` | integer(int32) |    no    |             |
+| `numberOfTaskThreads`   | integer(int32) |    no    |             |
 
 Body format:
 
@@ -2510,11 +2523,12 @@ curl -X POST 'http://localhost:1789/queues' \
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `queueId` | object | no | |
-| `numberOfSourceThreads` | integer(int32) | no | |
-| `numberOfTaskThreads` | integer(int32) | no | |
+
+| Field                   | Type           | Required | Description |
+| ----------------------- | -------------- | :------: | ----------- |
+| `queueId`               | object         |    no    |             |
+| `numberOfSourceThreads` | integer(int32) |    no    |             |
+| `numberOfTaskThreads`   | integer(int32) |    no    |             |
 
 Body format:
 
@@ -2652,12 +2666,13 @@ Deletes shared objects that match the list of specified shared objects names. Re
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `from` | integer(int32) | no | |
-| `size` | integer(int32) | no | |
-| `orderBy` | string | no | |
-| `ascending` | boolean | no | |
+
+| Field       | Type           | Required | Description |
+| ----------- | -------------- | :------: | ----------- |
+| `from`      | integer(int32) |    no    |             |
+| `size`      | integer(int32) |    no    |             |
+| `orderBy`   | string         |    no    |             |
+| `ascending` | boolean        |    no    |             |
 
 Body format:
 
@@ -2707,12 +2722,13 @@ Deletes shared objects that match the specified name pattern. If no name pattern
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `from` | integer(int32) | no | |
-| `size` | integer(int32) | no | |
-| `orderBy` | string | no | |
-| `ascending` | boolean | no | |
+
+| Field       | Type           | Required | Description |
+| ----------- | -------------- | :------: | ----------- |
+| `from`      | integer(int32) |    no    |             |
+| `size`      | integer(int32) |    no    |             |
+| `orderBy`   | string         |    no    |             |
+| `ascending` | boolean        |    no    |             |
 
 Body format:
 
@@ -2876,17 +2892,18 @@ Creates a shared object from its object configuration and a provided name
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `fields` | object | no | |
-| `className` | string | no | |
-| `scope` | string | no | |
-| `fullyConfigured` | boolean | no | |
-| `singleton` | boolean | no | |
-| `objectName` | string | no | |
-| `objectConfigurationId` | string | no | |
-| `constructorArguments` | array[object] | no | |
-| `fieldConfigurationType` | string | no | |
+
+| Field                    | Type          | Required | Description |
+| ------------------------ | ------------- | :------: | ----------- |
+| `fields`                 | object        |    no    |             |
+| `className`              | string        |    no    |             |
+| `scope`                  | string        |    no    |             |
+| `fullyConfigured`        | boolean       |    no    |             |
+| `singleton`              | boolean       |    no    |             |
+| `objectName`             | string        |    no    |             |
+| `objectConfigurationId`  | string        |    no    |             |
+| `constructorArguments`   | array[object] |    no    |             |
+| `fieldConfigurationType` | string        |    no    |             |
 
 Body format:
 
@@ -2954,17 +2971,18 @@ Updates the configuration or the name of a shared object
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `fields` | object | no | |
-| `className` | string | no | |
-| `scope` | string | no | |
-| `fullyConfigured` | boolean | no | |
-| `singleton` | boolean | no | |
-| `objectName` | string | no | |
-| `objectConfigurationId` | string | no | |
-| `constructorArguments` | array[object] | no | |
-| `fieldConfigurationType` | string | no | |
+
+| Field                    | Type          | Required | Description |
+| ------------------------ | ------------- | :------: | ----------- |
+| `fields`                 | object        |    no    |             |
+| `className`              | string        |    no    |             |
+| `scope`                  | string        |    no    |             |
+| `fullyConfigured`        | boolean       |    no    |             |
+| `singleton`              | boolean       |    no    |             |
+| `objectName`             | string        |    no    |             |
+| `objectConfigurationId`  | string        |    no    |             |
+| `constructorArguments`   | array[object] |    no    |             |
+| `fieldConfigurationType` | string        |    no    |             |
 
 Body format:
 
@@ -3103,11 +3121,12 @@ Updates information of the currently authenticated user
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `firstname` | string | no | |
-| `lastname` | string | no | |
-| `role` | string | no | |
+
+| Field       | Type   | Required | Description |
+| ----------- | ------ | :------: | ----------- |
+| `firstname` | string |    no    |             |
+| `lastname`  | string |    no    |             |
+| `role`      | string |    no    |             |
 
 Body format:
 
@@ -3147,13 +3166,14 @@ Creates a user from its password, firstname, lastname and email. You cannot crea
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `password` | string | no | |
-| `firstname` | string | no | |
-| `lastname` | string | no | |
-| `email` | string | no | |
-| `role` | string | no | |
+
+| Field       | Type   | Required | Description |
+| ----------- | ------ | :------: | ----------- |
+| `password`  | string |    no    |             |
+| `firstname` | string |    no    |             |
+| `lastname`  | string |    no    |             |
+| `email`     | string |    no    |             |
+| `role`      | string |    no    |             |
 
 Body format:
 
@@ -3200,13 +3220,14 @@ Creates a user from its password, firstname, lastname and email
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `password` | string | no | |
-| `firstname` | string | no | |
-| `lastname` | string | no | |
-| `email` | string | no | |
-| `role` | string | no | |
+
+| Field       | Type   | Required | Description |
+| ----------- | ------ | :------: | ----------- |
+| `password`  | string |    no    |             |
+| `firstname` | string |    no    |             |
+| `lastname`  | string |    no    |             |
+| `email`     | string |    no    |             |
+| `role`      | string |    no    |             |
 
 Body format:
 
@@ -3259,13 +3280,14 @@ Creates a worker as member to allow broker communication
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `password` | string | no | |
-| `firstname` | string | no | |
-| `lastname` | string | no | |
-| `email` | string | no | |
-| `role` | string | no | |
+
+| Field       | Type   | Required | Description |
+| ----------- | ------ | :------: | ----------- |
+| `password`  | string |    no    |             |
+| `firstname` | string |    no    |             |
+| `lastname`  | string |    no    |             |
+| `email`     | string |    no    |             |
+| `role`      | string |    no    |             |
 
 Body format:
 
@@ -3411,11 +3433,12 @@ Admin updates any user's information
 **Request Body**
 
 Content-Type: `application/json`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `firstname` | string | no | |
-| `lastname` | string | no | |
-| `role` | string | no | |
+
+| Field       | Type   | Required | Description |
+| ----------- | ------ | :------: | ----------- |
+| `firstname` | string |    no    |             |
+| `lastname`  | string |    no    |             |
+| `role`      | string |    no    |             |
 
 Body format:
 
@@ -3609,9 +3632,10 @@ curl -X POST 'http://localhost:1789/workers/restart/<workerId>' \
 **Request Body**
 
 Content-Type: `multipart/form-data`
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `file` | string(binary) | yes | |
+
+| Field  | Type           | Required | Description |
+| ------ | -------------- | :------: | ----------- |
+| `file` | string(binary) |   yes    |             |
 
 Body format:
 
