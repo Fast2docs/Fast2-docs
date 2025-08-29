@@ -2871,15 +2871,13 @@ This section provides a complete reference for interacting programmatically with
 <h3 id="changepassword">changePassword<a class="headerlink" href="#changepassword" title="Permanent link">&para;</a></h3>
 <p><code>POST /auth/change-password</code></p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>currentPassword</code> | string | no | |
-  | <code>newPassword</code> | string | no | |
-  | <code>newPasswordConfirmation</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>currentPassword</code> | string | no | |
+| <code>newPassword</code> | string | no | |
+| <code>newPasswordConfirmation</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;currentPassword&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;newPassword&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -2968,14 +2966,12 @@ This section provides a complete reference for interacting programmatically with
 <h3 id="authenticate">authenticate<a class="headerlink" href="#authenticate" title="Permanent link">&para;</a></h3>
 <p><code>POST /auth/login</code></p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>email</code> | string | no | |
-  | <code>password</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>email</code> | string | no | |
+| <code>password</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
@@ -3179,15 +3175,13 @@ This section provides a complete reference for interacting programmatically with
 <h3 id="resetpassword">resetPassword<a class="headerlink" href="#resetpassword" title="Permanent link">&para;</a></h3>
 <p><code>POST /auth/reset-password</code></p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>targetUser</code> | string | no | |
-  | <code>newPassword</code> | string | no | |
-  | <code>newPasswordConfirmation</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>targetUser</code> | string | no | |
+| <code>newPassword</code> | string | no | |
+| <code>newPasswordConfirmation</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;targetUser&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">&quot;newPassword&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -3270,7 +3264,7 @@ This section provides a complete reference for interacting programmatically with
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer &lt;token&gt;&#39;</span><span class="w"> </span><span class="se">\</span>
 </code></pre></div>
 <h3 id="download-any-content-set-in-broker-files-directory_1">Download any content set in broker files directory<a class="headerlink" href="#download-any-content-set-in-broker-files-directory_1" title="Permanent link">&para;</a></h3>
-<p><code>DELETE /broker/contents</code></p>
+<p><code>GET /broker/contents</code></p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -3305,14 +3299,14 @@ This section provides a complete reference for interacting programmatically with
 <tbody>
 <tr>
 <td style="text-align: right;">200</td>
-<td>—</td>
-<td>—</td>
+<td>application/json</td>
+<td>string(binary)</td>
 <td>OK</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Exemple cURL</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span><span class="s1">&#39;http://localhost:1789/broker/contents&#39;</span><span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s1">&#39;http://localhost:1789/broker/contents&#39;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer &lt;token&gt;&#39;</span><span class="w"> </span><span class="se">\</span>
 </code></pre></div>
 <h3 id="download-logs-produced-by-the-broker">Download logs produced by the broker<a class="headerlink" href="#download-logs-produced-by-the-broker" title="Permanent link">&para;</a></h3>
@@ -4303,13 +4297,11 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>empty</code> | boolean | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>empty</code> | boolean | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p">{</span>
 <a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">  </span><span class="nt">&quot;empty&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="p">}</span>
@@ -5121,15 +5113,13 @@ This section provides a complete reference for interacting programmatically with
 <h3 id="createemail">createEmail<a class="headerlink" href="#createemail" title="Permanent link">&para;</a></h3>
 <p><code>POST /emails</code></p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>email</code> | string | no | |
-  | <code>active</code> | boolean | no | |
-  | <code>emailId</code> | object | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>email</code> | string | no | |
+| <code>active</code> | boolean | no | |
+| <code>emailId</code> | object | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="p">{</span>
 <a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">  </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
@@ -5168,15 +5158,13 @@ This section provides a complete reference for interacting programmatically with
 <h3 id="updateemail">updateEmail<a class="headerlink" href="#updateemail" title="Permanent link">&para;</a></h3>
 <p><code>PUT /emails</code></p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>email</code> | string | no | |
-  | <code>active</code> | boolean | no | |
-  | <code>emailId</code> | object | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>email</code> | string | no | |
+| <code>active</code> | boolean | no | |
+| <code>emailId</code> | object | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="p">{</span>
 <a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">  </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
@@ -5236,16 +5224,14 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>from</code> | integer(int32) | no | |
-  | <code>size</code> | integer(int32) | no | |
-  | <code>orderBy</code> | string | no | |
-  | <code>ascending</code> | boolean | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>from</code> | integer(int32) | no | |
+| <code>size</code> | integer(int32) | no | |
+| <code>orderBy</code> | string | no | |
+| <code>ascending</code> | boolean | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="p">{</span>
 <a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">  </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">  </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
@@ -5307,16 +5293,14 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>from</code> | integer(int32) | no | |
-  | <code>size</code> | integer(int32) | no | |
-  | <code>orderBy</code> | string | no | |
-  | <code>ascending</code> | boolean | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>from</code> | integer(int32) | no | |
+| <code>size</code> | integer(int32) | no | |
+| <code>orderBy</code> | string | no | |
+| <code>ascending</code> | boolean | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="p">{</span>
 <a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">  </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">  </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
@@ -5556,20 +5540,18 @@ This section provides a complete reference for interacting programmatically with
 <p><code>POST /jobs</code></p>
 <p>Creates a new job for a map with its cron expression</p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>jobId</code> | object | no | |
-  | <code>jobName</code> | string | no | |
-  | <code>campaign</code> | object | no | |
-  | <code>taskFlowMapRef</code> | object | no | |
-  | <code>maxNumberExecutions</code> | integer(int32) | no | |
-  | <code>action</code> | string | no | |
-  | <code>active</code> | boolean | no | |
-  | <code>cronExpression</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>jobId</code> | object | no | |
+| <code>jobName</code> | string | no | |
+| <code>campaign</code> | object | no | |
+| <code>taskFlowMapRef</code> | object | no | |
+| <code>maxNumberExecutions</code> | integer(int32) | no | |
+| <code>action</code> | string | no | |
+| <code>active</code> | boolean | no | |
+| <code>cronExpression</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="p">{</span>
 <a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">  </span><span class="nt">&quot;jobId&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
 <a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w">  </span><span class="nt">&quot;jobName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -5647,20 +5629,18 @@ This section provides a complete reference for interacting programmatically with
 <p><code>PUT /jobs</code></p>
 <p>Updates a job. The job must have a name and an Id are required</p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>jobId</code> | object | no | |
-  | <code>jobName</code> | string | no | |
-  | <code>campaign</code> | object | no | |
-  | <code>taskFlowMapRef</code> | object | no | |
-  | <code>maxNumberExecutions</code> | integer(int32) | no | |
-  | <code>action</code> | string | no | |
-  | <code>active</code> | boolean | no | |
-  | <code>cronExpression</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>jobId</code> | object | no | |
+| <code>jobName</code> | string | no | |
+| <code>campaign</code> | object | no | |
+| <code>taskFlowMapRef</code> | object | no | |
+| <code>maxNumberExecutions</code> | integer(int32) | no | |
+| <code>action</code> | string | no | |
+| <code>active</code> | boolean | no | |
+| <code>cronExpression</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="p">{</span>
 <a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="w">  </span><span class="nt">&quot;jobId&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
 <a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w">  </span><span class="nt">&quot;jobName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -6170,9 +6150,7 @@ This section provides a complete reference for interacting programmatically with
 <p><code>POST /maps</code></p>
 <p>Creates a new map with an id and a unique name</p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code></li>
-</ul>
+<p>Content-Type: <code>application/json</code></p>
 <p><strong>Responses</strong></p>
 <table>
 <thead>
@@ -6220,9 +6198,7 @@ This section provides a complete reference for interacting programmatically with
 <p><code>PUT /maps</code></p>
 <p>Saves a whole map including step configurations</p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code></li>
-</ul>
+<p>Content-Type: <code>application/json</code></p>
 <p><strong>Responses</strong></p>
 <table>
 <thead>
@@ -6415,16 +6391,14 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>from</code> | integer(int32) | no | |
-  | <code>size</code> | integer(int32) | no | |
-  | <code>orderBy</code> | string | no | |
-  | <code>ascending</code> | boolean | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>from</code> | integer(int32) | no | |
+| <code>size</code> | integer(int32) | no | |
+| <code>orderBy</code> | string | no | |
+| <code>ascending</code> | boolean | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="p">{</span>
 <a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a><span class="w">  </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a><span class="w">  </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
@@ -6953,13 +6927,11 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>multipart/form-data</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>file</code> | string(binary) | yes | The file to be uploaded |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>multipart/form-data</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>file</code> | string(binary) | yes | The file to be uploaded |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="p">{</span>
 <a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a><span class="w">  </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
 <a id="__codelineno-79-3" name="__codelineno-79-3" href="#__codelineno-79-3"></a><span class="p">}</span>
@@ -7772,15 +7744,13 @@ This section provides a complete reference for interacting programmatically with
 <h3 id="createqueue">createQueue<a class="headerlink" href="#createqueue" title="Permanent link">&para;</a></h3>
 <p><code>POST /queues</code></p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>queueId</code> | object | no | |
-  | <code>numberOfSourceThreads</code> | integer(int32) | no | |
-  | <code>numberOfTaskThreads</code> | integer(int32) | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>queueId</code> | object | no | |
+| <code>numberOfSourceThreads</code> | integer(int32) | no | |
+| <code>numberOfTaskThreads</code> | integer(int32) | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a><span class="p">{</span>
 <a id="__codelineno-93-2" name="__codelineno-93-2" href="#__codelineno-93-2"></a><span class="w">  </span><span class="nt">&quot;queueId&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
 <a id="__codelineno-93-3" name="__codelineno-93-3" href="#__codelineno-93-3"></a><span class="w">  </span><span class="nt">&quot;numberOfSourceThreads&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
@@ -7819,15 +7789,13 @@ This section provides a complete reference for interacting programmatically with
 <h3 id="updatequeue">updateQueue<a class="headerlink" href="#updatequeue" title="Permanent link">&para;</a></h3>
 <p><code>PUT /queues</code></p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>queueId</code> | object | no | |
-  | <code>numberOfSourceThreads</code> | integer(int32) | no | |
-  | <code>numberOfTaskThreads</code> | integer(int32) | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>queueId</code> | object | no | |
+| <code>numberOfSourceThreads</code> | integer(int32) | no | |
+| <code>numberOfTaskThreads</code> | integer(int32) | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a><span class="p">{</span>
 <a id="__codelineno-95-2" name="__codelineno-95-2" href="#__codelineno-95-2"></a><span class="w">  </span><span class="nt">&quot;queueId&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
 <a id="__codelineno-95-3" name="__codelineno-95-3" href="#__codelineno-95-3"></a><span class="w">  </span><span class="nt">&quot;numberOfSourceThreads&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
@@ -8072,16 +8040,14 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>from</code> | integer(int32) | no | |
-  | <code>size</code> | integer(int32) | no | |
-  | <code>orderBy</code> | string | no | |
-  | <code>ascending</code> | boolean | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>from</code> | integer(int32) | no | |
+| <code>size</code> | integer(int32) | no | |
+| <code>orderBy</code> | string | no | |
+| <code>ascending</code> | boolean | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a><span class="p">{</span>
 <a id="__codelineno-101-2" name="__codelineno-101-2" href="#__codelineno-101-2"></a><span class="w">  </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <a id="__codelineno-101-3" name="__codelineno-101-3" href="#__codelineno-101-3"></a><span class="w">  </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
@@ -8156,16 +8122,14 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>from</code> | integer(int32) | no | |
-  | <code>size</code> | integer(int32) | no | |
-  | <code>orderBy</code> | string | no | |
-  | <code>ascending</code> | boolean | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>from</code> | integer(int32) | no | |
+| <code>size</code> | integer(int32) | no | |
+| <code>orderBy</code> | string | no | |
+| <code>ascending</code> | boolean | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a><span class="p">{</span>
 <a id="__codelineno-103-2" name="__codelineno-103-2" href="#__codelineno-103-2"></a><span class="w">  </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <a id="__codelineno-103-3" name="__codelineno-103-3" href="#__codelineno-103-3"></a><span class="w">  </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
@@ -8516,21 +8480,19 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>fields</code> | object | no | |
-  | <code>className</code> | string | no | |
-  | <code>scope</code> | string | no | |
-  | <code>fullyConfigured</code> | boolean | no | |
-  | <code>singleton</code> | boolean | no | |
-  | <code>objectName</code> | string | no | |
-  | <code>objectConfigurationId</code> | string | no | |
-  | <code>constructorArguments</code> | array[object] | no | |
-  | <code>fieldConfigurationType</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>fields</code> | object | no | |
+| <code>className</code> | string | no | |
+| <code>scope</code> | string | no | |
+| <code>fullyConfigured</code> | boolean | no | |
+| <code>singleton</code> | boolean | no | |
+| <code>objectName</code> | string | no | |
+| <code>objectConfigurationId</code> | string | no | |
+| <code>constructorArguments</code> | array[object] | no | |
+| <code>fieldConfigurationType</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a><span class="p">{</span>
 <a id="__codelineno-109-2" name="__codelineno-109-2" href="#__codelineno-109-2"></a><span class="w">  </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
 <a id="__codelineno-109-3" name="__codelineno-109-3" href="#__codelineno-109-3"></a><span class="w">  </span><span class="nt">&quot;className&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -8623,21 +8585,19 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>fields</code> | object | no | |
-  | <code>className</code> | string | no | |
-  | <code>scope</code> | string | no | |
-  | <code>fullyConfigured</code> | boolean | no | |
-  | <code>singleton</code> | boolean | no | |
-  | <code>objectName</code> | string | no | |
-  | <code>objectConfigurationId</code> | string | no | |
-  | <code>constructorArguments</code> | array[object] | no | |
-  | <code>fieldConfigurationType</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>fields</code> | object | no | |
+| <code>className</code> | string | no | |
+| <code>scope</code> | string | no | |
+| <code>fullyConfigured</code> | boolean | no | |
+| <code>singleton</code> | boolean | no | |
+| <code>objectName</code> | string | no | |
+| <code>objectConfigurationId</code> | string | no | |
+| <code>constructorArguments</code> | array[object] | no | |
+| <code>fieldConfigurationType</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a><span class="p">{</span>
 <a id="__codelineno-111-2" name="__codelineno-111-2" href="#__codelineno-111-2"></a><span class="w">  </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
 <a id="__codelineno-111-3" name="__codelineno-111-3" href="#__codelineno-111-3"></a><span class="w">  </span><span class="nt">&quot;className&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -8730,9 +8690,7 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code></li>
-</ul>
+<p>Content-Type: <code>application/json</code></p>
 <p><strong>Responses</strong></p>
 <table>
 <thead>
@@ -8837,15 +8795,13 @@ This section provides a complete reference for interacting programmatically with
 <p><code>PATCH /users/me</code></p>
 <p>Updates information of the currently authenticated user</p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>firstname</code> | string | no | |
-  | <code>lastname</code> | string | no | |
-  | <code>role</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>firstname</code> | string | no | |
+| <code>lastname</code> | string | no | |
+| <code>role</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a><span class="p">{</span>
 <a id="__codelineno-116-2" name="__codelineno-116-2" href="#__codelineno-116-2"></a><span class="w">  </span><span class="nt">&quot;firstname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <a id="__codelineno-116-3" name="__codelineno-116-3" href="#__codelineno-116-3"></a><span class="w">  </span><span class="nt">&quot;lastname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -8885,17 +8841,15 @@ This section provides a complete reference for interacting programmatically with
 <p><code>POST /users/register</code></p>
 <p>Creates a user from its password, firstname, lastname and email. You cannot create super admin with this endpoint</p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>password</code> | string | no | |
-  | <code>firstname</code> | string | no | |
-  | <code>lastname</code> | string | no | |
-  | <code>email</code> | string | no | |
-  | <code>role</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>password</code> | string | no | |
+| <code>firstname</code> | string | no | |
+| <code>lastname</code> | string | no | |
+| <code>email</code> | string | no | |
+| <code>role</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a><span class="p">{</span>
 <a id="__codelineno-118-2" name="__codelineno-118-2" href="#__codelineno-118-2"></a><span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <a id="__codelineno-118-3" name="__codelineno-118-3" href="#__codelineno-118-3"></a><span class="w">  </span><span class="nt">&quot;firstname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -8957,17 +8911,15 @@ This section provides a complete reference for interacting programmatically with
 <p><code>POST /users/register-super-admin</code></p>
 <p>Creates a user from its password, firstname, lastname and email</p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>password</code> | string | no | |
-  | <code>firstname</code> | string | no | |
-  | <code>lastname</code> | string | no | |
-  | <code>email</code> | string | no | |
-  | <code>role</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>password</code> | string | no | |
+| <code>firstname</code> | string | no | |
+| <code>lastname</code> | string | no | |
+| <code>email</code> | string | no | |
+| <code>role</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a><span class="p">{</span>
 <a id="__codelineno-120-2" name="__codelineno-120-2" href="#__codelineno-120-2"></a><span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <a id="__codelineno-120-3" name="__codelineno-120-3" href="#__codelineno-120-3"></a><span class="w">  </span><span class="nt">&quot;firstname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -9050,17 +9002,15 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>password</code> | string | no | |
-  | <code>firstname</code> | string | no | |
-  | <code>lastname</code> | string | no | |
-  | <code>email</code> | string | no | |
-  | <code>role</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>password</code> | string | no | |
+| <code>firstname</code> | string | no | |
+| <code>lastname</code> | string | no | |
+| <code>email</code> | string | no | |
+| <code>role</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-122-1" name="__codelineno-122-1" href="#__codelineno-122-1"></a><span class="p">{</span>
 <a id="__codelineno-122-2" name="__codelineno-122-2" href="#__codelineno-122-2"></a><span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <a id="__codelineno-122-3" name="__codelineno-122-3" href="#__codelineno-122-3"></a><span class="w">  </span><span class="nt">&quot;firstname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -9316,15 +9266,13 @@ This section provides a complete reference for interacting programmatically with
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>application/json</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>firstname</code> | string | no | |
-  | <code>lastname</code> | string | no | |
-  | <code>role</code> | string | no | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>application/json</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>firstname</code> | string | no | |
+| <code>lastname</code> | string | no | |
+| <code>role</code> | string | no | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-128-1" name="__codelineno-128-1" href="#__codelineno-128-1"></a><span class="p">{</span>
 <a id="__codelineno-128-2" name="__codelineno-128-2" href="#__codelineno-128-2"></a><span class="w">  </span><span class="nt">&quot;firstname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <a id="__codelineno-128-3" name="__codelineno-128-3" href="#__codelineno-128-3"></a><span class="w">  </span><span class="nt">&quot;lastname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -9671,13 +9619,11 @@ This section provides a complete reference for interacting programmatically with
 <h3 id="uploadlibrary">uploadLibrary<a class="headerlink" href="#uploadlibrary" title="Permanent link">&para;</a></h3>
 <p><code>POST /workers/upload-library</code></p>
 <p><strong>Request Body</strong></p>
-<ul>
-<li>Content-Type: <code>multipart/form-data</code>
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | <code>file</code> | string(binary) | yes | |</li>
-</ul>
-<p>Exemple de body:</p>
+<p>Content-Type: <code>multipart/form-data</code>
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| <code>file</code> | string(binary) | yes | |</p>
+<p>Body format:</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-137-1" name="__codelineno-137-1" href="#__codelineno-137-1"></a><span class="p">{</span>
 <a id="__codelineno-137-2" name="__codelineno-137-2" href="#__codelineno-137-2"></a><span class="w">  </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
 <a id="__codelineno-137-3" name="__codelineno-137-3" href="#__codelineno-137-3"></a><span class="p">}</span>
