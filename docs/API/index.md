@@ -23,6 +23,9 @@ Before using the API, make sure you have:
 
 **Base URL:** `http://localhost:1789`
 
+**Note**: The interactive Swagger UI for Fast2 is available at:  
+[http://localhost:1789/swagger-ui/index.html](http://localhost:1789/swagger-ui/index.html)
+
 ## Authentication
 
 - **Bearer JWT** via `Authorization: Bearer <token>` (Bearer Token)
