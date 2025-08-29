@@ -56,7 +56,22 @@ Endpoint for managing authentications
 
 **Request Body**
 
-- `application/json` — ChangePasswordRequest
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `currentPassword` | string | no | |
+  | `newPassword` | string | no | |
+  | `newPasswordConfirmation` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "currentPassword": "string",
+  "newPassword": "string",
+  "newPasswordConfirmation": "string"
+}
+```
 
 **Responses**
 
@@ -64,14 +79,16 @@ Endpoint for managing authentications
 | -----: | ------------ | ------ | ----------- |
 |    200 | _/_          | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/auth/change-password' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with ChangePasswordRequest */"
+  "currentPassword": "string",
+  "newPassword": "string",
+  "newPasswordConfirmation": "string"
 }'
 ```
 
@@ -85,11 +102,11 @@ curl -X POST 'http://localhost:1789/auth/change-password' \
 | -----: | ------------ | ------- | ----------- |
 |    200 | _/_          | boolean | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X GET 'http://localhost:1789/auth/is-authenticated' \
-  -H 'Authorization: Bearer <token>'
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getLockTimeDuration
@@ -102,11 +119,11 @@ curl -X GET 'http://localhost:1789/auth/is-authenticated' \
 | -----: | ------------ | -------------- | ----------- |
 |    200 | _/_          | integer(int32) | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X GET 'http://localhost:1789/auth/lock-time-duration' \
-  -H 'Authorization: Bearer <token>'
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### authenticate
@@ -115,7 +132,20 @@ curl -X GET 'http://localhost:1789/auth/lock-time-duration' \
 
 **Request Body**
 
-- `application/json` — AuthenticationRequest
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `email` | string | no | |
+  | `password` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "email": "string",
+  "password": "string"
+}
+```
 
 **Responses**
 
@@ -123,14 +153,15 @@ curl -X GET 'http://localhost:1789/auth/lock-time-duration' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | _/_          | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/auth/login' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with AuthenticationRequest */"
+  "email": "string",
+  "password": "string"
 }'
 ```
 
@@ -144,11 +175,11 @@ curl -X POST 'http://localhost:1789/auth/login' \
 | -----: | ------------ | -------------- | ----------- |
 |    200 | _/_          | integer(int32) | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X GET 'http://localhost:1789/auth/max-failed-attempts' \
-  -H 'Authorization: Bearer <token>'
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getPublicKey
@@ -161,11 +192,11 @@ curl -X GET 'http://localhost:1789/auth/max-failed-attempts' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | _/_          | string | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X GET 'http://localhost:1789/auth/public-key' \
-  -H 'Authorization: Bearer <token>'
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### refreshToken
@@ -174,15 +205,15 @@ curl -X GET 'http://localhost:1789/auth/public-key' \
 
 **Responses**
 
-| Status | Content-Type | Schema                 | Description |
-| -----: | ------------ | ---------------------- | ----------- |
-|    200 | _/_          | AuthenticationResponse | OK          |
+| Status | Content-Type | Schema | Description |
+| -----: | ------------ | ------ | ----------- |
+|    200 | _/_          | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/auth/refresh-token' \
-  -H 'Authorization: Bearer <token>'
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getRemainingAttempts
@@ -191,9 +222,9 @@ curl -X POST 'http://localhost:1789/auth/refresh-token' \
 
 **Parameters**
 
-| Name    | In    | Required | Type   | Example | Description |
-| ------- | ----- | :------: | ------ | ------- | ----------- |
-| `email` | query |   yes    | string |         |             |
+| Name    | In    | Required | Type   | Description |
+| ------- | ----- | :------: | ------ | ----------- |
+| `email` | query |   yes    | string |             |
 
 **Responses**
 
@@ -201,11 +232,11 @@ curl -X POST 'http://localhost:1789/auth/refresh-token' \
 | -----: | ------------ | -------------- | ----------- |
 |    200 | _/_          | integer(int32) | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/auth/remaining-attempts?email=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/auth/remaining-attempts' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getRemainingLockTime
@@ -214,9 +245,9 @@ curl -X GET 'http://localhost:1789/auth/remaining-attempts?email=value' \
 
 **Parameters**
 
-| Name    | In    | Required | Type   | Example | Description |
-| ------- | ----- | :------: | ------ | ------- | ----------- |
-| `email` | query |   yes    | string |         |             |
+| Name    | In    | Required | Type   | Description |
+| ------- | ----- | :------: | ------ | ----------- |
+| `email` | query |   yes    | string |             |
 
 **Responses**
 
@@ -224,11 +255,11 @@ curl -X GET 'http://localhost:1789/auth/remaining-attempts?email=value' \
 | -----: | ------------ | -------------- | ----------- |
 |    200 | _/_          | integer(int64) | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/auth/remaining-lock-time?email=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/auth/remaining-lock-time' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### resetPassword
@@ -237,7 +268,22 @@ curl -X GET 'http://localhost:1789/auth/remaining-lock-time?email=value' \
 
 **Request Body**
 
-- `application/json` — ResetPasswordRequest
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `targetUser` | string | no | |
+  | `newPassword` | string | no | |
+  | `newPasswordConfirmation` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "targetUser": "string",
+  "newPassword": "string",
+  "newPasswordConfirmation": "string"
+}
+```
 
 **Responses**
 
@@ -245,22 +291,18 @@ curl -X GET 'http://localhost:1789/auth/remaining-lock-time?email=value' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | _/_          | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/auth/reset-password' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with ResetPasswordRequest */"
+  "targetUser": "string",
+  "newPassword": "string",
+  "newPasswordConfirmation": "string"
 }'
 ```
-
----
-
-## Broker API
-
-Endpoint for broker-worker communication
 
 ### Download any content set in broker files directory
 
@@ -268,9 +310,9 @@ Endpoint for broker-worker communication
 
 **Parameters**
 
-| Name   | In    | Required | Type   | Example | Description |
-| ------ | ----- | :------: | ------ | ------- | ----------- |
-| `path` | query |   yes    | string |         |             |
+| Name   | In    | Required | Type   | Description |
+| ------ | ----- | :------: | ------ | ----------- |
+| `path` | query |   yes    | string |             |
 
 **Responses**
 
@@ -278,34 +320,34 @@ Endpoint for broker-worker communication
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/broker/contents?path=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/broker/contents' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Download any content set in broker files directory
 
-`GET /broker/contents`
+`DELETE /broker/contents`
 
 **Parameters**
 
-| Name   | In    | Required | Type   | Example | Description |
-| ------ | ----- | :------: | ------ | ------- | ----------- |
-| `path` | query |   yes    | string |         |             |
+| Name   | In    | Required | Type   | Description |
+| ------ | ----- | :------: | ------ | ----------- |
+| `path` | query |   yes    | string |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema         | Description |
-| -----: | ---------------- | -------------- | ----------- |
-|    200 | application/json | string(binary) | OK          |
+| Status | Content-Type | Schema | Description |
+| -----: | ------------ | ------ | ----------- |
+|    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/broker/contents?path=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/broker/contents' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Download logs produced by the broker
@@ -318,18 +360,12 @@ curl -X GET 'http://localhost:1789/broker/contents?path=value' \
 | -----: | ---------------- | ------------------- | ----------- |
 |    200 | application/json | array[string(byte)] | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X GET 'http://localhost:1789/broker/download-broker-logs' \
-  -H 'Authorization: Bearer <token>'
+  -H 'Authorization: Bearer <token>' \
 ```
-
----
-
-## Campaign API
-
-Endpoint for managing campaigns
 
 ### Delete campaigns by names
 
@@ -339,24 +375,24 @@ Deletes campaigns that match the list of specified campaign names and map versio
 
 **Parameters**
 
-| Name                | In    | Required | Type            | Example                                  | Description                               |
-| ------------------- | ----- | :------: | --------------- | ---------------------------------------- | ----------------------------------------- |
-| `campaigns`         | query |   yes    | array[Campaign] | `['DefaultMap_Run1', 'DefaultMap_Run3']` | Campaign names to retrieve                |
-| `mapVersionSerieId` | query |    no    | string          | `1`                                      | Map version series id to filter campaigns |
+| Name                | In    | Required | Type          | Description                               |
+| ------------------- | ----- | :------: | ------------- | ----------------------------------------- |
+| `campaigns`         | query |   yes    | array[object] | Campaign names to retrieve                |
+| `mapVersionSerieId` | query |    no    | string        | Map version series id to filter campaigns |
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description                       |
-| -----: | ---------------- | ------------------ | --------------------------------- |
-|    207 | application/json | MultiStatusContent | Server failed to delete campaigns |
-|    200 | application/json | MultiStatusContent | Successfully deleted campaigns    |
-|    400 | —                | —                  | Invalid request parameters        |
+| Status | Content-Type     | Schema | Description                       |
+| -----: | ---------------- | ------ | --------------------------------- |
+|    207 | application/json | object | Server failed to delete campaigns |
+|    200 | application/json | object | Successfully deleted campaigns    |
+|    400 | —                | —      | Invalid request parameters        |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/campaigns/delete-by-names?campaigns=['DefaultMap_Run1', 'DefaultMap_Run3']&mapVersionSerieId=1' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/campaigns/delete-by-names' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Delete campaigns by pattern
@@ -367,24 +403,24 @@ Deletes campaigns that match the specified name pattern and map version. If no n
 
 **Parameters**
 
-| Name                | In    | Required | Type   | Example        | Description                               |
-| ------------------- | ----- | :------: | ------ | -------------- | ----------------------------------------- |
-| `namePattern`       | query |    no    | string | `DefaultMap_*` | Pattern to filter campaign names          |
-| `mapVersionSerieId` | query |    no    | string | `1`            | Map version series id to filter campaigns |
+| Name                | In    | Required | Type   | Description                               |
+| ------------------- | ----- | :------: | ------ | ----------------------------------------- |
+| `namePattern`       | query |    no    | string | Pattern to filter campaign names          |
+| `mapVersionSerieId` | query |    no    | string | Map version series id to filter campaigns |
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description                       |
-| -----: | ---------------- | ------------------ | --------------------------------- |
-|    207 | application/json | MultiStatusContent | Server failed to delete campaigns |
-|    200 | application/json | MultiStatusContent | Successfully deleted campaigns    |
-|    400 | —                | —                  | Invalid request parameters        |
+| Status | Content-Type     | Schema | Description                       |
+| -----: | ---------------- | ------ | --------------------------------- |
+|    207 | application/json | object | Server failed to delete campaigns |
+|    200 | application/json | object | Successfully deleted campaigns    |
+|    400 | —                | —      | Invalid request parameters        |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/campaigns/delete-by-pattern?namePattern=DefaultMap_*&mapVersionSerieId=1' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/campaigns/delete-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Download campaign exceptions
@@ -395,10 +431,10 @@ Downloads all exceptions thrown during a specific campaign
 
 **Parameters**
 
-| Name        | In    | Required | Type          | Example | Description |
-| ----------- | ----- | :------: | ------------- | ------- | ----------- |
-| `campaigns` | query |   yes    | array[string] |         |             |
-| `mapIds`    | query |   yes    | array[string] |         |             |
+| Name        | In    | Required | Type          | Description |
+| ----------- | ----- | :------: | ------------- | ----------- |
+| `campaigns` | query |   yes    | array[string] |             |
+| `mapIds`    | query |   yes    | array[string] |             |
 
 **Responses**
 
@@ -408,11 +444,11 @@ Downloads all exceptions thrown during a specific campaign
 |    500 | —            | —      | Server failed to download exceptions |
 |    400 | —            | —      | Invalid request parameters           |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/campaigns/download-exceptions?campaigns=value&mapIds=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/campaigns/download-exceptions' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get campaigns dto information by names
@@ -423,26 +459,26 @@ Retrieves campaigns that match the list of specified campaign names, map version
 
 **Parameters**
 
-| Name                | In    | Required | Type            | Example                                                               | Description                               |
-| ------------------- | ----- | :------: | --------------- | --------------------------------------------------------------------- | ----------------------------------------- |
-| `campaigns`         | query |   yes    | array[Campaign] | `['DefaultMap_Run1', 'DefaultMap_Run3']`                              | Campaign names to retrieve                |
-| `mapVersionSerieId` | query |    no    | string          | `1`                                                                   | Map version series id to filter campaigns |
-| `mapId`             | query |    no    | string          | `2ed1ac12-9406-466d-814a-d9d63c5850e3`                                | Map id to filter campaigns                |
-| `paginateParams`    | query |   yes    | PaginateParams  | `{'from': 1, 'size': 20, 'orderBy': 'campaign', 'ascending': 'true'}` | Pagination parameters                     |
+| Name                | In    | Required | Type          | Description                               |
+| ------------------- | ----- | :------: | ------------- | ----------------------------------------- |
+| `campaigns`         | query |   yes    | array[object] | Campaign names to retrieve                |
+| `mapVersionSerieId` | query |    no    | string        | Map version series id to filter campaigns |
+| `mapId`             | query |    no    | string        | Map id to filter campaigns                |
+| `paginateParams`    | query |   yes    | object        | Pagination parameters                     |
 
 **Responses**
 
-| Status | Content-Type     | Schema            | Description                      |
-| -----: | ---------------- | ----------------- | -------------------------------- |
-|    500 | —                | —                 | Failed to retrieve campaigns     |
-|    200 | application/json | PaginateEntityDto | Successfully retrieved campaigns |
-|    400 | —                | —                 | Invalid request parameters       |
+| Status | Content-Type     | Schema | Description                      |
+| -----: | ---------------- | ------ | -------------------------------- |
+|    500 | —                | —      | Failed to retrieve campaigns     |
+|    200 | application/json | object | Successfully retrieved campaigns |
+|    400 | —                | —      | Invalid request parameters       |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/campaigns/dto/search-by-names?campaigns=['DefaultMap_Run1', 'DefaultMap_Run3']&mapVersionSerieId=1&mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3&paginateParams={'from': 1, 'size': 20, 'orderBy': 'campaign', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/campaigns/dto/search-by-names' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get campaigns dto information by pattern
@@ -453,27 +489,27 @@ Retrieves a list of campaigns dto that match the specified name pattern, map ver
 
 **Parameters**
 
-| Name                | In    | Required | Type           | Example                                                               | Description                               |
-| ------------------- | ----- | :------: | -------------- | --------------------------------------------------------------------- | ----------------------------------------- |
-| `namePattern`       | query |    no    | string         | `DefaultMap_*`                                                        | Pattern to filter campaign names          |
-| `mapVersionSerieId` | query |    no    | string         | `1`                                                                   | Map version series id to filter campaigns |
-| `mapId`             | query |    no    | string         | `2ed1ac12-9406-466d-814a-d9d63c5850e3`                                | Map id to filter campaigns                |
-| `status`            | query |    no    | string         | `Started`                                                             | Campaign status to filter campaigns       |
-| `paginateParams`    | query |   yes    | PaginateParams | `{'from': 1, 'size': 20, 'orderBy': 'campaign', 'ascending': 'true'}` | Pagination parameters                     |
+| Name                | In    | Required | Type   | Description                               |
+| ------------------- | ----- | :------: | ------ | ----------------------------------------- |
+| `namePattern`       | query |    no    | string | Pattern to filter campaign names          |
+| `mapVersionSerieId` | query |    no    | string | Map version series id to filter campaigns |
+| `mapId`             | query |    no    | string | Map id to filter campaigns                |
+| `status`            | query |    no    | string | Campaign status to filter campaigns       |
+| `paginateParams`    | query |   yes    | object | Pagination parameters                     |
 
 **Responses**
 
-| Status | Content-Type     | Schema            | Description                         |
-| -----: | ---------------- | ----------------- | ----------------------------------- |
-|    500 | —                | —                 | Server failed to retrieve campaigns |
-|    200 | application/json | PaginateEntityDto | Successfully retrieved campaigns    |
-|    400 | —                | —                 | Invalid request parameters          |
+| Status | Content-Type     | Schema | Description                         |
+| -----: | ---------------- | ------ | ----------------------------------- |
+|    500 | —                | —      | Server failed to retrieve campaigns |
+|    200 | application/json | object | Successfully retrieved campaigns    |
+|    400 | —                | —      | Invalid request parameters          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/campaigns/dto/search-by-pattern?namePattern=DefaultMap_*&mapVersionSerieId=1&mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3&status=Started&paginateParams={'from': 1, 'size': 20, 'orderBy': 'campaign', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/campaigns/dto/search-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get campaign dto information
@@ -484,24 +520,24 @@ Retrieves a campaign dto from its name
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example           | Description               |
-| ---------- | ---- | :------: | -------- | ----------------- | ------------------------- |
-| `campaign` | path |   yes    | Campaign | `DefaultMap_Run1` | Campaign name to retrieve |
+| Name       | In   | Required | Type   | Description               |
+| ---------- | ---- | :------: | ------ | ------------------------- |
+| `campaign` | path |   yes    | object | Campaign name to retrieve |
 
 **Responses**
 
-| Status | Content-Type     | Schema      | Description                        |
-| -----: | ---------------- | ----------- | ---------------------------------- |
-|    200 | application/json | CampaignDto | Successfully retrieved campaign    |
-|    400 | —                | —           | Invalid request parameters         |
-|    404 | —                | —           | Campaign not found                 |
-|    500 | —                | —           | Server failed to retrieve campaign |
+| Status | Content-Type     | Schema | Description                        |
+| -----: | ---------------- | ------ | ---------------------------------- |
+|    200 | application/json | object | Successfully retrieved campaign    |
+|    400 | —                | —      | Invalid request parameters         |
+|    404 | —                | —      | Campaign not found                 |
+|    500 | —                | —      | Server failed to retrieve campaign |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/campaigns/dto/DefaultMap_Run1' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/campaigns/dto/<campaign>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get campaigns information by name
@@ -512,26 +548,26 @@ Retrieves campaigns that match the list of specified campaign names, map version
 
 **Parameters**
 
-| Name                | In    | Required | Type            | Example                                                               | Description                               |
-| ------------------- | ----- | :------: | --------------- | --------------------------------------------------------------------- | ----------------------------------------- |
-| `campaigns`         | query |   yes    | array[Campaign] | `['DefaultMap_Run1', 'DefaultMap_Run3']`                              | Campaign names to stop                    |
-| `mapVersionSerieId` | query |    no    | string          | `1`                                                                   | Map version series id to filter campaigns |
-| `mapId`             | query |    no    | string          | `2ed1ac12-9406-466d-814a-d9d63c5850e3`                                | Map id to filter campaigns                |
-| `paginateParams`    | query |   yes    | PaginateParams  | `{'from': 1, 'size': 20, 'orderBy': 'campaign', 'ascending': 'true'}` | Pagination parameters                     |
+| Name                | In    | Required | Type          | Description                               |
+| ------------------- | ----- | :------: | ------------- | ----------------------------------------- |
+| `campaigns`         | query |   yes    | array[object] | Campaign names to stop                    |
+| `mapVersionSerieId` | query |    no    | string        | Map version series id to filter campaigns |
+| `mapId`             | query |    no    | string        | Map id to filter campaigns                |
+| `paginateParams`    | query |   yes    | object        | Pagination parameters                     |
 
 **Responses**
 
-| Status | Content-Type     | Schema            | Description                         |
-| -----: | ---------------- | ----------------- | ----------------------------------- |
-|    200 | application/json | PaginateEntityDto | Successfully retrieved campaigns    |
-|    500 | —                | —                 | Server failed to retrieve campaigns |
-|    400 | —                | —                 | Invalid request parameters          |
+| Status | Content-Type     | Schema | Description                         |
+| -----: | ---------------- | ------ | ----------------------------------- |
+|    200 | application/json | object | Successfully retrieved campaigns    |
+|    500 | —                | —      | Server failed to retrieve campaigns |
+|    400 | —                | —      | Invalid request parameters          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/campaigns/search-by-names?campaigns=['DefaultMap_Run1', 'DefaultMap_Run3']&mapVersionSerieId=1&mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3&paginateParams={'from': 1, 'size': 20, 'orderBy': 'campaign', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/campaigns/search-by-names' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get campaigns information by pattern
@@ -542,26 +578,26 @@ Retrieves campaigns that match the specified name pattern, map version and map i
 
 **Parameters**
 
-| Name                | In    | Required | Type           | Example                                                               | Description                               |
-| ------------------- | ----- | :------: | -------------- | --------------------------------------------------------------------- | ----------------------------------------- |
-| `namePattern`       | query |    no    | string         | `DefaultMap_*`                                                        | Pattern to filter campaign names          |
-| `mapVersionSerieId` | query |    no    | string         | `1`                                                                   | Map version series id to filter campaigns |
-| `mapId`             | query |    no    | string         | `2ed1ac12-9406-466d-814a-d9d63c5850e3`                                | Map id to filter campaigns                |
-| `paginateParams`    | query |   yes    | PaginateParams | `{'from': 1, 'size': 20, 'orderBy': 'campaign', 'ascending': 'true'}` | Pagination parameters                     |
+| Name                | In    | Required | Type   | Description                               |
+| ------------------- | ----- | :------: | ------ | ----------------------------------------- |
+| `namePattern`       | query |    no    | string | Pattern to filter campaign names          |
+| `mapVersionSerieId` | query |    no    | string | Map version series id to filter campaigns |
+| `mapId`             | query |    no    | string | Map id to filter campaigns                |
+| `paginateParams`    | query |   yes    | object | Pagination parameters                     |
 
 **Responses**
 
-| Status | Content-Type     | Schema            | Description                         |
-| -----: | ---------------- | ----------------- | ----------------------------------- |
-|    200 | application/json | PaginateEntityDto | Successfully retrieved campaigns    |
-|    500 | —                | —                 | Server failed to retrieve campaigns |
-|    400 | —                | —                 | Invalid request parameters          |
+| Status | Content-Type     | Schema | Description                         |
+| -----: | ---------------- | ------ | ----------------------------------- |
+|    200 | application/json | object | Successfully retrieved campaigns    |
+|    500 | —                | —      | Server failed to retrieve campaigns |
+|    400 | —                | —      | Invalid request parameters          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/campaigns/search-by-pattern?namePattern=DefaultMap_*&mapVersionSerieId=1&mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3&paginateParams={'from': 1, 'size': 20, 'orderBy': 'campaign', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/campaigns/search-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Stop campaigns by names
@@ -572,24 +608,24 @@ Stops campaigns that match the specified list of campaign names and map version.
 
 **Parameters**
 
-| Name                | In    | Required | Type            | Example                                  | Description                               |
-| ------------------- | ----- | :------: | --------------- | ---------------------------------------- | ----------------------------------------- |
-| `campaigns`         | query |   yes    | array[Campaign] | `['DefaultMap_Run1', 'DefaultMap_Run3']` | Campaign names to stop                    |
-| `mapVersionSerieId` | query |    no    | string          | `1`                                      | Map version series id to filter campaigns |
+| Name                | In    | Required | Type          | Description                               |
+| ------------------- | ----- | :------: | ------------- | ----------------------------------------- |
+| `campaigns`         | query |   yes    | array[object] | Campaign names to stop                    |
+| `mapVersionSerieId` | query |    no    | string        | Map version series id to filter campaigns |
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description                    |
-| -----: | ---------------- | ------------------ | ------------------------------ |
-|    207 | application/json | MultiStatusContent | Server failed to stop campaign |
-|    200 | application/json | MultiStatusContent | Successfully stopped campaign  |
-|    400 | —                | —                  | Invalid request parameters     |
+| Status | Content-Type     | Schema | Description                    |
+| -----: | ---------------- | ------ | ------------------------------ |
+|    207 | application/json | object | Server failed to stop campaign |
+|    200 | application/json | object | Successfully stopped campaign  |
+|    400 | —                | —      | Invalid request parameters     |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/campaigns/stop-by-names?campaigns=['DefaultMap_Run1', 'DefaultMap_Run3']&mapVersionSerieId=1' \
-  -H 'Authorization: Bearer <token>'
+curl -X POST 'http://localhost:1789/campaigns/stop-by-names' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Stop campaigns by pattern
@@ -600,24 +636,24 @@ Stops campaigns that match the specified name pattern and map version. If no nam
 
 **Parameters**
 
-| Name                | In    | Required | Type   | Example        | Description                               |
-| ------------------- | ----- | :------: | ------ | -------------- | ----------------------------------------- |
-| `namePattern`       | query |    no    | string | `DefaultMap_*` | Pattern to filter campaign names          |
-| `mapVersionSerieId` | query |    no    | string | `1`            | Map version series id to filter campaigns |
+| Name                | In    | Required | Type   | Description                               |
+| ------------------- | ----- | :------: | ------ | ----------------------------------------- |
+| `namePattern`       | query |    no    | string | Pattern to filter campaign names          |
+| `mapVersionSerieId` | query |    no    | string | Map version series id to filter campaigns |
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description                    |
-| -----: | ---------------- | ------------------ | ------------------------------ |
-|    207 | application/json | MultiStatusContent | Server failed to stop campaign |
-|    200 | application/json | MultiStatusContent | Successfully stopped campaign  |
-|    400 | —                | —                  | Invalid request parameters     |
+| Status | Content-Type     | Schema | Description                    |
+| -----: | ---------------- | ------ | ------------------------------ |
+|    207 | application/json | object | Server failed to stop campaign |
+|    200 | application/json | object | Successfully stopped campaign  |
+|    400 | —                | —      | Invalid request parameters     |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/campaigns/stop-by-pattern?namePattern=DefaultMap_*&mapVersionSerieId=1' \
-  -H 'Authorization: Bearer <token>'
+curl -X POST 'http://localhost:1789/campaigns/stop-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Delete a campaign
@@ -628,9 +664,9 @@ Deletes a campaign from its name
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example           | Description             |
-| ---------- | ---- | :------: | -------- | ----------------- | ----------------------- |
-| `campaign` | path |   yes    | Campaign | `DefaultMap_Run1` | Campaign name to delete |
+| Name       | In   | Required | Type   | Description             |
+| ---------- | ---- | :------: | ------ | ----------------------- |
+| `campaign` | path |   yes    | object | Campaign name to delete |
 
 **Responses**
 
@@ -641,11 +677,11 @@ Deletes a campaign from its name
 |    404 | —            | —      | Campaign not found                   |
 |    500 | —            | —      | Server failed to delete the campaign |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/campaigns/DefaultMap_Run1' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/campaigns/<campaign>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### deleteCampaignParameter
@@ -654,10 +690,10 @@ curl -X DELETE 'http://localhost:1789/campaigns/DefaultMap_Run1' \
 
 **Parameters**
 
-| Name                | In   | Required | Type     | Example           | Description            |
-| ------------------- | ---- | :------: | -------- | ----------------- | ---------------------- |
-| `campaign`          | path |   yes    | Campaign | `DefaultMap_Run1` | Campaign name          |
-| `campaignParameter` | path |   yes    | string   |                   | Campaign parameter key |
+| Name                | In   | Required | Type   | Description            |
+| ------------------- | ---- | :------: | ------ | ---------------------- |
+| `campaign`          | path |   yes    | object | Campaign name          |
+| `campaignParameter` | path |   yes    | string | Campaign parameter key |
 
 **Responses**
 
@@ -665,11 +701,11 @@ curl -X DELETE 'http://localhost:1789/campaigns/DefaultMap_Run1' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/campaigns/DefaultMap_Run1/parameter/{campaignParameter}' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/campaigns/<campaign>/parameter/<campaignParameter>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### deleteAllCampaignParameters
@@ -678,9 +714,9 @@ curl -X DELETE 'http://localhost:1789/campaigns/DefaultMap_Run1/parameter/{campa
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example           | Description   |
-| ---------- | ---- | :------: | -------- | ----------------- | ------------- |
-| `campaign` | path |   yes    | Campaign | `DefaultMap_Run1` | Campaign name |
+| Name       | In   | Required | Type   | Description   |
+| ---------- | ---- | :------: | ------ | ------------- |
+| `campaign` | path |   yes    | object | Campaign name |
 
 **Responses**
 
@@ -688,11 +724,11 @@ curl -X DELETE 'http://localhost:1789/campaigns/DefaultMap_Run1/parameter/{campa
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/campaigns/DefaultMap_Run1/parameters' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/campaigns/<campaign>/parameters' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getCampaignParameters
@@ -701,21 +737,21 @@ curl -X DELETE 'http://localhost:1789/campaigns/DefaultMap_Run1/parameters' \
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example           | Description   |
-| ---------- | ---- | :------: | -------- | ----------------- | ------------- |
-| `campaign` | path |   yes    | Campaign | `DefaultMap_Run1` | Campaign name |
+| Name       | In   | Required | Type   | Description   |
+| ---------- | ---- | :------: | ------ | ------------- |
+| `campaign` | path |   yes    | object | Campaign name |
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description |
-| -----: | ---------------- | ------------------ | ----------- |
-|    200 | application/json | CampaignParameters | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/campaigns/DefaultMap_Run1/parameters' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/campaigns/<campaign>/parameters' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### createCampaignParameters
@@ -724,14 +760,25 @@ curl -X GET 'http://localhost:1789/campaigns/DefaultMap_Run1/parameters' \
 
 **Parameters**
 
-| Name       | In    | Required | Type           | Example                                | Description   |
-| ---------- | ----- | :------: | -------------- | -------------------------------------- | ------------- |
-| `mapId`    | query |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | Map Id        |
-| `campaign` | path  |   yes    | Campaign       | `DefaultMap_Run1`                      | Campaign name |
+| Name       | In    | Required | Type   | Description   |
+| ---------- | ----- | :------: | ------ | ------------- |
+| `mapId`    | query |   yes    | object | Map Id        |
+| `campaign` | path  |   yes    | object | Campaign name |
 
 **Request Body**
 
-- `application/json` — CampaignParameters
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `empty` | boolean | no | |
+
+Exemple de body:
+
+```json
+{
+  "empty": true
+}
+```
 
 **Responses**
 
@@ -739,14 +786,14 @@ curl -X GET 'http://localhost:1789/campaigns/DefaultMap_Run1/parameters' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/campaigns/DefaultMap_Run1/parameters?mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+curl -X POST 'http://localhost:1789/campaigns/<campaign>/parameters' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with CampaignParameters */"
+  "empty": true
 }'
 ```
 
@@ -758,9 +805,9 @@ Resumes a campaign from its name. Only stopped campaigns can be resumed
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example           | Description   |
-| ---------- | ---- | :------: | -------- | ----------------- | ------------- |
-| `campaign` | path |   yes    | Campaign | `DefaultMap_Run1` | Campaign name |
+| Name       | In   | Required | Type   | Description   |
+| ---------- | ---- | :------: | ------ | ------------- |
+| `campaign` | path |   yes    | object | Campaign name |
 
 **Responses**
 
@@ -769,13 +816,13 @@ Resumes a campaign from its name. Only stopped campaigns can be resumed
 |    400 | —                | —      | Campaign not stopped             |
 |    404 | —                | —      | Campaign not found               |
 |    500 | —                | —      | Server failed to resume campaign |
-|    200 | application/json |        | Successfully resumed campaign    |
+|    200 | application/json | object | Successfully resumed campaign    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/campaigns/DefaultMap_Run1/resume' \
-  -H 'Authorization: Bearer <token>'
+curl -X POST 'http://localhost:1789/campaigns/<campaign>/resume' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Retry punnets
@@ -786,12 +833,12 @@ Retry punnets in any step for a specific campaign. You can filter the punnets to
 
 **Parameters**
 
-| Name       | In    | Required | Type           | Example                                | Description                             |
-| ---------- | ----- | :------: | -------------- | -------------------------------------- | --------------------------------------- |
-| `campaign` | path  |   yes    | Campaign       | `DefaultMap_Run1`                      | Campaign name of the punnets to retry   |
-| `mapId`    | query |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | Map id related to the campaign          |
-| `stepId`   | query |   yes    | TaskStepId     | `14737a87-e217-4c9c-ae55-31b6bc71e39d` | Step id containing the punnets to retry |
-| `status`   | query |    no    | array[string]  | `ProcessedException`                   | Status to filter punnets to retry       |
+| Name       | In    | Required | Type          | Description                             |
+| ---------- | ----- | :------: | ------------- | --------------------------------------- |
+| `campaign` | path  |   yes    | object        | Campaign name of the punnets to retry   |
+| `mapId`    | query |   yes    | object        | Map id related to the campaign          |
+| `stepId`   | query |   yes    | object        | Step id containing the punnets to retry |
+| `status`   | query |    no    | array[string] | Status to filter punnets to retry       |
 
 **Responses**
 
@@ -801,11 +848,11 @@ Retry punnets in any step for a specific campaign. You can filter the punnets to
 |    400 | —            | —      | Invalid request parameters     |
 |    200 | —            | —      | Successfully retried campaign  |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/campaigns/DefaultMap_Run1/retry-punnets?mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3&stepId=14737a87-e217-4c9c-ae55-31b6bc71e39d&status=ProcessedException' \
-  -H 'Authorization: Bearer <token>'
+curl -X POST 'http://localhost:1789/campaigns/<campaign>/retry-punnets' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Start a campaign
@@ -816,26 +863,26 @@ Starts a campaign from its name and a map id. Can be a new campaign or a rerun
 
 **Parameters**
 
-| Name          | In    | Required | Type           | Example                                | Description   |
-| ------------- | ----- | :------: | -------------- | -------------------------------------- | ------------- |
-| `campaign`    | path  |   yes    | Campaign       | `DefaultMap_Run1`                      | Campaign name |
-| `mapId`       | query |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | Map Id        |
-| `newCampaign` | query |    no    | boolean        | `True`                                 | New campaign  |
+| Name          | In    | Required | Type    | Description   |
+| ------------- | ----- | :------: | ------- | ------------- |
+| `campaign`    | path  |   yes    | object  | Campaign name |
+| `mapId`       | query |   yes    | object  | Map Id        |
+| `newCampaign` | query |    no    | boolean | New campaign  |
 
 **Responses**
 
-| Status | Content-Type     | Schema   | Description                     |
-| -----: | ---------------- | -------- | ------------------------------- |
-|    400 | —                | —        | Invalid request parameters      |
-|    404 | —                | —        | Map not found                   |
-|    200 | application/json | Campaign | Successfully started campaign   |
-|    500 | —                | —        | Server failed to start campaign |
+| Status | Content-Type     | Schema | Description                     |
+| -----: | ---------------- | ------ | ------------------------------- |
+|    400 | —                | —      | Invalid request parameters      |
+|    404 | —                | —      | Map not found                   |
+|    200 | application/json | object | Successfully started campaign   |
+|    500 | —                | —      | Server failed to start campaign |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/campaigns/DefaultMap_Run1/start?mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3&newCampaign=True' \
-  -H 'Authorization: Bearer <token>'
+curl -X POST 'http://localhost:1789/campaigns/<campaign>/start' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get campaign stats
@@ -846,24 +893,24 @@ Retrieves stats of specified campaign
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example           | Description               |
-| ---------- | ---- | :------: | -------- | ----------------- | ------------------------- |
-| `campaign` | path |   yes    | Campaign | `DefaultMap_Run1` | Campaign name to retrieve |
+| Name       | In   | Required | Type   | Description               |
+| ---------- | ---- | :------: | ------ | ------------------------- |
+| `campaign` | path |   yes    | object | Campaign name to retrieve |
 
 **Responses**
 
-| Status | Content-Type     | Schema       | Description                              |
-| -----: | ---------------- | ------------ | ---------------------------------------- |
-|    500 | —                | —            | Server failed to retrieve campaign stats |
-|    200 | application/json | CampaignStat | Successfully retrieved campaign stats    |
-|    400 | —                | —            | Invalid request parameters               |
-|    404 | —                | —            | Campaign or stats not found              |
+| Status | Content-Type     | Schema | Description                              |
+| -----: | ---------------- | ------ | ---------------------------------------- |
+|    500 | —                | —      | Server failed to retrieve campaign stats |
+|    200 | application/json | object | Successfully retrieved campaign stats    |
+|    400 | —                | —      | Invalid request parameters               |
+|    404 | —                | —      | Campaign or stats not found              |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/campaigns/DefaultMap_Run1/stats' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/campaigns/<campaign>/stats' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get campaign status
@@ -874,9 +921,9 @@ Retrieves status of specified campaign
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example           | Description               |
-| ---------- | ---- | :------: | -------- | ----------------- | ------------------------- |
-| `campaign` | path |   yes    | Campaign | `DefaultMap_Run1` | Campaign name to retrieve |
+| Name       | In   | Required | Type   | Description               |
+| ---------- | ---- | :------: | ------ | ------------------------- |
+| `campaign` | path |   yes    | object | Campaign name to retrieve |
 
 **Responses**
 
@@ -887,11 +934,11 @@ Retrieves status of specified campaign
 |    400 | —                | —      | Invalid request parameters                |
 |    500 | —                | —      | Server failed to retrieve campaign status |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/campaigns/DefaultMap_Run1/status' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/campaigns/<campaign>/status' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Download step result
@@ -902,12 +949,12 @@ Downloads step result for a specific campaign. You can filter the punnets to dow
 
 **Parameters**
 
-| Name       | In    | Required | Type           | Example                                | Description                          |
-| ---------- | ----- | :------: | -------------- | -------------------------------------- | ------------------------------------ |
-| `campaign` | path  |   yes    | Campaign       | `DefaultMap_Run1`                      | Campaign name of the step            |
-| `mapId`    | query |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | Map id related to the campaign       |
-| `stepId`   | path  |   yes    | TaskStepId     | `14737a87-e217-4c9c-ae55-31b6bc71e39d` | Step id to download result           |
-| `status`   | query |    no    | array[string]  | `ProcessedException`                   | Status to filter punnets to download |
+| Name       | In    | Required | Type          | Description                          |
+| ---------- | ----- | :------: | ------------- | ------------------------------------ |
+| `campaign` | path  |   yes    | object        | Campaign name of the step            |
+| `mapId`    | query |   yes    | object        | Map id related to the campaign       |
+| `stepId`   | path  |   yes    | object        | Step id to download result           |
+| `status`   | query |    no    | array[string] | Status to filter punnets to download |
 
 **Responses**
 
@@ -917,11 +964,11 @@ Downloads step result for a specific campaign. You can filter the punnets to dow
 |    500 | —            | —      | Server failed to download step result |
 |    400 | —            | —      | Invalid request parameters            |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/campaigns/DefaultMap_Run1/step/14737a87-e217-4c9c-ae55-31b6bc71e39d/download-result?mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3&status=ProcessedException' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/campaigns/<campaign>/step/<stepId>/download-result' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Pause a step
@@ -932,26 +979,26 @@ Pause a step by providing the campaign name, map ID, and step ID. These paramete
 
 **Parameters**
 
-| Name       | In    | Required | Type           | Example                                | Description                                     |
-| ---------- | ----- | :------: | -------------- | -------------------------------------- | ----------------------------------------------- |
-| `campaign` | path  |   yes    | Campaign       | `DefaultMap_Run1`                      | The campaign name to identify the task context  |
-| `mapId`    | query |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | The map Id related to the campaign              |
-| `stepId`   | path  |   yes    | TaskStepId     | `14737a87-e217-4c9c-ae55-31b6bc71e39d` | The step Id defining the specific task to pause |
+| Name       | In    | Required | Type   | Description                                     |
+| ---------- | ----- | :------: | ------ | ----------------------------------------------- |
+| `campaign` | path  |   yes    | object | The campaign name to identify the task context  |
+| `mapId`    | query |   yes    | object | The map Id related to the campaign              |
+| `stepId`   | path  |   yes    | object | The step Id defining the specific task to pause |
 
 **Responses**
 
 | Status | Content-Type     | Schema | Description                |
 | -----: | ---------------- | ------ | -------------------------- |
-|    204 | application/json |        | Successfully paused step   |
+|    204 | application/json | object | Successfully paused step   |
 |    400 | —                | —      | Invalid request parameters |
 |    404 | —                | —      | Campaign not found         |
 |    500 | —                | —      | Failed to pause step       |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/campaigns/DefaultMap_Run1/step/14737a87-e217-4c9c-ae55-31b6bc71e39d/pause?mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3' \
-  -H 'Authorization: Bearer <token>'
+curl -X POST 'http://localhost:1789/campaigns/<campaign>/step/<stepId>/pause' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Resume a step
@@ -962,11 +1009,11 @@ Resume a step by providing the campaign name, map ID, and step ID. These paramet
 
 **Parameters**
 
-| Name       | In    | Required | Type           | Example                                | Description                                      |
-| ---------- | ----- | :------: | -------------- | -------------------------------------- | ------------------------------------------------ |
-| `campaign` | path  |   yes    | Campaign       | `DefaultMap_Run1`                      | The campaign name to identify the task context   |
-| `mapId`    | query |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | The map Id related to the campaign               |
-| `stepId`   | path  |   yes    | TaskStepId     | `14737a87-e217-4c9c-ae55-31b6bc71e39d` | The step Id defining the specific task to resume |
+| Name       | In    | Required | Type   | Description                                      |
+| ---------- | ----- | :------: | ------ | ------------------------------------------------ |
+| `campaign` | path  |   yes    | object | The campaign name to identify the task context   |
+| `mapId`    | query |   yes    | object | The map Id related to the campaign               |
+| `stepId`   | path  |   yes    | object | The step Id defining the specific task to resume |
 
 **Responses**
 
@@ -975,13 +1022,13 @@ Resume a step by providing the campaign name, map ID, and step ID. These paramet
 |    500 | —                | —      | Failed to resume step      |
 |    400 | —                | —      | Invalid request parameters |
 |    404 | —                | —      | Campaign not found         |
-|    204 | application/json |        | Successfully resumed step  |
+|    204 | application/json | object | Successfully resumed step  |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/campaigns/DefaultMap_Run1/step/14737a87-e217-4c9c-ae55-31b6bc71e39d/resume?mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3' \
-  -H 'Authorization: Bearer <token>'
+curl -X POST 'http://localhost:1789/campaigns/<campaign>/step/<stepId>/resume' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Stop a campaign
@@ -992,31 +1039,25 @@ Stop a campaign from its name
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example           | Description   |
-| ---------- | ---- | :------: | -------- | ----------------- | ------------- |
-| `campaign` | path |   yes    | Campaign | `DefaultMap_Run1` | Campaign name |
+| Name       | In   | Required | Type   | Description   |
+| ---------- | ---- | :------: | ------ | ------------- |
+| `campaign` | path |   yes    | object | Campaign name |
 
 **Responses**
 
 | Status | Content-Type     | Schema | Description                   |
 | -----: | ---------------- | ------ | ----------------------------- |
-|    200 | application/json |        | Successfully stopped campaign |
+|    200 | application/json | object | Successfully stopped campaign |
 |    400 | —                | —      | Campaign not started          |
 |    500 | —                | —      | Failed to resume campaign     |
 |    404 | —                | —      | Campaign not found            |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/campaigns/DefaultMap_Run1/stop' \
-  -H 'Authorization: Bearer <token>'
+curl -X POST 'http://localhost:1789/campaigns/<campaign>/stop' \
+  -H 'Authorization: Bearer <token>' \
 ```
-
----
-
-## Catalog API
-
-Endpoint to retrieve catalog tasks
 
 ### getCatalog
 
@@ -1024,23 +1065,23 @@ Endpoint to retrieve catalog tasks
 
 **Parameters**
 
-| Name         | In    | Required | Type          | Example | Description |
-| ------------ | ----- | :------: | ------------- | ------- | ----------- |
-| `name`       | query |    no    | string        |         |             |
-| `classNames` | query |    no    | array[string] |         |             |
-| `allTask`    | query |    no    | boolean       |         |             |
+| Name         | In    | Required | Type          | Description |
+| ------------ | ----- | :------: | ------------- | ----------- |
+| `name`       | query |    no    | string        |             |
+| `classNames` | query |    no    | array[string] |             |
+| `allTask`    | query |    no    | boolean       |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                 | Description |
-| -----: | ---------------- | ---------------------- | ----------- |
-|    200 | application/json | array[AccessibleClass] | OK          |
+| Status | Content-Type     | Schema        | Description |
+| -----: | ---------------- | ------------- | ----------- |
+|    200 | application/json | array[object] | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/catalog?name=value&classNames=value&allTask=true' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/catalog' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getCatalogDto
@@ -1049,30 +1090,24 @@ curl -X GET 'http://localhost:1789/catalog?name=value&classNames=value&allTask=t
 
 **Parameters**
 
-| Name         | In    | Required | Type          | Example | Description |
-| ------------ | ----- | :------: | ------------- | ------- | ----------- |
-| `name`       | query |    no    | string        |         |             |
-| `classNames` | query |    no    | array[string] |         |             |
-| `allTask`    | query |    no    | boolean       |         |             |
+| Name         | In    | Required | Type          | Description |
+| ------------ | ----- | :------: | ------------- | ----------- |
+| `name`       | query |    no    | string        |             |
+| `classNames` | query |    no    | array[string] |             |
+| `allTask`    | query |    no    | boolean       |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                    | Description |
-| -----: | ---------------- | ------------------------- | ----------- |
-|    200 | application/json | array[AccessibleClassDto] | OK          |
+| Status | Content-Type     | Schema        | Description |
+| -----: | ---------------- | ------------- | ----------- |
+|    200 | application/json | array[object] | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/catalog/dto?name=value&classNames=value&allTask=true' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/catalog/dto' \
+  -H 'Authorization: Bearer <token>' \
 ```
-
----
-
-## Email API
-
-Endpoint for managing emails
 
 ### createEmail
 
@@ -1080,22 +1115,39 @@ Endpoint for managing emails
 
 **Request Body**
 
-- `application/json` — EmailSettings
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `email` | string | no | |
+  | `active` | boolean | no | |
+  | `emailId` | object | no | |
+
+Exemple de body:
+
+```json
+{
+  "email": "string",
+  "active": true,
+  "emailId": {}
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema        | Description |
-| -----: | ---------------- | ------------- | ----------- |
-|    200 | application/json | EmailSettings | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/emails' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with EmailSettings */"
+  "email": "string",
+  "active": true,
+  "emailId": {}
 }'
 ```
 
@@ -1105,22 +1157,39 @@ curl -X POST 'http://localhost:1789/emails' \
 
 **Request Body**
 
-- `application/json` — EmailSettings
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `email` | string | no | |
+  | `active` | boolean | no | |
+  | `emailId` | object | no | |
+
+Exemple de body:
+
+```json
+{
+  "email": "string",
+  "active": true,
+  "emailId": {}
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema        | Description |
-| -----: | ---------------- | ------------- | ----------- |
-|    200 | application/json | EmailSettings | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X PUT 'http://localhost:1789/emails' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with EmailSettings */"
+  "email": "string",
+  "active": true,
+  "emailId": {}
 }'
 ```
 
@@ -1130,28 +1199,48 @@ curl -X PUT 'http://localhost:1789/emails' \
 
 **Parameters**
 
-| Name     | In    | Required | Type          | Example | Description |
-| -------- | ----- | :------: | ------------- | ------- | ----------- |
-| `emails` | query |   yes    | array[string] |         |             |
+| Name     | In    | Required | Type          | Description |
+| -------- | ----- | :------: | ------------- | ----------- |
+| `emails` | query |   yes    | array[string] |             |
 
 **Request Body**
 
-- `application/json` — PaginateParams
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `from` | integer(int32) | no | |
+  | `size` | integer(int32) | no | |
+  | `orderBy` | string | no | |
+  | `ascending` | boolean | no | |
+
+Exemple de body:
+
+```json
+{
+  "from": 0,
+  "size": 0,
+  "orderBy": "string",
+  "ascending": true
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema                   | Description |
-| -----: | ---------------- | ------------------------ | ----------- |
-|    200 | application/json | MultiStatusContentString | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/emails/delete-by-names?emails=value' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+curl -X DELETE 'http://localhost:1789/emails/delete-by-names' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with PaginateParams */"
+  "from": 0,
+  "size": 0,
+  "orderBy": "string",
+  "ascending": true
 }'
 ```
 
@@ -1161,28 +1250,48 @@ curl -X DELETE 'http://localhost:1789/emails/delete-by-names?emails=value' \
 
 **Parameters**
 
-| Name          | In    | Required | Type   | Example | Description |
-| ------------- | ----- | :------: | ------ | ------- | ----------- |
-| `namePattern` | query |    no    | string |         |             |
+| Name          | In    | Required | Type   | Description |
+| ------------- | ----- | :------: | ------ | ----------- |
+| `namePattern` | query |    no    | string |             |
 
 **Request Body**
 
-- `application/json` — PaginateParams
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `from` | integer(int32) | no | |
+  | `size` | integer(int32) | no | |
+  | `orderBy` | string | no | |
+  | `ascending` | boolean | no | |
+
+Exemple de body:
+
+```json
+{
+  "from": 0,
+  "size": 0,
+  "orderBy": "string",
+  "ascending": true
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema                   | Description |
-| -----: | ---------------- | ------------------------ | ----------- |
-|    200 | application/json | MultiStatusContentString | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/emails/delete-by-pattern?namePattern=value' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+curl -X DELETE 'http://localhost:1789/emails/delete-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with PaginateParams */"
+  "from": 0,
+  "size": 0,
+  "orderBy": "string",
+  "ascending": true
 }'
 ```
 
@@ -1192,22 +1301,22 @@ curl -X DELETE 'http://localhost:1789/emails/delete-by-pattern?namePattern=value
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example | Description |
-| ---------------- | ----- | :------: | -------------- | ------- | ----------- |
-| `emails`         | query |   yes    | array[string]  |         |             |
-| `paginateParams` | query |   yes    | PaginateParams |         |             |
+| Name             | In    | Required | Type          | Description |
+| ---------------- | ----- | :------: | ------------- | ----------- |
+| `emails`         | query |   yes    | array[string] |             |
+| `paginateParams` | query |   yes    | object        |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                         | Description |
-| -----: | ---------------- | ------------------------------ | ----------- |
-|    200 | application/json | PaginateEntityDtoEmailSettings | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/emails/search-by-names?emails=value&paginateParams=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/emails/search-by-names' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getEmails
@@ -1216,22 +1325,22 @@ curl -X GET 'http://localhost:1789/emails/search-by-names?emails=value&paginateP
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example | Description |
-| ---------------- | ----- | :------: | -------------- | ------- | ----------- |
-| `namePattern`    | query |    no    | string         |         |             |
-| `paginateParams` | query |   yes    | PaginateParams |         |             |
+| Name             | In    | Required | Type   | Description |
+| ---------------- | ----- | :------: | ------ | ----------- |
+| `namePattern`    | query |    no    | string |             |
+| `paginateParams` | query |   yes    | object |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                         | Description |
-| -----: | ---------------- | ------------------------------ | ----------- |
-|    200 | application/json | PaginateEntityDtoEmailSettings | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/emails/search-by-pattern?namePattern=value&paginateParams=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/emails/search-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### deleteEmail
@@ -1240,9 +1349,9 @@ curl -X GET 'http://localhost:1789/emails/search-by-pattern?namePattern=value&pa
 
 **Parameters**
 
-| Name    | In   | Required | Type   | Example | Description |
-| ------- | ---- | :------: | ------ | ------- | ----------- |
-| `email` | path |   yes    | string |         |             |
+| Name    | In   | Required | Type   | Description |
+| ------- | ---- | :------: | ------ | ----------- |
+| `email` | path |   yes    | string |             |
 
 **Responses**
 
@@ -1250,11 +1359,11 @@ curl -X GET 'http://localhost:1789/emails/search-by-pattern?namePattern=value&pa
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/emails/{email}' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/emails/<email>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getEmail
@@ -1263,28 +1372,22 @@ curl -X DELETE 'http://localhost:1789/emails/{email}' \
 
 **Parameters**
 
-| Name    | In   | Required | Type   | Example | Description |
-| ------- | ---- | :------: | ------ | ------- | ----------- |
-| `email` | path |   yes    | string |         |             |
+| Name    | In   | Required | Type   | Description |
+| ------- | ---- | :------: | ------ | ----------- |
+| `email` | path |   yes    | string |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema        | Description |
-| -----: | ---------------- | ------------- | ----------- |
-|    200 | application/json | EmailSettings | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/emails/{email}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/emails/<email>' \
+  -H 'Authorization: Bearer <token>' \
 ```
-
----
-
-## Job API
-
-Endpoint for managing jobs
 
 ### Create a job
 
@@ -1294,25 +1397,67 @@ Creates a new job for a map with its cron expression
 
 **Request Body**
 
-- `application/json` — JobSettings
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `jobId` | object | no | |
+  | `jobName` | string | no | |
+  | `campaign` | object | no | |
+  | `taskFlowMapRef` | object | no | |
+  | `maxNumberExecutions` | integer(int32) | no | |
+  | `action` | string | no | |
+  | `active` | boolean | no | |
+  | `cronExpression` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "jobId": {},
+  "jobName": "string",
+  "campaign": {
+    "name": "string",
+    "index": "string",
+    "prefix": "string",
+    "suffix": 0
+  },
+  "taskFlowMapRef": {},
+  "maxNumberExecutions": 0,
+  "action": "STOP",
+  "active": true,
+  "cronExpression": "string"
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema      | Description                 |
-| -----: | ---------------- | ----------- | --------------------------- |
-|    200 | application/json | JobSettings | Successfully created job    |
-|    400 | —                | —           | Invalid request parameters  |
-|    409 | —                | —           | Job name already taken      |
-|    500 | —                | —           | Server failed to create job |
+| Status | Content-Type     | Schema | Description                 |
+| -----: | ---------------- | ------ | --------------------------- |
+|    200 | application/json | object | Successfully created job    |
+|    400 | —                | —      | Invalid request parameters  |
+|    409 | —                | —      | Job name already taken      |
+|    500 | —                | —      | Server failed to create job |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/jobs' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with JobSettings */"
+  "jobId": {},
+  "jobName": "string",
+  "campaign": {
+    "name": "string",
+    "index": "string",
+    "prefix": "string",
+    "suffix": 0
+  },
+  "taskFlowMapRef": {},
+  "maxNumberExecutions": 0,
+  "action": "STOP",
+  "active": true,
+  "cronExpression": "string"
 }'
 ```
 
@@ -1324,26 +1469,68 @@ Updates a job. The job must have a name and an Id are required
 
 **Request Body**
 
-- `application/json` — JobSettings
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `jobId` | object | no | |
+  | `jobName` | string | no | |
+  | `campaign` | object | no | |
+  | `taskFlowMapRef` | object | no | |
+  | `maxNumberExecutions` | integer(int32) | no | |
+  | `action` | string | no | |
+  | `active` | boolean | no | |
+  | `cronExpression` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "jobId": {},
+  "jobName": "string",
+  "campaign": {
+    "name": "string",
+    "index": "string",
+    "prefix": "string",
+    "suffix": 0
+  },
+  "taskFlowMapRef": {},
+  "maxNumberExecutions": 0,
+  "action": "STOP",
+  "active": true,
+  "cronExpression": "string"
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema      | Description                 |
-| -----: | ---------------- | ----------- | --------------------------- |
-|    500 | —                | —           | Server failed to update job |
-|    404 | —                | —           | Provided job not found      |
-|    400 | —                | —           | Invalid request parameters  |
-|    409 | —                | —           | Job name already taken      |
-|    200 | application/json | JobSettings | Successfully updated job    |
+| Status | Content-Type     | Schema | Description                 |
+| -----: | ---------------- | ------ | --------------------------- |
+|    500 | —                | —      | Server failed to update job |
+|    404 | —                | —      | Provided job not found      |
+|    400 | —                | —      | Invalid request parameters  |
+|    409 | —                | —      | Job name already taken      |
+|    200 | application/json | object | Successfully updated job    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X PUT 'http://localhost:1789/jobs' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with JobSettings */"
+  "jobId": {},
+  "jobName": "string",
+  "campaign": {
+    "name": "string",
+    "index": "string",
+    "prefix": "string",
+    "suffix": 0
+  },
+  "taskFlowMapRef": {},
+  "maxNumberExecutions": 0,
+  "action": "STOP",
+  "active": true,
+  "cronExpression": "string"
 }'
 ```
 
@@ -1355,23 +1542,23 @@ Deletes jobs that match the list of specified job names. Returns a multi-status 
 
 **Parameters**
 
-| Name       | In    | Required | Type          | Example          | Description         |
-| ---------- | ----- | :------: | ------------- | ---------------- | ------------------- |
-| `jobNames` | query |   yes    | array[string] | `['123', '456']` | Job names to delete |
+| Name       | In    | Required | Type          | Description         |
+| ---------- | ----- | :------: | ------------- | ------------------- |
+| `jobNames` | query |   yes    | array[string] | Job names to delete |
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description                       |
-| -----: | ---------------- | ------------------ | --------------------------------- |
-|    200 | application/json | MultiStatusContent | Successfully deleted jobs         |
-|    400 | —                | —                  | Invalid request parameters        |
-|    207 | application/json | MultiStatusContent | Server failed to delete campaigns |
+| Status | Content-Type     | Schema | Description                       |
+| -----: | ---------------- | ------ | --------------------------------- |
+|    200 | application/json | object | Successfully deleted jobs         |
+|    400 | —                | —      | Invalid request parameters        |
+|    207 | application/json | object | Server failed to delete campaigns |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/jobs/delete-by-name?jobNames=['123', '456']' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/jobs/delete-by-name' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Delete jobs by pattern
@@ -1382,23 +1569,23 @@ Deletes jobs that match the specified name pattern. If no name pattern is provid
 
 **Parameters**
 
-| Name          | In    | Required | Type   | Example | Description                 |
-| ------------- | ----- | :------: | ------ | ------- | --------------------------- |
-| `namePattern` | query |    no    | string | `Job_*` | Pattern to filter job names |
+| Name          | In    | Required | Type   | Description                 |
+| ------------- | ----- | :------: | ------ | --------------------------- |
+| `namePattern` | query |    no    | string | Pattern to filter job names |
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description                       |
-| -----: | ---------------- | ------------------ | --------------------------------- |
-|    200 | application/json | MultiStatusContent | Successfully deleted jobs         |
-|    400 | —                | —                  | Invalid request parameters        |
-|    207 | application/json | MultiStatusContent | Server failed to delete campaigns |
+| Status | Content-Type     | Schema | Description                       |
+| -----: | ---------------- | ------ | --------------------------------- |
+|    200 | application/json | object | Successfully deleted jobs         |
+|    400 | —                | —      | Invalid request parameters        |
+|    207 | application/json | object | Server failed to delete campaigns |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/jobs/delete-by-pattern?namePattern=Job_*' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/jobs/delete-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get jobs by name
@@ -1409,24 +1596,24 @@ Retrieves jobs that match the list of specified job names
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example                                                              | Description           |
-| ---------------- | ----- | :------: | -------------- | -------------------------------------------------------------------- | --------------------- |
-| `jobNames`       | query |   yes    | array[string]  | `['123', '456']`                                                     | Job names to retrieve |
-| `paginateParams` | query |   yes    | PaginateParams | `{'from': 0, 'size': 20, 'orderBy': 'jobName', 'ascending': 'true'}` | Pagination parameters |
+| Name             | In    | Required | Type          | Description           |
+| ---------------- | ----- | :------: | ------------- | --------------------- |
+| `jobNames`       | query |   yes    | array[string] | Job names to retrieve |
+| `paginateParams` | query |   yes    | object        | Pagination parameters |
 
 **Responses**
 
-| Status | Content-Type     | Schema     | Description                    |
-| -----: | ---------------- | ---------- | ------------------------------ |
-|    400 | —                | —          | Invalid request parameters     |
-|    500 | —                | —          | Server failed to retrieve jobs |
-|    200 | application/json | JobDetails | Successfully retrieved jobs    |
+| Status | Content-Type     | Schema | Description                    |
+| -----: | ---------------- | ------ | ------------------------------ |
+|    400 | —                | —      | Invalid request parameters     |
+|    500 | —                | —      | Server failed to retrieve jobs |
+|    200 | application/json | object | Successfully retrieved jobs    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/jobs/search-by-names?jobNames=['123', '456']&paginateParams={'from': 0, 'size': 20, 'orderBy': 'jobName', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/jobs/search-by-names' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get jobs by pattern
@@ -1437,24 +1624,24 @@ Retrieves jobs that match the specified name pattern. If no name pattern is prov
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example                                                              | Description                 |
-| ---------------- | ----- | :------: | -------------- | -------------------------------------------------------------------- | --------------------------- |
-| `namePattern`    | query |    no    | string         | `Job_*`                                                              | Pattern to filter job names |
-| `paginateParams` | query |   yes    | PaginateParams | `{'from': 0, 'size': 20, 'orderBy': 'jobName', 'ascending': 'true'}` | Pagination parameters       |
+| Name             | In    | Required | Type   | Description                 |
+| ---------------- | ----- | :------: | ------ | --------------------------- |
+| `namePattern`    | query |    no    | string | Pattern to filter job names |
+| `paginateParams` | query |   yes    | object | Pagination parameters       |
 
 **Responses**
 
-| Status | Content-Type     | Schema     | Description                    |
-| -----: | ---------------- | ---------- | ------------------------------ |
-|    400 | —                | —          | Invalid request parameters     |
-|    500 | —                | —          | Server failed to retrieve jobs |
-|    200 | application/json | JobDetails | Successfully retrieved jobs    |
+| Status | Content-Type     | Schema | Description                    |
+| -----: | ---------------- | ------ | ------------------------------ |
+|    400 | —                | —      | Invalid request parameters     |
+|    500 | —                | —      | Server failed to retrieve jobs |
+|    200 | application/json | object | Successfully retrieved jobs    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/jobs/search-by-pattern?namePattern=Job_*&paginateParams={'from': 0, 'size': 20, 'orderBy': 'jobName', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/jobs/search-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### isCronValidFromString
@@ -1463,9 +1650,9 @@ curl -X GET 'http://localhost:1789/jobs/search-by-pattern?namePattern=Job_*&pagi
 
 **Parameters**
 
-| Name             | In    | Required | Type   | Example | Description |
-| ---------------- | ----- | :------: | ------ | ------- | ----------- |
-| `cronExpression` | query |   yes    | string |         |             |
+| Name             | In    | Required | Type   | Description |
+| ---------------- | ----- | :------: | ------ | ----------- |
+| `cronExpression` | query |   yes    | string |             |
 
 **Responses**
 
@@ -1473,11 +1660,11 @@ curl -X GET 'http://localhost:1789/jobs/search-by-pattern?namePattern=Job_*&pagi
 | -----: | ---------------- | ------- | ----------- |
 |    200 | application/json | boolean | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/jobs/validateCron?cronExpression=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/jobs/validateCron' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Delete a job
@@ -1488,9 +1675,9 @@ Deletes a job from its name
 
 **Parameters**
 
-| Name      | In   | Required | Type   | Example | Description         |
-| --------- | ---- | :------: | ------ | ------- | ------------------- |
-| `jobName` | path |   yes    | string | `myJob` | The name of the job |
+| Name      | In   | Required | Type   | Description         |
+| --------- | ---- | :------: | ------ | ------------------- |
+| `jobName` | path |   yes    | string | The name of the job |
 
 **Responses**
 
@@ -1501,11 +1688,11 @@ Deletes a job from its name
 |    200 | —            | —      | Successfully deleted job    |
 |    500 | —            | —      | Server failed to delete job |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/jobs/myJob' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/jobs/<jobName>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get job from name
@@ -1516,31 +1703,25 @@ Retrieves a job from its name
 
 **Parameters**
 
-| Name      | In   | Required | Type   | Example | Description         |
-| --------- | ---- | :------: | ------ | ------- | ------------------- |
-| `jobName` | path |   yes    | string | `myJob` | The name of the job |
+| Name      | In   | Required | Type   | Description         |
+| --------- | ---- | :------: | ------ | ------------------- |
+| `jobName` | path |   yes    | string | The name of the job |
 
 **Responses**
 
-| Status | Content-Type     | Schema     | Description                   |
-| -----: | ---------------- | ---------- | ----------------------------- |
-|    500 | —                | —          | Server failed to retrieve job |
-|    400 | —                | —          | Invalid request parameters    |
-|    404 | —                | —          | Job not found                 |
-|    200 | application/json | JobDetails | Successfully retrieved job    |
+| Status | Content-Type     | Schema | Description                   |
+| -----: | ---------------- | ------ | ----------------------------- |
+|    500 | —                | —      | Server failed to retrieve job |
+|    400 | —                | —      | Invalid request parameters    |
+|    404 | —                | —      | Job not found                 |
+|    200 | application/json | object | Successfully retrieved job    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/jobs/myJob' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/jobs/<jobName>' \
+  -H 'Authorization: Bearer <token>' \
 ```
-
----
-
-## Map API
-
-Endpoint for managing maps
 
 ### Create a map
 
@@ -1550,7 +1731,7 @@ Creates a new map with an id and a unique name
 
 **Request Body**
 
-- `application/json` — string
+- Content-Type: `application/json`
 
 **Responses**
 
@@ -1561,15 +1742,13 @@ Creates a new map with an id and a unique name
 |    400 | —                | —      | Invalid request parameters  |
 |    200 | application/json | string | Successfully created map    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/maps' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
-  -d '{
-  "/*": "TODO: replace with string */"
-}'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
+  -d '"string"'
 ```
 
 ### Save a map
@@ -1580,7 +1759,7 @@ Saves a whole map including step configurations
 
 **Request Body**
 
-- `application/json` — string
+- Content-Type: `application/json`
 
 **Responses**
 
@@ -1592,15 +1771,13 @@ Saves a whole map including step configurations
 |    400 | —                | —      | Invalid request parameters                                                                        |
 |    404 | —                | —      | Map not found from provided mapId or map versions weren't matching between provided and found map |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X PUT 'http://localhost:1789/maps' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
-  -d '{
-  "/*": "TODO: replace with string */"
-}'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
+  -d '"string"'
 ```
 
 ### Delete maps by Ids
@@ -1611,23 +1788,23 @@ Deletes maps that match the list of specified map Ids
 
 **Parameters**
 
-| Name     | In    | Required | Type                  | Example                                                                            | Description                   |
-| -------- | ----- | :------: | --------------------- | ---------------------------------------------------------------------------------- | ----------------------------- |
-| `mapIds` | query |   yes    | array[TaskFlowMapRef] | `['2ed1ac12-9406-466d-814a-d9d63c5850e3', '8f654448-f2d7-4c8a-95dc-e6b1a90a5ca5']` | Map ids of the maps to delete |
+| Name     | In    | Required | Type          | Description                   |
+| -------- | ----- | :------: | ------------- | ----------------------------- |
+| `mapIds` | query |   yes    | array[object] | Map ids of the maps to delete |
 
 **Responses**
 
-| Status | Content-Type     | Schema         | Description                  |
-| -----: | ---------------- | -------------- | ---------------------------- |
-|    200 | application/json | TaskFlowMapRef | Successfully deleted maps    |
-|    500 | —                | —              | Server failed to delete maps |
-|    400 | —                | —              | Invalid request parameters   |
+| Status | Content-Type     | Schema | Description                  |
+| -----: | ---------------- | ------ | ---------------------------- |
+|    200 | application/json | object | Successfully deleted maps    |
+|    500 | —                | —      | Server failed to delete maps |
+|    400 | —                | —      | Invalid request parameters   |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/maps/delete-by-ids?mapIds=['2ed1ac12-9406-466d-814a-d9d63c5850e3', '8f654448-f2d7-4c8a-95dc-e6b1a90a5ca5']' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/maps/delete-by-ids' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Delete maps by pattern
@@ -1638,23 +1815,23 @@ Deletes maps that match the specified name pattern. If no name pattern is provid
 
 **Parameters**
 
-| Name          | In    | Required | Type   | Example        | Description                 |
-| ------------- | ----- | :------: | ------ | -------------- | --------------------------- |
-| `namePattern` | query |    no    | string | `DefaultMap_*` | Pattern to filter map names |
+| Name          | In    | Required | Type   | Description                 |
+| ------------- | ----- | :------: | ------ | --------------------------- |
+| `namePattern` | query |    no    | string | Pattern to filter map names |
 
 **Responses**
 
-| Status | Content-Type     | Schema         | Description                  |
-| -----: | ---------------- | -------------- | ---------------------------- |
-|    200 | application/json | TaskFlowMapRef | Successfully deleted maps    |
-|    500 | —                | —              | Server failed to delete maps |
-|    400 | —                | —              | Invalid request parameters   |
+| Status | Content-Type     | Schema | Description                  |
+| -----: | ---------------- | ------ | ---------------------------- |
+|    200 | application/json | object | Successfully deleted maps    |
+|    500 | —                | —      | Server failed to delete maps |
+|    400 | —                | —      | Invalid request parameters   |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/maps/delete-by-pattern?namePattern=DefaultMap_*' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/maps/delete-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Delete maps by version
@@ -1665,30 +1842,50 @@ Deletes maps summary that match the specified map version Ids
 
 **Parameters**
 
-| Name                | In    | Required | Type           | Example                                | Description                               |
-| ------------------- | ----- | :------: | -------------- | -------------------------------------- | ----------------------------------------- |
-| `mapVersionSerieId` | query |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | The mapVersionSerieId attached to the map |
+| Name                | In    | Required | Type   | Description                               |
+| ------------------- | ----- | :------: | ------ | ----------------------------------------- |
+| `mapVersionSerieId` | query |   yes    | object | The mapVersionSerieId attached to the map |
 
 **Request Body**
 
-- `application/json` — PaginateParams
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `from` | integer(int32) | no | |
+  | `size` | integer(int32) | no | |
+  | `orderBy` | string | no | |
+  | `ascending` | boolean | no | |
+
+Exemple de body:
+
+```json
+{
+  "from": 0,
+  "size": 0,
+  "orderBy": "string",
+  "ascending": true
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema         | Description                  |
-| -----: | ---------------- | -------------- | ---------------------------- |
-|    200 | application/json | TaskFlowMapRef | Successfully deleted maps    |
-|    500 | —                | —              | Server failed to delete maps |
-|    400 | —                | —              | Invalid request parameters   |
+| Status | Content-Type     | Schema | Description                  |
+| -----: | ---------------- | ------ | ---------------------------- |
+|    200 | application/json | object | Successfully deleted maps    |
+|    500 | —                | —      | Server failed to delete maps |
+|    400 | —                | —      | Invalid request parameters   |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/maps/delete-by-version?mapVersionSerieId=2ed1ac12-9406-466d-814a-d9d63c5850e3' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+curl -X DELETE 'http://localhost:1789/maps/delete-by-version' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with PaginateParams */"
+  "from": 0,
+  "size": 0,
+  "orderBy": "string",
+  "ascending": true
 }'
 ```
 
@@ -1700,23 +1897,23 @@ Downloads map file from provided map id
 
 **Parameters**
 
-| Name    | In   | Required | Type           | Example                                | Description                       |
-| ------- | ---- | :------: | -------------- | -------------------------------------- | --------------------------------- |
-| `mapId` | path |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | The map Id of the map to download |
+| Name    | In   | Required | Type   | Description                       |
+| ------- | ---- | :------: | ------ | --------------------------------- |
+| `mapId` | path |   yes    | object | The map Id of the map to download |
 
 **Responses**
 
-| Status | Content-Type     | Schema                | Description                    |
-| -----: | ---------------- | --------------------- | ------------------------------ |
-|    500 | —                | —                     | Server failed to download maps |
-|    200 | application/json | StreamingResponseBody | Successfully downloaded maps   |
-|    400 | —                | —                     | Invalid request parameters     |
+| Status | Content-Type     | Schema | Description                    |
+| -----: | ---------------- | ------ | ------------------------------ |
+|    500 | —                | —      | Server failed to download maps |
+|    200 | application/json | object | Successfully downloaded maps   |
+|    400 | —                | —      | Invalid request parameters     |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/maps/download/2ed1ac12-9406-466d-814a-d9d63c5850e3' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/maps/download/<mapId>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Assert map name availability
@@ -1727,9 +1924,9 @@ Checks that provided map name is available
 
 **Parameters**
 
-| Name      | In    | Required | Type   | Example      | Description                        |
-| --------- | ----- | :------: | ------ | ------------ | ---------------------------------- |
-| `mapName` | query |   yes    | string | `DefaultMap` | The map name to check availability |
+| Name      | In    | Required | Type   | Description                        |
+| --------- | ----- | :------: | ------ | ---------------------------------- |
+| `mapName` | query |   yes    | string | The map name to check availability |
 
 **Responses**
 
@@ -1739,11 +1936,11 @@ Checks that provided map name is available
 |    500 | —                | —       | Server failed to check map name            |
 |    400 | —                | —       | Invalid request parameters                 |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/maps/name-availability?mapName=DefaultMap' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/maps/name-availability' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get maps by Ids
@@ -1754,10 +1951,10 @@ Retrieves maps that match the list of specified map Ids
 
 **Parameters**
 
-| Name             | In    | Required | Type                  | Example                                                                            | Description                     |
-| ---------------- | ----- | :------: | --------------------- | ---------------------------------------------------------------------------------- | ------------------------------- |
-| `mapIds`         | query |   yes    | array[TaskFlowMapRef] | `['2ed1ac12-9406-466d-814a-d9d63c5850e3', '8f654448-f2d7-4c8a-95dc-e6b1a90a5ca5']` | Map ids of the maps to retrieve |
-| `paginateParams` | query |   yes    | PaginateParams        | `{'from': 0, 'size': 20, 'orderBy': 'mapName', 'ascending': 'true'}`               | Pagination parameters           |
+| Name             | In    | Required | Type          | Description                     |
+| ---------------- | ----- | :------: | ------------- | ------------------------------- |
+| `mapIds`         | query |   yes    | array[object] | Map ids of the maps to retrieve |
+| `paginateParams` | query |   yes    | object        | Pagination parameters           |
 
 **Responses**
 
@@ -1767,11 +1964,11 @@ Retrieves maps that match the list of specified map Ids
 |    200 | application/json | string | Successfully retrieved maps    |
 |    500 | —                | —      | Server failed to retrieve maps |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/maps/search-by-ids?mapIds=['2ed1ac12-9406-466d-814a-d9d63c5850e3', '8f654448-f2d7-4c8a-95dc-e6b1a90a5ca5']&paginateParams={'from': 0, 'size': 20, 'orderBy': 'mapName', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/maps/search-by-ids' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get maps by pattern
@@ -1782,10 +1979,10 @@ Retrieves maps that match the specified name pattern. If no name pattern is prov
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example                                                              | Description                 |
-| ---------------- | ----- | :------: | -------------- | -------------------------------------------------------------------- | --------------------------- |
-| `namePattern`    | query |    no    | string         | `DefaultMap_*`                                                       | Pattern to filter map names |
-| `paginateParams` | query |   yes    | PaginateParams | `{'from': 0, 'size': 20, 'orderBy': 'mapName', 'ascending': 'true'}` | Pagination parameters       |
+| Name             | In    | Required | Type   | Description                 |
+| ---------------- | ----- | :------: | ------ | --------------------------- |
+| `namePattern`    | query |    no    | string | Pattern to filter map names |
+| `paginateParams` | query |   yes    | object | Pagination parameters       |
 
 **Responses**
 
@@ -1795,11 +1992,11 @@ Retrieves maps that match the specified name pattern. If no name pattern is prov
 |    400 | —                | —      | Invalid request parameters     |
 |    500 | —                | —      | Server failed to retrieve maps |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/maps/search-by-pattern?namePattern=DefaultMap_*&paginateParams={'from': 0, 'size': 20, 'orderBy': 'mapName', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/maps/search-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get maps by version Id
@@ -1810,10 +2007,10 @@ Retrieves maps summary that match the list of specified map Ids
 
 **Parameters**
 
-| Name                | In    | Required | Type           | Example                                                              | Description                               |
-| ------------------- | ----- | :------: | -------------- | -------------------------------------------------------------------- | ----------------------------------------- |
-| `mapVersionSerieId` | query |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3`                               | The mapVersionSerieId attached to the map |
-| `paginateParams`    | query |   yes    | PaginateParams | `{'from': 0, 'size': 20, 'orderBy': 'mapName', 'ascending': 'true'}` | Pagination parameters                     |
+| Name                | In    | Required | Type   | Description                               |
+| ------------------- | ----- | :------: | ------ | ----------------------------------------- |
+| `mapVersionSerieId` | query |   yes    | object | The mapVersionSerieId attached to the map |
+| `paginateParams`    | query |   yes    | object | Pagination parameters                     |
 
 **Responses**
 
@@ -1824,11 +2021,11 @@ Retrieves maps summary that match the list of specified map Ids
 |    404 | —                | —      | Provided mapVersionSerieId not found |
 |    500 | —                | —      | Server failed to retrieve maps       |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/maps/search-by-version?mapVersionSerieId=2ed1ac12-9406-466d-814a-d9d63c5850e3&paginateParams={'from': 0, 'size': 20, 'orderBy': 'mapName', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/maps/search-by-version' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get maps summaries by Id
@@ -1839,24 +2036,24 @@ Retrieves maps summaries that match the list of specified map Ids
 
 **Parameters**
 
-| Name             | In    | Required | Type                  | Example                                                                            | Description                     |
-| ---------------- | ----- | :------: | --------------------- | ---------------------------------------------------------------------------------- | ------------------------------- |
-| `mapIds`         | query |   yes    | array[TaskFlowMapRef] | `['2ed1ac12-9406-466d-814a-d9d63c5850e3', '8f654448-f2d7-4c8a-95dc-e6b1a90a5ca5']` | Map ids of the maps to retrieve |
-| `paginateParams` | query |   yes    | PaginateParams        | `{'from': 0, 'size': 20, 'orderBy': 'mapName', 'ascending': 'true'}`               | Pagination parameters           |
+| Name             | In    | Required | Type          | Description                     |
+| ---------------- | ----- | :------: | ------------- | ------------------------------- |
+| `mapIds`         | query |   yes    | array[object] | Map ids of the maps to retrieve |
+| `paginateParams` | query |   yes    | object        | Pagination parameters           |
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description                    |
-| -----: | ---------------- | ------------------ | ------------------------------ |
-|    200 | application/json | TaskFlowMapSummary | Successfully retrieved maps    |
-|    400 | —                | —                  | Invalid request parameters     |
-|    500 | —                | —                  | Server failed to retrieve maps |
+| Status | Content-Type     | Schema | Description                    |
+| -----: | ---------------- | ------ | ------------------------------ |
+|    200 | application/json | object | Successfully retrieved maps    |
+|    400 | —                | —      | Invalid request parameters     |
+|    500 | —                | —      | Server failed to retrieve maps |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/maps/summary/search-by-ids?mapIds=['2ed1ac12-9406-466d-814a-d9d63c5850e3', '8f654448-f2d7-4c8a-95dc-e6b1a90a5ca5']&paginateParams={'from': 0, 'size': 20, 'orderBy': 'mapName', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/maps/summary/search-by-ids' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get maps summaries by pattern
@@ -1867,24 +2064,24 @@ Retrieves maps summaries that match the specified name pattern. If no name patte
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example                                                              | Description                 |
-| ---------------- | ----- | :------: | -------------- | -------------------------------------------------------------------- | --------------------------- |
-| `namePattern`    | query |    no    | string         | `DefaultMap_*`                                                       | Pattern to filter map names |
-| `paginateParams` | query |   yes    | PaginateParams | `{'from': 0, 'size': 20, 'orderBy': 'mapName', 'ascending': 'true'}` | Pagination parameters       |
+| Name             | In    | Required | Type   | Description                 |
+| ---------------- | ----- | :------: | ------ | --------------------------- |
+| `namePattern`    | query |    no    | string | Pattern to filter map names |
+| `paginateParams` | query |   yes    | object | Pagination parameters       |
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description                    |
-| -----: | ---------------- | ------------------ | ------------------------------ |
-|    200 | application/json | TaskFlowMapSummary | Successfully retrieved maps    |
-|    400 | —                | —                  | Invalid request parameters     |
-|    500 | —                | —                  | Server failed to retrieve maps |
+| Status | Content-Type     | Schema | Description                    |
+| -----: | ---------------- | ------ | ------------------------------ |
+|    200 | application/json | object | Successfully retrieved maps    |
+|    400 | —                | —      | Invalid request parameters     |
+|    500 | —                | —      | Server failed to retrieve maps |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/maps/summary/search-by-pattern?namePattern=DefaultMap_*&paginateParams={'from': 0, 'size': 20, 'orderBy': 'mapName', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/maps/summary/search-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Upload a map
@@ -1895,13 +2092,24 @@ Created a new map from file and associates it with the given map name
 
 **Parameters**
 
-| Name      | In   | Required | Type   | Example | Description                |
-| --------- | ---- | :------: | ------ | ------- | -------------------------- |
-| `mapName` | path |   yes    | string |         | The map name to associates |
+| Name      | In   | Required | Type   | Description                |
+| --------- | ---- | :------: | ------ | -------------------------- |
+| `mapName` | path |   yes    | string | The map name to associates |
 
 **Request Body**
 
-- `multipart/form-data` — object
+- Content-Type: `multipart/form-data`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `file` | string(binary) | yes | The file to be uploaded |
+
+Exemple de body:
+
+```json
+{
+  "file": "string"
+}
+```
 
 **Responses**
 
@@ -1912,13 +2120,15 @@ Created a new map from file and associates it with the given map name
 |    200 | application/json | string | Successfully uploaded map    |
 |    500 | —                | —      | Server failed to upload maps |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/maps/upload/{mapName}' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: multipart/form-data'
-  -F 'file=@/path/to/file'
+curl -X POST 'http://localhost:1789/maps/upload/<mapName>' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: multipart/form-data' \
+  -d '{
+  "file": "string"
+}'
 ```
 
 ### Delete a map from its Id
@@ -1929,9 +2139,9 @@ Deletes one map from provided map Id
 
 **Parameters**
 
-| Name    | In   | Required | Type           | Example                                | Description                          |
-| ------- | ---- | :------: | -------------- | -------------------------------------- | ------------------------------------ |
-| `mapId` | path |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | Map Id attached to the map to delete |
+| Name    | In   | Required | Type   | Description                          |
+| ------- | ---- | :------: | ------ | ------------------------------------ |
+| `mapId` | path |   yes    | object | Map Id attached to the map to delete |
 
 **Responses**
 
@@ -1942,11 +2152,11 @@ Deletes one map from provided map Id
 |    404 | —            | —      | Map not found                |
 |    200 | —            | —      | Successfully deleted maps    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/maps/2ed1ac12-9406-466d-814a-d9d63c5850e3' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/maps/<mapId>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get a map from its id
@@ -1957,9 +2167,9 @@ Retrieves one map from its map Id
 
 **Parameters**
 
-| Name    | In   | Required | Type           | Example                                | Description                    |
-| ------- | ---- | :------: | -------------- | -------------------------------------- | ------------------------------ |
-| `mapId` | path |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | The map Id attached to the map |
+| Name    | In   | Required | Type   | Description                    |
+| ------- | ---- | :------: | ------ | ------------------------------ |
+| `mapId` | path |   yes    | object | The map Id attached to the map |
 
 **Responses**
 
@@ -1970,18 +2180,12 @@ Retrieves one map from its map Id
 |    500 | —                | —      | Server failed to retrieve map     |
 |    200 | application/json | string | Successfully retrieved map        |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/maps/2ed1ac12-9406-466d-814a-d9d63c5850e3' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/maps/<mapId>' \
+  -H 'Authorization: Bearer <token>' \
 ```
-
----
-
-## Punnet API
-
-Endpoint to retrieve punnets
 
 ### Get index mapping campaign
 
@@ -1991,23 +2195,23 @@ Retrieves all field mappings (structure of documents) for the OpenSearch index r
 
 **Parameters**
 
-| Name       | In    | Required | Type     | Example           | Description   |
-| ---------- | ----- | :------: | -------- | ----------------- | ------------- |
-| `campaign` | query |   yes    | Campaign | `DefaultMap_Run1` | Campaign name |
+| Name       | In    | Required | Type   | Description   |
+| ---------- | ----- | :------: | ------ | ------------- |
+| `campaign` | query |   yes    | object | Campaign name |
 
 **Responses**
 
-| Status | Content-Type     | Schema          | Description                           |
-| -----: | ---------------- | --------------- | ------------------------------------- |
-|    500 | —                | —               | Server failed to retrieve mapping     |
-|    200 | application/json | PunnetDataModel | Successfully retrieved fields mapping |
-|    400 | —                | —               | Invalid request parameters            |
+| Status | Content-Type     | Schema | Description                           |
+| -----: | ---------------- | ------ | ------------------------------------- |
+|    500 | —                | —      | Server failed to retrieve mapping     |
+|    200 | application/json | object | Successfully retrieved fields mapping |
+|    400 | —                | —      | Invalid request parameters            |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/punnets/mapping?campaign=DefaultMap_Run1' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/punnets/mapping' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get all punnet contexts
@@ -2018,25 +2222,25 @@ Retrieves all punnet contexts from a campaign and a stepId. You can filter resul
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example                                                               | Description                           |
-| ---------------- | ----- | :------: | -------------- | --------------------------------------------------------------------- | ------------------------------------- |
-| `campaign`       | query |   yes    | Campaign       | `DefaultMap_Run1`                                                     | Campaign name                         |
-| `stepId`         | query |   yes    | TaskStepId     | `14737a87-e217-4c9c-ae55-31b6bc71e39d`                                | The step Id that processed the punnet |
-| `paginateParams` | query |   yes    | PaginateParams | `{'from': 1, 'size': 20, 'orderBy': 'campaign', 'ascending': 'true'}` | Pagination parameters                 |
+| Name             | In    | Required | Type   | Description                           |
+| ---------------- | ----- | :------: | ------ | ------------------------------------- |
+| `campaign`       | query |   yes    | object | Campaign name                         |
+| `stepId`         | query |   yes    | object | The step Id that processed the punnet |
+| `paginateParams` | query |   yes    | object | Pagination parameters                 |
 
 **Responses**
 
-| Status | Content-Type     | Schema         | Description                               |
-| -----: | ---------------- | -------------- | ----------------------------------------- |
-|    500 | —                | —              | Server failed to retrieve punnet contexts |
-|    200 | application/json | PaginateParams | Successfully retrieve punnet contexts     |
-|    400 | —                | —              | Invalid request parameters                |
+| Status | Content-Type     | Schema | Description                               |
+| -----: | ---------------- | ------ | ----------------------------------------- |
+|    500 | —                | —      | Server failed to retrieve punnet contexts |
+|    200 | application/json | object | Successfully retrieve punnet contexts     |
+|    400 | —                | —      | Invalid request parameters                |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/punnets/punnet-contexts?campaign=DefaultMap_Run1&stepId=14737a87-e217-4c9c-ae55-31b6bc71e39d&paginateParams={'from': 1, 'size': 20, 'orderBy': 'campaign', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/punnets/punnet-contexts' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get values of a metadata
@@ -2047,26 +2251,26 @@ Retrieves all values of a given metadata
 
 **Parameters**
 
-| Name       | In    | Required | Type           | Example                                | Description                           |
-| ---------- | ----- | :------: | -------------- | -------------------------------------- | ------------------------------------- |
-| `campaign` | query |   yes    | Campaign       | `DefaultMap_Run1`                      | Campaign name                         |
-| `mapId`    | query |   yes    | TaskFlowMapRef | `2ed1ac12-9406-466d-814a-d9d63c5850e3` | Map Id reference                      |
-| `stepId`   | query |   yes    | TaskStepId     | `14737a87-e217-4c9c-ae55-31b6bc71e39d` | The step Id that processed the punnet |
-| `field`    | query |   yes    | string         | `metadata1`                            | The metadata key to retrieve values   |
+| Name       | In    | Required | Type   | Description                           |
+| ---------- | ----- | :------: | ------ | ------------------------------------- |
+| `campaign` | query |   yes    | object | Campaign name                         |
+| `mapId`    | query |   yes    | object | Map Id reference                      |
+| `stepId`   | query |   yes    | object | The step Id that processed the punnet |
+| `field`    | query |   yes    | string | The metadata key to retrieve values   |
 
 **Responses**
 
-| Status | Content-Type     | Schema        | Description                      |
-| -----: | ---------------- | ------------- | -------------------------------- |
-|    500 | —                | —             | Server failed to retrieve values |
-|    400 | —                | —             | Invalid request parameters       |
-|    200 | application/json | CategoryValue | Successfully retrieved values    |
+| Status | Content-Type     | Schema | Description                      |
+| -----: | ---------------- | ------ | -------------------------------- |
+|    500 | —                | —      | Server failed to retrieve values |
+|    400 | —                | —      | Invalid request parameters       |
+|    200 | application/json | object | Successfully retrieved values    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/punnets/values?campaign=DefaultMap_Run1&mapId=2ed1ac12-9406-466d-814a-d9d63c5850e3&stepId=14737a87-e217-4c9c-ae55-31b6bc71e39d&field=metadata1' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/punnets/values' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get punnet context from its id
@@ -2077,24 +2281,24 @@ Retrieves PunnetContext information from its PunnetContextId
 
 **Parameters**
 
-| Name              | In   | Required | Type            | Example                                                                                                                                                                                           | Description               |
-| ----------------- | ---- | :------: | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `punnetContextId` | path |   yes    | PunnetContextId | `{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}` | PunnetContextId reference |
+| Name              | In   | Required | Type   | Description               |
+| ----------------- | ---- | :------: | ------ | ------------------------- |
+| `punnetContextId` | path |   yes    | object | PunnetContextId reference |
 
 **Responses**
 
-| Status | Content-Type    | Schema        | Description                              |
-| -----: | --------------- | ------------- | ---------------------------------------- |
-|    404 | —               | —             | PunnetContextId did not exist            |
-|    200 | application/xml | PunnetContext | Successfully retrieve punnet             |
-|    400 | —               | —             | Invalid request parameters               |
-|    500 | —               | —             | Server failed to transform punnet as xml |
+| Status | Content-Type    | Schema | Description                              |
+| -----: | --------------- | ------ | ---------------------------------------- |
+|    404 | —               | —      | PunnetContextId did not exist            |
+|    200 | application/xml | object | Successfully retrieve punnet             |
+|    400 | —               | —      | Invalid request parameters               |
+|    500 | —               | —      | Server failed to transform punnet as xml |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/punnets/{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/punnets/<punnetContextId>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get punnet exception
@@ -2105,24 +2309,24 @@ Retrieves exception of any punnet from its PunnetContextId
 
 **Parameters**
 
-| Name              | In   | Required | Type            | Example                                                                                                                                                                                           | Description               |
-| ----------------- | ---- | :------: | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `punnetContextId` | path |   yes    | PunnetContextId | `{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}` | PunnetContextId reference |
+| Name              | In   | Required | Type   | Description               |
+| ----------------- | ---- | :------: | ------ | ------------------------- |
+| `punnetContextId` | path |   yes    | object | PunnetContextId reference |
 
 **Responses**
 
-| Status | Content-Type     | Schema        | Description                         |
-| -----: | ---------------- | ------------- | ----------------------------------- |
-|    404 | —                | —             | PunnetContextId not found           |
-|    200 | application/json | PunnetContext | Successfully retrieved exception    |
-|    400 | —                | —             | Invalid request parameters          |
-|    500 | —                | —             | Server failed to retrieve exception |
+| Status | Content-Type     | Schema | Description                         |
+| -----: | ---------------- | ------ | ----------------------------------- |
+|    404 | —                | —      | PunnetContextId not found           |
+|    200 | application/json | object | Successfully retrieved exception    |
+|    400 | —                | —      | Invalid request parameters          |
+|    500 | —                | —      | Server failed to retrieve exception |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/punnets/{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}/exception' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/exception' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get next punnets
@@ -2133,23 +2337,23 @@ Retrieves next PunnetContext information from a PunnetContextId. Finding several
 
 **Parameters**
 
-| Name              | In   | Required | Type            | Example                                                                                                                                                                                           | Description               |
-| ----------------- | ---- | :------: | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `punnetContextId` | path |   yes    | PunnetContextId | `{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}` | PunnetContextId reference |
+| Name              | In   | Required | Type   | Description               |
+| ----------------- | ---- | :------: | ------ | ------------------------- |
+| `punnetContextId` | path |   yes    | object | PunnetContextId reference |
 
 **Responses**
 
-| Status | Content-Type     | Schema        | Description                               |
-| -----: | ---------------- | ------------- | ----------------------------------------- |
-|    500 | —                | —             | Server failed to retrieve punnet contexts |
-|    200 | application/json | PunnetContext | Successfully retrieved punnet contexts    |
-|    400 | —                | —             | Invalid request parameters                |
+| Status | Content-Type     | Schema | Description                               |
+| -----: | ---------------- | ------ | ----------------------------------------- |
+|    500 | —                | —      | Server failed to retrieve punnet contexts |
+|    200 | application/json | object | Successfully retrieved punnet contexts    |
+|    400 | —                | —      | Invalid request parameters                |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/punnets/{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}/history/next' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/history/next' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get previous punnet
@@ -2160,23 +2364,23 @@ Retrieves previous PunnetContext information from a PunnetContextId. Unlike the 
 
 **Parameters**
 
-| Name              | In   | Required | Type            | Example                                                                                                                                                                                           | Description               |
-| ----------------- | ---- | :------: | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `punnetContextId` | path |   yes    | PunnetContextId | `{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}` | PunnetContextId reference |
+| Name              | In   | Required | Type   | Description               |
+| ----------------- | ---- | :------: | ------ | ------------------------- |
+| `punnetContextId` | path |   yes    | object | PunnetContextId reference |
 
 **Responses**
 
-| Status | Content-Type     | Schema        | Description                                  |
-| -----: | ---------------- | ------------- | -------------------------------------------- |
-|    200 | application/json | PunnetContext | Successfully retrieved the punnet context    |
-|    400 | —                | —             | Invalid request parameters                   |
-|    500 | —                | —             | Server failed to retrieve the punnet context |
+| Status | Content-Type     | Schema | Description                                  |
+| -----: | ---------------- | ------ | -------------------------------------------- |
+|    200 | application/json | object | Successfully retrieved the punnet context    |
+|    400 | —                | —      | Invalid request parameters                   |
+|    500 | —                | —      | Server failed to retrieve the punnet context |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/punnets/{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}/history/previous' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/history/previous' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get punnet logs
@@ -2187,23 +2391,23 @@ Retrieves logs of any punnet from its PunnetContextId
 
 **Parameters**
 
-| Name              | In   | Required | Type            | Example                                                                                                                                                                                           | Description               |
-| ----------------- | ---- | :------: | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `punnetContextId` | path |   yes    | PunnetContextId | `{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}` | PunnetContextId reference |
+| Name              | In   | Required | Type   | Description               |
+| ----------------- | ---- | :------: | ------ | ------------------------- |
+| `punnetContextId` | path |   yes    | object | PunnetContextId reference |
 
 **Responses**
 
-| Status | Content-Type     | Schema   | Description                    |
-| -----: | ---------------- | -------- | ------------------------------ |
-|    500 | —                | —        | Server failed to retrieve logs |
-|    400 | —                | —        | Invalid request parameters     |
-|    200 | application/json | LogEvent | Successfully retrieved logs    |
+| Status | Content-Type     | Schema | Description                    |
+| -----: | ---------------- | ------ | ------------------------------ |
+|    500 | —                | —      | Server failed to retrieve logs |
+|    400 | —                | —      | Invalid request parameters     |
+|    200 | application/json | object | Successfully retrieved logs    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/punnets/{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}/logs' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/logs' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get punnet as xml
@@ -2214,9 +2418,9 @@ Retrieves a punnet from its PunnetContextId and prints it as an XML file
 
 **Parameters**
 
-| Name              | In   | Required | Type            | Example                                                                                                                                                                                           | Description               |
-| ----------------- | ---- | :------: | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `punnetContextId` | path |   yes    | PunnetContextId | `{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}` | PunnetContextId reference |
+| Name              | In   | Required | Type   | Description               |
+| ----------------- | ---- | :------: | ------ | ------------------------- |
+| `punnetContextId` | path |   yes    | object | PunnetContextId reference |
 
 **Responses**
 
@@ -2224,21 +2428,15 @@ Retrieves a punnet from its PunnetContextId and prints it as an XML file
 | -----: | --------------- | ------ | ---------------------------------------- |
 |    404 | —               | —      | PunnetContextId not found                |
 |    400 | —               | —      | Invalid request parameters               |
-|    200 | application/xml |        | Successfully retrieve punnet             |
+|    200 | application/xml | object | Successfully retrieve punnet             |
 |    500 | —               | —      | Server failed to transform punnet as xml |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/punnets/{'stepId': 'e22ac1be-fced-4eb3-5af5-b59e9b4a4333', 'campaign': 'DefaultMap_Run1', 'taskFlowMapRef': '2ed1ac12-9406-466d-814a-d9d63c5850e3', 'uniqueId': '847dfcd8-7ee3-4d9f-f76b-c0808df99a08'}/xml' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/punnets/<punnetContextId>/xml' \
+  -H 'Authorization: Bearer <token>' \
 ```
-
----
-
-## Queue API
-
-Endpoint for managing queues
 
 ### getQueues
 
@@ -2246,21 +2444,21 @@ Endpoint for managing queues
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example | Description |
-| ---------------- | ----- | :------: | -------------- | ------- | ----------- |
-| `paginateParams` | query |   yes    | PaginateParams |         |             |
+| Name             | In    | Required | Type   | Description |
+| ---------------- | ----- | :------: | ------ | ----------- |
+| `paginateParams` | query |   yes    | object |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                         | Description |
-| -----: | ---------------- | ------------------------------ | ----------- |
-|    200 | application/json | PaginateEntityDtoQueueSettings | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/queues?paginateParams=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/queues' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### createQueue
@@ -2269,22 +2467,39 @@ curl -X GET 'http://localhost:1789/queues?paginateParams=value' \
 
 **Request Body**
 
-- `application/json` — QueueSettings
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `queueId` | object | no | |
+  | `numberOfSourceThreads` | integer(int32) | no | |
+  | `numberOfTaskThreads` | integer(int32) | no | |
+
+Exemple de body:
+
+```json
+{
+  "queueId": {},
+  "numberOfSourceThreads": 0,
+  "numberOfTaskThreads": 0
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema        | Description |
-| -----: | ---------------- | ------------- | ----------- |
-|    200 | application/json | QueueSettings | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/queues' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with QueueSettings */"
+  "queueId": {},
+  "numberOfSourceThreads": 0,
+  "numberOfTaskThreads": 0
 }'
 ```
 
@@ -2294,22 +2509,39 @@ curl -X POST 'http://localhost:1789/queues' \
 
 **Request Body**
 
-- `application/json` — QueueSettings
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `queueId` | object | no | |
+  | `numberOfSourceThreads` | integer(int32) | no | |
+  | `numberOfTaskThreads` | integer(int32) | no | |
+
+Exemple de body:
+
+```json
+{
+  "queueId": {},
+  "numberOfSourceThreads": 0,
+  "numberOfTaskThreads": 0
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema        | Description |
-| -----: | ---------------- | ------------- | ----------- |
-|    200 | application/json | QueueSettings | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X PUT 'http://localhost:1789/queues' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with QueueSettings */"
+  "queueId": {},
+  "numberOfSourceThreads": 0,
+  "numberOfTaskThreads": 0
 }'
 ```
 
@@ -2319,21 +2551,21 @@ curl -X PUT 'http://localhost:1789/queues' \
 
 **Parameters**
 
-| Name       | In    | Required | Type           | Example | Description |
-| ---------- | ----- | :------: | -------------- | ------- | ----------- |
-| `queueIds` | query |   yes    | array[QueueId] |         |             |
+| Name       | In    | Required | Type          | Description |
+| ---------- | ----- | :------: | ------------- | ----------- |
+| `queueIds` | query |   yes    | array[object] |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                    | Description |
-| -----: | ---------------- | ------------------------- | ----------- |
-|    200 | application/json | MultiStatusContentQueueId | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/queues/delete-by-ids?queueIds=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/queues/delete-by-ids' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### deleteQueues
@@ -2342,21 +2574,21 @@ curl -X DELETE 'http://localhost:1789/queues/delete-by-ids?queueIds=value' \
 
 **Parameters**
 
-| Name          | In    | Required | Type   | Example | Description |
-| ------------- | ----- | :------: | ------ | ------- | ----------- |
-| `namePattern` | query |    no    | string |         |             |
+| Name          | In    | Required | Type   | Description |
+| ------------- | ----- | :------: | ------ | ----------- |
+| `namePattern` | query |    no    | string |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                    | Description |
-| -----: | ---------------- | ------------------------- | ----------- |
-|    200 | application/json | MultiStatusContentQueueId | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/queues/delete-by-pattern?namePattern=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/queues/delete-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### deleteQueue
@@ -2365,9 +2597,9 @@ curl -X DELETE 'http://localhost:1789/queues/delete-by-pattern?namePattern=value
 
 **Parameters**
 
-| Name      | In   | Required | Type    | Example | Description |
-| --------- | ---- | :------: | ------- | ------- | ----------- |
-| `queueId` | path |   yes    | QueueId |         |             |
+| Name      | In   | Required | Type   | Description |
+| --------- | ---- | :------: | ------ | ----------- |
+| `queueId` | path |   yes    | object |             |
 
 **Responses**
 
@@ -2375,11 +2607,11 @@ curl -X DELETE 'http://localhost:1789/queues/delete-by-pattern?namePattern=value
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/queues/{queueId}' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/queues/<queueId>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getQueue
@@ -2388,28 +2620,22 @@ curl -X DELETE 'http://localhost:1789/queues/{queueId}' \
 
 **Parameters**
 
-| Name      | In   | Required | Type    | Example | Description |
-| --------- | ---- | :------: | ------- | ------- | ----------- |
-| `queueId` | path |   yes    | QueueId |         |             |
+| Name      | In   | Required | Type   | Description |
+| --------- | ---- | :------: | ------ | ----------- |
+| `queueId` | path |   yes    | object |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema        | Description |
-| -----: | ---------------- | ------------- | ----------- |
-|    200 | application/json | QueueSettings | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/queues/{queueId}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/queues/<queueId>' \
+  -H 'Authorization: Bearer <token>' \
 ```
-
----
-
-## Shared Objects API
-
-Endpoint for managing shared objects
 
 ### Delete shared objects by names
 
@@ -2419,30 +2645,50 @@ Deletes shared objects that match the list of specified shared objects names. Re
 
 **Parameters**
 
-| Name                | In    | Required | Type          | Example                              | Description                   |
-| ------------------- | ----- | :------: | ------------- | ------------------------------------ | ----------------------------- |
-| `sharedObjectNames` | query |   yes    | array[string] | `['SharedObject1', 'SharedObject2']` | Shared object names to delete |
+| Name                | In    | Required | Type          | Description                   |
+| ------------------- | ----- | :------: | ------------- | ----------------------------- |
+| `sharedObjectNames` | query |   yes    | array[string] | Shared object names to delete |
 
 **Request Body**
 
-- `application/json` — PaginateParams
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `from` | integer(int32) | no | |
+  | `size` | integer(int32) | no | |
+  | `orderBy` | string | no | |
+  | `ascending` | boolean | no | |
+
+Exemple de body:
+
+```json
+{
+  "from": 0,
+  "size": 0,
+  "orderBy": "string",
+  "ascending": true
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description                            |
-| -----: | ---------------- | ------------------ | -------------------------------------- |
-|    400 | —                | —                  | Invalid request parameters             |
-|    207 | application/json | MultiStatusContent | Server failed to delete shared objects |
-|    200 | application/json | MultiStatusContent | Successfully deleted shared objects    |
+| Status | Content-Type     | Schema | Description                            |
+| -----: | ---------------- | ------ | -------------------------------------- |
+|    400 | —                | —      | Invalid request parameters             |
+|    207 | application/json | object | Server failed to delete shared objects |
+|    200 | application/json | object | Successfully deleted shared objects    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/shared-objects/delete-by-names?sharedObjectNames=['SharedObject1', 'SharedObject2']' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+curl -X DELETE 'http://localhost:1789/shared-objects/delete-by-names' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with PaginateParams */"
+  "from": 0,
+  "size": 0,
+  "orderBy": "string",
+  "ascending": true
 }'
 ```
 
@@ -2454,30 +2700,50 @@ Deletes shared objects that match the specified name pattern. If no name pattern
 
 **Parameters**
 
-| Name          | In    | Required | Type   | Example     | Description                      |
-| ------------- | ----- | :------: | ------ | ----------- | -------------------------------- |
-| `namePattern` | query |    no    | string | `Injector*` | Pattern to filter shared objects |
+| Name          | In    | Required | Type   | Description                      |
+| ------------- | ----- | :------: | ------ | -------------------------------- |
+| `namePattern` | query |    no    | string | Pattern to filter shared objects |
 
 **Request Body**
 
-- `application/json` — PaginateParams
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `from` | integer(int32) | no | |
+  | `size` | integer(int32) | no | |
+  | `orderBy` | string | no | |
+  | `ascending` | boolean | no | |
+
+Exemple de body:
+
+```json
+{
+  "from": 0,
+  "size": 0,
+  "orderBy": "string",
+  "ascending": true
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema             | Description                            |
-| -----: | ---------------- | ------------------ | -------------------------------------- |
-|    207 | application/json | MultiStatusContent | Server failed to delete shared objects |
-|    200 | application/json | MultiStatusContent | Successfully deleted shared objects    |
-|    400 | —                | —                  | Invalid request parameters             |
+| Status | Content-Type     | Schema | Description                            |
+| -----: | ---------------- | ------ | -------------------------------------- |
+|    207 | application/json | object | Server failed to delete shared objects |
+|    200 | application/json | object | Successfully deleted shared objects    |
+|    400 | —                | —      | Invalid request parameters             |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/shared-objects/delete-by-pattern?namePattern=Injector*' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+curl -X DELETE 'http://localhost:1789/shared-objects/delete-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with PaginateParams */"
+  "from": 0,
+  "size": 0,
+  "orderBy": "string",
+  "ascending": true
 }'
 ```
 
@@ -2489,25 +2755,25 @@ Retrieves shared objects that match the list of specified shared object names
 
 **Parameters**
 
-| Name                | In    | Required | Type           | Example                                                           | Description                                                 |
-| ------------------- | ----- | :------: | -------------- | ----------------------------------------------------------------- | ----------------------------------------------------------- |
-| `sharedObjectNames` | query |   yes    | array[string]  | `['SharedObject1', 'SharedObject2']`                              | Shared object names to retrieve                             |
-| `mapId`             | query |    no    | TaskFlowMapRef |                                                                   | Identifier of the map from which to retrieve shared objects |
-| `paginateParams`    | query |   yes    | PaginateParams | `{'from': 0, 'size': 20, 'orderBy': 'name', 'ascending': 'true'}` | Pagination parameters                                       |
+| Name                | In    | Required | Type          | Description                                                 |
+| ------------------- | ----- | :------: | ------------- | ----------------------------------------------------------- |
+| `sharedObjectNames` | query |   yes    | array[string] | Shared object names to retrieve                             |
+| `mapId`             | query |    no    | object        | Identifier of the map from which to retrieve shared objects |
+| `paginateParams`    | query |   yes    | object        | Pagination parameters                                       |
 
 **Responses**
 
-| Status | Content-Type     | Schema                         | Description                             |
-| -----: | ---------------- | ------------------------------ | --------------------------------------- |
-|    500 | —                | —                              | Server failed to retrieve shared object |
-|    400 | —                | —                              | Invalid request parameters              |
-|    200 | application/json | PaginateObjectConfigurationMap | Successfully retrieved shared object    |
+| Status | Content-Type     | Schema | Description                             |
+| -----: | ---------------- | ------ | --------------------------------------- |
+|    500 | —                | —      | Server failed to retrieve shared object |
+|    400 | —                | —      | Invalid request parameters              |
+|    200 | application/json | object | Successfully retrieved shared object    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/shared-objects/search-by-names?sharedObjectNames=['SharedObject1', 'SharedObject2']&mapId=value&paginateParams={'from': 0, 'size': 20, 'orderBy': 'name', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/shared-objects/search-by-names' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get shared objects by pattern
@@ -2518,25 +2784,25 @@ Retrieves shared objects that match the specified name pattern. If no name patte
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example                                                           | Description                                                 |
-| ---------------- | ----- | :------: | -------------- | ----------------------------------------------------------------- | ----------------------------------------------------------- |
-| `namePattern`    | query |    no    | string         | `Injector*`                                                       | Pattern to filter shared objects                            |
-| `mapId`          | query |    no    | TaskFlowMapRef |                                                                   | Identifier of the map from which to retrieve shared objects |
-| `paginateParams` | query |   yes    | PaginateParams | `{'from': 0, 'size': 20, 'orderBy': 'name', 'ascending': 'true'}` | Pagination parameters                                       |
+| Name             | In    | Required | Type   | Description                                                 |
+| ---------------- | ----- | :------: | ------ | ----------------------------------------------------------- |
+| `namePattern`    | query |    no    | string | Pattern to filter shared objects                            |
+| `mapId`          | query |    no    | object | Identifier of the map from which to retrieve shared objects |
+| `paginateParams` | query |   yes    | object | Pagination parameters                                       |
 
 **Responses**
 
-| Status | Content-Type     | Schema                         | Description                           |
-| -----: | ---------------- | ------------------------------ | ------------------------------------- |
-|    400 | —                | —                              | Invalid request parameters            |
-|    500 | —                | —                              | Server failed to update shared object |
-|    200 | application/json | PaginateObjectConfigurationMap | Successfully retrieved shared object  |
+| Status | Content-Type     | Schema | Description                           |
+| -----: | ---------------- | ------ | ------------------------------------- |
+|    400 | —                | —      | Invalid request parameters            |
+|    500 | —                | —      | Server failed to update shared object |
+|    200 | application/json | object | Successfully retrieved shared object  |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/shared-objects/search-by-pattern?namePattern=Injector*&mapId=value&paginateParams={'from': 0, 'size': 20, 'orderBy': 'name', 'ascending': 'true'}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/shared-objects/search-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Delete a shared object
@@ -2547,9 +2813,9 @@ Deletes a shared object from its name
 
 **Parameters**
 
-| Name               | In   | Required | Type   | Example          | Description        |
-| ------------------ | ---- | :------: | ------ | ---------------- | ------------------ |
-| `sharedObjectName` | path |   yes    | string | `mySharedObject` | Shared object name |
+| Name               | In   | Required | Type   | Description        |
+| ------------------ | ---- | :------: | ------ | ------------------ |
+| `sharedObjectName` | path |   yes    | string | Shared object name |
 
 **Responses**
 
@@ -2560,11 +2826,11 @@ Deletes a shared object from its name
 |    200 | —            | —      | Successfully deleted the shared object    |
 |    404 | —            | —      | Shared object not found                   |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/shared-objects/mySharedObject' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/shared-objects/<sharedObjectName>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get specific shared object
@@ -2575,24 +2841,24 @@ Retrieve one shared object configuration from its name
 
 **Parameters**
 
-| Name               | In   | Required | Type   | Example          | Description        |
-| ------------------ | ---- | :------: | ------ | ---------------- | ------------------ |
-| `sharedObjectName` | path |   yes    | string | `mySharedObject` | Shared object name |
+| Name               | In   | Required | Type   | Description        |
+| ------------------ | ---- | :------: | ------ | ------------------ |
+| `sharedObjectName` | path |   yes    | string | Shared object name |
 
 **Responses**
 
-| Status | Content-Type     | Schema                 | Description                             |
-| -----: | ---------------- | ---------------------- | --------------------------------------- |
-|    200 | application/json | ObjectConfigurationMap | Successfully retrieved shared object    |
-|    500 | —                | —                      | Server failed to retrieve shared object |
-|    400 | —                | —                      | Invalid request parameters              |
-|    404 | —                | —                      | Shared object not found                 |
+| Status | Content-Type     | Schema | Description                             |
+| -----: | ---------------- | ------ | --------------------------------------- |
+|    200 | application/json | object | Successfully retrieved shared object    |
+|    500 | —                | —      | Server failed to retrieve shared object |
+|    400 | —                | —      | Invalid request parameters              |
+|    404 | —                | —      | Shared object not found                 |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/shared-objects/mySharedObject' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/shared-objects/<sharedObjectName>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Create a shared object
@@ -2603,30 +2869,73 @@ Creates a shared object from its object configuration and a provided name
 
 **Parameters**
 
-| Name               | In   | Required | Type   | Example          | Description        |
-| ------------------ | ---- | :------: | ------ | ---------------- | ------------------ |
-| `sharedObjectName` | path |   yes    | string | `mySharedObject` | Shared object name |
+| Name               | In   | Required | Type   | Description        |
+| ------------------ | ---- | :------: | ------ | ------------------ |
+| `sharedObjectName` | path |   yes    | string | Shared object name |
 
 **Request Body**
 
-- `application/json` — ObjectConfiguration
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `fields` | object | no | |
+  | `className` | string | no | |
+  | `scope` | string | no | |
+  | `fullyConfigured` | boolean | no | |
+  | `singleton` | boolean | no | |
+  | `objectName` | string | no | |
+  | `objectConfigurationId` | string | no | |
+  | `constructorArguments` | array[object] | no | |
+  | `fieldConfigurationType` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "fields": {},
+  "className": "string",
+  "scope": "MAP",
+  "fullyConfigured": true,
+  "singleton": true,
+  "objectName": "string",
+  "objectConfigurationId": "string",
+  "constructorArguments": [
+    {
+      "fieldConfigurationType": "Primitive"
+    }
+  ],
+  "fieldConfigurationType": "Primitive"
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema                 | Description                           |
-| -----: | ---------------- | ---------------------- | ------------------------------------- |
-|    500 | —                | —                      | Server failed to create shared object |
-|    400 | —                | —                      | Invalid request parameters            |
-|    201 | application/json | ObjectConfigurationMap | Successfully created shared object    |
+| Status | Content-Type     | Schema | Description                           |
+| -----: | ---------------- | ------ | ------------------------------------- |
+|    500 | —                | —      | Server failed to create shared object |
+|    400 | —                | —      | Invalid request parameters            |
+|    201 | application/json | object | Successfully created shared object    |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/shared-objects/mySharedObject' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+curl -X POST 'http://localhost:1789/shared-objects/<sharedObjectName>' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with ObjectConfiguration */"
+  "fields": {},
+  "className": "string",
+  "scope": "MAP",
+  "fullyConfigured": true,
+  "singleton": true,
+  "objectName": "string",
+  "objectConfigurationId": "string",
+  "constructorArguments": [
+    {
+      "fieldConfigurationType": "Primitive"
+    }
+  ],
+  "fieldConfigurationType": "Primitive"
 }'
 ```
 
@@ -2638,38 +2947,75 @@ Updates the configuration or the name of a shared object
 
 **Parameters**
 
-| Name               | In   | Required | Type   | Example          | Description        |
-| ------------------ | ---- | :------: | ------ | ---------------- | ------------------ |
-| `sharedObjectName` | path |   yes    | string | `mySharedObject` | Shared object name |
+| Name               | In   | Required | Type   | Description        |
+| ------------------ | ---- | :------: | ------ | ------------------ |
+| `sharedObjectName` | path |   yes    | string | Shared object name |
 
 **Request Body**
 
-- `application/json` — ObjectConfiguration
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `fields` | object | no | |
+  | `className` | string | no | |
+  | `scope` | string | no | |
+  | `fullyConfigured` | boolean | no | |
+  | `singleton` | boolean | no | |
+  | `objectName` | string | no | |
+  | `objectConfigurationId` | string | no | |
+  | `constructorArguments` | array[object] | no | |
+  | `fieldConfigurationType` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "fields": {},
+  "className": "string",
+  "scope": "MAP",
+  "fullyConfigured": true,
+  "singleton": true,
+  "objectName": "string",
+  "objectConfigurationId": "string",
+  "constructorArguments": [
+    {
+      "fieldConfigurationType": "Primitive"
+    }
+  ],
+  "fieldConfigurationType": "Primitive"
+}
+```
 
 **Responses**
 
-| Status | Content-Type     | Schema                 | Description                           |
-| -----: | ---------------- | ---------------------- | ------------------------------------- |
-|    200 | application/json | ObjectConfigurationMap | Successfully updated shared object    |
-|    400 | —                | —                      | Invalid request parameters            |
-|    500 | —                | —                      | Server failed to update shared object |
+| Status | Content-Type     | Schema | Description                           |
+| -----: | ---------------- | ------ | ------------------------------------- |
+|    200 | application/json | object | Successfully updated shared object    |
+|    400 | —                | —      | Invalid request parameters            |
+|    500 | —                | —      | Server failed to update shared object |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X PUT 'http://localhost:1789/shared-objects/mySharedObject' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+curl -X PUT 'http://localhost:1789/shared-objects/<sharedObjectName>' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with ObjectConfiguration */"
+  "fields": {},
+  "className": "string",
+  "scope": "MAP",
+  "fullyConfigured": true,
+  "singleton": true,
+  "objectName": "string",
+  "objectConfigurationId": "string",
+  "constructorArguments": [
+    {
+      "fieldConfigurationType": "Primitive"
+    }
+  ],
+  "fieldConfigurationType": "Primitive"
 }'
 ```
-
----
-
-## User API
-
-Endpoint for managing users
 
 ### Delete all users
 
@@ -2679,13 +3025,13 @@ Deletes all users
 
 **Parameters**
 
-| Name            | In     | Required | Type   | Example | Description |
-| --------------- | ------ | :------: | ------ | ------- | ----------- |
-| `Authorization` | header |   yes    | string |         |             |
+| Name            | In     | Required | Type   | Description |
+| --------------- | ------ | :------: | ------ | ----------- |
+| `Authorization` | header |   yes    | string |             |
 
 **Request Body**
 
-- `application/json` — array[string]
+- Content-Type: `application/json`
 
 **Responses**
 
@@ -2693,15 +3039,15 @@ Deletes all users
 | -----: | ------------ | ------ | ------------------------- |
 |    200 | —            | —      | Successfully created user |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X DELETE 'http://localhost:1789/users' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
-  -d '{
-  "/*": "TODO: replace with array[string] */"
-}'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
+  -d '[
+  "string"
+]'
 ```
 
 ### Get number of users per role
@@ -2716,11 +3062,11 @@ Retrieves the number of users for each role
 | -----: | ------------ | ------ | ---------------------------------- |
 |    200 | —            | —      | Successfully found number of users |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X GET 'http://localhost:1789/users/count-by-role' \
-  -H 'Authorization: Bearer <token>'
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Check if user exists
@@ -2731,9 +3077,9 @@ Checks if a user with the given email exists
 
 **Parameters**
 
-| Name        | In   | Required | Type   | Example | Description |
-| ----------- | ---- | :------: | ------ | ------- | ----------- |
-| `userEmail` | path |   yes    | string |         |             |
+| Name        | In   | Required | Type   | Description |
+| ----------- | ---- | :------: | ------ | ----------- |
+| `userEmail` | path |   yes    | string |             |
 
 **Responses**
 
@@ -2741,11 +3087,11 @@ Checks if a user with the given email exists
 | -----: | ------------ | ------- | ----------- |
 |    200 | _/_          | boolean | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/users/does-user-exist/{userEmail}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/users/does-user-exist/<userEmail>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Update current user
@@ -2756,7 +3102,22 @@ Updates information of the currently authenticated user
 
 **Request Body**
 
-- `application/json` — UpdateUserDto
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `firstname` | string | no | |
+  | `lastname` | string | no | |
+  | `role` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "firstname": "string",
+  "lastname": "string",
+  "role": "USER"
+}
+```
 
 **Responses**
 
@@ -2764,14 +3125,16 @@ Updates information of the currently authenticated user
 | -----: | ------------ | ------ | ------------------------- |
 |    200 | —            | —      | Successfully updated user |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X PATCH 'http://localhost:1789/users/me' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with UpdateUserDto */"
+  "firstname": "string",
+  "lastname": "string",
+  "role": "USER"
 }'
 ```
 
@@ -2783,7 +3146,26 @@ Creates a user from its password, firstname, lastname and email. You cannot crea
 
 **Request Body**
 
-- `application/json` — RegisterRequest
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `password` | string | no | |
+  | `firstname` | string | no | |
+  | `lastname` | string | no | |
+  | `email` | string | no | |
+  | `role` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "password": "string",
+  "firstname": "string",
+  "lastname": "string",
+  "email": "string",
+  "role": "USER"
+}
+```
 
 **Responses**
 
@@ -2794,14 +3176,18 @@ Creates a user from its password, firstname, lastname and email. You cannot crea
 |    500 | —            | —      | Server failed to create user                                      |
 |    409 | —            | —      | An account with this email already exists                         |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/users/register' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with RegisterRequest */"
+  "password": "string",
+  "firstname": "string",
+  "lastname": "string",
+  "email": "string",
+  "role": "USER"
 }'
 ```
 
@@ -2813,7 +3199,26 @@ Creates a user from its password, firstname, lastname and email
 
 **Request Body**
 
-- `application/json` — RegisterRequest
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `password` | string | no | |
+  | `firstname` | string | no | |
+  | `lastname` | string | no | |
+  | `email` | string | no | |
+  | `role` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "password": "string",
+  "firstname": "string",
+  "lastname": "string",
+  "email": "string",
+  "role": "USER"
+}
+```
 
 **Responses**
 
@@ -2824,14 +3229,18 @@ Creates a user from its password, firstname, lastname and email
 |    500 | —            | —      | Server failed to create user                                      |
 |    409 | —            | —      | An account with this email already exists                         |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/users/register-super-admin' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with RegisterRequest */"
+  "password": "string",
+  "firstname": "string",
+  "lastname": "string",
+  "email": "string",
+  "role": "USER"
 }'
 ```
 
@@ -2843,13 +3252,32 @@ Creates a worker as member to allow broker communication
 
 **Parameters**
 
-| Name               | In     | Required | Type   | Example | Description |
-| ------------------ | ------ | :------: | ------ | ------- | ----------- |
-| `X-Register-Token` | header |   yes    | string |         |             |
+| Name               | In     | Required | Type   | Description |
+| ------------------ | ------ | :------: | ------ | ----------- |
+| `X-Register-Token` | header |   yes    | string |             |
 
 **Request Body**
 
-- `application/json` — RegisterRequest
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `password` | string | no | |
+  | `firstname` | string | no | |
+  | `lastname` | string | no | |
+  | `email` | string | no | |
+  | `role` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "password": "string",
+  "firstname": "string",
+  "lastname": "string",
+  "email": "string",
+  "role": "USER"
+}
+```
 
 **Responses**
 
@@ -2860,14 +3288,18 @@ Creates a worker as member to allow broker communication
 |    500 | —            | —      | Server failed to create user                                      |
 |    409 | —            | —      | An account with this email already exists                         |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/users/register-worker' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with RegisterRequest */"
+  "password": "string",
+  "firstname": "string",
+  "lastname": "string",
+  "email": "string",
+  "role": "USER"
 }'
 ```
 
@@ -2877,22 +3309,22 @@ curl -X POST 'http://localhost:1789/users/register-worker' \
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example | Description |
-| ---------------- | ----- | :------: | -------------- | ------- | ----------- |
-| `namePattern`    | query |    no    | string         |         |             |
-| `paginateParams` | query |   yes    | PaginateParams |         |             |
+| Name             | In    | Required | Type   | Description |
+| ---------------- | ----- | :------: | ------ | ----------- |
+| `namePattern`    | query |    no    | string |             |
+| `paginateParams` | query |   yes    | object |             |
 
 **Responses**
 
-| Status | Content-Type | Schema                   | Description |
-| -----: | ------------ | ------------------------ | ----------- |
-|    200 | _/_          | PaginateEntityDtoUserDto | OK          |
+| Status | Content-Type | Schema | Description |
+| -----: | ------------ | ------ | ----------- |
+|    200 | _/_          | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/users/search-by-pattern?namePattern=value&paginateParams=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/users/search-by-pattern' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Check admin existence
@@ -2907,11 +3339,11 @@ Checks if super admin is registered
 | -----: | ------------ | ------ | ------------------------ |
 |    200 | —            | —      | Successfully found admin |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X GET 'http://localhost:1789/users/super-admin-exists' \
-  -H 'Authorization: Bearer <token>'
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Delete a user
@@ -2922,9 +3354,9 @@ Deletes a user from its email
 
 **Parameters**
 
-| Name        | In   | Required | Type   | Example | Description |
-| ----------- | ---- | :------: | ------ | ------- | ----------- |
-| `userEmail` | path |   yes    | string |         |             |
+| Name        | In   | Required | Type   | Description |
+| ----------- | ---- | :------: | ------ | ----------- |
+| `userEmail` | path |   yes    | string |             |
 
 **Responses**
 
@@ -2932,11 +3364,11 @@ Deletes a user from its email
 | -----: | ------------ | ------ | ------------------------- |
 |    200 | —            | —      | Successfully deleted user |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/users/{userEmail}' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/users/<userEmail>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Get a user
@@ -2947,9 +3379,9 @@ Retrieves user information from its email
 
 **Parameters**
 
-| Name        | In   | Required | Type   | Example | Description |
-| ----------- | ---- | :------: | ------ | ------- | ----------- |
-| `userEmail` | path |   yes    | string |         |             |
+| Name        | In   | Required | Type   | Description |
+| ----------- | ---- | :------: | ------ | ----------- |
+| `userEmail` | path |   yes    | string |             |
 
 **Responses**
 
@@ -2957,11 +3389,11 @@ Retrieves user information from its email
 | -----: | ------------ | ------ | --------------------------- |
 |    200 | —            | —      | Successfully retrieved user |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/users/{userEmail}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/users/<userEmail>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### Update another user
@@ -2972,13 +3404,28 @@ Admin updates any user's information
 
 **Parameters**
 
-| Name        | In   | Required | Type   | Example | Description |
-| ----------- | ---- | :------: | ------ | ------- | ----------- |
-| `userEmail` | path |   yes    | string |         |             |
+| Name        | In   | Required | Type   | Description |
+| ----------- | ---- | :------: | ------ | ----------- |
+| `userEmail` | path |   yes    | string |             |
 
 **Request Body**
 
-- `application/json` — UpdateUserDto
+- Content-Type: `application/json`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `firstname` | string | no | |
+  | `lastname` | string | no | |
+  | `role` | string | no | |
+
+Exemple de body:
+
+```json
+{
+  "firstname": "string",
+  "lastname": "string",
+  "role": "USER"
+}
+```
 
 **Responses**
 
@@ -2986,22 +3433,18 @@ Admin updates any user's information
 | -----: | ------------ | ------ | ------------------------- |
 |    200 | —            | —      | Successfully updated user |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X PATCH 'http://localhost:1789/users/{userEmail}' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: application/json'
+curl -X PATCH 'http://localhost:1789/users/<userEmail>' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
   -d '{
-  "/*": "TODO: replace with UpdateUserDto */"
+  "firstname": "string",
+  "lastname": "string",
+  "role": "USER"
 }'
 ```
-
----
-
-## Worker API
-
-API for managing workers
 
 ### deleteWorkers
 
@@ -3009,21 +3452,21 @@ API for managing workers
 
 **Parameters**
 
-| Name        | In    | Required | Type            | Example | Description |
-| ----------- | ----- | :------: | --------------- | ------- | ----------- |
-| `workerIds` | query |    no    | array[WorkerId] |         |             |
+| Name        | In    | Required | Type          | Description |
+| ----------- | ----- | :------: | ------------- | ----------- |
+| `workerIds` | query |    no    | array[object] |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                     | Description |
-| -----: | ---------------- | -------------------------- | ----------- |
-|    200 | application/json | MultiStatusContentWorkerId | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/workers?workerIds=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/workers' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getWorkers
@@ -3032,22 +3475,22 @@ curl -X DELETE 'http://localhost:1789/workers?workerIds=value' \
 
 **Parameters**
 
-| Name             | In    | Required | Type            | Example | Description |
-| ---------------- | ----- | :------: | --------------- | ------- | ----------- |
-| `workerIds`      | query |    no    | array[WorkerId] |         |             |
-| `paginateParams` | query |   yes    | PaginateParams  |         |             |
+| Name             | In    | Required | Type          | Description |
+| ---------------- | ----- | :------: | ------------- | ----------- |
+| `workerIds`      | query |    no    | array[object] |             |
+| `paginateParams` | query |   yes    | object        |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                      | Description |
-| -----: | ---------------- | --------------------------- | ----------- |
-|    200 | application/json | PaginateEntityDtoWorkerInfo | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/workers?workerIds=value&paginateParams=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/workers' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### spawnWorker
@@ -3060,11 +3503,11 @@ curl -X GET 'http://localhost:1789/workers?workerIds=value&paginateParams=value'
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/workers' \
-  -H 'Authorization: Bearer <token>'
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getLibraries
@@ -3073,21 +3516,21 @@ curl -X POST 'http://localhost:1789/workers' \
 
 **Parameters**
 
-| Name             | In    | Required | Type           | Example | Description |
-| ---------------- | ----- | :------: | -------------- | ------- | ----------- |
-| `paginateParams` | query |   yes    | PaginateParams |         |             |
+| Name             | In    | Required | Type   | Description |
+| ---------------- | ----- | :------: | ------ | ----------- |
+| `paginateParams` | query |   yes    | object |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                      | Description |
-| -----: | ---------------- | --------------------------- | ----------- |
-|    200 | application/json | PaginateEntityDtoJarInfoDto | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/workers/libraries?paginateParams=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/workers/libraries' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getLibraryVersions
@@ -3096,21 +3539,21 @@ curl -X GET 'http://localhost:1789/workers/libraries?paginateParams=value' \
 
 **Parameters**
 
-| Name          | In   | Required | Type   | Example | Description |
-| ------------- | ---- | :------: | ------ | ------- | ----------- |
-| `libraryName` | path |   yes    | string |         |             |
+| Name          | In   | Required | Type   | Description |
+| ------------- | ---- | :------: | ------ | ----------- |
+| `libraryName` | path |   yes    | string |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                      | Description |
-| -----: | ---------------- | --------------------------- | ----------- |
-|    200 | application/json | PaginateEntityDtoJarInfoDto | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/workers/library-versions/{libraryName}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/workers/library-versions/<libraryName>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### restartWorkers
@@ -3119,21 +3562,21 @@ curl -X GET 'http://localhost:1789/workers/library-versions/{libraryName}' \
 
 **Parameters**
 
-| Name        | In    | Required | Type            | Example | Description |
-| ----------- | ----- | :------: | --------------- | ------- | ----------- |
-| `workerIds` | query |    no    | array[WorkerId] |         |             |
+| Name        | In    | Required | Type          | Description |
+| ----------- | ----- | :------: | ------------- | ----------- |
+| `workerIds` | query |    no    | array[object] |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema                     | Description |
-| -----: | ---------------- | -------------------------- | ----------- |
-|    200 | application/json | MultiStatusContentWorkerId | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/workers/restart?workerIds=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X POST 'http://localhost:1789/workers/restart' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### restartWorkerById
@@ -3142,9 +3585,9 @@ curl -X POST 'http://localhost:1789/workers/restart?workerIds=value' \
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example | Description |
-| ---------- | ---- | :------: | -------- | ------- | ----------- |
-| `workerId` | path |   yes    | WorkerId |         |             |
+| Name       | In   | Required | Type   | Description |
+| ---------- | ---- | :------: | ------ | ----------- |
+| `workerId` | path |   yes    | object |             |
 
 **Responses**
 
@@ -3152,11 +3595,11 @@ curl -X POST 'http://localhost:1789/workers/restart?workerIds=value' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X POST 'http://localhost:1789/workers/restart/{workerId}' \
-  -H 'Authorization: Bearer <token>'
+curl -X POST 'http://localhost:1789/workers/restart/<workerId>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### uploadLibrary
@@ -3165,7 +3608,18 @@ curl -X POST 'http://localhost:1789/workers/restart/{workerId}' \
 
 **Request Body**
 
-- `multipart/form-data` — object
+- Content-Type: `multipart/form-data`
+  | Field | Type | Required | Description |
+  |---|---|:---:|---|
+  | `file` | string(binary) | yes | |
+
+Exemple de body:
+
+```json
+{
+  "file": "string"
+}
+```
 
 **Responses**
 
@@ -3173,13 +3627,15 @@ curl -X POST 'http://localhost:1789/workers/restart/{workerId}' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
 curl -X POST 'http://localhost:1789/workers/upload-library' \
-  -H 'Authorization: Bearer <token>'
-  -H 'Content-Type: multipart/form-data'
-  -F 'file=@/path/to/file'
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: multipart/form-data' \
+  -d '{
+  "file": "string"
+}'
 ```
 
 ### deleteWorkerById
@@ -3188,9 +3644,9 @@ curl -X POST 'http://localhost:1789/workers/upload-library' \
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example | Description |
-| ---------- | ---- | :------: | -------- | ------- | ----------- |
-| `workerId` | path |   yes    | WorkerId |         |             |
+| Name       | In   | Required | Type   | Description |
+| ---------- | ---- | :------: | ------ | ----------- |
+| `workerId` | path |   yes    | object |             |
 
 **Responses**
 
@@ -3198,11 +3654,11 @@ curl -X POST 'http://localhost:1789/workers/upload-library' \
 | -----: | ------------ | ------ | ----------- |
 |    200 | —            | —      | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/workers/{workerId}' \
-  -H 'Authorization: Bearer <token>'
+curl -X DELETE 'http://localhost:1789/workers/<workerId>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getWorkerById
@@ -3211,21 +3667,21 @@ curl -X DELETE 'http://localhost:1789/workers/{workerId}' \
 
 **Parameters**
 
-| Name       | In   | Required | Type     | Example | Description |
-| ---------- | ---- | :------: | -------- | ------- | ----------- |
-| `workerId` | path |   yes    | WorkerId |         |             |
+| Name       | In   | Required | Type   | Description |
+| ---------- | ---- | :------: | ------ | ----------- |
+| `workerId` | path |   yes    | object |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema     | Description |
-| -----: | ---------------- | ---------- | ----------- |
-|    200 | application/json | WorkerInfo | OK          |
+| Status | Content-Type     | Schema | Description |
+| -----: | ---------------- | ------ | ----------- |
+|    200 | application/json | object | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/workers/{workerId}' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/workers/<workerId>' \
+  -H 'Authorization: Bearer <token>' \
 ```
 
 ### getWorkerLogs
@@ -3234,30 +3690,20 @@ curl -X GET 'http://localhost:1789/workers/{workerId}' \
 
 **Parameters**
 
-| Name       | In    | Required | Type           | Example | Description |
-| ---------- | ----- | :------: | -------------- | ------- | ----------- |
-| `workerId` | path  |   yes    | WorkerId       |         |             |
-| `results`  | query |    no    | integer(int32) |         |             |
+| Name       | In    | Required | Type           | Description |
+| ---------- | ----- | :------: | -------------- | ----------- |
+| `workerId` | path  |   yes    | object         |             |
+| `results`  | query |    no    | integer(int32) |             |
 
 **Responses**
 
-| Status | Content-Type     | Schema          | Description |
-| -----: | ---------------- | --------------- | ----------- |
-|    200 | application/json | array[LogEvent] | OK          |
+| Status | Content-Type     | Schema        | Description |
+| -----: | ---------------- | ------------- | ----------- |
+|    200 | application/json | array[object] | OK          |
 
-**Examples**
+**Exemple cURL**
 
 ```bash
-curl -X GET 'http://localhost:1789/workers/{workerId}/logs?results=value' \
-  -H 'Authorization: Bearer <token>'
+curl -X GET 'http://localhost:1789/workers/<workerId>/logs' \
+  -H 'Authorization: Bearer <token>' \
 ```
-
----
-
-## Error Handling
-
-The API uses conventional HTTP status codes. 4xx indicates client errors (validation, authentication, missing resources), 5xx indicates server errors. Response bodies may include additional context where applicable.
-
-## Pagination
-
-Many listing endpoints accept a `paginateParams` object with fields `from`, `size`, `orderBy`, `ascending` to page results.
