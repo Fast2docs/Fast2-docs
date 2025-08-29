@@ -56,14 +56,14 @@ Endpoint for managing authentications
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `currentPassword` | string | no | |
-  | `newPassword` | string | no | |
-  | `newPasswordConfirmation` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `currentPassword` | string | no | |
+| `newPassword` | string | no | |
+| `newPasswordConfirmation` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -132,13 +132,13 @@ curl -X GET 'http://localhost:1789/auth/lock-time-duration' \
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `email` | string | no | |
-  | `password` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `email` | string | no | |
+| `password` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -268,14 +268,14 @@ curl -X GET 'http://localhost:1789/auth/remaining-lock-time' \
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `targetUser` | string | no | |
-  | `newPassword` | string | no | |
-  | `newPasswordConfirmation` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `targetUser` | string | no | |
+| `newPassword` | string | no | |
+| `newPasswordConfirmation` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -329,7 +329,7 @@ curl -X DELETE 'http://localhost:1789/broker/contents' \
 
 ### Download any content set in broker files directory
 
-`DELETE /broker/contents`
+`GET /broker/contents`
 
 **Parameters**
 
@@ -339,14 +339,14 @@ curl -X DELETE 'http://localhost:1789/broker/contents' \
 
 **Responses**
 
-| Status | Content-Type | Schema | Description |
-| -----: | ------------ | ------ | ----------- |
-|    200 | —            | —      | OK          |
+| Status | Content-Type     | Schema         | Description |
+| -----: | ---------------- | -------------- | ----------- |
+|    200 | application/json | string(binary) | OK          |
 
 **Exemple cURL**
 
 ```bash
-curl -X DELETE 'http://localhost:1789/broker/contents' \
+curl -X GET 'http://localhost:1789/broker/contents' \
   -H 'Authorization: Bearer <token>' \
 ```
 
@@ -767,12 +767,12 @@ curl -X GET 'http://localhost:1789/campaigns/<campaign>/parameters' \
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `empty` | boolean | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `empty` | boolean | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -1115,14 +1115,14 @@ curl -X GET 'http://localhost:1789/catalog/dto' \
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `email` | string | no | |
-  | `active` | boolean | no | |
-  | `emailId` | object | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `email` | string | no | |
+| `active` | boolean | no | |
+| `emailId` | object | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -1157,14 +1157,14 @@ curl -X POST 'http://localhost:1789/emails' \
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `email` | string | no | |
-  | `active` | boolean | no | |
-  | `emailId` | object | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `email` | string | no | |
+| `active` | boolean | no | |
+| `emailId` | object | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -1205,15 +1205,15 @@ curl -X PUT 'http://localhost:1789/emails' \
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `from` | integer(int32) | no | |
-  | `size` | integer(int32) | no | |
-  | `orderBy` | string | no | |
-  | `ascending` | boolean | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `from` | integer(int32) | no | |
+| `size` | integer(int32) | no | |
+| `orderBy` | string | no | |
+| `ascending` | boolean | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -1256,15 +1256,15 @@ curl -X DELETE 'http://localhost:1789/emails/delete-by-names' \
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `from` | integer(int32) | no | |
-  | `size` | integer(int32) | no | |
-  | `orderBy` | string | no | |
-  | `ascending` | boolean | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `from` | integer(int32) | no | |
+| `size` | integer(int32) | no | |
+| `orderBy` | string | no | |
+| `ascending` | boolean | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -1397,19 +1397,19 @@ Creates a new job for a map with its cron expression
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `jobId` | object | no | |
-  | `jobName` | string | no | |
-  | `campaign` | object | no | |
-  | `taskFlowMapRef` | object | no | |
-  | `maxNumberExecutions` | integer(int32) | no | |
-  | `action` | string | no | |
-  | `active` | boolean | no | |
-  | `cronExpression` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `jobId` | object | no | |
+| `jobName` | string | no | |
+| `campaign` | object | no | |
+| `taskFlowMapRef` | object | no | |
+| `maxNumberExecutions` | integer(int32) | no | |
+| `action` | string | no | |
+| `active` | boolean | no | |
+| `cronExpression` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -1469,19 +1469,19 @@ Updates a job. The job must have a name and an Id are required
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `jobId` | object | no | |
-  | `jobName` | string | no | |
-  | `campaign` | object | no | |
-  | `taskFlowMapRef` | object | no | |
-  | `maxNumberExecutions` | integer(int32) | no | |
-  | `action` | string | no | |
-  | `active` | boolean | no | |
-  | `cronExpression` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `jobId` | object | no | |
+| `jobName` | string | no | |
+| `campaign` | object | no | |
+| `taskFlowMapRef` | object | no | |
+| `maxNumberExecutions` | integer(int32) | no | |
+| `action` | string | no | |
+| `active` | boolean | no | |
+| `cronExpression` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -1731,7 +1731,7 @@ Creates a new map with an id and a unique name
 
 **Request Body**
 
-- Content-Type: `application/json`
+Content-Type: `application/json`
 
 **Responses**
 
@@ -1759,7 +1759,7 @@ Saves a whole map including step configurations
 
 **Request Body**
 
-- Content-Type: `application/json`
+Content-Type: `application/json`
 
 **Responses**
 
@@ -1848,15 +1848,15 @@ Deletes maps summary that match the specified map version Ids
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `from` | integer(int32) | no | |
-  | `size` | integer(int32) | no | |
-  | `orderBy` | string | no | |
-  | `ascending` | boolean | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `from` | integer(int32) | no | |
+| `size` | integer(int32) | no | |
+| `orderBy` | string | no | |
+| `ascending` | boolean | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -2098,12 +2098,12 @@ Created a new map from file and associates it with the given map name
 
 **Request Body**
 
-- Content-Type: `multipart/form-data`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `file` | string(binary) | yes | The file to be uploaded |
+Content-Type: `multipart/form-data`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `file` | string(binary) | yes | The file to be uploaded |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -2467,14 +2467,14 @@ curl -X GET 'http://localhost:1789/queues' \
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `queueId` | object | no | |
-  | `numberOfSourceThreads` | integer(int32) | no | |
-  | `numberOfTaskThreads` | integer(int32) | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `queueId` | object | no | |
+| `numberOfSourceThreads` | integer(int32) | no | |
+| `numberOfTaskThreads` | integer(int32) | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -2509,14 +2509,14 @@ curl -X POST 'http://localhost:1789/queues' \
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `queueId` | object | no | |
-  | `numberOfSourceThreads` | integer(int32) | no | |
-  | `numberOfTaskThreads` | integer(int32) | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `queueId` | object | no | |
+| `numberOfSourceThreads` | integer(int32) | no | |
+| `numberOfTaskThreads` | integer(int32) | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -2651,15 +2651,15 @@ Deletes shared objects that match the list of specified shared objects names. Re
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `from` | integer(int32) | no | |
-  | `size` | integer(int32) | no | |
-  | `orderBy` | string | no | |
-  | `ascending` | boolean | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `from` | integer(int32) | no | |
+| `size` | integer(int32) | no | |
+| `orderBy` | string | no | |
+| `ascending` | boolean | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -2706,15 +2706,15 @@ Deletes shared objects that match the specified name pattern. If no name pattern
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `from` | integer(int32) | no | |
-  | `size` | integer(int32) | no | |
-  | `orderBy` | string | no | |
-  | `ascending` | boolean | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `from` | integer(int32) | no | |
+| `size` | integer(int32) | no | |
+| `orderBy` | string | no | |
+| `ascending` | boolean | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -2875,20 +2875,20 @@ Creates a shared object from its object configuration and a provided name
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `fields` | object | no | |
-  | `className` | string | no | |
-  | `scope` | string | no | |
-  | `fullyConfigured` | boolean | no | |
-  | `singleton` | boolean | no | |
-  | `objectName` | string | no | |
-  | `objectConfigurationId` | string | no | |
-  | `constructorArguments` | array[object] | no | |
-  | `fieldConfigurationType` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `fields` | object | no | |
+| `className` | string | no | |
+| `scope` | string | no | |
+| `fullyConfigured` | boolean | no | |
+| `singleton` | boolean | no | |
+| `objectName` | string | no | |
+| `objectConfigurationId` | string | no | |
+| `constructorArguments` | array[object] | no | |
+| `fieldConfigurationType` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -2953,20 +2953,20 @@ Updates the configuration or the name of a shared object
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `fields` | object | no | |
-  | `className` | string | no | |
-  | `scope` | string | no | |
-  | `fullyConfigured` | boolean | no | |
-  | `singleton` | boolean | no | |
-  | `objectName` | string | no | |
-  | `objectConfigurationId` | string | no | |
-  | `constructorArguments` | array[object] | no | |
-  | `fieldConfigurationType` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `fields` | object | no | |
+| `className` | string | no | |
+| `scope` | string | no | |
+| `fullyConfigured` | boolean | no | |
+| `singleton` | boolean | no | |
+| `objectName` | string | no | |
+| `objectConfigurationId` | string | no | |
+| `constructorArguments` | array[object] | no | |
+| `fieldConfigurationType` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -3031,7 +3031,7 @@ Deletes all users
 
 **Request Body**
 
-- Content-Type: `application/json`
+Content-Type: `application/json`
 
 **Responses**
 
@@ -3102,14 +3102,14 @@ Updates information of the currently authenticated user
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `firstname` | string | no | |
-  | `lastname` | string | no | |
-  | `role` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `firstname` | string | no | |
+| `lastname` | string | no | |
+| `role` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -3146,16 +3146,16 @@ Creates a user from its password, firstname, lastname and email. You cannot crea
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `password` | string | no | |
-  | `firstname` | string | no | |
-  | `lastname` | string | no | |
-  | `email` | string | no | |
-  | `role` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `password` | string | no | |
+| `firstname` | string | no | |
+| `lastname` | string | no | |
+| `email` | string | no | |
+| `role` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -3199,16 +3199,16 @@ Creates a user from its password, firstname, lastname and email
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `password` | string | no | |
-  | `firstname` | string | no | |
-  | `lastname` | string | no | |
-  | `email` | string | no | |
-  | `role` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `password` | string | no | |
+| `firstname` | string | no | |
+| `lastname` | string | no | |
+| `email` | string | no | |
+| `role` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -3258,16 +3258,16 @@ Creates a worker as member to allow broker communication
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `password` | string | no | |
-  | `firstname` | string | no | |
-  | `lastname` | string | no | |
-  | `email` | string | no | |
-  | `role` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `password` | string | no | |
+| `firstname` | string | no | |
+| `lastname` | string | no | |
+| `email` | string | no | |
+| `role` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -3410,14 +3410,14 @@ Admin updates any user's information
 
 **Request Body**
 
-- Content-Type: `application/json`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `firstname` | string | no | |
-  | `lastname` | string | no | |
-  | `role` | string | no | |
+Content-Type: `application/json`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `firstname` | string | no | |
+| `lastname` | string | no | |
+| `role` | string | no | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
@@ -3608,12 +3608,12 @@ curl -X POST 'http://localhost:1789/workers/restart/<workerId>' \
 
 **Request Body**
 
-- Content-Type: `multipart/form-data`
-  | Field | Type | Required | Description |
-  |---|---|:---:|---|
-  | `file` | string(binary) | yes | |
+Content-Type: `multipart/form-data`
+| Field | Type | Required | Description |
+|---|---|:---:|---|
+| `file` | string(binary) | yes | |
 
-Exemple de body:
+Body format:
 
 ```json
 {
