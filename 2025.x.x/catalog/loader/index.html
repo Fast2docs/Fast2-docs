@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/Fast2_favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -2346,7 +2346,7 @@
 <tr>
 <td>Alfresco ID for update</td>
 <td><code>String</code></td>
-<td>Specify here the Alfresco UUID of the document to update. The value will be resolved by Fast2, syntax <code>${...}</code> is supported. This value can start with 'workspace://SpacesStore/' <br/> <p> Ex/  ${property('alfcmis:nodeRef')}</p></td>
+<td>Specify here the Alfresco UUID of the document to update. The value will be resolved by Fast2, syntax <code>${...}</code> is supported. This value can start with 'workspace://SpacesStore/' <br/> <p> Ex/ ${property('alfcmis:nodeRef')}</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -2392,7 +2392,7 @@
 <tr>
 <td>Encryption key</td>
 <td><code>String</code></td>
-<td>Key used for server-side encryption. <br/> <p> Ex/  01234567-abcd-efgh-ijkl-0123456789ab</p></td>
+<td>Key used for server-side encryption. <br/> <p> Ex/ 01234567-abcd-efgh-ijkl-0123456789ab</p></td>
 <td></td>
 </tr>
 <tr>
@@ -2416,13 +2416,13 @@
 <tr>
 <td>Encryption context</td>
 <td><code>String</code></td>
-<td>Context used for server-side encryption. This context is a JSON map. <br/> <p> Ex/  <code>{\"testKey\":\"testValue\"}</code></p></td>
+<td>Context used for server-side encryption. This context is a JSON map. <br/> <p> Ex/ <code>{\"testKey\":\"testValue\"}</code></p></td>
 <td></td>
 </tr>
 <tr>
 <td>ARN key</td>
 <td><code>String</code></td>
-<td>Key used for client-side encryption, before loading the document into S3. <br/> <p> Ex/  arn:aws:kms:<region>:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p></td>
+<td>Key used for client-side encryption, before loading the document into S3. <br/> <p> Ex/ arn:aws:kms:<region>:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p></td>
 <td></td>
 </tr>
 <tr>
@@ -2499,8 +2499,20 @@
 <td>This option will surround every value with double quotes. Such use will be mostly relevant when dealing with multivalued metadata.</td>
 <td><code>true</code></td>
 </tr>
+<tr>
+<td>Add Folder Metadata</td>
+<td><code>Boolean</code></td>
+<td>For each document add its folder metadata on the same CSV line. Only the first level of folders will be stored into the CSV file. If a document is attached to more than one folder, its line will be cloned in the CSV file, to display one folder per line.</td>
+<td><code>false</code></td>
+</tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CSVWriter folders behavior and limitations (v2025.5.0):
+- Single level of depth: only the direct parent folders of documents are considered.
+- Single combination per CSV line: one row per unique document/folder combination; documents without a folder appear with blank folder columns.</p>
+</div>
 <h2 id="DctmInjector">DctmInjector <small> - Injection into Documentum </small><a class="headerlink" href="#DctmInjector" title="Permanent link">&para;</a></h2>
 <p>Use this task to inject into Documentum ECM system. Fast2 embeds v6.7 of Documentum modules to take the most out of of this injection phase.</p>
 <p><b>Mandatory settings</b></p>
@@ -2719,7 +2731,7 @@
 <tr>
 <td>WHERE clause for update</td>
 <td><code>String</code></td>
-<td>Fast2 will update all documents matching the following WHERE statement <br/> <p> Ex/  [Id]=${myFileNetDocumentId})</p></td>
+<td>Fast2 will update all documents matching the following WHERE statement <br/> <p> Ex/ [Id]=${myFileNetDocumentId})</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -2966,7 +2978,7 @@
 <tr>
 <td>WHERE clause for update</td>
 <td><code>String</code></td>
-<td>The criteria which the documents to update will have to match <br/> <p> Ex/  [Id]=${myFileNetDocumentId}</p></td>
+<td>The criteria which the documents to update will have to match <br/> <p> Ex/ [Id]=${myFileNetDocumentId}</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -3195,7 +3207,7 @@
 <tr>
 <td>Data to update</td>
 <td><code>String list</code></td>
-<td>The list of all key-values pairs to update the given rows with <br/> <p> Ex/  targetColumnName/documentData</p></td>
+<td>The list of all key-values pairs to update the given rows with <br/> <p> Ex/ targetColumnName/documentData</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -3294,7 +3306,7 @@
 <tr>
 <td>Attribute file path</td>
 <td><code>String</code></td>
-<td>OpenText category must be associated with their ids within the file. Fast2 will automatically translate the data name to the correct id specified by the file <br/> <p> Ex/  ../config/attributes.properties</p></td>
+<td>OpenText category must be associated with their ids within the file. Fast2 will automatically translate the data name to the correct id specified by the file <br/> <p> Ex/ ../config/attributes.properties</p></td>
 </tr>
 <tr>
 <td>OpenText credentials</td>
@@ -3419,7 +3431,7 @@
 <tr>
 <td>SQL statement</td>
 <td><code>String</code></td>
-<td>The statement you want Fast2 to run on the database. The syntax needs to match SQL standards. Use a ? to reference your annotation <br/> <p> Ex/  INSERT INTO table_name (doc_id, annotation) VALUES ('${documentId}', ?);</p></td>
+<td>The statement you want Fast2 to run on the database. The syntax needs to match SQL standards. Use a ? to reference your annotation <br/> <p> Ex/ INSERT INTO table_name (doc_id, annotation) VALUES ('${documentId}', ?);</p></td>
 </tr>
 <tr>
 <td>Query caller</td>
