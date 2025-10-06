@@ -2732,13 +2732,48 @@
 <h2 id="EmbeddedDbSourceRest">EmbeddedDbSourceRest <small> - Perform requests on Fast2 database without any size restriction </small><a class="headerlink" href="#EmbeddedDbSourceRest" title="Permanent link">&para;</a></h2>
 <p>This task is used to retrieve punnets from a previously executed campaign.</p>
 <p><b>Mandatory settings</b></p>
-<p>|Key      | Type    | Description | Default value |
-| - | - | - |
-| Embedded db port | <code>Integer</code> |  | <code>1790</code> |
-| Embedded db hostname | <code>String</code> |  | <code>localhost</code> |
-| Embedded db scheme | <code>String</code> |  | <code>http</code> |
-| Campaign name | <code>String</code> | The campaign name that you would like to have the data. <br/> <p> Ex/  <code>myMap_Run1</code></p> |
-| Step Id | <code>String</code> | Will return the punnets of this task (UUID of the step) |</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Embedded db port</td>
+<td><code>Integer</code></td>
+<td></td>
+<td><code>1790</code></td>
+</tr>
+<tr>
+<td>Embedded db hostname</td>
+<td><code>String</code></td>
+<td></td>
+<td><code>localhost</code></td>
+</tr>
+<tr>
+<td>Embedded db scheme</td>
+<td><code>String</code></td>
+<td></td>
+<td><code>http</code></td>
+</tr>
+<tr>
+<td>Campaign name</td>
+<td><code>String</code></td>
+<td>The campaign name that you would like to have the data. <br/> <p> Ex/  <code>myMap_Run1</code></p></td>
+<td></td>
+</tr>
+<tr>
+<td>Step Id</td>
+<td><code>String</code></td>
+<td>Will return the punnets of this task (UUID of the step)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="FileNet35Source">FileNet35Source <small> - Complete extractor from FileNet 3.5 </small><a class="headerlink" href="#FileNet35Source" title="Permanent link">&para;</a></h2>
 <p>The FileNet35Source retrieves existing documents from the FileNet P8 3.5 ECM through a query. This punnet will contain the metadata of the recovered document, its content and annotations</p>
 <p><b>Mandatory settings</b></p>
