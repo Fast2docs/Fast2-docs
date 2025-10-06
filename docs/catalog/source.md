@@ -214,7 +214,7 @@ This task is used to retrieve punnets from a previously executed campaign.
 <b>Mandatory settings</b>
 
 |Key      | Type    | Description | Default value |
-| - | - | - |
+| - | - | - | - |
 | Embedded db port | `Integer` |  | `1790 ` |
 | Embedded db hostname | `String` |  | `localhost ` |
 | Embedded db scheme | `String` |  | `http ` |
