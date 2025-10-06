@@ -96,6 +96,16 @@ Module used by Fast2 to establish to communication with the destination Document
 | Password     | `String` | Password of the aforementioned username.                   |
 | Username     | `String` | Login with scope to access the docbase with proper rights. |
 
+## EmbeddedDbConnectionProvider <small> - OpenSearch connection provider </small> {#EmbeddedDbConnectionProvider data-toc-label="EmbeddedDbConnectionProvider"}
+
+Module used by Fast2 to connect to its own database.
+
+<b>Mandatory settings</b>
+
+| Key      | Type     | Description | Default value |
+| -------- | -------- | ----------- | ------------- |
+| Database endPoint | `String` | The endpoint of the Fast2 database | `"http://localhost:1790 ` |
+
 ## FileNet35ConnectionProvider <small> - Connection provider for FileNet 3.5 solution </small> {#FileNet35ConnectionProvider data-toc-label="FileNet35ConnectionProvider"}
 
 This task is used to provide connection information to connect specifically to the FileNet P8 3.5 ECM.

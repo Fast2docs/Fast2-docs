@@ -207,6 +207,22 @@ This connector will extract basic information from the source Documentum reposit
 
 
 
+## EmbeddedDbSourceRest <small> - Perform requests on Fast2 database without any size restriction </small> {#EmbeddedDbSourceRest data-toc-label="EmbeddedDbSourceRest"}
+
+This task is used to retrieve punnets from a previously executed campaign.
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | Default value |
+| - | - | - |
+| Embedded db port | `Integer` |  | `1790 ` |
+| Embedded db hostname | `String` |  | `localhost ` |
+| Embedded db scheme | `String` |  | `http ` |
+| Campaign name | `String` | The campaign name that you would like to have the data. <br/> <p> Ex/  `myMap_Run1`</p> |
+| Step Id | `String` | Will return the punnets of this task (UUID of the step) |
+
+
+
 ## FileNet35Source <small> - Complete extractor from FileNet 3.5 </small> {#FileNet35Source data-toc-label="FileNet35Source"}
 
 The FileNet35Source retrieves existing documents from the FileNet P8 3.5 ECM through a query. This punnet will contain the metadata of the recovered document, its content and annotations

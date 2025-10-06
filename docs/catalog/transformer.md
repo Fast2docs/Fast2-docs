@@ -157,7 +157,7 @@ This task is used to perform the IS annotation conversion and its save into a ta
 
 ## ConvertDateProperties <small> - Convert multiple document/folder date properties </small> {#ConvertDateProperties data-toc-label="ConvertDateProperties"}
 
-Easily convert date properties from one format to another
+Easily convert date properties from one format to another.
 
 <b>Mandatory settings</b>
 
@@ -183,6 +183,19 @@ Delete the content of your document within your file system. It will retrieve th
 | Maximum number of tries for deletion | `Integer` | Thrown an exception if the file has not been deleted after this number of tries                                                                                               | `10 `         |
 | Delete content entry                 | `Boolean` | Erase the URL entry from the document, in the punnet.                                                                                                                         | `true `       |
 | Exception when file does not exist   | `Boolean` | Throw an exception if file does not exist. Otherwise, silent fail                                                                                                             | `true `       |
+
+## EmbeddedDbQuery <small> - Query the embedded OpenSearch database </small> {#EmbeddedDbQuery data-toc-label="EmbeddedDbQuery"}
+
+Provide a campaign name, task name, and unique ID field to find a single punnet in the embedded OpenSearch database.
+
+<b>Mandatory settings</b>
+
+| Key | Type                             | Description |
+| --- | -------------------------------- | ----------- |
+| Embedded Db connection provider | [EmbeddedDbConnectionProvider](credentials.md#EmbeddedDbConnectionProvider) | |
+| Campaign prefix | `String` | Generally Map name, but can be changed, so the part that comes before _Run# |
+| Fields for OpenSearch query | `String/Pattern map` | Fields used to construct OpenSearch query. Recommended to include at least the following 3: campaign.keyword, stepName.keyword, punnet.documents.documentId.keyword (or similar unique ID). The query should only return one punnet. |
+| Data to enrich current punnet | `String/Pattern map` | List of data coming from the OpenSearch fetched punnet to add to the current punnet. Give a literal name such as edb-hash and an expression to fill the value like ${hash} or ${property('file:content:digest')} for properties with colons in the name. |
 
 ## FileNet35ExtraSearchTask <small> - File Net search </small> {#FileNet35ExtraSearchTask data-toc-label="FileNet35ExtraSearchTask"}
 
