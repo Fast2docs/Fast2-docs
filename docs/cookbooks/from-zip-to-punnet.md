@@ -29,13 +29,13 @@ The metadata contained in the JSON files are simply arranged like so:
 
 ```json
 {
-  "agency": "Agency_name",
-  "customerNumber": "658217041",
-  "contractNumber": "0121443-01",
-  "operationDate": "20170523000000",
-  "docType": "Bill",
-  "fiscalYear": "2016",
-  "treatmentType": "Archiving"
+  "agency": {"value":["Agency_name"]},
+  "customerNumber": {"value":["658217041"]},
+  "contractNumber": {"value":["0121443-01"]},
+  "operationDate": {"value":["20170523000000"]},
+  "docType": {"value":["Bill"]},
+  "fiscalYear": {"value":["2016"]},
+  "treatmentType": {"value":["Archiving"]}
 }
 ```
 
@@ -115,27 +115,27 @@ At the latest stage of your workflow, the document dataset is filled with the pr
 
 ```json hl_lines="4 8-12 21-22"
 "data": {
-    "absoluteParentPath": "G:/path/to/folder",
-    "absolutePath": "G:/path/to/folder/ZIP_archive.zip",
-    "agency": "Agency_name",
-    "canExecute": true,
-    "canRead": true,
-    "canWrite": true,
-    "contractNumber": "0121443-01",
-    "customerNumber": "658217041",
-    "docType": "Bill",
-    "fileName": "ZIP_archive.zip",
-    "fiscalYear": "2016",
+    "absoluteParentPath": {"value":["G:/path/to/folder"]},
+    "absolutePath": {"value":["G:/path/to/folder/ZIP_archive.zip"]},
+    "agency": {"value":["Agency_name"]},
+    "canExecute": {"value":["true"]},
+    "canRead": {"value":["true"]},
+    "canWrite": {"value":["true"]},
+    "contractNumber": {"value":["0121443-01"]},
+    "customerNumber": {"value":["658217041"]},
+    "docType": {"value":["Bill"]},
+    "fileName": {"value":["ZIP_archive.zip"]},
+    "fiscalYear": {"value":["2016"]},
     "lastModified": {
         "type": "Date",
-        "value": "Tue Apr 05 11:50:08 CEST 2022"
+        "value": ["Tue Apr 05 11:50:08 CEST 2022"]
     },
     "length": {
-        "value": "82009"
+        "value": ["82009"]
     },
-    "mimeType": "application/zip",
-    "operationDate": "20170523000000",
-    "treatmentType": "Archiving"
+    "mimeType": {"value":["application/zip"]},
+    "operationDate": {"value":["20170523000000"]},
+    "treatmentType": {"value":["Archiving"]}
 },
 "documentId": "ZIP_archive.zip",
 "folders": [...]
