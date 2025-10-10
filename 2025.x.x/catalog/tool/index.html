@@ -1101,6 +1101,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#GenericRestApiTask" class="md-nav__link">
+    <span class="md-ellipsis">
+      GenericRestApiTask
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#HashSignTask" class="md-nav__link">
     <span class="md-ellipsis">
       HashSignTask
@@ -2037,6 +2046,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#GenericRestApiTask" class="md-nav__link">
+    <span class="md-ellipsis">
+      GenericRestApiTask
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#HashSignTask" class="md-nav__link">
     <span class="md-ellipsis">
       HashSignTask
@@ -2528,6 +2546,45 @@
 <td>Condition</td>
 <td><code>String</code></td>
 <td>Set here the condition to trigger exception. This field will be resolved by Fast2 before the task is executed <br/> <p> Ex/  mimeType == application/pdf</p></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="GenericRestApiTask">GenericRestApiTask <small> - Consume a REST API </small><a class="headerlink" href="#GenericRestApiTask" title="Permanent link">&para;</a></h2>
+<p>Consume any generic REST API task and add the response in the punnet.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Response code metadata key</td>
+<td><code>Pattern</code></td>
+<td>Property name of the response code in the dataset</td>
+<td></td>
+</tr>
+<tr>
+<td>Body metadata key</td>
+<td><code>Pattern</code></td>
+<td>Property name of the body in the dataset</td>
+<td></td>
+</tr>
+<tr>
+<td>REST API client</td>
+<td><a href="../credentials/#GenericRestClient">GenericRestClient</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Continue task after document failed</td>
+<td><code>Boolean</code></td>
+<td>Continue the task process even if an API call failed with a document</td>
 <td><code>true</code></td>
 </tr>
 </tbody>
