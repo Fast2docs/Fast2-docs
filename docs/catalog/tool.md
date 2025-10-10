@@ -143,6 +143,22 @@ This task is responsible for exception generation based on a condition which can
 
 
 
+## GenericRestApiTask <small> - Consume a REST API </small> {#GenericRestApiTask data-toc-label="GenericRestApiTask"}
+
+Consume any generic REST API task and add the response in the punnet.
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description |  Default value |
+| - | - | - | - |
+| Response code metadata key | `Pattern` | Property name of the response code in the dataset | |
+| Body metadata key | `Pattern` | Property name of the body in the dataset | |
+| REST API client | [GenericRestClient](credentials.md#GenericRestClient) | | |
+| Continue task after document failed | `Boolean` | Continue the task process even if an API call failed with a document | `true` |
+
+
+
+
 ## HashSignTask <small> - Compute content hash </small> {#HashSignTask data-toc-label="HashSignTask"}
 
 This task computes the hash of a given document content. This new hash can be confronted to an already existing one.

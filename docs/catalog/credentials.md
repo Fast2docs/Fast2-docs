@@ -164,6 +164,35 @@ Module responsible for authentication of Fast2 for FlowerDocs
 | ---------------------------- | --------- | ---------------------------------------- | ------------- |
 | Overrides authenticated user | `Boolean` | Allows connections to multiple endpoints | `false `      |
 
+## GenericRestClient <small> - Generic REST client connection </small> {#GenericRestClient data-toc-label="GenericRestClient"}
+
+Allows Fast2 to connect to any REST API.
+
+ <b>Mandatory settings</b>
+
+| Key      | Type     | Description |
+| -------- | -------- | ----------- |
+| Endpoint | `Pattern` | Complete URI address of the endpoint |
+| Method   | `String` | HTTP method to use <br/> <p> Ex/ GET, POST, PUT, DELETE</p>|
+
+<b>Optional settings</b>
+
+| Key      | Type     | Description | Example | Default value |
+| -------- | -------- | ----------- | ------------- | ------------- |
+| Header  | `String/Pattern map` | Parameters of the header | | |
+| Query parameters | `String/Pattern map` | | | |
+| Body content type in request | `String` | | application/json | |
+| Proxy host | `String` | | | |
+| Proxy port | `Integer` | | | |
+| Proxy username | `String` | | | |
+| Proxy password | `String` | | | |
+| Socket timeout | `Integer` | Timeout to receive data (in ms) | | 60000 |
+| Request timeout | `Integer` | Timeout until a connection with the server is established (in ms) | | 30000 |
+| Total number of connections | `Integer` | Set the maximum number of total open connections | 2048 | |
+| Max connections per route | `Integer` | Set the maximum number of concurrent connections per route | | 2048 |
+| Form field body | `String/Pattern map` | Field used to send structured data in Key/Value pairs. Required for content types: multipart/form-data, and application/x-www-form-urlencoded. FILE UPLOADS (Multipart) : To include files within a form, enter the absolute or relative file path as the value and add '_file' at the end of the corresponding key." | | |
+| Raw content or single binary file body | `Pattern` | Field used when the request body is a single, unstructured content. Required for: text/plain, application/xml, and all single binary file uploads (e.g., image/*, application/pdf). FILE UPLOADS (Raw) : Enter the file path (the content will be read and sent as the raw body). Otherwise, enter the literal content (text or XML string) | | |
+
 ## MailBoxProvider <small> - Mail box connection </small> {#MailBoxProvider data-toc-label="MailBoxProvider"}
 
 This class is used to access any mailbox from some connection information.
