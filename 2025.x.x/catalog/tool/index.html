@@ -2551,7 +2551,10 @@
 </tbody>
 </table>
 <h2 id="GenericRestApiTask">GenericRestApiTask <small> - Consume a REST API </small><a class="headerlink" href="#GenericRestApiTask" title="Permanent link">&para;</a></h2>
-<p>Consume any generic REST API task and add the response in the punnet.</p>
+<p>Consume any generic REST API task and add the response in the punnet. Supported Methods: GET and DELETE.
+Configuration: Allows defining the API endpoint URL, headers, and query parameters.
+Response Handling: The HTTP status code (e.g., 200) and the response body (e.g., JSON) are automatically mapped to punnet metadata fields, with configurable key names.
+Error Handling: In case of a failed API call, the error code and response body (if available) are still added to the punnet to allow for diagnostics.</p>
 <p><b>Mandatory settings</b></p>
 <table>
 <thead>
