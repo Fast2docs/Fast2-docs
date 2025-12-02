@@ -338,10 +338,18 @@ This task only works with JDK-11. If any record matches the input query, the UUI
 
 
 
+## ParseJsonAsProperties <small> - Task to add new data from a JSON file as data </small> {#ParseJsonAsProperties data-toc-label="ParseJsonAsProperties"}
+
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | Example | Default value |
+| - | - | - | - | - |
+| Path of JSON file to parse | Pattern | `${absolutePath}/myFile.json` | Path of JSON file for properties to map. Pattern syntax `${...}` is supported, wilcards are not. |
+
+
+
 ## PropertyHelper <small> - FileNet submodule for properties management </small> {#PropertyHelper data-toc-label="PropertyHelper"}
-
-
-
 
 
 <b>Optional settings</b>
