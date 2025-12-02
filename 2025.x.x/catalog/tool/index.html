@@ -1336,6 +1336,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ParseJsonAsProperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ParseJsonAsProperties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#PropertyHelper" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2458,6 +2469,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ParseJsonAsProperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ParseJsonAsProperties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#PropertyHelper" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3428,6 +3450,28 @@ Error Handling: In case of a failed API call, the error code and response body (
 <td>Nuxeo query</td>
 <td><code>String</code></td>
 <td>NXQL query, with double-quotes around values (Ex: SELECT * FROM Document WHERE dc:title = \"${nom}\" AND ecm:isTrashed = 0)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ParseJsonAsProperties">ParseJsonAsProperties <small> - Task to add new data from a JSON file as data </small><a class="headerlink" href="#ParseJsonAsProperties" title="Permanent link">&para;</a></h2>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path of JSON file to parse</td>
+<td>Pattern</td>
+<td><code>${absolutePath}/myFile.json</code></td>
+<td>Path of JSON file for properties to map. Pattern syntax <code>${...}</code> is supported, wilcards are not.</td>
+<td></td>
 </tr>
 </tbody>
 </table>
