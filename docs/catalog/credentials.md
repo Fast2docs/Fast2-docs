@@ -192,6 +192,7 @@ Allows Fast2 to connect to any REST API.
 | Max connections per route | `Integer` | Set the maximum number of concurrent connections per route | | 2048 |
 | Form field body | `String/Pattern map` | Field used to send structured data in Key/Value pairs. Required for content types: multipart/form-data, and application/x-www-form-urlencoded. FILE UPLOADS (Multipart) : To include files within a form, enter the absolute or relative file path as the value and add '_file' at the end of the corresponding key." | | |
 | Raw content or single binary file body | `Pattern` | Field used when the request body is a single, unstructured content. Required for: text/plain, application/xml, and all single binary file uploads (e.g., image/*, application/pdf). FILE UPLOADS (Raw) : Enter the file path (the content will be read and sent as the raw body). Otherwise, enter the literal content (text or XML string) | | |
+| File Path | `Boolean` | Indicates if the raw body contains a file path | | `false ` |
 
 ## MailBoxProvider <small> - Mail box connection </small> {#MailBoxProvider data-toc-label="MailBoxProvider"}
 
