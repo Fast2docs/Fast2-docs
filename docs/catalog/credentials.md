@@ -96,9 +96,12 @@ Module used by Fast2 to establish to communication with the destination Document
 | Password     | `String` | Password of the aforementioned username.                   |
 | Username     | `String` | Login with scope to access the docbase with proper rights. |
 
-## DctmSshProvider <small> - Documentum SSH connection provider </small> {#DctmSshProvider data-toc-label="DctmSshProvider"}
+## DctmSshClient <small> - Documentum SSH client" </small> {#DctmSshClient data-toc-label="DctmSshClient"}
 
-Module used by Fast2 to establish communication with the Documentum server.
+Module used by Fast2 to establish the connection with the destination Documentum server.
+!!! Warning
+
+    Using this feature may significantly degrade performance. To use this option, the Client must be set on all Documentum tasks.
 
 <b>Mandatory settings</b>
 

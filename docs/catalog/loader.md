@@ -137,6 +137,7 @@ Use this task to inject into Documentum ECM system. Fast2 embeds v6.7 of Documen
 | Key                      | Type                                             | Description                                                                                                                                          |
 | ------------------------ | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Documentum configuration | [DctmConfiguration](helper.md#DctmConfiguration) | Customize here the Documentum details related to the instance you are planning to inject documents into. For more, refer to the appropriate section. |
+| SSH client | [DctmSshClient](credentials.md#DctmSshClient) | SSH client used to establish the connection with the Documentum server |
 
 ## FileNet35Injector <small> - Injector for FileNet P8 3.5 </small> {#FileNet35Injector data-toc-label="FileNet35Injector"}
 

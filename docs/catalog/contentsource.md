@@ -144,7 +144,8 @@ This Documentum connector is designed for extraction of document versions, metad
  | Extract metadata | `Boolean` |  | `true ` | 
  | Continue on fail | `Boolean` | If `true`, any error which occurs during extraction of either metadata, content or folders will trigger an exception. Otherwise, the error will be found in the logs. | 
  | Extract content | `Boolean` |  | `true ` | 
- | Extract all versions | `Boolean` |  | 
+ | Extract all versions | `Boolean` |  |
+ | SSH client | [DctmSshClient](credentials.md#DctmSshClient) | SSH client used to establish the connection with the Documentum server |
 
 
 

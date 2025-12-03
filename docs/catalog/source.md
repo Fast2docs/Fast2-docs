@@ -204,7 +204,7 @@ This connector will extract basic information from the source Documentum reposit
 |Key      | Type    | Description |  Default value |
 | - | - | - | - |
  | Batch size | `Integer` | If size is <1, the size will be defined from the Documentum server-side. | `50 ` | 
-
+ | SSH client | [DctmSshClient](credentials.md#DctmSshClient) | SSH client used to establish the connection with the Documentum server |
 
 
 ## EmbeddedDbSourceRest <small> - Perform requests on Fast2 database without any size restriction </small> {#EmbeddedDbSourceRest data-toc-label="EmbeddedDbSourceRest"}
