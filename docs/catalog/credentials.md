@@ -292,9 +292,10 @@ This Mobius connection module is required for Fast2 to successfully establish th
 | UserName           | `String` | | | |
 
 <b>Optional settings</b>
+
 | Key                | Type     | Description                                                              | Default value | Example |
 | ------------------ | -------- | ------------------------------------------------------------------------ | ------------- | ------- |
-| Accessible schemas | `String` | List of document schemas accessible with this connexion                  | `* `          | |
+| Accessible schemas | `String` | List of document schemas accessible with this connexion | `* ` | |
 
 ## OpenTextCredentials <small> - OpenText user credentials </small> {#OpenTextCredentials data-toc-label="OpenTextCredentials"}
 
