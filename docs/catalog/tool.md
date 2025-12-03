@@ -129,6 +129,20 @@ This task will generates different exception types : either TaskException or Run
 
 
 
+## FlowerDocsQuerier <small> - FlowerDocs querier </small> {#FlowerDocsQuerier data-toc-label="FlowerDocsQuerier"}
+
+Allows components extraction from FlowerDocs using JSON formatted FlowerDocs request. Components can be documents, folders, virtual folders or tasks.
+
+<b>Mandatory settings</b>
+
+|Key      | Type    | Description | Default value | Example |
+| - | - | - | - | - |
+| FlowerDocs connection provider | [FlowerDocsConnectionProvider](credentials.md#FlowerDocsConnectionProvider) |  |  |  |
+| JSON Flower Search Request | `String` | This field supports pattern `${...}` syntax. |  | {\"filterClauses\": [{\"criteria\": [{\"name\": \"B_IdPli\",\"operator\": \"EQUALS_TO\",\"type\": \"STRING\",\"values\": [\"KOFAX_e57f087f-0fe5-48d0-bee6-2d6b10a874a9\"]}]}],\"max\": 100,\"start\": 0} |
+| Flower component category | `String` | Choose among DOCUMENT, TASK, FOLDER or VIRTUAL_FOLDER. This field supports pattern `${...}` syntax. |  |  |
+
+
+
 ## GenerateExceptionTask <small> - Throw exception when condition is verified </small> {#GenerateExceptionTask data-toc-label="GenerateExceptionTask"}
 
 This task is responsible for exception generation based on a condition which can be dynamically built for each punnet.
