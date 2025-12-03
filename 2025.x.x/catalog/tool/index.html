@@ -1215,6 +1215,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#FlowerDocsQuerier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FlowerDocsQuerier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#GenerateExceptionTask" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2348,6 +2359,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#FlowerDocsQuerier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FlowerDocsQuerier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#GenerateExceptionTask" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2891,6 +2913,43 @@
 <td><code>Integer</code></td>
 <td>The number of task exception which will be thrown by Fast2</td>
 <td><code>3</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="FlowerDocsQuerier">FlowerDocsQuerier <small> - FlowerDocs querier </small><a class="headerlink" href="#FlowerDocsQuerier" title="Permanent link">&para;</a></h2>
+<p>Allows components extraction from FlowerDocs using JSON formatted FlowerDocs request. Components can be documents, folders, virtual folders or tasks.</p>
+<p><b>Mandatory settings</b></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FlowerDocs connection provider</td>
+<td><a href="../credentials/#FlowerDocsConnectionProvider">FlowerDocsConnectionProvider</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>JSON Flower Search Request</td>
+<td><code>String</code></td>
+<td>This field supports pattern <code>${...}</code> syntax.</td>
+<td></td>
+<td>{\"filterClauses\": [{\"criteria\": [{\"name\": \"B_IdPli\",\"operator\": \"EQUALS_TO\",\"type\": \"STRING\",\"values\": [\"KOFAX_e57f087f-0fe5-48d0-bee6-2d6b10a874a9\"]}]}],\"max\": 100,\"start\": 0}</td>
+</tr>
+<tr>
+<td>Flower component category</td>
+<td><code>String</code></td>
+<td>Choose among DOCUMENT, TASK, FOLDER or VIRTUAL_FOLDER. This field supports pattern <code>${...}</code> syntax.</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
