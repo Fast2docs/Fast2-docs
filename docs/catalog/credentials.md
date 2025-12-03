@@ -285,12 +285,16 @@ This Mobius connection module is required for Fast2 to successfully establish th
 
 <b>Mandatory settings</b>
 
-| Key                | Type     | Description                                                              | Default value |
-| ------------------ | -------- | ------------------------------------------------------------------------ | ------------- |
-| Accessible schemas | `String` | List of document schemas accessible with this connexion                  | `* `          |
-| Connexion URL      | `String` | http://hostname:port/nuxeo <br/> <p> Ex/ http://localhost:8080/nuxeo</p> |
-| Password           | `String` |                                                                          |
-| UserName           | `String` |                                                                          |
+| Key                | Type     | Description                                                              | Default value | Example |
+| ------------------ | -------- | ------------------------------------------------------------------------ | ------------- | ------- |
+| URL endpoint      | `String` | http://hostname:port/nuxeo | | http://localhost:8080/nuxeo |
+| Password           | `String` | | | |
+| UserName           | `String` | | | |
+
+<b>Optional settings</b>
+| Key                | Type     | Description                                                              | Default value | Example |
+| ------------------ | -------- | ------------------------------------------------------------------------ | ------------- | ------- |
+| Accessible schemas | `String` | List of document schemas accessible with this connexion                  | `* `          | |
 
 ## OpenTextCredentials <small> - OpenText user credentials </small> {#OpenTextCredentials data-toc-label="OpenTextCredentials"}
 
