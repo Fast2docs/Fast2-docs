@@ -195,9 +195,9 @@ This connector will extract basic information from the source Documentum reposit
 
 |Key      | Type    | Description | 
 | - | - | - |
- | Connexion information to Documentum Repository | [DctmConnectionProvider](credentials.md#DctmConnectionProvider) |  | 
+ | Connection information to Documentum Repository | [DctmConnectionProvider](credentials.md#DctmConnectionProvider) |  | 
  | The DQL Query to run to fetch documents | `String` | The less attributes you fetch, the faster the query will be executed on the Documentum side. <br/> <p> Ex/  `SELECT r_object_id FROM dm_document WHERE ...`</p> | 
-
+ | Connection information to Documentum server machine | [DctmSshProvider](credentials.md#DctmConnectionProvider) |  |
 
 <b>Optional settings</b>
 

@@ -96,6 +96,18 @@ Module used by Fast2 to establish to communication with the destination Document
 | Password     | `String` | Password of the aforementioned username.                   |
 | Username     | `String` | Login with scope to access the docbase with proper rights. |
 
+## DctmSshProvider <small> - Documentum SSH connection provider </small> {#DctmSshProvider data-toc-label="DctmSshProvider"}
+
+Module used by Fast2 to establish communication with the Documentum server.
+
+<b>Mandatory settings</b>
+
+| Key          | Type     | Description                                                |
+| ------------ | -------- | ---------------------------------------------------------- |
+| Username | `String` | Documentum machine username |
+| Password | `String` | Documentum machine password |
+| IP | `String` | Documentum machine IP |
+
 ## EmbeddedDbConnectionProvider <small> - OpenSearch connection provider </small> {#EmbeddedDbConnectionProvider data-toc-label="EmbeddedDbConnectionProvider"}
 
 Module used by Fast2 to connect to its own database.
