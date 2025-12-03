@@ -230,6 +230,25 @@ Use this task to inject documents and data into a FileNet. If all documents have
 | Force to perform update                        | `Boolean`                                | Force document Update action. In case the document did not exist, an error is thrown                                                                                                                                                                                         |
 | WHERE clause for update                        | `String`                                 | The criteria which the documents to update will have to match <br/> <p> Ex/ [Id]=${myFileNetDocumentId}</p>                                                                                                                                                                  |
 
+## FlowerDocsIndexPlainText <small> - Push input for plain-text search indexing in FlowerDocs </small> {#FlowerDocsIndexPlainText data-toc-label="FlowerDocsIndexPlainText"}
+
+<b>Mandatory settings</b>
+
+| Key      | Type    | Description |
+| - | - | - |
+| FlowerDocs REST endpoint | `String` |  |
+| Username | `String` |  |
+| Password | `String` |  |
+| Scope | `String` |  |
+| Text for indexing | Pattern |  |
+
+<b>Optional settings</b>
+
+| Key      | Type    | Description |
+| - | - | - |
+| FlowerDocs document ID | Pattern |  |
+
+
 ## FlowerInjector <small> - Fast2 injector module for FlowerDocs </small> {#FlowerInjector data-toc-label="FlowerInjector"}
 
 Allows to load a component (document, task, folder or virtual folder) into Flower. Can load facts, document content and annotations

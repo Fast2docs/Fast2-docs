@@ -165,7 +165,7 @@ Module responsible for authentication of Fast2 for FlowerDocs
 
 | Key          | Type     | Description                                             |
 | ------------ | -------- | ------------------------------------------------------- |
-| URL endpoint | `String` | Web services target URL                                 |
+| URL endpoint | `String` | Web services target URL. For example : https://www.demo.flowerdocs.cloud/flower-docs-ws/services                                 |
 | Password     | `String` | Password of the service account used for authentication |
 | Scope        | `String` | Scope of the service account used for authentication    |
 | Username     | `String` | Username of the service account used for authentication |
