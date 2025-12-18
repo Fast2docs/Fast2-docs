@@ -159,7 +159,7 @@ This task is responsible for exception generation based on a condition which can
 
 ## GenericRestApiTask <small> - Consume a REST API </small> {#GenericRestApiTask data-toc-label="GenericRestApiTask"}
 
-Consume any generic REST API task and add the response in the punnet. Supported Methods: GET and DELETE.
+Consume any generic REST API task and add the response in the punnet. Supported Methods: GET, PUT, POST and DELETE.
 Configuration: Allows defining the API endpoint URL, headers, and query parameters.
 Response Handling: The HTTP status code (e.g., 200) and the response body (e.g., JSON) are automatically mapped to punnet metadata fields, with configurable key names.
 Error Handling: In case of a failed API call, the error code and response body (if available) are still added to the punnet to allow for diagnostics.
