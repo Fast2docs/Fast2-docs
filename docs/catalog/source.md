@@ -286,7 +286,7 @@ Components can be documents, folders, virtual folders or tasks.
 | - | - | - |
  | FlowerDocs connection provider | [FlowerDocsConnectionProvider](credentials.md#FlowerDocsConnectionProvider) |  | 
  | Flower component category | `String` | Choose among DOCUMENT, TASK, FOLDER or VIRTUAL_FOLDER | 
- | JSON Flower Search Request | `String` |  | 
+ | JSON Flower Search Request | `String` | Patterns can be used too | 
 
 
 
