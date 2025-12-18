@@ -2188,7 +2188,7 @@
 <p><img alt="Data from file name cover" src="../../assets/img/cookbooks/dataFromFilename_cover.png" /></p>
 <p>Times will happen when you will not be able to rely on side-file metadata documents to map onto the documents you are migrating. The data will be concatenated into the file name.</p>
 <p>Fortunatelly with Fast2, there is still a possibility to parse this file name and pull out the required metadata. Last step would be to tight them down into the document dataset.</p>
-<h2 id="where-do-we-come-from"><img alt="🤨" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f928.svg" title=":face_with_raised_eyebrow:" /> Where do we come from ?<a class="headerlink" href="#where-do-we-come-from" title="Permanent link">&para;</a></h2>
+<h2 id="where-do-we-come-from"><img alt="🤨" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f928.svg" title=":face_with_raised_eyebrow:" /> Where do we come from ?<a class="headerlink" href="#where-do-we-come-from" title="Permanent link">&para;</a></h2>
 <p>For the educational aspect of this topic, let us consider a folder gathering several documents, all with the same format : <code>&lt;document-type&gt;-&lt;data1&gt;-&lt;data2&gt;</code>.</p>
 <p>Our folder looks like this:</p>
 <figure>
@@ -2208,7 +2208,7 @@
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>└─ ...
 </code></pre></div>
 </figure>
-<h2 id="where-to-go"><img alt="🤔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f914.svg" title=":thinking:" /> Where to go ?<a class="headerlink" href="#where-to-go" title="Permanent link">&para;</a></h2>
+<h2 id="where-to-go"><img alt="🤔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f914.svg" title=":thinking:" /> Where to go ?<a class="headerlink" href="#where-to-go" title="Permanent link">&para;</a></h2>
 <p>At a glance, we are just 3 (major) steps away from having a PDF content in our punnet, with a basic dataset populated from the JSON metadata :</p>
 <ol>
 <li>Scan the parent folder and list all the documents with names to map,</li>
@@ -2217,7 +2217,7 @@
 </ol>
 <p><br/>
 <br/></p>
-<h2 id="way-to-go"><img alt="🚀" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f680.svg" title=":rocket:" /> Way to go !<a class="headerlink" href="#way-to-go" title="Permanent link">&para;</a></h2>
+<h2 id="way-to-go"><img alt="🚀" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f680.svg" title=":rocket:" /> Way to go !<a class="headerlink" href="#way-to-go" title="Permanent link">&para;</a></h2>
 <p>Inside Fast2, the map design is now pretty straightforward, given our ideas are rather clear in terms of the overall order of the operations.</p>
 <p>The map is even quite close to the 3 steps detailed earlier. The <a href="../../catalog/source/#LocalSource">LocalSource</a> task just needs to be given the path of the folders to deal with. This task will also identify the file name and attach the metadata to the document dataset.</p>
 <p>Then the <a href="../../catalog/transformer/#JSTransform">JSTranform</a> will retrieve the corresponding document path, and carry on with the data mapping.</p>
@@ -2225,14 +2225,14 @@
 <ul>
 <li><a href="../../catalog/source/#LocalSource">LocalSource</a>, to collect the documents from local storage,</li>
 <li><a href="../../catalog/transformer/#JSTransform">JSTranform</a>, whose role will be to :</br>
-  <img alt="1⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/31-20e3.svg" title=":one:" /> parse the file name</br>
-  <img alt="2⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/32-20e3.svg" title=":two:" /> add the data to the dataset</li>
+  <img alt="1⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/31-20e3.svg" title=":one:" /> parse the file name</br>
+  <img alt="2⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/32-20e3.svg" title=":two:" /> add the data to the dataset</li>
 </ul>
 <p></br></p>
 <p><img alt="Map to build for data extraction" src="../../assets/img/cookbooks/dataFromFilename_map2025.png" /></p>
 <p></br>
 </br></p>
-<h3 id="javascript-elaboration"><img alt="🧪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9ea.svg" title=":test_tube:" /> JavaScript elaboration<a class="headerlink" href="#javascript-elaboration" title="Permanent link">&para;</a></h3>
+<h3 id="javascript-elaboration"><img alt="🧪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f9ea.svg" title=":test_tube:" /> JavaScript elaboration<a class="headerlink" href="#javascript-elaboration" title="Permanent link">&para;</a></h3>
 <p>Although the configuration of the first task can be easily guessed, the <a href="../../catalog/transformer/#JSTransform">JSTranform</a> final resulting script should look something like this :</p>
 <div class="language-js highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">punnet</span><span class="p">.</span><span class="nx">getDocuments</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">doc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="c1">// (1)</span>
@@ -2252,14 +2252,14 @@
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">});</span>
 </code></pre></div>
 <ol>
-<li><img alt="1⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/31-20e3.svg" title=":one:" /> Get the filename, and remove the extension</li>
-<li><img alt="2⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/32-20e3.svg" title=":two:" /> Parse the filename with the separator character</li>
-<li><img alt="3⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/33-20e3.svg" title=":three:" /> Attach the data</li>
+<li><img alt="1⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/31-20e3.svg" title=":one:" /> Get the filename, and remove the extension</li>
+<li><img alt="2⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/32-20e3.svg" title=":two:" /> Parse the filename with the separator character</li>
+<li><img alt="3⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/33-20e3.svg" title=":three:" /> Attach the data</li>
 </ol>
 <p></br>
 </br></p>
 <p>Head out now to the Run screen, start your campaign and just... enjoy !</p>
-<h3 id="result"><img alt="🏁" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3c1.svg" title=":checkered_flag:" /> Result<a class="headerlink" href="#result" title="Permanent link">&para;</a></h3>
+<h3 id="result"><img alt="🏁" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f3c1.svg" title=":checkered_flag:" /> Result<a class="headerlink" href="#result" title="Permanent link">&para;</a></h3>
 <p>At the latest stage of your workflow, the document dataset is filled with the properties found in the JSON and integrated as metadata.</p>
 <div class="language-json highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;punnetId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;document-123-ABC.pdf#1&quot;</span><span class="p">,</span>
@@ -2289,7 +2289,7 @@
 <a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">    </span><span class="p">]</span>
 <a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="lets-sum-up"><img alt="👏" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f44f.svg" title=":clap:" /> Let's sum up<a class="headerlink" href="#lets-sum-up" title="Permanent link">&para;</a></h2>
+<h2 id="lets-sum-up"><img alt="👏" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f44f.svg" title=":clap:" /> Let's sum up<a class="headerlink" href="#lets-sum-up" title="Permanent link">&para;</a></h2>
 <p>We can bring this scenario further by mapping data from the parent folder(s). We would just need the document path, which can be retrieved easily, as explained in <a href="../../advanced/javascript/">the advanced section of how to handle the JS Tranform task</a>.</p>
 <p>For a OS-proofed script (Linux or Windows have their own subtleties when it comes to paths), you may need to make sure the parsing is done correctly, by standardizing the folder-architecture-related special characters from the Windows <code>\</code> to a regular <code>/</code>.</p>
 <p>If this use-case echoes your early needs, other tasks can be tied to this map to reach a higher level of complexity characteristic of real-world migration projects.</p>
