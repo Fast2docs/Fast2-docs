@@ -61,9 +61,9 @@ the ouput punnet would then look like this:
   "documents": [
     {
       "data": {
-        "contentPath": "C:/path/to/sample.pdf",
-        "key": "value",
-        "name": "testName"
+        "contentPath": {"value":["C:/path/to/sample.pdf"]},
+        "key": {"value":["value"]},
+        "name": {"value":["testName"]}
       },
       "documentId": "ffde4769-3acd-4964-ab72-5912f1e65e1e"
     }
