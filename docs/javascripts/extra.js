@@ -131,3 +131,40 @@ function checkResultSearchBar() {
 input.addEventListener('input', (event) => {
   checkResultSearchBar();
 });
+
+
+// -------------------------------------------------------
+// Deprecation banner — URL mapping to new documentation
+// -------------------------------------------------------
+
+const NEW_DOCS_BASE = 'https://doc.uxopian.com/docs/fast2/';
+
+// Top-level sections that exist in the nav (not version prefixes)
+const KNOWN_SECTIONS = new Set([
+  'getting-started', 'components', 'catalog', 'advanced',
+  'cookbooks', 'api', 'API', 'tags', 'blog', 'documents',
+  'setup-environments', 'assets'
+]);
+
+function getEquivalentNewUrl() {
+  const path = window.location.pathname; // e.g. /latest/getting-started/installation/
+  const segments = path.replace(/^\//, '').split('/').filter(Boolean);
+
+  if (segments.length === 0) {
+    return NEW_DOCS_BASE;
+  }
+
+  // If the first segment is not a known section, treat it as a version prefix and strip it
+  const firstSegment = segments[0].toLowerCase();
+  const isVersionPrefix = !KNOWN_SECTIONS.has(segments[0]) && !KNOWN_SECTIONS.has(firstSegment);
+  const cleanSegments = isVersionPrefix ? segments.slice(1) : segments;
+
+  return NEW_DOCS_BASE + cleanSegments.join('/') + (cleanSegments.length ? '/' : '');
+}
+
+document$.subscribe(function () {
+  var link = document.getElementById('deprecation-link');
+  if (link) {
+    link.href = getEquivalentNewUrl();
+  }
+});

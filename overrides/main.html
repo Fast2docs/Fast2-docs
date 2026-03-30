@@ -3,3 +3,13 @@
 {% block htmltitle %}
 <title>Title added by extension</title>
 {% endblock %}
+
+{% block announce %}
+<div id="deprecation-banner">
+  <span class="deprecation-icon">⚠️</span>
+  <span>This documentation is <strong>no longer maintained</strong>. Please visit the new documentation:</span>
+  <a id="deprecation-link" href="https://doc.uxopian.com/docs/fast2/" target="_blank" rel="noopener">
+    doc.uxopian.com/docs/fast2
+  </a>
+</div>
+{% endblock %}
