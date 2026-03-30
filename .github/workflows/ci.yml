@@ -79,6 +79,18 @@ jobs:
             git push origin gh-pages
           fi
 
+      # Step 8b: Copy the overrides directory from master to gh-pages (only if modified)
+      - name: Copy overrides from master to gh-pages
+        run: |
+          git checkout master -- overrides
+          if git diff --exit-code overrides; then
+            echo "No changes to overrides directory, skipping commit."
+          else
+            git add overrides
+            git commit -m "Add overrides from master"
+            git push origin gh-pages
+          fi
+
       # Step 9: Deploy documentation with Mike
       - name: Deploy Documentation with Mike
         # For v2 doc :
