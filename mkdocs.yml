@@ -4,6 +4,7 @@ site_url: https://docs.fast2.tech
 site_author: Uxopian
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/Fast2_favicon_white.png
   favicon: assets/Fast2_favicon.ico
   language: en
