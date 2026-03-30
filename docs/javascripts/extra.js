@@ -167,4 +167,42 @@ document$.subscribe(function () {
   if (link) {
     link.href = getEquivalentNewUrl();
   }
+
+  var goBtn = document.getElementById('dep-go-btn');
+  if (goBtn) {
+    goBtn.href = getEquivalentNewUrl();
+  }
 });
+
+// -------------------------------------------------------
+// Deprecation popup — shown once, dismissed to banner
+// -------------------------------------------------------
+
+function createDeprecationPopup() {
+  if (localStorage.getItem('deprecationDismissed')) return;
+
+  var overlay = document.createElement('div');
+  overlay.id = 'dep-overlay';
+  overlay.innerHTML = `
+    <div id="dep-modal" role="dialog" aria-modal="true" aria-labelledby="dep-modal-title">
+      <div class="dep-modal-icon">⚠️</div>
+      <h2 id="dep-modal-title">This documentation has moved</h2>
+      <p>You are reading an <strong>archived</strong> version of the Fast2 documentation.<br>
+         The current and maintained documentation is now available at:</p>
+      <a id="dep-go-btn" href="https://doc.uxopian.com/docs/fast2/" target="_blank" rel="noopener" class="dep-btn-primary">
+        Go to the new documentation →
+      </a>
+      <button id="dep-dismiss-btn" class="dep-btn-secondary">
+        Continue reading this page
+      </button>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  document.getElementById('dep-dismiss-btn').addEventListener('click', function () {
+    localStorage.setItem('deprecationDismissed', 'true');
+    overlay.remove();
+  });
+}
+
+createDeprecationPopup();
