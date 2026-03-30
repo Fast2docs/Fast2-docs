@@ -167,3 +167,32 @@ td {
     }
 
 }
+
+/* -------------------------------------------------------
+   Deprecation banner
+   ------------------------------------------------------- */
+#deprecation-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#deprecation-banner .deprecation-icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+#deprecation-banner a {
+    font-weight: 700;
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    white-space: nowrap;
+}
+
+#deprecation-banner a:hover {
+    opacity: 0.85;
+}
